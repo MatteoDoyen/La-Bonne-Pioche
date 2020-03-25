@@ -4,9 +4,9 @@
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/acceuil-style.css">
   <title>La bonne pioche</title>
 </head>
-
 <body>
   <header>
     <div class="bloc-header">
@@ -20,7 +20,7 @@
       <nav>
         <ul>
           <li><a class="lien-courant" href="acceuil.php" selected>Accueil</a></li>
-          <li><a href="#">Nous</a></li>
+          <li><a href="nous.php">Nous</a></li>
           <li><a href="#">Mode d'emploi</a></li>
           <li><a href="#">Produits</a></li>
           <li><a href="#">Actualités</a></li>
