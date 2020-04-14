@@ -14,7 +14,7 @@
         <img src="img/logo.png" alt="">
         <div class="titre-header">
           <h1>La Bonne Pioche</h1>
-          <h3>L'épicerie Grenobloise de produits Locaux sans emballage</h3>
+          <h3>L'épicerie Grenobloise de fproduits Locaux sans emballage</h3>
         </div>
       </div>
       <nav>
