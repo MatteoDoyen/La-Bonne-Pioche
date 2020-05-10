@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="../view/css/acceuil-style.css">
   <title>La bonne pioche</title>
 </head>
-<body>
+<body> 
   <header>
     <div class="bloc-header">
       <div class="container">
