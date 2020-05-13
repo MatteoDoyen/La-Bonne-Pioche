@@ -1,3 +1,10 @@
+/* NAVBAR */
+@import "navbar.css";
+
+/* FOOTER */
+@import "footer.css";
+
+
 @font-face{
     font-family:"Lulo-Clean-W01-One-Bold";
     src:url("//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/0163ac22-50a7-406e-aa64-c62ee6fbf3d7.eot?#iefix");
@@ -12,160 +19,12 @@
 body {
   font-family: "Lulo-Clean-W01-One-Bold", sans-serif ;
 }
-
-.m_nav-bar {
-  background-color: #f04942;
-  padding-top: 1em;
-}
-
-h1 {
-  color: white;
-  font-size: 2.1em;
-  margin-bottom: -5px;
-}
-h2 {
-  color: white;
-  font-size: 0.8em;
-  margin-bottom: 0;
-  margin-top: 0;
-}
-
-.titre {
-  text-align: center;
-}
-
-img {
-  width: auto;
-  height: 40px;
-}
-
-/* Style pour la navbar */
-
-.navbar {
-  margin-bottom: 30px;
-}
-.navbar-brand {
-  margin: 0;
-  padding: 0;
-  padding-left: 10px;
-}
-.navbar.navbar-expand-lg {
-  padding-top: 10px;
-  padding-bottom: 15px;
-  margin-bottom: 15px;
-}
-.collapse .navbar-collapse {
-  background-color: #f04942;
-  margin-top: auto;
-  margin-bottom: auto;
-}
-.nav-link {
-  color: white;
-  font-size: .6em;
-}
-.navbar-nav {
-  margin: auto;
-  margin-bottom: 0;
-}
-.navbar-light .navbar-nav.nav-link {
-    color: white;
-}
-.btn.btn-success {
-  font-size: 0.6em;
-}
-.with-border {
-  border-left: solid white 1px;
-  border-right: solid white 1px;
-}
-.nav-link:hover {
+.accueil {
   background-color: #bfc416;
-  color: white;
-}
-.connect {
-  margin-right: 10px;
 }
 
 
 
-.custom-toggler.navbar-toggler {
-  border-color: white;
-}
-
-.custom-toggler .navbar-toggler-icon {
-  background-image: url(
-    "data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
-}
-
-
-
-@media (min-width: 1200px) and (max-width: 1300px) {
-  .nav-link {
-    font-size: .5em;
-  }
-}
-
-@media (min-width: 1100px) and (max-width: 1199px) {
-  .nav-link {
-    font-size: .45em;
-  }
-  h1 {
-    font-size: 2em;
-  }
-  h2 {
-    font-size: 0.75em;
-  }
-}
-
-@media (min-width: 992px) and (max-width: 1099px) {
-  .nav-link {
-    font-size: .45em;
-    background-color: #dbe12c;
-  }
-  .navbar-expand-lg .navbar-nav .nav-link {
-    padding: 4px 12px 4px 12px;
-  }
-  h1 {
-    font-size: 1.9em;
-  }
-  h2 {
-    font-size: 0.7em;
-  }
-}
-
-@media (min-width: 1100px) {
-  .nav-link {
-    background-color: #dbe12c;
-  }
-  .navbar-expand-lg .navbar-nav .nav-link {
-    padding: 4px 20px 4px 20px;
-  }
-}
-
-@media (max-width: 992px) {
-  /* Style pour la navbar quand le burger est ouvert */
-  .nav-link{
-    border: none;
-    width: 150px;
-  }
-  .navbar-nav {
-    padding-top: 10px;
-  }
-  .custom-toggler.navbar-toggler {
-    margin-right: 10px;
-  }
-  .navbar-nav .nav-link {
-    padding-left: 10px;
-  }
-  .connect {
-    margin-left: 10px;
-  }
-
-
-  /* Autres */
-  .image_accueil {
-    margin-top: 150px;
-  }
-}
 
 
 
@@ -174,7 +33,7 @@ img {
 /* Style pour le contenu de la page */
 
 #row-1 {
-  margin: 48px;
+  margin: 20px 48px 0px 48px;
 }
 .info-1 {
   margin-top: 180px;
@@ -462,10 +321,10 @@ img {
 
 /* Style du footer */
 
-#footer {
+/* #footer {
   background-color: #dbe12c;
   font-size: 0.9em;
   text-align: center;
   color: white;
   font-family: "Avenir-LT-W01_85-Heavy1475544", sans-serif ;
-}
+} */

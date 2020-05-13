@@ -1,56 +1,125 @@
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>La Bonne Pioche - Accueil</title>
+    <link rel="stylesheet" href="../framework/bootstrap-4.4.1-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../view/css/accueil.view.css">
+  </head>
+  <body>
 
-<head>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="../view/css/style.css">
-  <link rel="stylesheet" href="../view/css/acceuil-style.css">
-  <title>La bonne pioche</title>
-</head>
-<body> 
-  <header>
-    <div class="bloc-header">
-      <div class="container">
-        <img src="img/logo.png" alt="">
-        <div class="titre-header">
-          <h1>La Bonne Pioche</h1>
-          <h3>L'épicerie Grenobloise de produits Locaux sans emballage</h3>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script defer src="../framework/bootstrap-4.4.1-dist/js/bootstrap.bundle.min.js"></script>
+
+    <div class="container-fluid p-0">
+
+      <?php include("../view/navbar.php") ?>
+
+      <div class="row" id="row-1">
+        <div class="offset-lg-1 col-lg-5 offset-md-1 col-md-5 flex-column-reverse info-1">
+          <h3 class="titre_info1_1">À vos bocaux,</h3>
+          <h3 class="titre_info1_2">prêts...</h3>
+          <h3 class="titre_info1_3">partez !</h3>
+          <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+            <div class="btn-group mr-2 offset-lg-1 col-lg-5 offset-md-0 col-md-12 offset-sm-2 col-sm-8" role="group" aria-label="First group">
+              <button type="button" class="btn btn-outline-danger">Nouvelles fraîches</button>
+            </div>
+            <div class="btn-group mr-2 col-lg-5 offset-md-0 col-md-12 offset-sm-2 col-sm-8" role="group" aria-label="First group">
+              <button type="button" class="btn btn-outline-danger">Notre concept</button>
+            </div>
+          </div>
+
+
+          <h3 class="titre_info1_4">N'oublier pas</h3>
+          <h3 class="titre_info1_5">Nos réseaux sociaux</h3>
+          <div class="btn-toolbar mb-3 justify-content-between reseaux offset-lg-2 col-lg-8 offset-md-1 col-md-10 offset-sm-1 col-sm-10 offset-0 col-12" role="toolbar" aria-label="Toolbar with button groups">
+            <div class="btn-group mr-2" role="group" aria-label="First group">
+              <a href="https://www.facebook.com/labonnepiochegrenoble">
+                <img src="https://static.wixstatic.com/media/e316f544f9094143b9eac01f1f19e697.png/v1/fill/w_50,h_50,al_c,q_85,usm_0.66_1.00_0.01/e316f544f9094143b9eac01f1f19e697.webp" alt="Facebook">
+              </a>
+            </div>
+            <div class="btn-group mr-2" role="group" aria-label="First group">
+              <a href="https://twitter.com/labonnepioche38">
+                <img src="https://static.wixstatic.com/media/9c4b521dd2404cd5a05ed6115f3a0dc8.png/v1/fill/w_50,h_50,al_c,q_85,usm_0.66_1.00_0.01/9c4b521dd2404cd5a05ed6115f3a0dc8.webp" alt="Facebook">
+              </a>
+            </div>
+            <div class="btn-group mr-2" role="group" aria-label="First group">
+              <a href="https://www.youtube.com/channel/UC8YddZncC3FiL1dZE0-iSxg">
+                <img src="https://static.wixstatic.com/media/a1b09fe8b7f04378a9fe076748ad4a6a.png/v1/fill/w_50,h_50,al_c,q_85,usm_0.66_1.00_0.01/a1b09fe8b7f04378a9fe076748ad4a6a.webp" alt="Facebook">
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6">
+          <img class="image_accueil_1" src="../data/img/image-acceuil-3.jpg" alt="Image accueil">
         </div>
       </div>
-      <nav>
-        <ul>
-          <li><a class="lien-courant" href="acceuil.php" selected>Accueil</a></li>
-          <li><a href="../view/nous.php">Nous</a></li>
-          <li><a href="#">Mode d'emploi</a></li>
-          <li><a href="#">Produits</a></li>
-          <li><a href="#">Actualités</a></li>
-          <li><a href="#">Nous trouver</a></li>
-          <li><a href="#">Panier</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-  <div class="corp">
-    <div class="bloc">
-      <h2>À vos bocaux,<br>Prêts...<br><span>Partez ! </span></h2>
-      <div class="actualites">
-        <a href="#">Nouvelles Fraiches</a>
-      </div>
-      <div class="concept">
-        <a href="#">Notre concept</a>
+
+
+
+      <div class="row" id="row-2">
+        <div class="offset-lg-1 col-lg-5 offset-md-1 col-md-5" id="image-2">
+          <img class="image_accueil_2" src="../data/img/image-acceuil-2.jpg" alt="Image accueil">
+        </div>
+        <div class="col-lg-5 col-md-5 info-2">
+          <div class="offset-1 col-10">
+            <p class="newsletter">Vous souhaitez recevoir des nouvelles fraîches ?</p>
+            <p class="newsletter2">Abonnez-vous à notre newsletter !</p>
+          </div>
+          <form action="index.html" method="post">
+            <div class="form-group text-center offset-1 col-10 p-0">
+              <label id="label-adress">Adresse Email</label>
+              <input type="email" class="form-control" id="mail" required>
+            </div>
+            <button type="submit" class="btn btn-danger offset-1 col-10" id="abonne">Abonnez-vous</button>
+          </form>
+        </div>
       </div>
 
-    </div>
-  </div>
-  <div class="newsletter">
-    <p>Vous souhaitez recevoir des nouvelles fraîches ?<br><span>Abonnez-vous à notre newsletter !</span></p>
-    <form class="" action="index.html" method="post">
-      <input type="email" name="email-newsletter" placeholder="Email">
-    </form>
-  </div>
-  <footer>
-    <p>© <?php echo date("Y"); ?> La Bonne Pioche Grenoble - 2, rue Condillac 38000 Grenoble - 821 482 262 R.C.S. Grenoble<br>Illustrations de Louise Plantin<br>"Pour votre santé, pratiquez une activité physique régulière"</p>
-  </footer>
-</body>
+      <?php include("../view/footer.php") ?>
 
+    </div>
+
+
+    <script type="text/javascript">
+      $(function () {
+
+        // Petit script pour cacher la deuxième image en fonction de la taille de l'écran
+        var taille = window.innerWidth;
+        if (taille <= 768) {
+          $("#image-2").hide();
+        };
+        // Listener sur l'event resize
+        $(window).resize(function () {
+          var new_taille = window.innerWidth;
+          if (new_taille <= 768) {
+            $("#image-2").hide();
+          } else {
+            $("#image-2").show();
+          }
+        });
+
+
+        // Petit script pour vérifier que l'adresse entrée est bien valide (test qu'il faudra réaliser aussi back-end)
+        var ok;
+        $("#mail").blur(function () {
+          if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/i.test($("#mail").val()) ) {
+            ok = false;
+            $("#mail").css("border", "solid 1.5px red");
+          } else {
+            ok = true
+            $("#mail").css("border", "solid 1.5px lightgreen");
+          }
+        });
+        $("#abonne").submit(function (e) {
+          if (!ok) {
+            e.preventDefault();
+          }
+        })
+      });
+
+    </script>
+
+  </body>
 </html>
