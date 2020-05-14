@@ -32,6 +32,15 @@ class ProduitDAO {
     return $produit;
   }
 
+  function getNbElements() : int{
+    try {
+      $r = $this->db->query("SELECT COUNT(*) FROM produits");
+      $res = $r->fetchAll();
+    } catch (PDOException $e) {
+      die("PDO Error :".$e->getMessage());
+    }
+    return ($res[0][0]);
+  }
 }
 
 ?>
