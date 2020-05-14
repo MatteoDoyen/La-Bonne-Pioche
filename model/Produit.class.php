@@ -35,11 +35,11 @@ class Produit {
   }
 
   public function __get($libelle){
-    if($name == "url_img"){
+    if($libelle == "url_img"){
       return Produit::URL.$this->$libelle;
     }
     else {
-      return $this -> $name;
+      return $this -> $libelle;
     }
   }
 
