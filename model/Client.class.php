@@ -11,14 +11,39 @@
     private float $tauxReduction;
 
 
-    //penser à regarder openclassroom pour l'heritage
-    public function __construct(int $promotion, bool $newsletter, string $numeroTelephone, float $tauxReduction){
+    //constructeur
+    public function __construct(int $refUtilisateur, string $nom, string $prenom, string $adresseMail, string $motDePasse, int $promotion, bool $newsletter, string $numeroTelephone, float $tauxReduction){
+
+      //test d'appel de la méthode
+      if(TEST == 1){ echo "appel : ".__METHOD__."($attribut)\n";}
+
+      //construction de l'objet mère Utilisateur
+      parent::__construct(int $refUtilisateur, string $nom, string $prenom, string $adresseMail, string $motDePasse);
 
       $this->promotion = $promotion;
       $this->newsletter = $newsletter;
       $this->genre = $genre;
       $this->numeroTelephone = $numeroTelephone
 
+    }
+
+    //méthode get
+    public function __get(string $attribut) {
+
+      //test d'appel de la méthode
+      if(TEST == 1){ echo "appel : ".__METHOD__."($attribut)\n";}
+
+      return $this->$attribut;
+    }
+
+
+    //méthode set
+    public function __set(string $attribut, string $valeur){
+
+      //test d'appel de la méthode
+      if(TEST == 1){ echo "appel :".__METHOD__."($attribut)\n";}
+
+      $this->$attribut = $valeur;
     }
 
   }
