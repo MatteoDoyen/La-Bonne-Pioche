@@ -7,7 +7,15 @@ class ProduitDAO {
 
   // Constructeur chargé d'ouvrir la BD
   function __construct() {
-    $this->db = new PDO('sqlite:'.dirname(__FILE__).'/../data/produits.csv','',''); //SÉPARATEURS À VÉRIFIER
+    $database = 'sqlite:'.dirname(__FILE__).'/../data/produits.db';
+    try {
+      $this->db = new PDO($database);
+      if (!$this->db) {
+        die ("Database error");
+      }
+    } catch (PDOException $e) {
+      die("PDO Error :".$e->getMessage()." $database\n");
+    }
     $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   }
 

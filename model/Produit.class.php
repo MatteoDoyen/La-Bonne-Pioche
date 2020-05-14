@@ -17,8 +17,8 @@ class Produit {
   // Chemin URL à ajouter pour avoir l'image du produit
   private const URL = '../data/img/img_produits/';
 
-  function __construct(int $stock=0,int $stock=0,string $libelle='',string $fabricant='',
-  string $rayon='',string $famille='',double $coef=1; string $description='',
+  function __construct(int $stock=0,int $id=0,string $libelle='',string $fabricant='',
+  string $rayon='',string $famille='',float $coef=0, string $description='',
   string $origine='', string $caracteristiques='', float $prix_u, string $url_img='') {
       $this -> stock = $stock;
       $this -> id =  $id;
