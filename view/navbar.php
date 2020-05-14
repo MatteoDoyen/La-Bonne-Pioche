@@ -27,7 +27,7 @@
           <a class="nav-link with-border mode_emploie" href="#">Mode d'emploi</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link with-border produits" href="#">Produits</a>
+          <a class="nav-link with-border produits" href="../controlers/produits.ctrl.php">Produits</a>
         </li>
         <li class="nav-item">
           <a class="nav-link with-border actualites" href="#">Actualités</a>
