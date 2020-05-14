@@ -1,4 +1,4 @@
-CREATE TABLE produits (
+CREATE TABLE produit (
   stock INTEGER,
   id INTEGER PRIMARY KEY,
   libelle STRING,
