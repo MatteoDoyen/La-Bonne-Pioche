@@ -11,7 +11,7 @@ class ProduitDAO {
     $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   }
 
-  // Accès à une musique
+  // Accès à un produit
   function get(int $id) : Produit {
     $req = "SELECT * FROM produits WHERE id = '$id'";
     $sth = $this->db->query($req);
