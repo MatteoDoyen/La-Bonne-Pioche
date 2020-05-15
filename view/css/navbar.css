@@ -136,6 +136,8 @@ img {
   .nav-link{
     border: none;
     width: 150px;
+    margin-right: auto;
+    margin-left: auto;
   }
   .navbar-nav {
     padding-top: 10px;
@@ -144,10 +146,11 @@ img {
     margin-right: 10px;
   }
   .navbar-nav .nav-link {
-    padding-left: 10px;
+    text-align: center;
   }
   .connect {
-    margin-left: 10px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
 
