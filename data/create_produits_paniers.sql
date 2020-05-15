@@ -1,4 +1,5 @@
 CREATE TABLE produits_paniers (
-  id INTEGER PRIMARY KEY,
-  id_Panier INTEGER PRIMARY KEY,
+  id_produit INTEGER NOT NULL,
+  id_panier INTEGER NOT NULL,
+  PRIMARY KEY(id_produit, id_panier)
  );
