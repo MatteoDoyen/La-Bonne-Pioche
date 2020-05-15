@@ -59,63 +59,8 @@
             </div>
           </div>
 
-          <div class="row pl-3 align-items-center">
-            <div class="col-lg-3 perso">
-              <img class="img-fluid" src="../data/img/lea.jpeg" alt="Lea">
-            </div>
-            <div class="col-lg-9 perso_info">
-              <h4>Lea</h4>
-              <h5 class="mb-0">Salariée de la scop depuis septembre 2019</h5>
-              <p style="color: gray;">Léa est grenobloise d'adoption. Elle est grimpeuse débutante et surtout passionnée de livres ! C'est une écolo convaincue ! Elle a toujours le sourire aux lèvres et est pleine d'énergie ! En rejoignant notre petite équipe, elle concilie ses convictions et sa bonne humeur ! Vous retrouverez Léa du lundi au vendredi dans la journée au magasin. Elle devait être à temps partiel mais au vu de l'affluence en magasin, elle rejoint finalement l'équipe à temps plein !</p>
-            </div>
-          </div>
-
-          <div class="row pl-3 align-items-center mt-3 flex-column-reverse flex-lg-row">
-            <div class="col-lg-9 perso_info">
-              <h4>Steeve</h4>
-              <h5 class="mb-0">Salarié de la scop depuis deptembre 2019</h5>
-              <p style="color: gray;">Steeve vient de Vendée et est arrivé à Grenoble l'année dernière pour reprendre ses études. Il est fan de nature et de montagne et aime passer du temps au potager ! Il a repris ses études dans le domaine des sciences de la vie, et a lancé une association étudiante "<a href="https://www.facebook.com/CultivetoncampusGrenoble">Cultive ton campus</a>" qui a pour but de sensibiliser le public étudiant et le personnel universitaire à l'alimentation et la biodiversité. Vous le verrez au magasin presque toutes les fins de journée !</p>
-            </div>
-            <div class="col-lg-3 perso">
-              <img class="img-fluid" src="../data/img/steeve.jpeg" alt="Cyril">
-            </div>
-          </div>
-
-          <div class="row pl-3 align-items-center mt-3">
-            <div class="col-lg-3 perso">
-              <img class="img-fluid" src="../data/img/martin.jpeg" alt="Lea">
-            </div>
-            <div class="col-lg-9 perso_info">
-              <h4>Martin</h4>
-              <h5 class="mb-0">Salarié de la scop depuis mars 2020</h5>
-              <p style="color: gray;">Martin est un jeune papa dynamique d'un petit Oscar en plein apprentissage de la marche ! Grenoblois, promeneur en montagne et informaticien à ses heures perdues, il vient nous aider quelques heures par mois. Martin est l'un de nos fidèles clients. Il partage nos valeurs et a toujours le sourire. Travaillant à côté en tant qu'indépendant, il avait envie de nous donner un coup de main. Sa spécificité : été comme hiver, vous le verrez toujours en tong ! Il ne sera pas au magasin très souvent mais toujours heureux de nous aider et de vous aider quand il le sera ;)</p>
-            </div>
-          </div>
-
-          <div class="row pl-3 align-items-center mt-3 flex-column-reverse flex-lg-row">
-            <div class="col-lg-9 perso_info">
-              <h4>Matthias</h4>
-              <h5 class="mb-0">Salarié de la scop depuis deptembre 2019</h5>
-              <p style="color: gray;">Matthias est grenoblois depuis ses études mais vous pourrez déceler au détour d’une conversation un léger accent drômois ! Très actif dans la vie citoyenne grenobloise, vous l’avez peut-être croisé au gré de ses nombreux engagements, en particulier au sein de l'<a href="https://www.cairn-monnaie.com/">association Le Cairn</a>, monnaie citoyenne. Plein d’énergie communicative, il rejoint l’équipe de la Bonne Pioche afin de mettre en œuvre ses idées pour stimuler un commerce et une économie locale de transition. C’est aussi un sportif qui s’épanouit sur les pentes aux alentours de Grenoble, à vélo, en trail et ski de randonnée !</p>
-            </div>
-            <div class="col-lg-3 perso">
-              <img class="img-fluid" src="../data/img/matthias.jpeg" alt="Cyril">
-            </div>
-          </div>
 
           <hr style="margin: 30px 0 30px 0;">
-
-          <div class="row mt-4">
-            <div class="offset-lg-2 col-lg-8">
-              <h3 class="m-0" style="text-align: center; font-size: 1.5em;">Maintenant que vous avez fait notre connaissance</h3>
-              <h3 style="text-align: center; font-size: 1.5em;">Nous vous attendons avec impatience au magasin !</h3>
-            </div>
-          </div>
-          <div class="row">
-            <div class="offset-lg-2 col-lg-8">
-              <img class="img-fluid mb-4" src="../data/img/equipe.jpeg" alt="Équipe">
-            </div>
-          </div>
 
         </div>
       </div>
