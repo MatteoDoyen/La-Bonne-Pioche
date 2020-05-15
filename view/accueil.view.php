@@ -16,7 +16,7 @@
       <?php include("../view/navbar.php") ?>
 
       <div class="row" id="row-1">
-        <div class="offset-lg-1 col-lg-5 offset-md-1 col-md-5 flex-column-reverse info-1">
+        <div class="offset-lg-1 col-lg-5 offset-md-1 col-md-5 info-1">
           <h3 class="titre_info1_1">À vos bocaux,</h3>
           <h3 class="titre_info1_2">prêts...</h3>
           <h3 class="titre_info1_3">partez !</h3>
