@@ -22,7 +22,7 @@
           </a>
           <figcaption>
             <panier-libelle><?= $panier->libelle?></panier-libelle>
-            <panier-prix><?= $panier->prix?></panier-prix>
+            <panier-prix><?= $panier->prix?>€</panier-prix>
           </figcaption>
         </figure>
         <?php endForeach; ?>
