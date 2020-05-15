@@ -33,7 +33,7 @@
           <a class="nav-link with-border actualites" href="#">Actualités</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link with-border nous_trouver" href="#">Nous trouver</a>
+          <a class="nav-link with-border nous_trouver" href="../controlers/nousTrouver.ctrl.php">Nous trouver</a>
         </li>
         <li class="nav-item">
           <a class="nav-link paniers" href="#">Paniers</a>

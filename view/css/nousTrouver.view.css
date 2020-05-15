@@ -1,0 +1,30 @@
+/* NAVBAR */
+@import "navbar.css";
+
+/* FOOTER */
+@import "footer.css";
+
+body {
+  font-family: "Lulo-Clean-W01-One-Bold", sans-serif ;
+}
+
+
+/* CONTENU */
+
+.info {
+  margin-top: 180px;
+  font-family:"Avenir-LT-W01_85-Heavy1475544";
+}
+
+h4 {
+  font-family: "Lulo-Clean-W01-One-Bold", sans-serif ;
+  color: red;
+  font-size: 1em;
+}
+p {
+  margin: 0;
+}
+#plan {
+  width: 100%;
+  height: 500px;
+}
