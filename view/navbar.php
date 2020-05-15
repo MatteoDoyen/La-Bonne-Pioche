@@ -24,7 +24,7 @@
           <a class="nav-link with-border nous" href="../controlers/nous.ctrl.php">Nous</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link with-border mode_emploie" href="#">Mode d'emploi</a>
+          <a class="nav-link with-border mode_emploie" href="../controler/modeDemploi.ctrl.php">Mode d'emploi</a>
         </li>
         <li class="nav-item">
           <a class="nav-link with-border produits" href="#">Produits</a>
