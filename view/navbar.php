@@ -2,7 +2,7 @@
   <div class="row m_nav-bar">
     <div class="titre offset-lg-2 col-lg-8 offset-1 col-10">
       <h1>La bonne pioche</h1>
-      <h2>L'épicerie grenobloise de produits locaux sans emballage</h2>
+      <h2 id="sous_titre">L'épicerie grenobloise de produits locaux sans emballage</h2>
     </div>
   </div>
 
@@ -24,7 +24,7 @@
           <a class="nav-link with-border nous" href="../controlers/nous.ctrl.php">Nous</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link with-border mode_emploie" href="../controler/modeDemploi.ctrl.php">Mode d'emploi</a>
+          <a class="nav-link with-border mode_emploie" href="../controlers/modeDemploi.ctrl.php">Mode d'emploi</a>
         </li>
         <li class="nav-item">
           <a class="nav-link with-border produits" href="#">Produits</a>
@@ -45,3 +45,21 @@
     </div>
   </nav>
 </div>
+
+<script type="text/javascript">
+  var sous_titre = $("#sous_titre");
+  // Petit script pour cacher la deuxième image en fonction de la taille de l'écran
+  var taille = window.innerWidth;
+  if (taille <= 600) {
+    sous_titre.hide();
+  };
+  // Listener sur l'event resize
+  $(window).resize(function () {
+    var new_taille = window.innerWidth;
+    if (new_taille <= 600) {
+      sous_titre.hide();
+    } else {
+      sous_titre.show();
+    }
+  });
+</script>
