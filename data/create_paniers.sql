@@ -1,6 +1,6 @@
 CREATE TABLE paniers (
-  libelle STRING,
   id_Panier INTEGER PRIMARY KEY,
+  libelle STRING,
   coefficient INTEGER,
   prix FLOAT,
   image STRING

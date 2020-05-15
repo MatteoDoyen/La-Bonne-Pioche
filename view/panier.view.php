@@ -13,21 +13,13 @@
 
     <div class="container-fluid p-0">
 
-      <?php include("../view/navbar.php") ?>
+      <?php include("navbar.php") ?>
       <br><br><br><br><br><br>
-      <?php foreach($list as $produit) :  ?>
-        <figure>
-          <a href="/La-Bonne-Pioche/controlers/produit.ctrl.php?id=<?= $produit->id ?>">
-            <img src="<?= $produit->url_img ?>" />
-          </a>
-          <figcaption>
-            <produit-libelle><?= $produit->libelle?></produit-libelle>
-            <produit-fabricant><?= $produit->fabricant?></produit-fabricant>
-          </figcaption>
-        </figure>
-        <?php endForeach; ?>
+      <figure>
+        <img src="<?= $panier->image ?>">
+      </figure>
 
-      <?php include("../view/footer.php") ?>
+      <?php include("footer.php") ?>
 
     </div>
 

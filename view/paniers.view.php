@@ -15,14 +15,14 @@
 
       <?php include("../view/navbar.php") ?>
       <br><br><br><br><br><br>
-      <?php foreach($list as $produit) :  ?>
+      <?php foreach($list as $panier) :  ?>
         <figure>
-          <a href="/La-Bonne-Pioche/controlers/produit.ctrl.php?id=<?= $produit->id ?>">
-            <img src="<?= $produit->url_img ?>" />
+          <a href="/La-Bonne-Pioche/controlers/panier.ctrl.php?id=<?= $panier->id_Panier ?>">
+            <img src="<?= $panier->image ?>" />
           </a>
           <figcaption>
-            <produit-libelle><?= $produit->libelle?></produit-libelle>
-            <produit-fabricant><?= $produit->fabricant?></produit-fabricant>
+            <panier-libelle><?= $panier->libelle?></panier-libelle>
+            <panier-prix><?= $panier->prix?></panier-prix>
           </figcaption>
         </figure>
         <?php endForeach; ?>

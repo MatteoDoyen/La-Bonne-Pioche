@@ -36,7 +36,7 @@
           <a class="nav-link with-border nous_trouver" href="#">Nous trouver</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link paniers" href="#">Paniers</a>
+          <a class="nav-link paniers" href="../controlers/paniers.ctrl.php">Paniers</a>
         </li>
       </ul>
       <div class="form-inline my-2 my-lg-0">
