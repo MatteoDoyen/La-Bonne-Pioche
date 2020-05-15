@@ -7,7 +7,7 @@
   </div>
 
   <nav class="row navbar navbar-expand-lg m_nav-bar">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="../controlers/accueil.ctrl.php">
       <img src="../data/img/logo.png" alt="Logo">
     </a>
     <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
