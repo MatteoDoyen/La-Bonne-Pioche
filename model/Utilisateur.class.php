@@ -2,7 +2,7 @@
 
   //TEST = 1 activer l'affichage de l'appel de la méthode
   //TEST = 0 supprimer l'affichage de l'appel
-  define("TEST",0);
+  define("TEST",1);
 
   class Utilisateur {
 
@@ -14,7 +14,10 @@
 
     //constructeur de base
     public function __construct( int $refUtilisateur, string $nom, string $prenom, string $adresseMail, string $motDePasse) {
-      
+
+      //test d'appel de la méthode
+      if(TEST == 1){ echo "appel : ".__METHOD__."\n";}
+
       $this->refUtilisateur = $refUtilisateur; //à modifier par la suite
       $this->nom = $nom;
       $this->prenom = $prenom;

@@ -1,6 +1,7 @@
 <?php
 
-  require_once("../model/Utilisateur.class.php");
+  require_once("../Utilisateur.class.php");
+  
 
   //variables de constructions (servent aux tests)
   $refUtilisateur = 1;
@@ -53,7 +54,7 @@
   //affichage instance
   var_dump($u_test);
 
-  //test de la fonction magique get
+  //test de la fonction magique set
   if($u_test->refUtilisateur == $refUtilisateur){
 
     echo "l'attribut refUtilisateur => $refUtilisateur n'a pas été modifié\n";
