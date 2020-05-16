@@ -92,7 +92,7 @@
             </div>
           </div>
 
-          <div class="row pl-3 align-items-center mt-3 flex-column-reverse flex-lg-row">
+          <div class="row pl-3 mb-5 align-items-center mt-3 flex-column-reverse flex-lg-row">
             <div class="col-lg-9 perso_info">
               <h4>Matthias</h4>
               <h5 class="mb-0">Salarié de la scop depuis deptembre 2019</h5>
@@ -100,20 +100,6 @@
             </div>
             <div class="col-lg-3 perso">
               <img class="img-fluid" src="../data/img/matthias.jpeg" alt="Cyril">
-            </div>
-          </div>
-
-          <hr style="margin: 30px 0 30px 0;">
-
-          <div class="row mt-4">
-            <div class="offset-lg-2 col-lg-8">
-              <h3 class="m-0" style="text-align: center; font-size: 1.5em;">Maintenant que vous avez fait notre connaissance</h3>
-              <h3 style="text-align: center; font-size: 1.5em;">Nous vous attendons avec impatience au magasin !</h3>
-            </div>
-          </div>
-          <div class="row">
-            <div class="offset-lg-2 col-lg-8">
-              <img class="img-fluid mb-4" src="../data/img/equipe.jpeg" alt="Équipe">
             </div>
           </div>
 
