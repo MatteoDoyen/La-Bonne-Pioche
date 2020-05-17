@@ -1,12 +1,17 @@
 <?php
 require_once(dirname(__FILE__).'/Panier.class.php');
+require_once(dirname(__FILE__).'/Produit.class.php');
+require_once(dirname(__FILE__).'/ProduitDAO.class.php');
 
 // Le Data Access Objet
 class PanierDAO {
   private $db;
+  private $dbp;
+  private $dbc;
 
   // Constructeur chargé d'ouvrir la BD
   function __construct() {
+    //db paniers
     $database = 'sqlite:'.dirname(__FILE__).'/../data/paniers.db';
     try {
       $this->db = new PDO($database);
@@ -17,9 +22,34 @@ class PanierDAO {
       die("PDO Error :".$e->getMessage()." $database\n");
     }
     $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    //db produits
+    $database_prod = 'sqlite:'.dirname(__FILE__).'/../data/produits.db';
+    try {
+      $this->dbp = new PDO(  $database_prod);
+      if (!$this->dbp) {
+        die ("Database error");
+      }
+    } catch (PDOException $e) {
+      die("PDO Error :".$e->getMessage()." $database_prod\n");
+    }
+    $this->dbp->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    //db composition
+    $database_compo = 'sqlite:'.dirname(__FILE__).'/../data/produits_paniers.db';
+    try {
+      $this->dbc = new PDO($database_compo);
+      if (!$this->dbc) {
+        die ("Database error");
+      }
+    } catch (PDOException $e) {
+      die("PDO Error :".$e->getMessage()." $database_compo\n");
+    }
+    $this->dbc->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
   }
 
-  // Accès à un produit
+  // Accès à un panier
   function get(int $id_Panier) : Panier {
     $req = "SELECT * FROM paniers WHERE id_Panier = '$id_Panier'";
     $sth = $this->db->query($req);
@@ -40,6 +70,24 @@ class PanierDAO {
     }
     return ($res[0][0]);
   }
+
+  function getComposition(int $id_Panier) : array{
+    $r = $this->dbc->query("SELECT id_produit FROM produits_paniers WHERE id_panier = $id_Panier");
+    $res = $r->fetchAll(PDO::FETCH_ASSOC);
+    $idcomposition = array();
+    foreach($res as $row)
+    {
+      array_push($idcomposition, $row);
+    }
+    $composition = array();
+    foreach ($idcomposition as $id)
+    {
+      array_push($composition, Produit::get(id));
+    }
+    return $composition;
+  }
+
+
 }
 
 ?>

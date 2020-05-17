@@ -15,14 +15,16 @@ if (isset($_GET['id'])) {
 // Creation de l'instance DAO
 $catalogue = new PanierDAO();
 
-// Récupération de l'objet produit correspondant à l'id
+// Récupération de l'objet panier correspondant à l'id
 $panier = $catalogue->get($id);
+//$compo = $catalogue->getComposition($id);
 
 ///////// AJOUTE POUR MVC
 $view = new View("panier.view.php");
 
 // Passage des paramètres à la vue
 $view->panier=$panier;
+//$view->composition=$composition;
 
 // Appel de la vue
 $view->show();
