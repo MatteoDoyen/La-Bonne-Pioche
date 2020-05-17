@@ -52,6 +52,10 @@
 
     echo "l'attribut numeroTelephone => $numeroTelephone n'a pas été récupérée\n";
   }
+  elseif ($c_test->tauxReduction != $tauxReduction) {
+
+    echo "l'attribut tauxReduction => $tauxReduction n'a pas été récupérée\n";
+  }
   else {
 
     echo "OK : les guetteurs fonctionnent pour la classe Utilisateur\n";
@@ -66,6 +70,10 @@
   $c_test->prenom = 'Charles';
   $c_test->adresseMail = 'lievre-doyen.charles@thotmail.com';
   $c_test->motDePasse = 'huitreChaude';
+  $newsletter = false;
+  $genre = false;
+  $numeroTelephone = "0602285492";
+  $tauxReduction = 12.3;
 
   //affichage instance
   var_dump($c_test);
@@ -102,6 +110,10 @@
   elseif ($c_test->numeroTelephone == $numeroTelephone) {
 
     echo "l'attribut numeroTelephone => $numeroTelephone n'a pas été modifié\n";
+  }
+  elseif ($c_test->tauxReduction != $tauxReduction) {
+
+    echo "l'attribut tauxReduction => $tauxReduction n'a pas été modifié\n";
   }
   else {
 
