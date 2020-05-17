@@ -1,7 +1,7 @@
 <?php
 
   require_once("../Utilisateur.class.php");
-  
+
 
   //variables de constructions (servent aux tests)
   $refUtilisateur = 1;
@@ -9,11 +9,12 @@
   $prenom = 'Matteo';
   $adresseMail = 'fricaud-lecorre.matteo@thotmail.com';
   $motDePasse = 'Provence4';
+  $etat = "actif";
 
-  $u_test = new Utilisateur($refUtilisateur ,$nom, $prenom,$adresseMail, $motDePasse);
+  $u_test = new Utilisateur($refUtilisateur ,$nom, $prenom,$adresseMail, $motDePasse, $etat);
 
   //affichage instance
-  var_dump($u_test);
+  $u_test->affiche();
 
   //test de la fonction magique get
   if($u_test->refUtilisateur != $refUtilisateur){
@@ -36,6 +37,10 @@
 
     echo "l'attribut motDePasse => $motDePasse n'a pas été récupérée\n";
   }
+  elseif ($u_test->etat != $etat) {
+
+    echo "l'attribut etat => $etat n'a pas été récupérée\n";
+  }
   else {
 
     echo "OK : les guetteurs fonctionnent pour la classe Utilisateur\n";
@@ -49,10 +54,11 @@
   $u_test->nom = 'Lievre-Doyen';
   $u_test->prenom = 'Charles';
   $u_test->adresseMail = 'lievre-doyen.charles@thotmail.com';
-  $u_test->motDePasse = 'huitreChaude';
+  $u_test->motDePasse = 'huitre';
+  $u_test->etat = 'en cours';
 
   //affichage instance
-  var_dump($u_test);
+  $u_test->affiche();
 
   //test de la fonction magique set
   if($u_test->refUtilisateur == $refUtilisateur){
@@ -74,6 +80,10 @@
   elseif ($u_test->motDePasse == $motDePasse) {
 
     echo "l'attribut motDePasse => $motDePasse n'a pas été modifié\n";
+  }
+  elseif ($u_test->etat == $etat) {
+
+    echo "l'attribut etat => $etat n'a pas été modifié\n";
   }
   else {
 
