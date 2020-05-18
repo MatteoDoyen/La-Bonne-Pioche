@@ -21,8 +21,15 @@
       </figure>
       <?php foreach($composition as $prod) : ?>
         <figure>
-          <img src="<?= $prod->url_img ?>">
+          <a href="/La-Bonne-Pioche/controlers/produit.ctrl.php?id=<?= $prod->id ?>">
+            <img src="<?= $prod->url_img ?>">
+          </a>
+          <figcaption>
+            <prod-libelle><?= $prod->libelle?></prod-libelle>
+            <prod-fabricant><?= $panier->fabricant?></prod-fabricant>
+          </figcaption>
         </figure>
+
       <?php endforeach ?>
       <?php include("footer.php") ?>
 
