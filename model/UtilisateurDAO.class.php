@@ -26,7 +26,7 @@ class UtilisateurDAO {
     $resArray= $sth->fetchAll(PDO::FETCH_ASSOC);
     foreach($resArray as $row)
     {
-      $utilisateur = new Utilisateur();
+      $utilisateur = new ClientEntreprise();
     }
     return $utilisateur;
   }
