@@ -10,5 +10,5 @@ CREATE TABLE utilisateurs (
   newsletter BOOLEAN,
   genre BOOLEAN,
   tauxReduction FLOAT,
-  refEntreprise INTEGER,
+  refEntreprise INTEGER
  );
