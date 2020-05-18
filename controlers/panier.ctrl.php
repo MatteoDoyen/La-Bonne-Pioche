@@ -24,7 +24,7 @@ $view = new View("panier.view.php");
 
 // Passage des paramètres à la vue
 $view->panier=$panier;
-//$view->composition=$composition;
+$view->composition=$composition;
 
 // Appel de la vue
 $view->show();
