@@ -1,8 +1,11 @@
 <?php
   //TEST = 1 activer l'affichage de l'appel de la méthode
   //TEST = ... supprimer l'affichage de l'appel
-  define("TEST",0);
+  define("TEST",1);
   // /!\ fonctionne pour toute l'arborescence
+
+  //require_once("Genre.class.enum.php");
+  //require_once("EtatUtilisateur.class.enum.php");
 
   class Utilisateur {
 
@@ -44,7 +47,7 @@
 
 
     //méthode set
-    public function __set(string $attribut, string $valeur){
+    public function __set(string $attribut, $valeur){
 
       //test d'appel de la méthode
       if(TEST == 1){ echo "appel :".__METHOD__."($attribut)\n";}

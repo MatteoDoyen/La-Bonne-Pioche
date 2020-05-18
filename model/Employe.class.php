@@ -6,6 +6,7 @@
 
     private bool $statut; //true -> Gestionnaire et false -> Employe
 
+
     //constructeur
     public function __construct(int $refUtilisateur, string $nom, string $prenom, string $adresseMail, string $motDePasse, string $etat, bool $statut){
 
@@ -18,6 +19,7 @@
       $this->statut = $statut;
     }
 
+
     //méthode get
     public function __get(string $attribut) {
 
@@ -27,7 +29,6 @@
       //code d'erreur
       $retour = -1;
 
-      //penser à regarder comment appeler les méthodes magiques
       //retourne une erreur si le nom d'attribut pris en paramètre est inéxistant ( classe mère )
       if( $attribut == "refUtilisateur" || $attribut == "nom" || $attribut == "prenom" || $attribut == "adresseMail" || $attribut == "motDePasse" || $attribut == "etat" ){
 
@@ -48,12 +49,11 @@
 
 
     //méthode set
-    public function __set(string $attribut, string $valeur){
+    public function __set(string $attribut, $valeur){
 
       //test d'appel de la méthode
       if(TEST == 1){ echo "appel :".__METHOD__."($attribut)\n";}
 
-      //penser à regarder comment appeler les méthodes magiques
       //retourne une erreur si le nom d'attribut pris en paramètre est inéxistant ( classe mère )
       if( $attribut == "refUtilisateur" || $attribut == "nom" || $attribut == "prenom" || $attribut == "adresseMail" || $attribut == "motDePasse" || $attribut == "etat"){
 
@@ -70,6 +70,7 @@
       }
     }
 
+
     public function setStatut() : void {
 
       //test d'appel de la méthode
@@ -77,6 +78,7 @@
 
       $this->statut = ( $this->statut ) ? false : true ;
     }
+
 
     //sert au debug
     public function affiche() : void {
@@ -95,6 +97,7 @@
         echo "statut : employe\n";
       }
     }
+
 
   }
 

@@ -39,7 +39,6 @@
       //code d'erreur
       $retour = -1;
 
-      //penser à regarder comment appeler les méthodes magiques
       //retourne une erreur si le nom d'attribut pris en paramètre est inéxistant ( classe mère )
       if( $attribut == "refUtilisateur" || $attribut == "nom" || $attribut == "prenom" || $attribut == "adresseMail" || $attribut == "motDePasse" || $attribut == "etat" ){
 
@@ -60,12 +59,11 @@
 
 
     //méthode set
-    public function __set(string $attribut, string $valeur){
+    public function __set(string $attribut, $valeur){
 
       //test d'appel de la méthode
       if(TEST == 1){ echo "appel :".__METHOD__."($attribut)\n";}
 
-      //penser à regarder comment appeler les méthodes magiques
       //retourne une erreur si le nom d'attribut pris en paramètre est inéxistant ( classe mère )
       if( $attribut == "refUtilisateur" || $attribut == "nom" || $attribut == "prenom" || $attribut == "adresseMail" || $attribut == "motDePasse" || $attribut == "etat"){
 
