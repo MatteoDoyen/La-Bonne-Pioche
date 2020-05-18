@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="fr" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -18,7 +19,11 @@
       <figure>
         <img src="<?= $panier->image ?>">
       </figure>
-
+      <?php foreach($composition as $prod) : ?>
+        <figure>
+          <img src="<?= $prod->url_img ?>">
+        </figure>
+      <?php endforeach ?>
       <?php include("footer.php") ?>
 
     </div>

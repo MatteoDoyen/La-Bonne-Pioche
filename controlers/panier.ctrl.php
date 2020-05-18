@@ -17,6 +17,7 @@ $catalogue = new PanierDAO();
 
 // Récupération de l'objet panier correspondant à l'id
 $panier = $catalogue->get($id);
+$composition = $catalogue->getComposition($id);
 //$compo = $catalogue->getComposition($id);
 
 ///////// AJOUTE POUR MVC
