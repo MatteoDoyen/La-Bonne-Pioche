@@ -1,6 +1,6 @@
 <?php
 
-  require_once("../Utilisateur.class.php");
+  //require_once("../Utilisateur.class.php");
   require_once("../Client.class.php");
 
   //variables de constructions (servent aux tests)

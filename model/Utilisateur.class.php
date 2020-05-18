@@ -1,8 +1,8 @@
 <?php
-
   //TEST = 1 activer l'affichage de l'appel de la méthode
   //TEST = ... supprimer l'affichage de l'appel
-  define("TEST",1);
+  define("TEST",0);
+  // /!\ fonctionne pour toute l'arborescence
 
   class Utilisateur {
 

@@ -1,21 +1,13 @@
 <?php
-  //inclus dans Utilisateur
-  //TEST = 1 activer l'affichage de l'appel de la méthode
-  //TEST = 0 supprimer l'affichage de l'appel
-  //define("TEST",0);
 
   require_once("Utilisateur.class.php");
 
-  class Client extends Utilisateur {
+  class Employe extends Utilisateur {
 
-    private bool $newsletter;
-    private bool $genre;      //pour l'instant [1] => homme / [0] => femme
-    private string $numeroTelephone;
-    private float $tauxReduction;
-
+    private bool $statut; //true -> Gestionnaire et false -> Employe
 
     //constructeur
-    public function __construct(int $refUtilisateur, string $nom, string $prenom, string $adresseMail, string $motDePasse, string $etat, bool $newsletter, bool $genre, string $numeroTelephone, float $tauxReduction){
+    public function __construct(int $refUtilisateur, string $nom, string $prenom, string $adresseMail, string $motDePasse, string $etat, bool $statut){
 
       //test d'appel de la méthode
       if(TEST == 1){ echo "appel : ".__METHOD__."\n";}
@@ -23,11 +15,7 @@
       //construction de l'objet mère Utilisateur
       parent::__construct($refUtilisateur, $nom, $prenom, $adresseMail, $motDePasse, $etat);
 
-      $this->newsletter = $newsletter;
-      $this->genre = $genre;
-      $this->numeroTelephone = $numeroTelephone;
-      $this->tauxReduction = $tauxReduction;
-
+      $this->statut = $statut;
     }
 
     //méthode get
@@ -46,7 +34,7 @@
         $retour = parent::__get($attribut);
       }
       //retourne une erreur si le nom d'attribut pris en paramètre est inéxistant ( classe fille )
-      else if ( $attribut == "newsletter" || $attribut == "genre" || $attribut == "numeroTelephone" || $attribut == "tauxReduction") {
+      else if ( $attribut == "statut" ) {
 
         $retour = $this->$attribut;
       }
@@ -72,7 +60,7 @@
         parent::__set($attribut, $valeur);
       }
       //retourne une erreur si le nom d'attribut pris en paramètre est inéxistant ( classe fille )
-      else if ( $attribut == "newsletter" || $attribut == "genre" || $attribut == "numeroTelephone" || $attribut == "tauxReduction" ) {
+      else if ( $attribut == "statut" ) {
 
         $this->$attribut = $valeur;
       }
@@ -82,7 +70,15 @@
       }
     }
 
+    public function setStatut() : void {
 
+      //test d'appel de la méthode
+      if(TEST == 1){ echo "appel :".__METHOD__."\n";}
+
+      $this->statut = ( $this->statut ) ? false : true ;
+    }
+
+    //sert au debug
     public function affiche() : void {
 
       //test d'appel de la méthode
@@ -90,9 +86,9 @@
 
       parent::affiche();
 
-      echo "newsletter : ".$this->newsletter."\n"."genre : ".$this->genre."\n"."numeroTelephone : ".$this->numeroTelephone."\n"."tauxReduction : ".$this->tauxReduction."\n";
-
+      echo "statut : ".$this->statut."\n";
     }
 
   }
+
 ?>
