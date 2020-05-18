@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <title>La Bonne Pioche - Nous</title>
     <link rel="stylesheet" href="../framework/bootstrap-4.4.1-dist/css/bootstrap.css">
-    <link rel="stylesheet" href="../view/css/nous.view.css">
     <link rel="stylesheet" href="../view/css/paniers.view.css">
   </head>
   <body>
@@ -16,11 +15,12 @@
 
       <br><br><br><br><br><br>
       <div class="container">
-        <div class="row row-cols-4">
-          <div class="col">Column</div>
-          <div class="col">Column</div>
-          <div class="col">Column</div>
-          <div class="col">Column</div>
+        <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-xs-1">
+          <div class="col">Essai</div>
+          <div class="col">Essai</div>
+          <div class="col">Essai</div>
+          <div class="col">Essai</div>
+          <div class="col">Essai</div>
         </div>
       </div>
       <?php foreach($list as $panier) :  ?>

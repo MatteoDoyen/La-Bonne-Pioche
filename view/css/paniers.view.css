@@ -1,10 +1,22 @@
-.row-cols-4 div
+/* NAVBAR */
+@import "navbar.css";
+
+/* FOOTER */
+@import "footer.css";
+
+.container>div div
 {
   background-color: blue;
-  margin:15px;
+
   height: 250px;
 }
 .row
 {
-  justify-content: center;
+  justify-content:space-around;
+}
+body {
+  font-family: "Lulo-Clean-W01-One-Bold", sans-serif ;
+}
+.nous {
+  background-color: #bfc416;
 }
