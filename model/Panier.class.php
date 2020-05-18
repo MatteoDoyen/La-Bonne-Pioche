@@ -27,6 +27,20 @@ class Panier {
       return $this -> $attribut;
     }
   }
+
+  public function __set(string $attribut, $valeur){
+
+        //test d'appel de la méthode
+        // if(TEST == 1){ echo "appel :".__METHOD__."($attribut)\n";}
+
+        //retourne une erreur si le nom d'attribut pris en paramètre est inéxistant
+        if ( $attribut != "libelle" && $attribut != "refPanier" && $attribut != "intitule" && $attribut != "prix" && $attribut != "nombrePersonne" ) {
+
+          throw new Exception("Error cannot acces '$attribut'", 1);
+        }
+
+        $this->$attribut = $valeur;
+      }
 }
 
 ?>

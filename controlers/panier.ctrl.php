@@ -17,6 +17,9 @@ $catalogue = new PanierDAO();
 
 // Récupération de l'objet panier correspondant à l'id
 $panier = $catalogue->get($id);
+
+$panier->libelle = str_replace("_"," ",$panier->libelle);
+
 $composition = $catalogue->getComposition($id);
 //$compo = $catalogue->getComposition($id);
 

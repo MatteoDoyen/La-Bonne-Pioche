@@ -1,0 +1,10 @@
+.row-cols-4 div
+{
+  background-color: blue;
+  margin:15px;
+  height: 250px;
+}
+.row
+{
+  justify-content: center;
+}

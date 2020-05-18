@@ -15,7 +15,9 @@
 
       <?php include("navbar.php") ?>
       <br><br><br><br><br><br>
+
       <figure>
+        <p><?php echo"$panier->libelle"; ?></p>
         <img src="<?= $panier->image ?>">
       </figure>
       <?php foreach($composition as $prod) : ?>
