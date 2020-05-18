@@ -1,4 +1,4 @@
-<div class="fixed-top">
+<div class="sticky-top">
   <div class="row m_nav-bar">
     <div class="titre offset-lg-2 col-lg-8 offset-1 col-10">
       <h1>La bonne pioche</h1>

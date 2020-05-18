@@ -13,7 +13,6 @@
     <div class="container-fluid">
       <?php include("../view/navbar.php") ?>
 
-      <br><br><br><br><br><br>
       <div class="container">
         <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-xs-1">
           <div class="col">Essai</div>
