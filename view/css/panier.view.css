@@ -5,15 +5,134 @@
 @import "footer.css";
 
 body {
+    color: #707070;
   font-family: "Lulo-Clean-W01-One-Bold", sans-serif ;
 }
 .nous {
   background-color: #bfc416;
 }
 
-img
+.titre_panier
 {
-  
+  font-size: 2.8em;
 }
 
+h2
+{
+  padding-top: 50px;
+}
+
+.produit_img
+{
+  width: 80px;
+  height: auto;
+  object-fit: cover;
+  padding: 5px;
+  border: solid #707070; 3px;
+}
+.container_img
+{
+  position: relative;
+  background-color: white;
+  height: 200px;
+  margin: 0 auto ;
+  overflow: hidden;
+  box-shadow: -14px 12px 10px -11px rgba(0,0,0,0.25);
+}
+.container_img img
+{
+  height: auto;
+  width: 50%;
+}
+.compo-txt-prod
+{
+  justify-content: center;
+}
+
+.compo-txt-origin
+{
+  justify-content:flex-end;
+
+}
+
+.compo-txt-prod, .compo-txt-origin
+{
+  align-items: center;
+  display: flex;
+}
+
+.compo-txt-origin p,.compo-txt-prod p
+{
+  display: inline-block;
+}
+
+
 /* Code personnalisé  */
+hr
+{
+width:80%;
+}
+
+.plusmoin_container
+{
+  align-items: center;
+  display: flex;
+}
+
+.plusmoin_container input[type=text]
+{
+  display: inline-block;
+  border : 2px solid grey;
+  padding: 6px;
+  margin: 0px 5px 0px 5px;
+  width: 30px;
+}
+
+.plusmoin_container button:link
+{
+  text-decoration: none;
+}
+
+.plusmoin_container button
+{
+  background-color: #f04942;
+  border: none;
+  color: white;
+  padding: 8px 16px 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 0px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.bigcontainer
+{
+  margin: 0 auto;
+  position: relative;
+}
+
+.bigcontainer p
+{
+  color: white;
+  position: absolute;
+  display: inline-block;
+  right: 0;
+  background-color:  #f04942;
+  text-align: right;
+  justify-content: flex-end;
+  padding: 15px 25px;
+  border-radius: 0px 0px 20px 20px;
+}
+
+
+.bocal
+{
+  color:blue;
+  background-color:  #f04942;
+  fill: #94d31b;
+  width: 25px;
+  height: auto;
+}

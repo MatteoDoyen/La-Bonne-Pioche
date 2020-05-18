@@ -11,26 +11,57 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script defer src="../framework/bootstrap-4.4.1-dist/js/bootstrap.bundle.min.js"></script>
 
-    <div class="container-fluid p-0">
+    <div class="container-fluid">
 
       <?php include("navbar.php") ?>
 
 
       <figure>
-        <p class="titre_panier"><?php echo"$panier->libelle"; ?></p>
-        <img calss="rounded mx-auto d-block" src="<?= $panier->image ?>">
+        <h2 class="text-center titre_panier">Le <?php echo"$panier->libelle"; ?></h1>
+        <div class="bigcontainer col-sm-6 col-md-6 col-lg-6">
+          <div class="container_img">
+            <img class="mx-auto d-block" src="<?= $panier->image ?>">
+          </div>
+            <p class="text">3 x <img class="bocal" src="../others/SVG/bocal.svg" alt=""></p>
+        </div>
       </figure>
+      <h2 class="text-center pb-5">Composition</h2>
+
+      <div class="container">
+        <div class="row">
+          <div class="prix">
+
+          </div>
+          <div class="separation">
+
+          </div>
+          <div class="nombre_panier">
+
+          </div>
+        </div>
+      </div>
+
       <?php foreach($composition as $prod) : ?>
 
-        <figure>
-          <a href="/La-Bonne-Pioche/controlers/produit.ctrl.php?id=<?= $prod->id ?>">
-            <img src="<?= $prod->url_img ?>">
-          </a>
-          <figcaption>
-            <prod-libelle><?= $prod->libelle?></prod-libelle> <br>
-            <prod-fabricant><?= $prod->fabricant?></prod-fabricant>
-          </figcaption>
+        <figure class="container">
+          <div class="row">
+            <a class ="col-xs-1 col-sm-1 col-lg-2" href="/La-Bonne-Pioche/controlers/produit.ctrl.php?id=<?= $prod->id ?>">
+              <img class="produit_img" src="<?= $prod->url_img ?>">
+            </a>
+              <div class="col-xs-1 col-md-1 col-sm-1 col-lg-2 compo-txt-prod">
+                <p><?= $prod->libelle?></p>
+              </div>
+              <div class="col-xs-4 col-sm-4 col-md-5 col-lg-6 compo-txt-origin">
+                <p><?= $prod->fabricant?></p>
+              </div>
+              <div class="col-xs-1 col-sm-1 col-lg-2 plusmoin_container">
+                  <button href="#">-</button>
+                  <input type="text" name="" value="">
+                  <button href="#">+</button>
+              </div>
+          </div>
         </figure>
+        <hr>
 
       <?php endforeach ?>
       <?php include("footer.php") ?>
