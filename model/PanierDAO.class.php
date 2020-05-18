@@ -71,7 +71,7 @@ class PanierDAO {
     return ($res[0][0]);
   }
 
-  function getComposition(int $id_Panier) : array{+
+  function getComposition(int $id_Panier) : array{
     $produit = new ProduitDAO();
     $r = $this->dbc->query("SELECT id_produit FROM produits_paniers WHERE id_panier = $id_Panier");
     $res = $r->fetchAll(PDO::FETCH_ASSOC);

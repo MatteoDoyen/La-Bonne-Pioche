@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="../view/css/nous.view.css">
   </head>
   <body>
-
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script defer src="../framework/bootstrap-4.4.1-dist/js/bootstrap.bundle.min.js"></script>
 
@@ -25,8 +24,8 @@
             <img src="<?= $prod->url_img ?>">
           </a>
           <figcaption>
-            <prod-libelle><?= $prod->libelle?></prod-libelle>
-            <prod-fabricant><?= $panier->fabricant?></prod-fabricant>
+            <prod-libelle><?= $prod->libelle?></prod-libelle> <br>
+            <prod-fabricant><?= $prod->fabricant?></prod-fabricant>
           </figcaption>
         </figure>
 
