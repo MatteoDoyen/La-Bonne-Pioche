@@ -86,7 +86,14 @@
 
       parent::affiche();
 
-      echo "statut : ".$this->statut."\n";
+      if ( $this->statut){
+
+        echo "statut : gestionnaire\n";
+      }
+      else {
+
+        echo "statut : employe\n";
+      }
     }
 
   }
