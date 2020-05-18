@@ -15,7 +15,7 @@
   $numeroTelephone = "0455674355";
   $tauxReduction = 10.3;
 
-  $c_test = new Client($refUtilisateur, $nom, $prenom, $adresseMail, $motDePasse, $etat, $newsletter, $genre, $numeroTelephone, $tauxReduction);
+  $c_test = new Client($refUtilisateur, $nom, $prenom, $adresseMail, $motDePasse, $etat, $numeroTelephone, $newsletter, $genre, $tauxReduction);
 
   //affichage instance
   $c_test->affiche();
@@ -76,9 +76,9 @@
   $c_test->adresseMail = 'lievre-doyen.charles@thotmail.com';
   $c_test->motDePasse = 'houite';
   $c_test->etat = "en cours";
+  $c_test->numeroTelephone = "0602285492";
   $c_test->newsletter = false;
   $c_test->genre = false;
-  $c_test->numeroTelephone = "0602285492";
   $c_test->tauxReduction = 12.3;
 
   //affichage instance

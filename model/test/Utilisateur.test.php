@@ -10,8 +10,9 @@
   $adresseMail = 'fricaud-lecorre.matteo@thotmail.com';
   $motDePasse = 'Provence4';
   $etat = "actif";
+  $numeroTelephone = "0602285492";
 
-  $u_test = new Utilisateur($refUtilisateur ,$nom, $prenom,$adresseMail, $motDePasse, $etat);
+  $u_test = new Utilisateur($refUtilisateur ,$nom, $prenom,$adresseMail, $motDePasse, $etat, $numeroTelephone);
 
   //affichage instance
   $u_test->affiche();
@@ -41,6 +42,10 @@
 
     echo "l'attribut etat => $etat n'a pas été récupérée\n";
   }
+  elseif ($u_test->numeroTelephone != $numeroTelephone) {
+
+    echo "l'attribut numeroTelephone => $numeroTelephone n'a pas été récupérée\n";
+  }
   else {
 
     echo "OK : les guetteurs fonctionnent pour la classe Utilisateur\n";
@@ -56,6 +61,7 @@
   $u_test->adresseMail = 'lievre-doyen.charles@thotmail.com';
   $u_test->motDePasse = 'huitre';
   $u_test->etat = 'en cours';
+  $u_test->numeroTelephone = "0405662322";
 
   //affichage instance
   $u_test->affiche();
@@ -84,6 +90,10 @@
   elseif ($u_test->etat == $etat) {
 
     echo "l'attribut etat => $etat n'a pas été modifié\n";
+  }
+  elseif ($u_test->numeroTelephone == $numeroTelephone) {
+
+    echo "l'attribut numeroTelephone => $numeroTelephone n'a pas été modifié\n";
   }
   else {
 

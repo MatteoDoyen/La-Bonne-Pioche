@@ -8,13 +8,13 @@
 
 
     //constructeur
-    public function __construct(int $refUtilisateur, string $nom, string $prenom, string $adresseMail, string $motDePasse, string $etat, bool $statut){
+    public function __construct(int $refUtilisateur, string $nom, string $prenom, string $adresseMail, string $motDePasse, string $etat, string $numeroTelephone, bool $statut){
 
       //test d'appel de la méthode
       if(TEST == 1){ echo "appel : ".__METHOD__."\n";}
 
       //construction de l'objet mère Utilisateur
-      parent::__construct($refUtilisateur, $nom, $prenom, $adresseMail, $motDePasse, $etat);
+      parent::__construct($refUtilisateur, $nom, $prenom, $adresseMail, $motDePasse, $etat, $numeroTelephone);
 
       $this->statut = $statut;
     }
@@ -30,7 +30,7 @@
       $retour = -1;
 
       //retourne une erreur si le nom d'attribut pris en paramètre est inéxistant ( classe mère )
-      if( $attribut == "refUtilisateur" || $attribut == "nom" || $attribut == "prenom" || $attribut == "adresseMail" || $attribut == "motDePasse" || $attribut == "etat" ){
+      if( $attribut == "refUtilisateur" || $attribut == "nom" || $attribut == "prenom" || $attribut == "adresseMail" || $attribut == "motDePasse" || $attribut == "etat" || $numeroTelephone = "numeroTelephone"){
 
         $retour = parent::__get($attribut);
       }
@@ -55,7 +55,7 @@
       if(TEST == 1){ echo "appel :".__METHOD__."($attribut)\n";}
 
       //retourne une erreur si le nom d'attribut pris en paramètre est inéxistant ( classe mère )
-      if( $attribut == "refUtilisateur" || $attribut == "nom" || $attribut == "prenom" || $attribut == "adresseMail" || $attribut == "motDePasse" || $attribut == "etat"){
+      if( $attribut == "refUtilisateur" || $attribut == "nom" || $attribut == "prenom" || $attribut == "adresseMail" || $attribut == "motDePasse" || $attribut == "etat" || $numeroTelephone = "numeroTelephone"){
 
         parent::__set($attribut, $valeur);
       }

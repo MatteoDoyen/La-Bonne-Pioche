@@ -37,6 +37,14 @@
     }
 
 
+    public function affiche() : void {
+
+      //test d'appel de la méthode
+      if(TEST == 1){ echo "appel :".__METHOD__."\n";}
+
+      parent::affiche();
+    }
+
   }
 
 ?>

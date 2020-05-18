@@ -11,8 +11,9 @@
   $motDePasse = 'Provence4';
   $etat = "actif";
   $statut = true;
+  $numeroTelephone = "0602285492";
 
-  $e_test = new Employe($refUtilisateur ,$nom, $prenom,$adresseMail, $motDePasse, $etat, $statut);
+  $e_test = new Employe($refUtilisateur ,$nom, $prenom,$adresseMail, $motDePasse, $etat, $numeroTelephone, $statut);
 
   //affichage instance
   $e_test->affiche();
@@ -42,6 +43,10 @@
 
     echo "l'attribut etat => $etat n'a pas été récupérée\n";
   }
+  elseif ($e_test->numeroTelephone != $numeroTelephone) {
+
+    echo "l'attribut numeroTelephone => $numeroTelephone n'a pas été récupérée\n";
+  }
   elseif ($e_test->statut != $statut) {
 
     echo "l'attribut etat => $statut n'a pas été récupérée\n";
@@ -62,6 +67,7 @@
   $e_test->motDePasse = 'huitre';
   $e_test->etat = 'en cours';
   $e_test->statut = false;
+  $numeroTelephone = "0405585492";
 
   //affichage instance
   $e_test->affiche();
@@ -90,6 +96,10 @@
   elseif ($e_test->etat == $etat) {
 
     echo "l'attribut etat => $etat n'a pas été modifié\n";
+  }
+  elseif ($e_test->numeroTelephone == $numeroTelephone) {
+
+    echo "l'attribut numeroTelephone => $numeroTelephone n'a pas été modifié\n";
   }
   elseif ($e_test->statut == $statut) {
 

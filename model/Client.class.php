@@ -15,17 +15,16 @@
 
 
     //constructeur
-    public function __construct(int $refUtilisateur, string $nom, string $prenom, string $adresseMail, string $motDePasse, string $etat, bool $newsletter, bool $genre, string $numeroTelephone, float $tauxReduction){
+    public function __construct(int $refUtilisateur, string $nom, string $prenom, string $adresseMail, string $motDePasse, string $etat, string $numeroTelephone, bool $newsletter, bool $genre, float $tauxReduction){
 
       //test d'appel de la méthode
       if(TEST == 1){ echo "appel : ".__METHOD__."\n";}
 
       //construction de l'objet mère Utilisateur
-      parent::__construct($refUtilisateur, $nom, $prenom, $adresseMail, $motDePasse, $etat);
+      parent::__construct($refUtilisateur, $nom, $prenom, $adresseMail, $motDePasse, $etat, $numeroTelephone);
 
       $this->newsletter = $newsletter;
       $this->genre = $genre;
-      $this->numeroTelephone = $numeroTelephone;
       $this->tauxReduction = $tauxReduction;
 
     }
@@ -40,12 +39,12 @@
       $retour = -1;
 
       //retourne une erreur si le nom d'attribut pris en paramètre est inéxistant ( classe mère )
-      if( $attribut == "refUtilisateur" || $attribut == "nom" || $attribut == "prenom" || $attribut == "adresseMail" || $attribut == "motDePasse" || $attribut == "etat" ){
+      if( $attribut == "refUtilisateur" || $attribut == "nom" || $attribut == "prenom" || $attribut == "adresseMail" || $attribut == "motDePasse" || $attribut == "etat" || $attribut == "numeroTelephone" ){
 
         $retour = parent::__get($attribut);
       }
       //retourne une erreur si le nom d'attribut pris en paramètre est inéxistant ( classe fille )
-      else if ( $attribut == "newsletter" || $attribut == "genre" || $attribut == "numeroTelephone" || $attribut == "tauxReduction") {
+      else if ( $attribut == "newsletter" || $attribut == "genre" || $attribut == "tauxReduction") {
 
         $retour = $this->$attribut;
       }
@@ -65,12 +64,12 @@
       if(TEST == 1){ echo "appel :".__METHOD__."($attribut)\n";}
 
       //retourne une erreur si le nom d'attribut pris en paramètre est inéxistant ( classe mère )
-      if( $attribut == "refUtilisateur" || $attribut == "nom" || $attribut == "prenom" || $attribut == "adresseMail" || $attribut == "motDePasse" || $attribut == "etat"){
+      if( $attribut == "refUtilisateur" || $attribut == "nom" || $attribut == "prenom" || $attribut == "adresseMail" || $attribut == "motDePasse" || $attribut == "etat" || $attribut == "numeroTelephone" ){
 
         parent::__set($attribut, $valeur);
       }
       //retourne une erreur si le nom d'attribut pris en paramètre est inéxistant ( classe fille )
-      else if ( $attribut == "newsletter" || $attribut == "genre" || $attribut == "numeroTelephone" || $attribut == "tauxReduction" ) {
+      else if ( $attribut == "newsletter" || $attribut == "genre" || $attribut == "tauxReduction" ) {
 
         $this->$attribut = $valeur;
       }
@@ -88,7 +87,7 @@
 
       parent::affiche();
 
-      echo "newsletter : ".$this->newsletter."\n"."genre : ".$this->genre."\n"."numeroTelephone : ".$this->numeroTelephone."\n"."tauxReduction : ".$this->tauxReduction."\n";
+      echo "newsletter : ".$this->newsletter."\n"."genre : ".$this->genre."\n"."tauxReduction : ".$this->tauxReduction."\n";
 
     }
 
