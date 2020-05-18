@@ -41,7 +41,7 @@
 
       //penser à regarder comment appeler les méthodes magiques
       //retourne une erreur si le nom d'attribut pris en paramètre est inéxistant ( classe mère )
-      if( $attribut == "refUtilisateur" || $attribut == "nom" || $attribut == "prenom" || $attribut == "adresseMail" || $attribut == "motDePasse" || $attribut = "etat" ){
+      if( $attribut == "refUtilisateur" || $attribut == "nom" || $attribut == "prenom" || $attribut == "adresseMail" || $attribut == "motDePasse" || $attribut == "etat" ){
 
         $retour = parent::__get($attribut);
       }
@@ -67,7 +67,7 @@
 
       //penser à regarder comment appeler les méthodes magiques
       //retourne une erreur si le nom d'attribut pris en paramètre est inéxistant ( classe mère )
-      if( $attribut == "refUtilisateur" || $attribut == "nom" || $attribut == "prenom" || $attribut == "adresseMail" || $attribut == "motDePasse" || $attribut = "etat"){
+      if( $attribut == "refUtilisateur" || $attribut == "nom" || $attribut == "prenom" || $attribut == "adresseMail" || $attribut == "motDePasse" || $attribut == "etat"){
 
         parent::__set($attribut, $valeur);
       }
