@@ -3,7 +3,7 @@ CREATE TABLE utilisateurs (
   nom STRING,
   prenom STRING,
   adresseMail STRING,
-  mdp STRING,
+  motDePasse STRING,
   etat STRING,
   numeroTelephone STRING,
   statut BOOLEAN,
