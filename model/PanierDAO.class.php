@@ -78,14 +78,9 @@ class PanierDAO {
     $idcomposition = array();
     foreach($res as $row)
     {
-      array_push($idcomposition, $row['id_produit']);
+      array_push($idcomposition, $produit->get($row['id_produit']));
     }
-    $composition = array();
-    foreach ($idcomposition as $id)
-    {
-      array_push($composition, $produit->get($id));
-    }
-    return $composition;
+    return $idcomposition;
   }
 
 
