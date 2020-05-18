@@ -5,7 +5,6 @@
       <h2 id="sous_titre">L'épicerie grenobloise de produits locaux sans emballage</h2>
     </div>
   </div>
-
   <nav class="row navbar navbar-expand-lg m_nav-bar">
     <a class="navbar-brand" href="../controlers/accueil.ctrl.php">
       <img src="../data/img/logo.png" alt="Logo">
@@ -45,7 +44,6 @@
     </div>
   </nav>
 </div>
-
 <script type="text/javascript">
   var sous_titre = $("#sous_titre");
   // Petit script pour cacher la deuxième image en fonction de la taille de l'écran

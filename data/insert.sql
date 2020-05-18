@@ -51,11 +51,11 @@ INSERT INTO Type VALUES('Vin', 'Boissons');
 INSERT INTO Type VALUES('Café', 'Boissons');
 INSERT INTO Type VALUES('Thé, Tisane', 'Boissons');
 
-INSERT INTO type VALUES('Visage', "Produits d\'hygiène");
-INSERT INTO type VALUES('Corps', "Produits d\'hygiène");
-INSERT INTO type VALUES('Dents', "Produits d\'hygiène");
-INSERT INTO type VALUES('Bébés', "Produits d\'hygiène");
-INSERT INTO type VALUES('Femmes', "Produits d\'hygiène");
+INSERT INTO type VALUES('Visage', "Produits d'hygiène");
+INSERT INTO type VALUES('Corps', "Produits d'hygiène");
+INSERT INTO type VALUES('Dents', "Produits d'hygiène");
+INSERT INTO type VALUES('Bébés', "Produits d'hygiène");
+INSERT INTO type VALUES('Femmes', "Produits d'hygiène");
 
 INSERT INTO Type VALUES('Linge', "Produits d'entretien");
 INSERT INTO Type VALUES('Sol', "Produits d'entretien");
@@ -90,3 +90,16 @@ INSERT INTO Produits VALUES(8, 'Crottin de chèvre sec', 'Fromage', null, 'Méau
 INSERT INTO Produits VALUES(9, 'Lait cru de vache', 'Yahourt', null, 'Saint Luce - 38 - France', null, null);
 INSERT INTO Produits VALUES(10, 'Yaourt fermier au lait de vache', 'Yahourt', null, 'Saint Luce - 38 - France', null, null);
 INSERT INTO Produits VALUES(11, 'Yaourt fermier au lait de vache', 'Yahourt', null, 'Saint Luce - 38 - France', null, null);
+INSERT INTO Produits VALUES(12, 'Coquillette', 'Pate', null, 'Saint-Jean-De-Maurienne - 73 - France', null, null);
+INSERT INTO Produits VALUES(13, 'Crozet nature', 'Pate', null, 'Saint-Jean-De-Maurienne - 73 - France', null, null);
+INSERT INTO Produits VALUES(14, 'Mini Coque', 'Pate', null, 'Saint-Jean-De-Maurienne - 73 - France', null, null);
+INSERT INTO Produits VALUES(15, 'Mini Farfalle', 'Pate', null, 'Saint-Jean-De-Maurienne - 73 - France', null, null);
+INSERT INTO Produits VALUES(16, 'Penne', 'Pate', null, 'Saint-Jean-De-Maurienne - 73 - France', null, null);
+INSERT INTO Produits VALUES(17, 'Perle', 'Pate', null, 'Saint-Jean-De-Maurienne - 73 - France', null, null);
+INSERT INTO Produits VALUES(18, 'Tagliatelle', 'Pate', null, 'Saint-Jean-De-Maurienne - 73 - France', null, null);
+INSERT INTO Produits VALUES(19, 'Torsade complète', 'Pate', null, 'Saint-Jean-De-Maurienne - 73 - France', null, null);
+INSERT INTO Produits VALUES(20, 'Riz à risotto', 'Riz', null, 'Saint-Jean-De-Maurienne - 73 - France', null, null);
+INSERT INTO Produits VALUES(21, 'Riz blanc de Camargue', 'Riz', null, 'Saint-Gilles - 30 - France', null, null);
+INSERT INTO Produits VALUES(22, 'Riz blanc de Camargue', 'Riz', null, 'Saint-Gilles - 30 - France', null, null);
+INSERT INTO Produits VALUES(23, 'Riz rouge de Camargue', 'Riz', null, 'Saint-Gilles - 30 - France', null, null);
+INSERT INTO Produits VALUES(24, 'Farine de blé Biocéréales', 'Farine', null, 'Saint-Gilles - 30 - France', null, null);
