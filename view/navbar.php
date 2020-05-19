@@ -25,9 +25,27 @@
         <li class="nav-item">
           <a class="nav-link with-border mode_emploie" href="../controlers/modeDemploi.ctrl.php">Mode d'emploi</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link with-border produits" href="#">Produits</a>
-        </li>
+        <?php if (isset($produits)): ?>
+          <li id="dropdown-produits" class="nav-item">
+            <a class="nav-link with-border produits dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white;">
+              Produits
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Separated link</a>
+            </div>
+          </li>
+          <li id="produits">
+            <a class="nav-link with-border produits" href="../controlers/produits.ctrl.php">Produits</a>
+          </li>
+        <?php else: ?>
+          <li>
+            <a class="nav-link with-border produits" href="../controlers/produits.ctrl.php">Produits</a>
+          </li>
+        <?php endif; ?>
         <li class="nav-item">
           <a class="nav-link with-border actualites" href="#">Actualités</a>
         </li>
@@ -46,7 +64,6 @@
 </div>
 <script type="text/javascript">
   var sous_titre = $("#sous_titre");
-  // Petit script pour cacher la deuxième image en fonction de la taille de l'écran
   var taille = window.innerWidth;
   if (taille <= 600) {
     sous_titre.hide();
@@ -58,6 +75,27 @@
       sous_titre.hide();
     } else {
       sous_titre.show();
+    }
+  });
+
+
+  // Disparation ou apparation du dropdown produits en fonciton de la taille de l'écran.
+  var dropdown_produits = $("#dropdown-produits");
+  var produits = $("#produits");
+  if (taille > 992) {
+    dropdown_produits.hide();
+  } else {
+    produits.hide();
+  }
+
+  $(window).resize(function () {
+    var new_taille = window.innerWidth;
+    if (new_taille > 992) {
+      dropdown_produits.hide();
+      produits.show();
+    } else {
+      produits.hide();
+      dropdown_produits.show();
     }
   });
 </script>

@@ -4,11 +4,13 @@
     <meta charset="utf-8">
     <title>La Bonne Pioche</title>
     <link rel="stylesheet" href="../framework/bootstrap-4.4.1-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../view/fontawesome/css/all.css">
     <link rel="stylesheet" href="../view/css/produits.view.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="../view/js/produits.view.js"></script>
   </head>
   <body style="margin-top: 200px;">
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script defer src="../framework/bootstrap-4.4.1-dist/js/bootstrap.bundle.min.js"></script>
 
     <div class="container-fluid">
@@ -17,7 +19,14 @@
 
       <div class="row contenu">
 
-        <ul class="offset-lg-1 col-lg-3 offset-md-1 col-md-3">
+        <ul class="offset-lg-1 col-lg-3 offset-md-1 col-md-3" id="sidebar">
+          <div class="input-group mb-3">
+            <input class="form-control search" type="text" placeholder="Rechercher" aria-label="Rechercher">
+            <div class="input-group-append">
+              <button class="input-group-text send" type="button" name="button"><i class="fas fa-search text-grey" aria-hidden="true"></i></button>
+            </div>
+          </div>
+
           <li>
             <h4>Nos rayons</h4>
           </li>
@@ -45,16 +54,6 @@
         </ul>
 
       </div>
-
-
-
-      <script type="text/javascript">
-        $(function() {
-            $('.dropright').hover(function(){
-              $('.dropdown-toggle', this).trigger('click');
-            });
-        });
-      </script>
 
       <?php include("../view/footer.php") ?>
 

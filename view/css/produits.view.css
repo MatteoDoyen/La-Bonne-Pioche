@@ -17,6 +17,14 @@ body {
   margin-top: 220px;
   font-family: 'Poppins',Arial, sans-serif;
 }
+.search:active, .search:focus, .send:active, .send:focus {
+  border: 1.5px solid #f04942;
+  outline: none !important;
+  box-shadow: none;
+}
+.send:active, .send:focus {
+  border-left: 2px solid #f04942;
+}
 ul {
   list-style: none;
 }

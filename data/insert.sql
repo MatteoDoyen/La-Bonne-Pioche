@@ -149,8 +149,8 @@ INSERT INTO Produits VALUES(53, 'Huile vierge de colza', 'Huile', null, 'Monteli
 INSERT INTO Produits VALUES(54, 'Huile vierge de tournesol', 'Huile', null, 'Montelier - 26 - France', null, null);
 
 INSERT INTO Produits VALUES(55, 'Vinaigre 11 aromates', 'Vinaigre', null, 'Saint Sébastien - 38 - France', null, null);
-INSERT INTO Produits VALUES(56, 'Vinaigre à l\'échalotte', 'Vinaigre', null, 'Saint Sébastien - 38 - France', null, null);
-INSERT INTO Produits VALUES(57, 'Vinaigre à l\'estragon', 'Vinaigre', null, 'Saint Sébastien - 38 - France', null, null);
+INSERT INTO Produits VALUES(56, "Vinaigre à l'échalotte", 'Vinaigre', null, 'Saint Sébastien - 38 - France', null, null);
+INSERT INTO Produits VALUES(57, "Vinaigre à l'estragon", 'Vinaigre', null, 'Saint Sébastien - 38 - France', null, null);
 
 INSERT INTO Produits VALUES(58, 'Basilic', 'Épices', null, 'Méjannes-lès-Alès - 30 - France', null, null);
 INSERT INTO Produits VALUES(59, 'Bouillon de légumes', 'Épices', null, 'Cavaillon - 84 - France', null, null);
@@ -161,4 +161,4 @@ INSERT INTO Produits VALUES(63, 'Curry', 'Épices', null, 'Méjannes-lès-Alès 
 INSERT INTO Produits VALUES(64, 'Gros sel', 'Épices', null, 'Batz sur Mer - 44 - France', null, null);
 INSERT INTO Produits VALUES(65, 'Persil', 'Épices', null, 'Méjannes-lès-Alès - 30 - France', null, null);
 
-INSERT INTO Produits VALUES(66, 'Moutarde à l\'ancienne', 'Condiment', null, 'Montelier - 26 - France', null, null);
+INSERT INTO Produits VALUES(66, "Moutarde à l'ancienne", 'Condiment', null, 'Montelier - 26 - France', null, null);

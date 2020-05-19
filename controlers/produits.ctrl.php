@@ -10,6 +10,7 @@ $types = $dao->getTypes();
 $view = new View('../view/produits.view.php');
 // On passe à la vue la liste des Types
 $view->types = $types;
+$view->produits = true;
 // On l'affiche (cette méthode est défini dans le fichier ../framework/view.class.php).
 $view->show();
 
