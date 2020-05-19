@@ -44,21 +44,16 @@
       <?php foreach($composition as $prod) : ?>
 
         <figure class="container">
-          <div class="row">
+          <div class="row container_row">
             <a class ="col-xs-1 col-sm-1 col-lg-1" href="/La-Bonne-Pioche/controlers/produit.ctrl.php?id=<?= $prod->id ?>">
               <img class="produit_img" src="<?= $prod->url_img ?>">
             </a>
-              <div class="col-xs-2 col-sm-6 col-md-3 col-lg-2 compo-txt-prod">
+            <div class="col-xs-1 col-sm-6 col-md-3 col-lg-3 compo-txt-prod">
                 <p><?= $prod->libelle?></p>
-              </div>
-              <div class="col-xs-4 col-sm-6 col-md-6 col-lg-6 compo-txt-origin">
+            </div>
+            <div class="col-xs-4 col-sm-6 col-md-6 col-lg-6 compo-txt-origin">
                 <p><?= $prod->fabricant?></p>
-              </div>
-              <div class="col-xs-3 col-sm-6 col-md-2 col-lg-2 plusmoin_container">
-                  <button href="#">-</button>
-                  <input type="text" name="" value="">
-                  <button href="#">+</button>
-              </div>
+            </div>
           </div>
         </figure>
         <hr>

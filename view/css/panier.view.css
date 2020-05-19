@@ -17,7 +17,7 @@ body {
   font-size: 2.8em;
 }
 
-h2
+.text-center
 {
   padding-top: 50px;
 }
@@ -73,44 +73,15 @@ hr
 width:80%;
 }
 
-.plusmoin_container
+.container_row
 {
-  align-items: center;
-  display: flex;
-}
-
-.plusmoin_container input[type=text]
-{
-  display: inline-block;
-  border : 2px solid grey;
-  padding: 6px;
-  margin: 0px 5px 0px 5px;
-  width: 30px;
-}
-
-.plusmoin_container button:link
-{
-  text-decoration: none;
-}
-
-.plusmoin_container button
-{
-  background-color: #f04942;
-  border: none;
-  color: white;
-  padding: 8px 16px 8px 16px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 0px;
-  cursor: pointer;
-  border-radius: 50%;
+  justify-content: space-between;
 }
 
 .bigcontainer
 {
   margin: 0 auto;
+  padding: 0;
   position: relative;
 }
 
@@ -118,21 +89,16 @@ width:80%;
 {
   color: white;
   position: absolute;
-  display: inline-block;
   right: 0;
   background-color:  #f04942;
-  text-align: right;
-  justify-content: flex-end;
   padding: 15px 25px;
   border-radius: 0px 0px 20px 20px;
 }
-
 
 .bocal
 {
   color:blue;
   background-color:  #f04942;
-  fill: #94d31b;
   width: 25px;
   height: auto;
 }
