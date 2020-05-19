@@ -14,12 +14,15 @@ class Produit {
   private $caracteristiques;
   private $prix_u;
   private $url_img;
+  private $quantite_u;
+  private $unite;
   // Chemin URL à ajouter pour avoir l'image du produit
   private const URL = '../data/img/img_produits/';
 
   function __construct( $stock=0, $id=0,string $libelle='',string $fabricant='',
   string $rayon='',string $famille='', $coef=0, string $description='',
-  string $origine='', string $caracteristiques='',  $prix_u, string $url_img='') {
+  string $origine='', string $caracteristiques='',  $prix_u, string $url_img='',
+  $quantite_u, $unite) {
       $this -> stock = $stock;
       $this -> id =  $id;
       $this -> libelle =  $libelle;

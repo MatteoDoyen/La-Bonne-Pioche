@@ -10,5 +10,7 @@ CREATE TABLE produits (
   origine STRING,
   caracteristiques STRING,
   prix_u FLOAT,
-  url_img STRING
+  url_img STRING,
+  quantite_u FLOAT,
+  unite STRING
  );
