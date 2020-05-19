@@ -3,5 +3,6 @@ CREATE TABLE paniers (
   libelle STRING,
   coefficient INTEGER,
   prix FLOAT,
-  image STRING
+  image STRING,
+  nb_bocaux INTEGER
  );
