@@ -56,7 +56,7 @@ class PanierDAO {
     $resArray= $sth->fetchAll(PDO::FETCH_ASSOC);
     foreach($resArray as $row)
     {
-      $panier = new Panier($row['libelle'],$row['id_Panier'],$row['coefficient'],$row['prix'],$row['image']);
+      $panier = new Panier($row['libelle'],$row['id_Panier'],$row['coefficient'],$row['prix'],$row['image'],$row['nb_bocaux'],););
     }
     return $panier;
   }
