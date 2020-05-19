@@ -50,7 +50,6 @@
             </li>
           <?php endforeach; ?>
 
-
         </ul>
 
       </div>
