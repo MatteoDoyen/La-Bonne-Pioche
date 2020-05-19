@@ -15,7 +15,7 @@
   $numeroTelephone = "0455674355";
   $tauxReduction = 10.3;
 
-  $c_test = new ClientEntreprise($refUtilisateur, $nom, $prenom, $adresseMail, $motDePasse, $etat, $newsletter, $genre, $numeroTelephone, $tauxReduction);
+  $c_test = new ClientEntreprise($refUtilisateur, $nom, $prenom, $adresseMail, $motDePasse, $etat, $numeroTelephone, $newsletter, $genre, $tauxReduction);
 
   //affichage instance
   $c_test->affiche();
@@ -45,6 +45,10 @@
 
     echo "l'attribut etat => $etat n'a pas été récupérée\n";
   }
+  elseif ($c_test->numeroTelephone != $numeroTelephone) {
+
+    echo "l'attribut numeroTelephone => $numeroTelephone n'a pas été récupérée\n";
+  }
   elseif ($c_test->newsletter != $newsletter) {
 
     echo "l'attribut newsletter => $newsletter n'a pas été récupérée\n";
@@ -52,10 +56,6 @@
   elseif ($c_test->genre != $genre) {
 
     echo "l'attribut genre => $genre n'a pas été récupérée\n";
-  }
-  elseif ($c_test->numeroTelephone != $numeroTelephone) {
-
-    echo "l'attribut numeroTelephone => $numeroTelephone n'a pas été récupérée\n";
   }
   elseif ($c_test->tauxReduction != $tauxReduction) {
 
@@ -109,6 +109,10 @@
 
     echo "l'attribut etat => $etat n'a pas été modifié\n";
   }
+  elseif ($c_test->numeroTelephone == $numeroTelephone) {
+
+    echo "l'attribut numeroTelephone => $numeroTelephone n'a pas été modifié\n";
+  }
   elseif ($c_test->newsletter == $newsletter) {
 
     echo "l'attribut newsletter => $newsletter n'a pas été modifié\n";
@@ -116,10 +120,6 @@
   elseif ($c_test->genre == $genre) {
 
     echo "l'attribut genre => $genre n'a pas été modifié\n";
-  }
-  elseif ($c_test->numeroTelephone == $numeroTelephone) {
-
-    echo "l'attribut numeroTelephone => $numeroTelephone n'a pas été modifié\n";
   }
   elseif ($c_test->tauxReduction == $tauxReduction) {
 

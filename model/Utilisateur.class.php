@@ -4,8 +4,11 @@
   define("TEST",1);
   // /!\ fonctionne pour toute l'arborescence
 
-  //require_once("Genre.class.enum.php");
-  //require_once("EtatUtilisateur.class.enum.php");
+  //Etat
+  define("enAttente",0);
+  define("actif",1);
+  define("desactive",2);
+  define("supprimer",3);
 
   class Utilisateur {
 
@@ -15,7 +18,7 @@
     private string $adresseMail;
     private string $motDePasse;
     private string $etat; //pour l'instant qu'un simple type string, classe enumérer etat
-    private string $numeroTelephone;
+    private string $numeroTelephone
 
     //constructeur de base
     public function __construct( int $refUtilisateur, string $nom, string $prenom, string $adresseMail, string $motDePasse, string $etat, string $numeroTelephone ) {
