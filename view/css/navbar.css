@@ -11,12 +11,12 @@
   padding-top: 1em;
 }
 
-h1 {
+.nav_h1 {
   color: white;
   font-size: 2.1em;
   margin-bottom: -5px;
 }
-h2 {
+.nav_h2 {
   color: white;
   font-size: 0.8em;
   margin-bottom: 0;
@@ -26,7 +26,7 @@ h2 {
 .titre {
   text-align: center;
 }
-img {
+.nav_img {
   width: auto;
   height: 40px;
 }
@@ -98,10 +98,10 @@ img {
   .nav-link {
     font-size: .45em;
   }
-  h1 {
+  .nav_h1 {
     font-size: 2em;
   }
-  h2 {
+  .nav_h2 {
     font-size: 0.75em;
   }
 }
@@ -114,10 +114,10 @@ img {
   .navbar-expand-lg .navbar-nav .nav-link {
     padding: 4px 12px 4px 12px;
   }
-  h1 {
+  .nav_h1 {
     font-size: 1.9em;
   }
-  h2 {
+  .nav_h2 {
     font-size: 0.7em;
   }
 }

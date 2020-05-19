@@ -14,7 +14,7 @@
     <div class="container-fluid p-0">
 
       <?php include("../view/navbar.php") ?>
-      
+
       <?php foreach($list as $produit) :  ?>
         <figure>
           <a href="/La-Bonne-Pioche/controlers/produit.ctrl.php?id=<?= $produit->id ?>">

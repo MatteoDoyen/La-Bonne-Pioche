@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>La Bonne Pioche - Nous</title>
     <link rel="stylesheet" href="../framework/bootstrap-4.4.1-dist/css/bootstrap.css">
-    <link rel="stylesheet" href="../view/css/nous.view.css">
+    <link rel="stylesheet" href="../view/css/produit.view.css">
   </head>
   <body>
 
