@@ -35,6 +35,8 @@ class Produit {
       $this -> caractéristiques = $caracteristiques;
       $this -> prix_u = $prix_u;
       $this -> url_img = $url_img;
+      $this -> quantite_u = $quantite_u;
+      $this -> unite = $unite;
   }
 
   public function __get($libelle){

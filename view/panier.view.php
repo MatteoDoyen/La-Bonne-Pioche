@@ -26,7 +26,6 @@
         </div>
       </figure>
       <h2 class="text-center pb-5">Composition</h2>
-
       <div class="container">
         <div class="row">
           <div class="prix">
@@ -36,12 +35,14 @@
 
           </div>
           <div class="nombre_panier">
-
           </div>
         </div>
       </div>
 
-      <?php foreach($composition as $prod) : ?>
+      <?php foreach($composition as $key => $prod) :
+        $key = explode(' ',$key);
+
+        ?>
 
         <figure class="container">
           <div class="row container_row">
@@ -51,13 +52,15 @@
             <div class="col-xs-1 col-sm-6 col-md-3 col-lg-3 compo-txt-prod">
                 <p><?= $prod->libelle?></p>
             </div>
-            <div class="col-xs-4 col-sm-6 col-md-6 col-lg-6 compo-txt-origin">
-                <p><?= $prod->fabricant?></p>
+            <div class="col-xs-4 col-sm-6 col-md-3 col-lg-2 compo-txt-origin">
+                <p><?php echo"$key[1] x $prod->quantite_u $prod->unite"; ?></p>
+            </div>
+            <div class="col-xs-4 col-sm-6 col-md-3 col-lg-2">
+                <p><?php  echo gettype($prod->prix_u); ?></p>
             </div>
           </div>
         </figure>
         <hr>
-
       <?php endforeach ?>
       <?php include("footer.php") ?>
 
