@@ -79,8 +79,8 @@ class PanierDAO {
     foreach($res as $row)
     {
       $clee = $row['id_produit'].' '.$row['quantite'];
-      $produit = $produit->get($row['id_produit']);
-      $idcomposition[$clee]=$produit;
+      $prod = $produit->get($row['id_produit']);
+      $idcomposition[$clee]=$prod;
     }
     return $idcomposition;
   }
