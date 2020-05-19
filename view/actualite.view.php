@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>La Bonne Pioche - Nous Trouver</title>
     <link rel="stylesheet" href="../framework/bootstrap-4.4.1-dist/css/bootstrap.css">
-    <link rel="stylesheet" href="../view/css/nousTrouver.view.css">
+    <link rel="stylesheet" href="../view/css/actualite.view.css">
   </head>
   <body>
 
@@ -47,14 +47,6 @@
       </div>
 
       <hr class="offset-lg-3 col-lg-6 offset-md-3 col-md-6 offset-sm-2 col-sm-8 offset-1 col-10 my-5">
-
-      <div class="row">
-        <div class="offset-lg-2 col-lg-8 mb-5">
-          <div id="map-container-google-1" class="z-depth-1-half map-container">
-            <iframe id="plan" src="https://maps.google.com/maps?q=labonnepioche&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" allowfullscreen></iframe>
-          </div>
-        </div>
-      </div>
 
       <?php include("../view/footer.php") ?>
 
