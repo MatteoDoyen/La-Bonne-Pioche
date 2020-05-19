@@ -7,9 +7,10 @@ class Panier {
   private $prix;
   private $image;
   private const URL = '../data/img/img_paniers/';
-  private $nbpersonne;
+  private $nb_Personne;
+  private $nb_Bocaux;
 
-  public function __construct(string $libelle, int $id_Panier, float $coefficient, float $prix, string $image)
+  public function __construct(string $libelle, int $id_Panier, float $coefficient, float $prix, string $image, int $nb_Bocaux)
   {
     $this->libelle = $libelle;
     $this->id_Panier = $id_Panier;
@@ -17,7 +18,8 @@ class Panier {
     $this->coefficient = $coefficient;
     $this->prix = $prix;
     $this->image = $image;
-    $this->nbpersonne = 1;
+    $this->nb_Personne = 1;
+    $this->nb_Bocaux = $nb_Bocaux;
   }
 
   //méthode get

@@ -29,7 +29,7 @@
           <div class="container_img">
             <img class="mx-auto d-block" src="<?= $panier->image ?>">
           </div>
-            <p class="text">3 x <img class="bocal" src="../others/SVG/bocal.svg" alt=""></p>
+            <p class="text"><?= $panier->  ?> x <img class="bocal" src="../others/SVG/bocal.svg" alt=""></p>
         </div>
       </figure>
       <div class="container container_commande">
