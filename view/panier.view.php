@@ -43,8 +43,8 @@
               <button type="button" name="button"><img src="../others/SVG/user-gris.svg" alt=""></button>
             </div>
           </div>
-          <div class="separation d-none d-sm-block col-sm-1 col-md-1 col-lg-1">
-            <img src="../others/SVG/separateur.svg" alt="">
+          <div class="separation text-center col-sm-1 col-md-1 col-lg-1">
+            <img class="d-none d-sm-block" src="../others/SVG/separateur.svg" alt="">
           </div>
           <div class="nombre_panier col-md-6 col-lg-4">
             <div class="ajoutpanier">
