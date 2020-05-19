@@ -44,16 +44,11 @@ body {
   height: auto;
   width: 100%;
 }
-.compo-txt-prod
+.compo-txt-prod, .compo-txt-origin
 {
   justify-content: center;
 }
 
-.compo-txt-origin
-{
-  justify-content:flex-end;
-
-}
 
 .compo-txt-prod, .compo-txt-origin
 {

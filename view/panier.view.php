@@ -1,5 +1,13 @@
 <!DOCTYPE html>
+<!--
+//$somme=0;
+//foreach ($composition as $key => $prod) {
+  //$key = explode(' ',$key);
 
+//  $somme+=$prod->prix_u*$key[1]*$panier->nbpersonne;
+}
+
+ ?> -->
 <html lang="fr" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -24,20 +32,10 @@
             <p class="text">3 x <img class="bocal" src="../others/SVG/bocal.svg" alt=""></p>
         </div>
       </figure>
-      <h2 class="text-center pb-5">Composition</h2>
-      <div class="container">
+      <div class="container container_commande">
         <div class="row">
           <div class="prix">
-            <?php
-            $somme=0;
-            foreach ($composition as $key => $prod) {
-              $key = explode(' ',$key);
-
-              $somme+=$prod->prix_u*$key[1]*$panier->nbpersonne;
-            }
-
-             ?>
-            <p><?= $somme ?></p>
+            <p><?= $panier->prix ?></p>
           </div>
           <div class="separation">
 
@@ -46,7 +44,7 @@
           </div>
         </div>
       </div>
-
+      <h2 class="text-center pb-5">Composition</h2>
       <?php foreach($composition as $key => $prod) :
         $key = explode(' ',$key);
         ?>
@@ -56,17 +54,14 @@
             <a class ="col-xs-1 col-sm-1 col-lg-1" href="/La-Bonne-Pioche/controlers/produit.ctrl.php?id=<?= $prod->id ?>">
               <img class="produit_img" src="<?= $prod->url_img ?>">
             </a>
-            <div class="col-xs-1 col-sm-6 col-md-3 col-lg-3 compo-txt-prod">
+            <div class="col-xs-1 col-sm-3 col-md-3 col-lg-3 compo-txt-prod">
                 <p><?= $prod->libelle?></p>
             </div>
-            <div class="col-xs-4 col-sm-6 col-md-3 col-lg-2 compo-txt-origin">
+            <div class="col-xs-4 col-sm-3 col-md-3 col-lg-2 compo-txt-origin">
                 <p><?php echo"$key[1] x $prod->quantite_u $prod->unite"; ?></p>
             </div>
-            <div class="col-xs-4 col-sm-6 col-md-3 col-lg-2">
-                <p><?php
-                $value = $prod->prix_u*$key[1]*$panier->nbpersonne;
-
-                echo "$value €"; ?></p>
+            <div class="col-xs-4 col-sm-6 col-md-3 col-lg-6 compo-txt-origin">
+                <p><?= $prod->fabricant ?></p>
             </div>
           </div>
         </figure>
