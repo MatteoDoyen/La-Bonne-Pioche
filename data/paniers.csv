@@ -1,8 +1,8 @@
-1;panier_fraicheur;1;15;panier_fraicheur.jpg
-2;panier_produits_secs;1;20;produits_secs.jpg
-3;panier_reveil;1;20;reveil.jpg
-4;panier_gouter;1;20;gouter.jpg
-5;panier_apero;1;25;apero.jpg
-6;panier_produits_laitiers;1;25;produits_laitiers.jpg
-7;panier_entretien_maison;1;15;entretien_maison.jpg
-8;panier_hygiene_corporelle;1;10;hygiene_corporelle.jpg
+1;panier fraicheur;1;15;panier_fraicheur.jpg;0
+2;panier produits secs;1;20;produits_secs.jpg;4
+3;panier reveil;1;20;reveil.jpg;3
+4;panier gouter;1;20;gouter.jpg;2
+5;panier apero;1;25;apero.jpg;2
+6;panier produits laitiers;1;25;produits_laitiers.jpg;0
+7;panier entretien maison;1;15;entretien_maison.jpg;0
+8;panier hygiene corporelle;1;10;hygiene_corporelle.jpg;0
