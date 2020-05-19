@@ -12,7 +12,6 @@
     <script defer src="../framework/bootstrap-4.4.1-dist/js/bootstrap.bundle.min.js"></script>
 
     <div class="container-fluid">
-
       <?php include("navbar.php") ?>
 
 
@@ -29,7 +28,16 @@
       <div class="container">
         <div class="row">
           <div class="prix">
+            <?php
+            $somme=0;
+            foreach ($composition as $key => $prod) {
+              $key = explode(' ',$key);
 
+              $somme+=$prod->prix_u*$key[1]*$panier->nbpersonne;
+            }
+
+             ?>
+            <p><?= $somme ?></p>
           </div>
           <div class="separation">
 
@@ -41,7 +49,6 @@
 
       <?php foreach($composition as $key => $prod) :
         $key = explode(' ',$key);
-
         ?>
 
         <figure class="container">
@@ -56,7 +63,10 @@
                 <p><?php echo"$key[1] x $prod->quantite_u $prod->unite"; ?></p>
             </div>
             <div class="col-xs-4 col-sm-6 col-md-3 col-lg-2">
-                <p><?php  echo gettype($prod->prix_u); ?></p>
+                <p><?php
+                $value = $prod->prix_u*$key[1]*$panier->nbpersonne;
+
+                echo "$value €"; ?></p>
             </div>
           </div>
         </figure>
