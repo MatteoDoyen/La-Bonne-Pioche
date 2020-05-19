@@ -29,7 +29,7 @@
           <a class="nav-link with-border produits" href="#">Produits</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link with-border actualites" href="#">Actualités</a>
+          <a class="nav-link with-border actualites" href="../controlers/actualite.ctrl.php">Actualités</a>
         </li>
         <li class="nav-item">
           <a class="nav-link with-border nous_trouver" href="../controlers/nousTrouver.ctrl.php">Nous trouver</a>
