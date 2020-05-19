@@ -36,13 +36,28 @@
       </figure>
       <div class="container container_commande">
         <div class="row">
-          <div class="prix">
-            <p><?= $panier->prix ?></p>
+          <div class="prix col-md-4 col-lg-4">
+            <div class="">
+              <p><?= $panier->prix?>/€</p>
+              <button type="button" name="button"><img src="../others/SVG/iconuser.svg" alt=""></button>
+              <button type="button" name="button"><img src="../others/SVG/user-gris.svg" alt=""></button>
+            </div>
           </div>
-          <div class="separation">
-
+          <div class="separation d-none d-sm-block col-sm-1 col-md-1 col-lg-1">
+            <img src="../others/SVG/separateur.svg" alt="">
           </div>
-          <div class="nombre_panier">
+          <div class="nombre_panier col-md-6 col-lg-4">
+            <div class="ajoutpanier">
+              <div class="bouton_legende_panier">
+                <p>Nombre de panier</p>
+                <div class="bouton_panier">
+                  <button type="button" name="button">-</button>
+                  <input type="text" name="" value="1">
+                  <button type="button" name="button">+</button>
+                </div>
+              </div>
+              <p class="panier">Ajouter <img src="..\others\SVG\panierachat.svg" alt=""> </p>
+            </div>
           </div>
         </div>
       </div>

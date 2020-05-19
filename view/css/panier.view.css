@@ -92,8 +92,106 @@ width:80%;
 
 .bocal
 {
-  color:blue;
   background-color:  #f04942;
   width: 25px;
   height: auto;
+}
+.bouton_legende_panier p
+{
+  font-size: 10px;
+  display: inline-block;
+  color: #707070;
+}
+.ajoutpanier input[type="TEXT"]
+{
+  text-align: center;
+  width: 50px;
+  color :  #f04942;
+  border : 3px solid  #f04942;
+  border-radius: 5px;
+}
+
+.container_commande>div
+{
+  margin: 65px 0px 0px 0px;
+}
+.ajoutpanier
+{
+    display: flex;
+    align-items:center;
+    justify-content: space-around;
+}
+.bouton_legende_panier
+{
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+.bouton_panier button
+{
+  font-size: 15px;
+  background-color: transparent;
+  border: 3px solid #f04942;
+  border-radius: 40px;
+  color : #f04942;
+  display: inline-block;
+  margin: 0;
+}
+
+.bouton_panier button:first-child
+{
+  padding: 0px 7px 0px 7px;
+}
+.bouton_panier button:nth-child(3)
+{
+  padding: 0px 5px 0px 5px;
+}
+
+.prix button
+{
+  background-color: transparent;
+  border: none;
+}
+
+.prix button img
+{
+  padding: 0;
+  margin: 0;
+  height: 25px;
+  width: auto;
+}
+.prix,.separation
+{
+  display: flex;
+  justify-content: center;
+  align-items:center;
+}
+
+.prix>div
+{
+  align-items:center;
+  display: flex;
+}
+.prix p
+{
+  padding: 0;
+  margin: 0;
+  font-size: 25px;
+  display: inline-block;
+  color : #f04942;
+}
+
+.panier img
+{
+  width: 20px;
+}
+.panier
+{
+  font-size : 10px;
+  margin: 0;
+  padding: 15px;
+  border-radius: 0px 0px 15px 15px;
+  display: inline-block;
+  color : white;
+  background-color: #f04942;
 }
