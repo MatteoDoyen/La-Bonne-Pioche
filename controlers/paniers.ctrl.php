@@ -13,7 +13,6 @@ $list = array();
 for($i=1; $i<$catalogue->getNbElements();$i++){
   // Récupération de l'objet Produit
   $p = $catalogue->get($i);
-  $p->libelle = str_replace("_"," ",$p->libelle);
   // Ajout à la liste des images à afficher
   $list[] =$p;
 }

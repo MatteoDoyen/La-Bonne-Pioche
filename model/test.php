@@ -7,6 +7,6 @@ require_once(dirname(__FILE__).'/PanierDAO.class.php');
 
 $panier = new PanierDAO();
 
-$test = $panier->getComposition(1);
+$test = $panier->get(2);
 print_r($test);
  ?>

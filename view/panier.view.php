@@ -29,7 +29,9 @@
           <div class="container_img">
             <img class="mx-auto d-block" src="<?= $panier->image ?>">
           </div>
-            <p class="text"><?=   ?> x <img class="bocal" src="../others/SVG/bocal.svg" alt=""></p>
+            <?php if($panier->nb_Bocaux>0): ?>
+            <p class="text"><?= $panier->nb_Bocaux ?> x <img class="bocal" src="../others/SVG/bocal.svg" alt=""></p>
+            <?php endif; ?>
         </div>
       </figure>
       <div class="container container_commande">
