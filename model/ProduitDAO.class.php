@@ -27,7 +27,7 @@ class ProduitDAO {
     foreach($resArray as $row)
     {
       $produit = new Produit($row['stock'],$row['id'],$row['libelle'],$row['fabricant'],$row['rayon'],$row['famille'],
-      $row['coef'],$row['description'],$row['origine'],$row['caracteristiques'],$row['prix_u'],$row['url_img']);
+      $row['coef'],$row['description'],$row['origine'],$row['caracteristiques'],$row['prix_u'],$row['url_img'],$row['quantite_u'],$row['unite']);
     }
     return $produit;
   }
