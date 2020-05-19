@@ -15,7 +15,8 @@
 
       <?php include("navbar.php") ?>
       <br><br><br><br><br><br>
-      <p><?= $utilisateur->nom ?>; <?= $utilisateur->prenom ?></p>
+
+      //tester l'id (try / if) et afficher ce qui est pertinent
 
       <?php include("footer.php") ?>
 

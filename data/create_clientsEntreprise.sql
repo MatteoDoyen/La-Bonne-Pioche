@@ -1,4 +1,4 @@
-CREATE TABLE utilisateurs (
+CREATE TABLE clientsEntreprise (
   refUtilisateur INTEGER PRIMARY KEY,
   nom STRING,
   prenom STRING,
@@ -6,7 +6,6 @@ CREATE TABLE utilisateurs (
   motDePasse STRING,
   etat STRING,
   numeroTelephone STRING,
-  statut BOOLEAN,
   newsletter BOOLEAN,
   genre BOOLEAN,
   tauxReduction FLOAT,
