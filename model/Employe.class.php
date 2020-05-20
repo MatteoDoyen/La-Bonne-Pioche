@@ -1,5 +1,10 @@
 <?php
 
+  //inclus dans Utilisateur
+  //TEST = 1 activer l'affichage de l'appel de la méthode
+  //TEST = 0 supprimer l'affichage de l'appel
+  //define("TEST",0);
+
   require_once("Utilisateur.class.php");
 
   class Employe extends Utilisateur {

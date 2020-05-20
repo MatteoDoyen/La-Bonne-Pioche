@@ -5,7 +5,7 @@
   class ClientEntreprise extends Client {
 
     //constructeur
-    public function __construct(int $refUtilisateur, string $nom, string $prenom, string $adresseMail, string $motDePasse, string $etat, string $numeroTelephone, bool $newsletter, bool $genre, float $tauxReduction){
+    public function __construct(int $refUtilisateur, string $nom, string $prenom, string $adresseMail, string $motDePasse, string $etat, string $numeroTelephone, bool $newsletter, int $genre, float $tauxReduction){
 
       //test d'appel de la méthode
       if(TEST == 1){ echo "appel : ".__METHOD__."\n";}

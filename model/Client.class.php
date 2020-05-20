@@ -5,18 +5,17 @@
   //define("TEST",0);
 
   require_once("Utilisateur.class.php");
-  
+
 
   class Client extends Utilisateur {
 
     private bool $newsletter;
-    private bool $genre;      //pour l'instant [1] => homme / [0] => femme
-    private string $numeroTelephone;
+    private int $genre;      //pour l'instant [1] => homme / [2] => femme / [0] => autre
     private float $tauxReduction;
 
 
     //constructeur
-    public function __construct(int $refUtilisateur, string $nom, string $prenom, string $adresseMail, string $motDePasse, string $etat, string $numeroTelephone, bool $newsletter, bool $genre, float $tauxReduction){
+    public function __construct(int $refUtilisateur, string $nom, string $prenom, string $adresseMail, string $motDePasse, string $etat, string $numeroTelephone, bool $newsletter, int $genre = 0, float $tauxReduction){
 
       //test d'appel de la méthode
       if(TEST == 1){ echo "appel : ".__METHOD__."\n";}
@@ -25,9 +24,10 @@
       parent::__construct($refUtilisateur, $nom, $prenom, $adresseMail, $motDePasse, $etat, $numeroTelephone);
 
       $this->newsletter = $newsletter;
-      $this->genre = $genre;
       $this->tauxReduction = $tauxReduction;
 
+      //filtre saisie genre
+      $this->genre = ( $genre >= 0 && $genre <= 2 ) ? $genre : 0 ;
     }
 
     //méthode get
@@ -70,7 +70,12 @@
         parent::__set($attribut, $valeur);
       }
       //retourne une erreur si le nom d'attribut pris en paramètre est inéxistant ( classe fille )
-      else if ( $attribut == "newsletter" || $attribut == "genre" || $attribut == "tauxReduction" ) {
+      elseif ( $attribut == "genre") {
+
+        //filtre du genre
+        $this->$attribut = ( $valeur >= 0 && $valeur <= 2 ) ? $valeur : 0;
+      }
+      else if ( $attribut == "newsletter" || $attribut == "tauxReduction" ) {
 
         $this->$attribut = $valeur;
       }
@@ -88,7 +93,22 @@
 
       parent::affiche();
 
-      echo "newsletter : ".$this->newsletter."\n"."genre : ".$this->genre."\n"."tauxReduction : ".$this->tauxReduction."\n";
+      echo "newsletter : ".$this->newsletter."\n";
+
+      if( $this->genre == 1) {
+
+        echo "genre : homme\n";
+      }
+      elseif ( $this->genre == 2) {
+
+        echo "genre : femme\n";
+      }
+      else {
+
+        echo "genre : autre\n";
+      }
+
+      echo "tauxReduction : ".$this->tauxReduction."\n";
 
     }
 

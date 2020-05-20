@@ -11,7 +11,7 @@
   $motDePasse = 'Provence4';
   $etat = "enAttente";
   $newsletter = true;
-  $genre = true;
+  $genre = 1;
   $numeroTelephone = "0455674355";
   $tauxReduction = 10.3;
 
@@ -41,7 +41,7 @@
 
     echo "l'attribut motDePasse => $motDePasse n'a pas été récupérée\n";
   }
-  elseif ($c_test->etat != EtatUtilsateur::$etat) {
+  elseif ($c_test->etat != $etat) {
 
     echo "l'attribut etat => $etat n'a pas été récupérée\n";
   }
@@ -75,9 +75,9 @@
   $c_test->prenom = 'Charles';
   $c_test->adresseMail = 'lievre-doyen.charles@thotmail.com';
   $c_test->motDePasse = 'houite';
-  $c_test->etat = "Actif";
+  $c_test->etat = "actif";
   $c_test->newsletter = false;
-  $c_test->genre = false;
+  $c_test->genre = 2;
   $c_test->numeroTelephone = "0602285492";
   $c_test->tauxReduction = 12.3;
 

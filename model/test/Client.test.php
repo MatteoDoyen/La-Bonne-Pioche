@@ -11,9 +11,9 @@
   $motDePasse = 'Provence4';
   $etat = "actif";
   $newsletter = true;
-  $genre = true;
   $numeroTelephone = "0455674355";
   $tauxReduction = 10.3;
+  $genre = 1;
 
   $c_test = new Client($refUtilisateur, $nom, $prenom, $adresseMail, $motDePasse, $etat, $numeroTelephone, $newsletter, $genre, $tauxReduction);
 
@@ -45,6 +45,10 @@
 
     echo "l'attribut etat => $etat n'a pas été récupérée\n";
   }
+  elseif ($c_test->numeroTelephone != $numeroTelephone) {
+
+    echo "l'attribut numeroTelephone => $numeroTelephone n'a pas été récupérée\n";
+  }
   elseif ($c_test->newsletter != $newsletter) {
 
     echo "l'attribut newsletter => $newsletter n'a pas été récupérée\n";
@@ -52,10 +56,6 @@
   elseif ($c_test->genre != $genre) {
 
     echo "l'attribut genre => $genre n'a pas été récupérée\n";
-  }
-  elseif ($c_test->numeroTelephone != $numeroTelephone) {
-
-    echo "l'attribut numeroTelephone => $numeroTelephone n'a pas été récupérée\n";
   }
   elseif ($c_test->tauxReduction != $tauxReduction) {
 
@@ -75,10 +75,10 @@
   $c_test->prenom = 'Charles';
   $c_test->adresseMail = 'lievre-doyen.charles@thotmail.com';
   $c_test->motDePasse = 'houite';
-  $c_test->etat = "en cours";
+  $c_test->etat = "desactive";
   $c_test->numeroTelephone = "0602285492";
   $c_test->newsletter = false;
-  $c_test->genre = false;
+  $c_test->genre = 2;
   $c_test->tauxReduction = 12.3;
 
   //affichage instance
@@ -109,6 +109,10 @@
 
     echo "l'attribut etat => $etat n'a pas été modifié\n";
   }
+  elseif ($c_test->numeroTelephone == $numeroTelephone) {
+
+    echo "l'attribut numeroTelephone => $numeroTelephone n'a pas été modifié\n";
+  }
   elseif ($c_test->newsletter == $newsletter) {
 
     echo "l'attribut newsletter => $newsletter n'a pas été modifié\n";
@@ -116,10 +120,6 @@
   elseif ($c_test->genre == $genre) {
 
     echo "l'attribut genre => $genre n'a pas été modifié\n";
-  }
-  elseif ($c_test->numeroTelephone == $numeroTelephone) {
-
-    echo "l'attribut numeroTelephone => $numeroTelephone n'a pas été modifié\n";
   }
   elseif ($c_test->tauxReduction == $tauxReduction) {
 
@@ -129,5 +129,20 @@
 
     echo "OK : les setteurs fonctionnent pour la classe Utilisateur\n";
   }
+
+
+  $c_test->genre = 5;
+
+  if ( $c_test->genre != 0 ){
+
+    echo "le filtre du setteur de genre n'est pas fonctionnel\n";
+  }
+  else {
+
+    echo "Ok : le filtre du setteur de genre est fonctionnel\n";
+  }
+
+  //affichage instance
+  $c_test->affiche();
 
 ?>
