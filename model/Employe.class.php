@@ -30,12 +30,12 @@
       $retour = -1;
 
       //retourne une erreur si le nom d'attribut pris en paramètre est inéxistant ( classe mère )
-      if( $attribut == "refUtilisateur" || $attribut == "nom" || $attribut == "prenom" || $attribut == "adresseMail" || $attribut == "motDePasse" || $attribut == "etat" || $numeroTelephone = "numeroTelephone"){
+      if( $attribut == "refUtilisateur" || $attribut == "nom" || $attribut == "prenom" || $attribut == "adresseMail" || $attribut == "motDePasse" || $attribut == "etat" || $attribut == "numeroTelephone") {
 
         $retour = parent::__get($attribut);
       }
       //retourne une erreur si le nom d'attribut pris en paramètre est inéxistant ( classe fille )
-      else if ( $attribut == "statut" ) {
+      elseif ( $attribut == "statut" ) {
 
         $retour = $this->$attribut;
       }
@@ -55,7 +55,7 @@
       if(TEST == 1){ echo "appel :".__METHOD__."($attribut)\n";}
 
       //retourne une erreur si le nom d'attribut pris en paramètre est inéxistant ( classe mère )
-      if( $attribut == "refUtilisateur" || $attribut == "nom" || $attribut == "prenom" || $attribut == "adresseMail" || $attribut == "motDePasse" || $attribut == "etat" || $numeroTelephone = "numeroTelephone"){
+      if( $attribut == "refUtilisateur" || $attribut == "nom" || $attribut == "prenom" || $attribut == "adresseMail" || $attribut == "motDePasse" || $attribut == "etat" || $attribut = "numeroTelephone"){
 
         parent::__set($attribut, $valeur);
       }

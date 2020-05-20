@@ -60,7 +60,7 @@
   $u_test->prenom = 'Charles';
   $u_test->adresseMail = 'lievre-doyen.charles@thotmail.com';
   $u_test->motDePasse = 'huitre';
-  $u_test->etat = 'en cours';
+  $u_test->etat = 'desactive';
   $u_test->numeroTelephone = "0405662322";
 
   //affichage instance
@@ -99,5 +99,19 @@
 
     echo "OK : les setteurs fonctionnent pour la classe Utilisateur\n";
   }
+
+  //test sur le filtre de l'attribut etat du setteur
+  $u_test->etat = "salut";
+
+  if( $u_test->etat != "enAttente" ) {
+
+    echo "le filtre d'etat ne fonctionne pas\n";
+  }
+  else {
+
+    echo "OK : le filtre d'etat fonctionne\n";
+  }
+
+  $u_test->affiche();
 
 ?>
