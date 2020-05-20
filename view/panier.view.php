@@ -38,11 +38,15 @@
       <div class="container container_commande">
         <div class="row">
           <div class="prix col-md-4 col-lg-4">
-            <div class="">
-              <p><?= $panier->prix?>/€</p>
-              <button type="button" name="button"><img src="../others/SVG/iconuser.svg" alt=""></button>
-              <button type="button" name="button"><img src="../others/SVG/user-gris.svg" alt=""></button>
+            <div class="container_prix">
+              <div class="prix_button">
+                <p><?= $panier->prix?>/€</p>
+                <button type="button" name="button"><img src="../others/SVG/iconuser.svg" alt=""></button>
+                <button type="button" name="button"><img src="../others/SVG/user-gris.svg" alt=""></button>
+              </div>
+              <p class="nb_personne_panier" >Panier pour <?= $panier->nb_Personne ?></p>
             </div>
+
           </div>
           <div class="separation col-sm-1 col-md-1 col-lg-1">
             <img class="" src="../others/SVG/separateur.svg" alt="">
@@ -74,8 +78,8 @@
 
         <figure class="container test">
           <div class="row container_row">
-            <a class ="col-xs-1 col-sm-1 col-lg-1" href="/La-Bonne-Pioche/controlers/produit.ctrl.php?id=<?= $prod->id ?>">
-              <img class="produit_img" src="<?= $prod->url_img ?>">
+            <a class ="lien_img col-xs-1 col-sm-1 col-lg-1" href="/La-Bonne-Pioche/controlers/produit.ctrl.php?id=<?= $prod->id ?>">
+              <img src="<?= $prod->url_img ?>">
             </a>
             <div class="col-xs-1 col-sm-3 col-md-3 col-lg-3 compo-txt-prod">
                 <p><?= $prod->libelle?></p>
