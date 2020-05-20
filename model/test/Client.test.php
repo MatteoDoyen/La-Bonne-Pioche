@@ -127,7 +127,7 @@
   }
   else {
 
-    echo "OK : les setteurs fonctionnent pour la classe Utilisateur\n";
+    echo "OK : les setteurs fonctionnent pour la classe Client\n";
   }
 
 

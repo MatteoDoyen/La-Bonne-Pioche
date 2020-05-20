@@ -65,7 +65,7 @@
   $e_test->prenom = 'Charles';
   $e_test->adresseMail = 'lievre-doyen.charles@thotmail.com';
   $e_test->motDePasse = 'huitre';
-  $e_test->etat = 'en cours';
+  $e_test->etat = 'desactive';
   $e_test->statut = false;
   $numeroTelephone = "0405585492";
 
@@ -107,7 +107,7 @@
   }
   else {
 
-    echo "OK : les setteurs fonctionnent pour la classe Utilisateur\n";
+    echo "OK : les setteurs fonctionnent pour la classe Employe\n";
   }
 
 ?>
