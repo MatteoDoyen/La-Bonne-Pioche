@@ -13,14 +13,14 @@ class PanierDAO {
     //db
     $database_compo = 'sqlite:'.dirname(__FILE__).'/../data/database.db';
     try {
-      $this->dbc = new PDO($database_compo);
-      if (!$this->dbc) {
+      $this->db = new PDO($database_compo);
+      if (!$this->db) {
         die ("Database error");
       }
     } catch (PDOException $e) {
       die("PDO Error :".$e->getMessage()." $database_compo\n");
     }
-    $this->dbc->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
   }
 
@@ -48,7 +48,7 @@ class PanierDAO {
 
   function getComposition(int $id_Panier) : array{
     $produit = new ProduitDAO();
-    $r = $this->dbc->query("SELECT * FROM produits_paniers WHERE id_panier = $id_Panier");
+    $r = $this->db->query("SELECT * FROM produits_paniers WHERE id_panier = $id_Panier");
     $res = $r->fetchAll(PDO::FETCH_ASSOC);
     $idcomposition = array();
     foreach($res as $row)
