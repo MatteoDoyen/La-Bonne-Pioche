@@ -27,7 +27,7 @@ class ClientEntrepriseDAO {
     foreach($resArray as $row)
     {
       $clientE = new ClientEntreprise($row['refUtilisateur'],$row['nom'],$row['prenom'],$row['adresseMail'],$row['motDePasse'],
-      $row['etat'],$row['numeroTelephone'],$row['newsletter'],$row['genre'],$row['tauxReduction']);
+      $row['etat'],$row['numeroTelephone'],$row['newsletter'],$row['genre'],$row['tauxReduction'],$row['refEntreprise']);
     }
     return $clientE;
   }
