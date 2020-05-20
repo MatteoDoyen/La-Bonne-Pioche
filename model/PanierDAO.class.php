@@ -11,31 +11,8 @@ class PanierDAO {
 
   // Constructeur chargé d'ouvrir la BD
   function __construct() {
-    //db paniers
-    $database = 'sqlite:'.dirname(__FILE__).'/../data/database.db';
-    try {
-      $this->db = new PDO($database);
-      if (!$this->db) {
-        die ("Database error");
-      }
-    } catch (PDOException $e) {
-      die("PDO Error :".$e->getMessage()." $database\n");
-    }
-    $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    //db produits
-    $database_prod = 'sqlite:'.dirname(__FILE__).'/../data/database.db';
-    try {
-      $this->dbp = new PDO(  $database_prod);
-      if (!$this->dbp) {
-        die ("Database error");
-      }
-    } catch (PDOException $e) {
-      die("PDO Error :".$e->getMessage()." $database_prod\n");
-    }
-    $this->dbp->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-    //db composition
+    //db
     $database_compo = 'sqlite:'.dirname(__FILE__).'/../data/database.db';
     try {
       $this->dbc = new PDO($database_compo);
