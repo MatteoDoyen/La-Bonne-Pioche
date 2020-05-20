@@ -7,7 +7,7 @@ class ClientEntrepriseDAO {
 
   // Constructeur chargé d'ouvrir la BD
   function __construct() {
-    $database = 'sqlite:'.dirname(__FILE__).'/../data/databaseU.db';
+    $database = 'sqlite:'.dirname(__FILE__).'/../data/database.db';
     try {
       $this->db = new PDO($database);
       if (!$this->db) {
@@ -27,7 +27,7 @@ class ClientEntrepriseDAO {
     foreach($resArray as $row)
     {
       $clientE = new ClientEntreprise($row['refUtilisateur'],$row['nom'],$row['prenom'],$row['adresseMail'],$row['motDePasse'],
-      $row['etat'],$row['numeroTelephone'],$row['newsletter'],$row['genre'],$row['tauxReduction'],$row['refEntreprise']);
+      $row['etat'],$row['numeroTelephone'],$row['newsletter'],$row['genre'],$row['tauxReduction']);
     }
     return $clientE;
   }
