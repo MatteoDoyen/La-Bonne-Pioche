@@ -1,6 +1,12 @@
 CREATE TABLE produits_paniers (
-  id_produit INTEGER NOT NULL REFERENCES produits(id),
-  id_panier INTEGER NOT NULL REFERENCES paniers(id_Panier),
+  id_produit INTEGER NOT NULL,
+  id_panier INTEGER NOT NULL,
   quantite INTEGER,
-  PRIMARY KEY(id_produit, id_panier)
+  PRIMARY KEY(id_produit, id_panier),
+  CONSTRAINT id_produit
+    FOREIGN KEY(id_produit)
+    REFERENCES produits(id),
+  CONSTRAINT id_panier
+    FOREIGN KEY(id_panier)
+    REFERENCES paniers(id_Panier)
  );
