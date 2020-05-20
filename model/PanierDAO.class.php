@@ -12,7 +12,7 @@ class PanierDAO {
   // Constructeur chargé d'ouvrir la BD
   function __construct() {
     //db paniers
-    $database = 'sqlite:'.dirname(__FILE__).'/../data/databasePP.db';
+    $database = 'sqlite:'.dirname(__FILE__).'/../data/database.db';
     try {
       $this->db = new PDO($database);
       if (!$this->db) {
@@ -24,7 +24,7 @@ class PanierDAO {
     $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     //db produits
-    $database_prod = 'sqlite:'.dirname(__FILE__).'/../data/databasePP.db';
+    $database_prod = 'sqlite:'.dirname(__FILE__).'/../data/database.db';
     try {
       $this->dbp = new PDO(  $database_prod);
       if (!$this->dbp) {
@@ -36,7 +36,7 @@ class PanierDAO {
     $this->dbp->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     //db composition
-    $database_compo = 'sqlite:'.dirname(__FILE__).'/../data/databasePP.db';
+    $database_compo = 'sqlite:'.dirname(__FILE__).'/../data/database.db';
     try {
       $this->dbc = new PDO($database_compo);
       if (!$this->dbc) {

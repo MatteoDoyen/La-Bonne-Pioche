@@ -7,7 +7,7 @@ class ProduitDAO {
 
   // Constructeur chargé d'ouvrir la BD
   function __construct() {
-    $database = 'sqlite:'.dirname(__FILE__).'/../data/databasePP.db';
+    $database = 'sqlite:'.dirname(__FILE__).'/../data/database.db';
     try {
       $this->db = new PDO($database);
       if (!$this->db) {
