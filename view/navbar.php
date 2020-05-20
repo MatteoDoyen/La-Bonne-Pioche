@@ -1,13 +1,13 @@
 <div class="sticky-top">
   <div class="row m_nav-bar">
     <div class="titre offset-lg-2 col-lg-8 offset-1 col-10">
-      <h1>La bonne pioche</h1>
-      <h2 id="sous_titre">L'épicerie grenobloise de produits locaux sans emballage</h2>
+      <h1 class="nav_h1" >La bonne pioche</h1>
+      <h2 class="nav_h2" id="sous_titre">L'épicerie grenobloise de produits locaux sans emballage</h2>
     </div>
   </div>
   <nav class="row navbar navbar-expand-lg m_nav-bar">
     <a class="navbar-brand" href="../controlers/accueil.ctrl.php">
-      <img src="../data/img/logo.png" alt="Logo">
+      <img class="nav_img" src="../data/img/logo.png" alt="Logo">
     </a>
     <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon">
