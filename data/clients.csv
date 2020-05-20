@@ -1,0 +1,9 @@
+5;Bluet;Alexandre;test@adresse.mail;testmdp;désactivé;07********;1;1;0.0
+6;Lièvre;Thomas;test@adresse.mail;testmdp;désactivé;06********;1;1;0.0
+7;Doyen;Matteo;test@adresse.mail;testmdp;désactivé;07********;1;1;0.0
+8;Lehmann;Sylvia;test@adresse.mail;testmdp;désactivé;06********;1;0;0.0
+9;Lecore;Matthieu;test@adresse.mail;testmdp;en_attente;07********;1;1;0.0
+10;Chirac;Jacques;test@adresse.mail;testmdp;en_attente;06********;1;1;0.0
+11;Sarkozy;Nicolas;test@adresse.mail;testmdp;activé;07********;1;1;0.0
+12;Macron;Emmanuelle;test@adresse.mail;testmdp;activé;06********;0;0;0.0
+13;Giscard;Etienne;test@adresse.mail;testmdp;supprimé;07********;0;0;0.0

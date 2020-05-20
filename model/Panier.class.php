@@ -31,7 +31,8 @@ class Panier {
     }
   }
 
-  public function __set(string $attribut, $valeur){
+      //méthode set
+      public function __set(string $attribut, $valeur){
 
         //test d'appel de la méthode
         // if(TEST == 1){ echo "appel :".__METHOD__."($attribut)\n";}
