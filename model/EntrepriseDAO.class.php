@@ -1,13 +1,14 @@
 <?php
   require_once(dirname(__FILE__).'/Entreprise.class.php');
-    require_once(dirname(__FILE__).'/ClientEntreprise.class.php');
+  require_once(dirname(__FILE__).'/ClientEntreprise.class.php');
+  require_once(dirname(__FILE__).'/ClientEntrepriseDAO.class.php');
 
   class EntrepriseDAO {
     private $db;
 
     function __construct()
     {
-      $database = 'sqlite:'.dirname(__FILE__).'/..data/database.db';
+      $database = 'sqlite:'.dirname(__FILE__).'/../data/database.db';
 
       try {
         $this->db = new PDO($database);
@@ -26,20 +27,21 @@
       $req = "SELECT * FROM entreprises WHERE ref_entreprise = '$ref_Entreprise'";
       $sth = $this->db->query($req);
       $resArray= $sth->fetchAll(PDO::FETCH_ASSOC);
-      $entreprise = new Produit($resArray['ref_entreprise'],$resArray['nom'],$resArray['numero_siret']);
+      print_r($resArray);
+      $entreprise = new Entreprise($resArray[0]['ref_entreprise'],$resArray[0]['nom'],$resArray[0]['numero_siret']);
       return $entreprise;
     }
 
 
     function getPersonnels(int $ref_Entreprise) : array {
-      $produit = new ClientEntreprise();
-      $r = $this->db->query("SELECT * FROM clientsEntreprise_entreprises WHERE ref_entreprise = $ref_Entreprise");
+      $utilisateur = new ClientEntrepriseDAO();
+      $r = $this->db->query("SELECT * FROM clientsEntreprise_entreprises WHERE id_entreprise = $ref_Entreprise");
       $res = $r->fetchAll(PDO::FETCH_ASSOC);
       $personnels = array();
 
       foreach($res as $row)
       {
-        $prod = $utilisateur->get($row['ref_utilisateur']);
+        $prod = $utilisateur->get($row['id_clientE']);
         $personnels[]=$prod;
       }
       return $personnels;

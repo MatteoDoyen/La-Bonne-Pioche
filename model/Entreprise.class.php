@@ -6,7 +6,7 @@
     private $ref_Entreprise;
     private $numero_Siret;
 
-    function __construct(string $nom,string $numero_Siret,int $ref_Entreprise)
+    function __construct(int $ref_Entreprise,string $nom,string $numero_Siret)
     {
       $this-> nom = $nom;
       $this-> numero_Siret = $numero_Siret;
@@ -23,7 +23,7 @@
       return $this->$attribut;
     }
 
-    public function __get(string $attribut , $valeur)
+    public function __set(string $attribut , $valeur)
     {
       if ( $attribut != "nom" && $attribut != "numero_Siret" && $attribut != "ref_Entreprise") {
 

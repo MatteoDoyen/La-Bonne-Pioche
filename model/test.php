@@ -1,12 +1,12 @@
 <?php
 
-require_once(dirname(__FILE__).'/Panier.class.php');
-require_once(dirname(__FILE__).'/Produit.class.php');
-require_once(dirname(__FILE__).'/ProduitDAO.class.php');
-require_once(dirname(__FILE__).'/PanierDAO.class.php');
+require_once(dirname(__FILE__).'/Entreprise.class.php');
+require_once(dirname(__FILE__).'/EntrepriseDAO.class.php');
 
-$panier = new PanierDAO();
+require_once(dirname(__FILE__).'/ClientEntreprise.class.php');
 
-$test = $panier->get(2);
+$panier = new EntrepriseDAO();
+
+$test = $panier->getPersonnels(2);
 print_r($test);
  ?>
