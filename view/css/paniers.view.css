@@ -64,10 +64,21 @@ body {
   text-align: center;
   margin-bottom: 40px;
 }
-
+.icon_panier
+{
+  position: absolute;
+  height: 40px;
+  margin: 0 auto;
+  bottom : 35px;
+  left :0;
+  right:0;
+  z-index: 2;
+  display: inline-block;
+}
 
 .container_img_text p
 {
+  z-index: 1;
   position: absolute;
   height: 80px;
   width: 80%;
@@ -83,7 +94,7 @@ body {
 .plus_information,.description
 {
   font-size : 10px;
-  padding: 0px 15 ;
+  padding: 0px 15px ;
   margin: 0px 0px 20px 0px;
   display: inline-block;
 }

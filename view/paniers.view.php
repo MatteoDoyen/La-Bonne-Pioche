@@ -26,7 +26,8 @@
                   </a>
                 </div>
                 <a href="/La-Bonne-Pioche/controlers/panier.ctrl.php?id=<?= $panier->id_Panier ?>">
-                <p><?= $panier->libelle ?></p>
+                  <img class="icon_panier" src="../others/SVG/<?= $panier->id_Panier ?>.svg" alt="">
+                  <p><?= $panier->libelle ?></p>
                 </a>
               </div>
               <div class="container_info">
