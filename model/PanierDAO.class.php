@@ -6,8 +6,6 @@ require_once(dirname(__FILE__).'/ProduitDAO.class.php');
 // Le Data Access Objet
 class PanierDAO {
   private $db;
-  private $dbp;
-  private $dbc;
 
   // Constructeur chargé d'ouvrir la BD
   function __construct() {
