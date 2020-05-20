@@ -5,7 +5,6 @@
     <title>La Bonne Pioche - Nous</title>
     <link rel="stylesheet" href="../framework/bootstrap-4.4.1-dist/css/bootstrap.css">
     <link rel="stylesheet" href="../view/css/paniers.view.css">
-    <link rel="stylesheet" href="../view/css/paniers.css">
 
   </head>
   <body>
@@ -13,44 +12,47 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script defer src="../framework/bootstrap-4.4.1-dist/js/bootstrap.bundle.min.js"></script>
     <?php include("../view/navbar.php") ?>
-    <div class="container-fluid row">
+    <div class="container-fluid">
 
-
-      <?php foreach($list as $panier) :  ?>
-        <figure class="col col-lg-3">
-          <div class="container_img">
-            <a href="/La-Bonne-Pioche/controlers/panier.ctrl.php?id=<?= $panier->id_Panier ?>" >
-              <img class="image_entete mx-auto d-block"src="<?= $panier->image ?>"  />
-            </a>
-          </div>
-
-          <figcaption>
-            <div class="categ" >
-              <img  src="../Ressources/images/biere.svg" alt=""><br>
+      <div class="container">
+        <h2 class="h2_paniers">Nos paniers : </h2>
+        <div class="row justify-content-between">
+          <?php foreach($list as $panier) :  ?>
+            <div class="col-lg-4 container_all">
+              <div class="container_img_text">
+                <div class="container_img">
+                  <a href="/La-Bonne-Pioche/controlers/panier.ctrl.php?id=<?= $panier->id_Panier ?>">
+                  <img src="<?= $panier->image  ?>" alt="">
+                  </a>
+                </div>
+                <a href="/La-Bonne-Pioche/controlers/panier.ctrl.php?id=<?= $panier->id_Panier ?>">
+                <p><?= $panier->libelle ?></p>
+                </a>
+              </div>
+              <div class="container_info">
+                <p class="description">Petite description du panier indiquant quantité et composition</p>
+                <div class="nombre_panier">
+                  <p><?= $panier->prix ?> € /</p>
+                  <button type="button" name="button"> <img src="../others/SVG/iconuser.svg" alt=""> </button>
+                  <button type="button" name="button"> <img src="../others/SVG/user-gris.svg" alt=""> </button>
+                </div>
+                <div class="commande">
+                  <button type="button" name="button">Ajouter <img src="../others/SVG/panierachat.svg" alt=""> </button>
+                  <div class="bouton_panier">
+                    <button type="button" name="button">-</button>
+                    <input type="text" name="" value="1">
+                    <button type="button" name="button">+</button>
+                  </div>
+                </div>
+                <a href="#">
+                  <p class="plus_information">+ D'information</p>
+                </a>
+              </div>
             </div>
-            <panier-libelle><?= $panier->libelle?></panier-libelle>
-            <p>Petite description du panier indiquant quantité et composition</p>
-            <div>
-              <panier-prix><?= $panier->prix?>€ / </panier-prix>
-              <img id="solo" src="../Ressources/images/userRed.svg" alt="">
-              <img id="duo" src="../Ressources/images/couple.svg" alt="">
-              <img id="famille" src="../Ressources/images/famille.svg" alt="">
-            </div>
-            <div class="ajout_panier">
-              <button id="ajout" type="button" name="AjouterPanier">Ajouter <img src="../Ressources/images/panierachat.svg" alt=""> </button>
-                <button .class="modifier" type="button" name="moins"> - </button>
-                <input type="number" name="" value="1">
-                <button .class="modifier" type="button" name="plus"> + </button>
-            </div>
-            <a href="#" class="infos">+ D'informations</a>
-
-          </figcaption>
-        </figure>
-        <?php endForeach; ?>
-
-
+          <?php endForeach; ?>
+        </div>
+      </div>
     </div>
-
     <?php include("../view/footer.php") ?>
 
   </body>

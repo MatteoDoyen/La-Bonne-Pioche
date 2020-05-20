@@ -4,49 +4,169 @@
 /* FOOTER */
 @import "footer.css";
 
-.container>div div
-{
-  background-color: blue;
-
-  height: 250px;
-}
-.row
-{
-  justify-content:space-around;
-}
 body {
   font-family: "Lulo-Clean-W01-One-Bold", sans-serif ;
+  color: #707070;
 }
+
+.h2_paniers
+{
+  text-align: center;
+  margin: 40px 0px;
+}
+
 .nous {
   background-color: #bfc416;
 }
-
-
-
-figure{
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  margin:10px;
+.container_all
+{
+  padding-left: 0px;
+}
+.container_all
+{
+  background-color: white;
+  box-shadow: -14px 12px 10px -11px rgba(0,0,0,0.25);
 }
 
-figcaption p{
-  font-size: 12px;
-  color: gray;
+.container_img
+{
+  height: 150px;
+  width: auto;
+  overflow:hidden;
 }
 
-
-button{
-  background-color: red;
-  color: white;
-  border-radius: 50px;
-  padding-left : 5px;
-  padding-right: 5px;
+.container_all
+{
+  margin-bottom: 50px;
 }
 
-.infos{
+.container_img img
+{
+  object-fit: cover;
+  width: 100%;
+  min-height:300px;
+  max-height: 100%;
+  display: inline-block;
+}
+.container_img_text a
+{
+  color : #707070;
+}
+
+.container_img_text a:link
+{
   text-decoration: none;
-  color:red;
-  width: 20%;
-  margin: auto;
+}
+
+.container_img_text
+{
+  position: relative;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+
+.container_img_text p
+{
+  position: absolute;
+  height: 80px;
+  width: 80%;
+  margin: 0 auto;
+  padding: 15px 5px;
+  border-radius: 50px;
+  bottom : -35px;
+  left :0;
+  right:0;
+  display: inline-block;
+  background-color: white;
+}
+.plus_information,.description
+{
+  font-size : 10px;
+  padding: 0px 15 ;
+  margin: 0px 0px 20px 0px;
+  display: inline-block;
+}
+.container_info
+{
+  text-align: center;
+}
+.container_info a
+{
+  color : #707070;
+}
+
+.nombre_panier
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align : center;
+  margin-bottom: 20px;
+  padding: 0;
+}
+.nombre_panier p
+{
+  color: #f04942;
+  padding: 0;
+  margin: 0;
+}
+.nombre_panier button img,.commande button img
+{
+  height: 20px;
+}
+.nombre_panier button,.commande button
+{
+  background-color: transparent;
+  border: none;
+  margin: 0px 10px 0px 0px ;
+  padding: 0;
+}
+
+.commande
+{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.commande>button
+{
+  color: white;
+  font-size : 13px;
+  background-color:  #f04942;
+  border: none;
+  margin: 0;
+  padding: 15px 25px;
+  border-radius: 40px;
+}
+
+.bouton_panier button
+{
+  font-size: 15px;
+  background-color: transparent;
+  border: 3px solid #f04942;
+  border-radius: 40px;
+  color : #f04942;
+  display: inline-block;
+  margin: 0;
+}
+
+.bouton_panier button:first-child
+{
+  padding: 0px 7px 0px 7px;
+}
+.bouton_panier button:nth-child(3)
+{
+  padding: 0px 5px 0px 5px;
+}
+
+.bouton_panier input[type="TEXT"]
+{
+  text-align: center;
+  width: 50px;
+  color :  #f04942;
+  border : 3px solid  #f04942;
+  border-radius: 5px;
 }

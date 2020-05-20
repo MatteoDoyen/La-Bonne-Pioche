@@ -12,14 +12,16 @@ body {
   background-color: #bfc416;
 }
 
-.titre_panier
+.h2_panier
 {
   font-size: 2.8em;
+  margin: 25px 0px;
+  color : #f04942;
 }
 
-.text-center
+.h2_panier2
 {
-  padding-top: 50px;
+  margin: 35px 0px
 }
 
 .produit_img
@@ -41,8 +43,10 @@ body {
 }
 .container_img img
 {
-  height: auto;
+  object-fit: cover;
   width: 100%;
+  min-height:200px;
+  max-height: 100%;
 }
 .compo-txt-prod, .compo-txt-origin
 {
@@ -114,7 +118,8 @@ width:80%;
 .container_commande>div
 {
   margin: 65px 0px 0px 0px;
-  background-color: black;
+  align-items: center;
+  justify-content: center;
 }
 .ajoutpanier
 {
@@ -167,10 +172,6 @@ width:80%;
   justify-content: center;
   align-items:center;
 }
-.separation img
-{
-  display: inline-block;
-}
 .prix>div
 {
   align-items:center;
@@ -185,6 +186,29 @@ width:80%;
   color : #f04942;
 }
 
+.boutonretour
+{
+    background-color: #dbe12c;
+    color : white;
+    border : none;
+    font-size: 15px;
+    padding: 5px 15px;
+    border-radius: 15px;
+    margin-right: 50px;
+    display: inline-block;
+    margin: 25px 0px 0px 25px;
+}
+.boutonretour:link
+{
+  text-decoration: none;
+}
+.boutonretour:hover
+{
+  color: white;
+  background-color: #bfc416;
+}
+
+
 .panier img
 {
   width: 20px;
@@ -198,4 +222,17 @@ width:80%;
   display: inline-block;
   color : white;
   background-color: #f04942;
+}
+
+.panier:hover
+{
+  background-color: #e61e17;
+}
+
+
+@media (max-width: 800px) {
+  .separation
+  {
+    display: none !important;
+  }
 }

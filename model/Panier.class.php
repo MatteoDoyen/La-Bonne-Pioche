@@ -14,7 +14,6 @@ class Panier {
   {
     $this->libelle = $libelle;
     $this->id_Panier = $id_Panier;
-    $this->prix = $coefficient;
     $this->coefficient = $coefficient;
     $this->prix = $prix;
     $this->image = $image;

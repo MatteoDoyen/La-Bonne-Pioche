@@ -10,3 +10,84 @@ body {
 .nous {
   background-color: #bfc416;
 }
+
+.boutonretour
+{
+    background-color: #dbe12c;
+    color : white;
+    border : none;
+    font-size: 15px;
+    padding: 5px 15px;
+    border-radius: 15px;
+    margin-right: 50px;
+    display: inline-block;
+    margin: 25px 0px 25px 25px;
+}
+.boutonretour:link
+{
+  text-decoration: none;
+}
+.boutonretour:hover
+{
+  color: white;
+  background-color: #bfc416;
+}
+.container_img
+{
+  margin: 0 auto ;
+  overflow: hidden;
+  height :300px;
+  box-shadow: -14px 12px 10px -11px rgba(0,0,0,0.25);
+}
+
+.container_img img
+{
+  min-height: 300px;
+  width: 100%;
+}
+
+.container_img,.bloc_droit
+{
+  width : 48% !important;
+  margin: 0;
+  padding: 0;
+}
+
+.bloc_droit p, .container_info
+{
+  font-size : 13px;
+}
+
+.bloc_droit h2
+{
+  color : #f04942;
+}
+
+.container_img_desc
+{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.container_info h3
+{
+  color : #f04942
+}
+@media (max-width: 768px) {
+
+  .container_img_desc
+  {
+    margin: 0 auto;
+    flex-direction: column;
+  }
+  .container_img
+  {
+    height :150px;
+  }
+  .container_img,.bloc_droit
+  {
+    width : 100% !important;
+  }
+}

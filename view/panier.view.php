@@ -21,10 +21,11 @@
 
     <div class="container-fluid">
       <?php include("navbar.php") ?>
-
-
+      <a href="/La-Bonne-Pioche/controlers/paniers.ctrl.php" class="boutonretour">
+        <img src="../others/SVG/flechegauche.svg" alt=""> Retour paniers
+      </a>
       <figure>
-        <h2 class="text-center titre_panier">Le <?php echo"$panier->libelle"; ?></h1>
+        <h2 class="text-center h2_panier">Le <?php echo"$panier->libelle"; ?></h1>
         <div class="bigcontainer col-sm-6 col-md-6 col-lg-6">
           <div class="container_img">
             <img class="mx-auto d-block" src="<?= $panier->image ?>">
@@ -43,8 +44,8 @@
               <button type="button" name="button"><img src="../others/SVG/user-gris.svg" alt=""></button>
             </div>
           </div>
-          <div class="separation text-center col-sm-1 col-md-1 col-lg-1">
-            <img class="d-none d-sm-block" src="../others/SVG/separateur.svg" alt="">
+          <div class="separation col-sm-1 col-md-1 col-lg-1">
+            <img class="" src="../others/SVG/separateur.svg" alt="">
           </div>
           <div class="nombre_panier col-md-6 col-lg-4">
             <div class="ajoutpanier">
@@ -56,17 +57,22 @@
                   <button type="button" name="button">+</button>
                 </div>
               </div>
+              <a href="#">
               <p class="panier">Ajouter <img src="..\others\SVG\panierachat.svg" alt=""> </p>
+              </a>
             </div>
           </div>
         </div>
       </div>
-      <h2 class="text-center pb-5">Composition</h2>
+      <h2 class="text-center h2_panier2 pb-2">Composition</h2>
       <?php foreach($composition as $key => $prod) :
+        //On explose la clé pour récupérer la quantité de chaque produit dans le panier, la clé est composé comme ceci tab["id quantité"], une fois la clé explosé il nous faut donc le deuxieme indice du tableau récupéré
         $key = explode(' ',$key);
+        //on utilise la fonction floor pour ne plus avoir de décimal après le chiffre, les quantité unitaire sont toujours des int : cela sera inutile si l'ont type les arguments du constructeur panier
+        $quantite = floor($prod->quantite_u);
         ?>
 
-        <figure class="container">
+        <figure class="container test">
           <div class="row container_row">
             <a class ="col-xs-1 col-sm-1 col-lg-1" href="/La-Bonne-Pioche/controlers/produit.ctrl.php?id=<?= $prod->id ?>">
               <img class="produit_img" src="<?= $prod->url_img ?>">
@@ -75,7 +81,8 @@
                 <p><?= $prod->libelle?></p>
             </div>
             <div class="col-xs-4 col-sm-3 col-md-3 col-lg-2 compo-txt-origin">
-                <p><?php echo"$key[1] x $prod->quantite_u $prod->unite"; ?></p>
+                <!-- ici l'indice 1 de $key correspond à la quantité du produit dans le panier -->
+                <p><?php echo"$key[1] x $quantite $prod->unite"; ?></p>
             </div>
             <div class="col-xs-4 col-sm-6 col-md-3 col-lg-6 compo-txt-origin">
                 <p><?= $prod->fabricant ?></p>
