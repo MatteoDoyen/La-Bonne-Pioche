@@ -12,3 +12,57 @@ body {
 .nous {
   background-color: #bfc416;
 }
+
+
+
+/* CONTENU */
+
+h4 {
+  color: red;
+}
+.contenu {
+  margin-top: 180px;
+  font-family:"Avenir-LT-W01_85-Heavy1475544";
+}
+.titre1 {
+  margin-bottom: 20px;
+}
+.perso_info {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.perso {
+  display: table-cell;
+  vertical-align: middle;
+}
+.perso_info {
+  text-align: justify;
+}
+
+@media (max-width: 992px) {
+  .perso {
+    text-align: center;
+  }
+  .titre1, .titre2 {
+    text-align: center;
+  }
+  .titre2 {
+    margin-bottom: 20px;
+  }
+  .perso_info {
+    text-align: center;
+  }
+}
+@media (max-width: 600px) {
+  .contenu {
+    margin-top: 240px;
+  }
+  p {
+    font-size: 0.85em;
+  }
+}
+@media (max-width: 330px) {
+  .contenu {
+    margin-top: 300px;
+  }
+}
