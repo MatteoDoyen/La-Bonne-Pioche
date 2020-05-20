@@ -16,7 +16,7 @@
       <?php include("../view/navbar.php") ?>
 
       <div class="row info">
-        <div class="col-lg-12 text-center">
+        <div class="offset-1 col-10 text-center">
           <div class="mb-3">
             <h4 class="m-0">BONJOUR A TOUS !</h4>
             <p class="mb-1">Nous espérons que vous êtes tous en forme !</p>
