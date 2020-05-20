@@ -66,7 +66,7 @@
       <hr class="offset-lg-3 col-lg-6 offset-md-3 col-md-6 offset-sm-2 col-sm-8 offset-1 col-10 my-5">
 
       <div class="row info">
-        <div class="col-lg-12">
+        <div class="offset-1 col-10">
           <div class="row">
             <div class="col-lg-12 col-xl-6">
               <div class="mb-3">
@@ -105,7 +105,7 @@
       <hr class="offset-lg-3 col-lg-6 offset-md-3 col-md-6 offset-sm-2 col-sm-8 offset-1 col-10 my-5">
 
       <div class="row info">
-        <div class="col-lg-10 center">
+        <div class="offset-1 col-10">
           <div class="mb-3">
             <p class="mb-1">​Pour en savoir plus sur toutes les actualités du magasin, n'hésitez pas à vous abonner à la newsletter !</h4>
             </br>
