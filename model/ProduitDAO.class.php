@@ -42,7 +42,7 @@ class ProduitDAO {
     return ($res[0][0]);
   }
 
-  //Ajout d'un produit
+  //Ajout d'un produit dans la bdd
   public function insertProduit($stock, $refProduit, $libelle, $fabricant, $rayon, $famille, $coef, $description,
     $origine, $caracteristiques, $prixU, $urlImg, $quantiteU, $unite) {
     $sql = 'INSERT INTO produits(stock, refProduit, libelle, fabricant, rayon, famille, coef, description,
@@ -69,12 +69,18 @@ class ProduitDAO {
     ]);
   }
 
+  //suppression d'un produit dans la bdd
   public function deleteProduit($refProduit) {
-      $sql = 'DELETE FROM produits WHERE refProduit = '$refProduit'';
-      $stmt = $this->db->prepare($sql);
-      $stmt->execute([':refProduit' => $projectId]);
+      $sql = "DELETE FROM produits WHERE refProduit = '$refProduit'";
+      return $this->db->query($sql);
   }
 
+  /*public function modifyProduit($refProduit, $arrayModifs){
+    foreach ($arrayModifs as $ $modif) {
+      $sql = "UPDATE produits SET '$modif' WHERE refProduit = '$refProduit'";
+      return = $this->db->query($sql);
+    }
+  }*/
 
 }
 
