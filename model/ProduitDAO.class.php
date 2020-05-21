@@ -16,6 +16,7 @@ class ProduitDAO {
     } catch (PDOException $e) {
       die("PDO Error :".$e->getMessage()." $database\n");
     }
+
     $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   }
 
@@ -69,12 +70,14 @@ class ProduitDAO {
     ]);
   }
 
-  //suppression d'un produit dans la bdd
+  //Suppression d'un produit dans la bdd
+  //ATTENTION PRAGMA foreign_keys=ON
   public function deleteProduit($refProduit) {
       $sql = "DELETE FROM produits WHERE refProduit = '$refProduit'";
       return $this->db->query($sql);
   }
 
+//À revoir
   /*public function modifyProduit($refProduit, $arrayModifs){
     foreach ($arrayModifs as $ $modif) {
       $sql = "UPDATE produits SET '$modif' WHERE refProduit = '$refProduit'";
