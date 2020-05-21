@@ -3,7 +3,7 @@
 // Description d'un produit
 class Produit {
   private $stock;
-  private $id;
+  private $refProduit;
   private $libelle;
   private $fabricant;
   private $rayon;
@@ -12,19 +12,19 @@ class Produit {
   private $description;
   private $origine;
   private $caracteristiques;
-  private $prix_u;
-  private $url_img;
-  private $quantite_u;
+  private $prixU;
+  private $urlImg;
+  private $quantiteU;
   private $unite;
   // Chemin URL à ajouter pour avoir l'image du produit
   private const URL = '../data/img/img_produits/';
 
-  function __construct( $stock=0, $id=0,string $libelle='',string $fabricant='',
+  function __construct( $stock=0, $refProduit=0,string $libelle='',string $fabricant='',
   string $rayon='',string $famille='', $coef=0, string $description='',
-  string $origine='', string $caracteristiques='',float $prix_u, string $url_img='',
-  $quantite_u, $unite) {
+  string $origine='', string $caracteristiques='',float $prixU, string $urlImg='',
+  $quantiteU, $unite) {
       $this -> stock = $stock;
-      $this -> id =  $id;
+      $this -> refProduit =  $refProduit;
       $this -> libelle =  $libelle;
       $this -> fabricant =  $fabricant;
       $this -> rayon =  $rayon;
@@ -33,14 +33,14 @@ class Produit {
       $this -> description = $description;
       $this -> origine = $origine;
       $this -> caractéristiques = $caracteristiques;
-      $this -> prix_u = $prix_u;
-      $this -> url_img = $url_img;
-      $this -> quantite_u = $quantite_u;
+      $this -> prixU = $prixU;
+      $this -> urlImg = $urlImg;
+      $this -> quantiteU = $quantiteU;
       $this -> unite = $unite;
   }
 
   public function __get($libelle){
-    if($libelle == "url_img"){
+    if($libelle == "urlImg"){
       return Produit::URL.$this->$libelle;
     }
     else {
@@ -54,7 +54,7 @@ class Produit {
       // if(TEST == 1){ echo "appel :".__METHOD__."($attribut)\n";}
 
       //retourne une erreur si le nom d'attribut pris en paramètre est inéxistant
-      if ( $attribut != "stock" && $attribut != "id" && $attribut != "libelle" && $attribut != "fabricant" && $attribut != "rayon" && $attribut != "famille" && $attribut != "coef" && $attribut != "description" && $attribut !="caractéristiques" && $attribut != "prix_u" && $attribut = "url_img") {
+      if ( $attribut != "stock" && $attribut != "refProduit" && $attribut != "libelle" && $attribut != "fabricant" && $attribut != "rayon" && $attribut != "famille" && $attribut != "coef" && $attribut != "description" && $attribut !="caractéristiques" && $attribut != "prixU" && $attribut = "urlImg" && $attribut != "quantiteU" && $attribut != unite) {
 
         throw new Exception("Error cannot acces '$attribut'", 1);
       }

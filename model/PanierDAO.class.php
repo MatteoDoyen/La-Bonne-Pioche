@@ -25,13 +25,13 @@ class PanierDAO {
   }
 
   // Accès à un panier
-  function get(int $id_Panier) : Panier {
-    $req = "SELECT * FROM paniers WHERE id_Panier = '$id_Panier'";
+  function get(int $refPanier) : Panier {
+    $req = "SELECT * FROM paniers WHERE refPanier = '$refPanier'";
     $sth = $this->db->query($req);
     $resArray= $sth->fetchAll(PDO::FETCH_ASSOC);
     foreach($resArray as $row)
     {
-      $panier = new Panier($row['libelle'],$row['id_Panier'],$row['coefficient'],$row['prix'],$row['image'],$row['nb_bocaux']);
+      $panier = new Panier($row['libelle'],$row['refPanier'],$row['coefficient'],$row['prix'],$row['image'],$row['nbBocaux']);
     }
     return $panier;
   }
@@ -46,15 +46,15 @@ class PanierDAO {
     return ($res[0][0]);
   }
 
-  function getComposition(int $id_Panier) : array{
+  function getComposition(int $refPanier) : array{
     $produit = new ProduitDAO();
-    $r = $this->db->query("SELECT * FROM produits_paniers WHERE id_panier = $id_Panier");
+    $r = $this->db->query("SELECT * FROM produits_paniers WHERE refPanier = $refPanier");
     $res = $r->fetchAll(PDO::FETCH_ASSOC);
     $idcomposition = array();
     foreach($res as $row)
     {
-      $clee = $row['id_produit'].' '.$row['quantite'];
-      $prod = $produit->get($row['id_produit']);
+      $clee = $row['refProduit'].' '.$row['quantite'];
+      $prod = $produit->get($row['refProduit']);
       $idcomposition[$clee]=$prod;
     }
     return $idcomposition;

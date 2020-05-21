@@ -19,7 +19,7 @@
       </a>
       <div class="container container_img_desc">
         <figure class="container_img d-inline-block">
-          <img src="<?= $produit->url_img ?>">
+          <img src="<?= $produit->urlImg ?>">
         </figure>
         <div class="bloc_droit">
           <h2><?= $produit->libelle  ?> : </h2>
