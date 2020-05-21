@@ -44,31 +44,48 @@ class ProduitDAO {
     return ($res[0][0]);
   }
 
-  //Ajout d'un produit dans la bdd
+//  Ajout d'un produit dans la bdd
+  // public function insertProduit($stock, $refProduit, $libelle, $fabricant, $rayon, $famille, $coef, $description,
+  //   $origine, $caracteristiques, $prixU, $urlImg, $quantiteU, $unite) {
+  //   $sql = 'INSERT INTO produits(stock, refProduit, libelle, fabricant, rayon, famille, coef, description,
+  //           origine, caracteristiques, prixU, urlImg, quantiteU, unite)
+  //           VALUES(:stock, :refProduit, :libelle, :fabricant, :rayon, :famille, :coef, :description,
+  //           :origine, :caracteristiques, :prixU, :urlImg, :quantiteU, :unite)';
+  //
+  //   print_r($sql);
+  //
+  //   $stmt = $this->bd->prepare($sql);
+  //   $stmt->execute([
+  //             ':stock' => $stock,
+  //             ':refProduit' => $refProduit,
+  //             ':libelle' => $libelle,
+  //             ':fabricant' => $fabricant,
+  //             ':rayon' => $rayon,
+  //             ':famille' => $famille,
+  //             ':coef' => $coef,
+  //             ':description' => $description,
+  //             ':origine' => $origine,
+  //             ':caracteristiques' => $caracteristiques,
+  //             ':prixU' => $prixU,
+  //             ':urlImg' => $urlImg,
+  //             ':quantiteU' => $quantiteU,
+  //             ':unite' => $unite,
+  //   ]);
+  //    return $this->pdo->lastInsertId();
+  // }
+
   public function insertProduit($stock, $refProduit, $libelle, $fabricant, $rayon, $famille, $coef, $description,
     $origine, $caracteristiques, $prixU, $urlImg, $quantiteU, $unite) {
-    $sql = 'INSERT INTO produits(stock, refProduit, libelle, fabricant, rayon, famille, coef, description,
-            origine, caracteristiques, prixU, urlImg, quantiteU, unite)
-            VALUES(:stock, :refProduit, :libelle, :fabricant, :rayon, :famille, :coef, :description,
-            :origine, :caracteristiques, :prixU, :urlImg, :quantiteU, :unite)';
-    $stmt = $this->bd->prepare($sql);
-    $stmt->execute([
-              ':stock' => $stock,
-              ':refProduit' => $refProduit,
-              ':libelle' => $libelle,
-              ':fabricant' => $fabricant,
-              ':rayon' => $rayon,
-              ':famille' => $famille,
-              ':coef' => $coef,
-              ':description' => $description,
-              ':origine' => $origine,
-              ':caracteristiques' => $caracteristiques,
-              ':prixU' => $prixU,
-              ':urlImg' => $urlImg,
-              ':quantiteU' => $quantiteU,
-              ':unite' => $unite,
-    ]);
+    $sql = "INSERT INTO produits VALUES($stock, $refProduit, $libelle, $fabricant, $rayon, $famille, $coef, $description,
+            $origine, $caracteristiques, $prixU, $urlImg, $quantiteU, $unite)";
+
+    print_r($sql);
+
+    $this->db->query($sql);
+
+
   }
+
 
   //Suppression d'un produit dans la bdd
   //ATTENTION PRAGMA foreign_keys=ON
