@@ -18,6 +18,7 @@ class ProduitDAO {
     }
 
     $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    //$this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
   }
 
   // Accès à un produit
@@ -73,6 +74,7 @@ class ProduitDAO {
   //Suppression d'un produit dans la bdd
   //ATTENTION PRAGMA foreign_keys=ON
   public function deleteProduit($refProduit) {
+      $this->db->exec('PRAGMA foreign_keys=ON');
       $sql = "DELETE FROM produits WHERE refProduit = '$refProduit'";
       return $this->db->query($sql);
   }

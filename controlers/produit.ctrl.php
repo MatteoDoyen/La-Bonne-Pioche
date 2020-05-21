@@ -18,6 +18,15 @@ $catalogue = new ProduitDAO();
 // Récupération de l'objet produit correspondant à l'id
 $produit = $catalogue->get($refProduit);
 
+
+try {
+  $catalogue->deleteProduit(1);
+} catch (PDOException $e) {
+  echo("Y'A PROBLEME !");
+}
+
+
+
 ///////// AJOUTE POUR MVC
 $view = new View("produit.view.php");
 
