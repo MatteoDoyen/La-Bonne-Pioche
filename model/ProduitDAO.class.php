@@ -52,7 +52,6 @@ class ProduitDAO {
             VALUES(:stock, :refProduit, :libelle, :fabricant, :rayon, :famille, :coef, :description,
             :origine, :caracteristiques, :prixU, :urlImg, :quantiteU, :unite)';
     $stmt = $this->bd->prepare($sql);
-    $stmt->bindValue(':stock', $stock);
     $stmt->execute([
               ':stock' => $stock,
               ':refProduit' => $refProduit,
