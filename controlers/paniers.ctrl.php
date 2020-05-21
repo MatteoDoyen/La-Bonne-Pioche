@@ -10,7 +10,7 @@ $catalogue = new PanierDAO();
 
 $list = array();
 // Récupération des données à placer dans la vue à partir du modèle
-for($i=1; $i<$catalogue->getNbElements()+1;$i++){
+for($i=1; $i<=$catalogue->getNbElements();$i++){
   // Récupération de l'objet Produit
   $p = $catalogue->get($i);
   // Ajout à la liste des images à afficher

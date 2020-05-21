@@ -16,7 +16,7 @@ class ProduitDAO {
     } catch (PDOException $e) {
       die("PDO Error :".$e->getMessage()." $database\n");
     }
-
+    $this->db->exec('PRAGMA foreign_keys=ON');
     $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     //$this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
   }
@@ -44,34 +44,38 @@ class ProduitDAO {
     return ($res[0][0]);
   }
 
-  public function insertProduit($stock, $refProduit, $libelle, $fabricant, $rayon, $famille, $coef, $description,
+  public function insertProduit($stock, $libelle, $fabricant, $rayon, $famille, $coef, $description,
     $origine, $caracteristiques, $prixU, $urlImg, $quantiteU, $unite) {
+
+    $refProduit= $this->getNbElements()+1;
+
     $sql = "INSERT INTO produits VALUES($stock, $refProduit,'$libelle','$fabricant', '$rayon', '$famille', $coef, '$description',
             '$origine', '$caracteristiques', $prixU,'$urlImg', $quantiteU, '$unite')";
-
-    print_r($sql);
 
     $this->db->query($sql);
 
 
   }
 
-  //Suppression d'un produit dans la bdd
-  //ATTENTION PRAGMA foreign_keys=ON
   public function deleteProduit($refProduit) {
-      $this->db->exec('PRAGMA foreign_keys=ON');
+
       $sql = "DELETE FROM produits WHERE refProduit = '$refProduit'";
       return $this->db->query($sql);
   }
 
-//À revoir
-  /*public function modifyProduit($refProduit, $arrayModifs){
-    foreach ($arrayModifs as $ $modif) {
-      $sql = "UPDATE produits SET '$modif' WHERE refProduit = '$refProduit'";
-      return = $this->db->query($sql);
-    }
-  }*/
+  public function updateProduit($refProduit,$modifs){
 
+      foreach ($modifs as $key => $value) {
+        if(!is_string($value))
+        {
+          $sql = "UPDATE produits SET $key= $value WHERE refProduit = $refProduit";
+        }
+        else {
+          $sql = "UPDATE produits SET $key= '$value' WHERE refProduit = $refProduit";
+        }
+        $this->db->query($sql);
+      }
+    }
 }
 
 ?>
