@@ -43,20 +43,37 @@ class ProduitDAO {
   }
 
   //Ajout d'un produit
+  public function insertProduit($stock, $refProduit, $libelle, $fabricant, $rayon, $famille, $coef, $description,
+    $origine, $caracteristiques, $prixU, $urlImg, $quantiteU, $unite) {
+    $sql = 'INSERT INTO produits(stock, refProduit, libelle, fabricant, rayon, famille, coef, description,
+            origine, caracteristiques, prixU, urlImg, quantiteU, unite)
+            VALUES(:stock, :refProduit, :libelle, :fabricant, :rayon, :famille, :coef, :description,
+            :origine, :caracteristiques, :prixU, :urlImg, :quantiteU, :unite)';
+    $stmt = $this->bd->prepare($sql);
+    $stmt->bindValue(':stock', $stock);
+    $stmt->execute([
+              ':stock' => $stock,
+              ':refProduit' => $refProduit,
+              ':libelle' => $libelle,
+              ':fabricant' => $fabricant,
+              ':rayon' => $rayon,
+              ':famille' => $famille,
+              ':coef' => $coef,
+              ':description' => $description,
+              ':origine' => $origine,
+              ':caracteristiques' => $caracteristiques,
+              ':prixU' => $prixU,
+              ':urlImg' => $urlImg,
+              ':quantiteU' => $quantiteU,
+              ':unite' => $unite,
+    ]);
+  }
 
-
-
-  /*function newProduit(Produit $produit): Produit {
-    $req = "INSERT INTO  FROM produits WHERE refProduit = '$refProduit'";
-    $sth = $this->db->query($req);
-    $resArray= $sth->fetchAll(PDO::FETCH_ASSOC);
-    foreach($resArray as $row)
-    {
-      $produit = new Produit($row['stock'],$row['refProduit'],$row['libelle'],$row['fabricant'],$row['rayon'],$row['famille'],
-      $row['coef'],$row['description'],$row['origine'],$row['caracteristiques'],$row['prixU'],$row['urlImg'],$row['quantiteU'],$row['unite']);
-    }
-    return $produit;
-  }*/
+  public function deleteProduit($refProduit) {
+      $sql = 'DELETE FROM produits WHERE refProduit = '$refProduit'';
+      $stmt = $this->db->prepare($sql);
+      $stmt->execute([':refProduit' => $projectId]);
+  }
 
 
 }
