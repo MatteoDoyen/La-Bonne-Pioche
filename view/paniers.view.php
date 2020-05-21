@@ -46,7 +46,7 @@
                   </div>
                 </div>
                 <a href="#">
-                  <p class="plus_information">+ D'information</p>
+                  <p class="plus_information">+ D'informations</p>
                 </a>
               </div>
             </div>
