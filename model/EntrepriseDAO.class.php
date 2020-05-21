@@ -23,18 +23,18 @@
       $this->db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
     }
 
-    function get(int $ref_Entreprise) : Entreprise {
-      $req = "SELECT * FROM entreprises WHERE ref_entreprise = '$ref_Entreprise'";
+    function get(int $refEntreprise) : Entreprise {
+      $req = "SELECT * FROM entreprises WHERE refEntreprise = '$refEntreprise'";
       $sth = $this->db->query($req);
       $resArray= $sth->fetchAll(PDO::FETCH_ASSOC);
-      $entreprise = new Entreprise($resArray[0]['ref_entreprise'],$resArray[0]['nom'],$resArray[0]['numero_siret']);
+      $entreprise = new Entreprise($resArray[0]['refEntreprise'],$resArray[0]['nom'],$resArray[0]['numero_siret']);
       return $entreprise;
     }
 
 
-    function getPersonnels(int $ref_Entreprise) : array {
+    function getPersonnels(int $refEntreprise) : array {
       $utilisateur = new ClientEntrepriseDAO();
-      $r = $this->db->query("SELECT * FROM clientsEntreprise_entreprises WHERE id_entreprise = $ref_Entreprise");
+      $r = $this->db->query("SELECT * FROM clientsEntreprise_entreprises WHERE id_entreprise = $refEntreprise");
       $res = $r->fetchAll(PDO::FETCH_ASSOC);
       $personnels = array();
 
