@@ -23,7 +23,7 @@ class ProduitDAO {
 
   // Accès à un produit
   function get(int $refProduit) : Produit {
-    $req = "SELECT * FROM produits WHERE refProduit = '$refProduit'";
+    $req = "SELECT * FROM produits WHERE refProduit = '$refProduit' AND active = 1";
     $sth = $this->db->query($req);
     $resArray= $sth->fetchAll(PDO::FETCH_ASSOC);
     foreach($resArray as $row)
