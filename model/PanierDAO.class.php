@@ -60,6 +60,10 @@ class PanierDAO {
     return $idcomposition;
   }
 
+  public function desactiverPanier($refPanier) {
+      $sql = "UPDATE paniers SET active WHERE refPanier = '$refPanier'";
+      return $this->db->query($sql);
+  }
 
 }
 

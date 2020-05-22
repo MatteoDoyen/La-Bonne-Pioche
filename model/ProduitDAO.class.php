@@ -57,17 +57,17 @@ class ProduitDAO {
 
   }
 
-  public function deleteProduit($refProduit) {
-
-      $sql = "DELETE FROM produits WHERE refProduit = '$refProduit'";
+  public function desactiverProduit($refProduit) {
+      $sql = "UPDATE produits SET active WHERE refProduit = '$refProduit'";
       return $this->db->query($sql);
   }
-  public function deleteProduitPaniers($refProduit) {
+
+/*  public function deleteProduitPaniers($refProduit) {
       $sql = "DELETE FROM produits_paniers WHERE refProduit = '$refProduit'";
       $this->db->query($sql);
       $sql = "DELETE FROM produits WHERE refProduit = '$refProduit'";
       $this->db->query($sql);
-  }
+  }*/
 
   public function updateProduit($refProduit,$modifs){
 
