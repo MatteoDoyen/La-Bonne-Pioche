@@ -17,6 +17,7 @@ for($i=1; $i<$catalogue->getNbElements();$i++){
   $list[] =$p;
 }
 
+
 // On créer une variable view que l'on rattache au fichier accueil.view.php
 $view = new View("paniers.view.php");
 

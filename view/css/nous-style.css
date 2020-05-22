@@ -1,0 +1,89 @@
+header{
+  background-color: rgb(243, 73, 61);
+  width: auto;
+  height : 177px;
+  position: sticky;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index: 5;
+}
+
+.presentation
+{
+  width: 920px;
+  margin: 0 auto;
+  text-align: left;
+}
+h2
+{
+  padding-left: 1em;
+  font-size:1.8em;
+}
+h2 span
+{
+  font-size:0.75em;
+}
+.presentation p
+{
+  margin: 0;
+  padding: 0;
+  font-size:1em;
+  font-family: "Avenir-LT-W01_85-Heavy1475544";
+}
+.presentation a{
+  color: black;
+  text-decoration:underline;
+}
+.magasin
+{
+  float: right;
+  margin-top: -0.9em;
+}
+.celine,.cyril,.steeve
+{
+  float: left;
+  margin-left: -1em;
+}
+.gweenaïg,.lea
+{
+  float: right;
+  margin-right: -1em;
+}
+.presentation img
+{
+  margin-top:0.5em;
+}
+h3
+{
+  margin: 2.5em 0em 0em 0em;
+  padding: 0;
+  font-size:1.1em;
+}
+h4
+{
+  margin: 1.3em 0em 0em 0em;
+  padding: 0;
+  font-size:1.1em;
+  color: rgb(243, 73, 61);
+}
+h5
+{
+  margin: 0;
+  padding: 0;
+}
+.relance
+{
+  font-size:16px;
+  text-align: center;
+}
+.recrues
+{
+  clear: both;
+  margin-top:4.3em;
+}
+.recrues+h4
+{
+  margin:0;
+}
