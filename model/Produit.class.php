@@ -16,13 +16,14 @@ class Produit {
   private $urlImg;
   private $quantiteU;
   private $unite;
+  private $active;
   // Chemin URL à ajouter pour avoir l'image du produit
   private const URL = '../data/img/img_produits/';
 
   function __construct( $stock=0, $refProduit=0,string $libelle='',string $fabricant='',
   string $rayon='',string $famille='', $coef=0, string $description='',
   string $origine='', string $caracteristiques='',float $prixU=0, string $urlImg='',
-  $quantiteU=0, $unite='') {
+  $quantiteU=0, $unite='', $active=1) {
       $this -> stock = $stock;
       $this -> refProduit =  $refProduit;
       $this -> libelle =  $libelle;
@@ -37,6 +38,7 @@ class Produit {
       $this -> urlImg = $urlImg;
       $this -> quantiteU = $quantiteU;
       $this -> unite = $unite;
+      $this -> active = 1;
   }
 
   public function __get($libelle){
@@ -54,7 +56,7 @@ class Produit {
       // if(TEST == 1){ echo "appel :".__METHOD__."($attribut)\n";}
 
       //retourne une erreur si le nom d'attribut pris en paramètre est inéxistant
-      if ( $attribut != "stock" && $attribut != "refProduit" && $attribut != "libelle" && $attribut != "fabricant" && $attribut != "rayon" && $attribut != "famille" && $attribut != "coef" && $attribut != "description" && $attribut !="caractéristiques" && $attribut != "prixU" && $attribut = "urlImg" && $attribut != "quantiteU" && $attribut != unite) {
+      if ( $attribut != "stock" && $attribut != "refProduit" && $attribut != "libelle" && $attribut != "fabricant" && $attribut != "rayon" && $attribut != "famille" && $attribut != "coef" && $attribut != "description" && $attribut !="caractéristiques" && $attribut != "prixU" && $attribut = "urlImg" && $attribut != "quantiteU" && $attribut != "unite" && $attribut != "active") {
 
         throw new Exception("Error cannot acces '$attribut'", 1);
       }

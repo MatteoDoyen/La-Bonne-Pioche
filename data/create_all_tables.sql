@@ -68,7 +68,8 @@ CREATE TABLE produits (
   prixU FLOAT,
   urlImg STRING,
   quantiteU FLOAT,
-  unite STRING
+  unite STRING,
+  active BIT
 );
 
 CREATE TABLE paniers (
@@ -77,7 +78,8 @@ CREATE TABLE paniers (
    coefficient INTEGER,
    prix FLOAT,
    image STRING,
-   nbBocaux INTEGER
+   nbBocaux INTEGER,
+   active BIT
 );
 
 CREATE TABLE produits_paniers (

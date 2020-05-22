@@ -29,7 +29,7 @@ class ProduitDAO {
     foreach($resArray as $row)
     {
       $produit = new Produit($row['stock'],$row['refProduit'],$row['libelle'],$row['fabricant'],$row['rayon'],$row['famille'],
-      $row['coef'],$row['description'],$row['origine'],$row['caracteristiques'],$row['prixU'],$row['urlImg'],$row['quantiteU'],$row['unite']);
+      $row['coef'],$row['description'],$row['origine'],$row['caracteristiques'],$row['prixU'],$row['urlImg'],$row['quantiteU'],$row['unite'],$row['active']);
     }
     return $produit;
   }
@@ -45,12 +45,12 @@ class ProduitDAO {
   }
 
   public function insertProduit($stock, $libelle, $fabricant, $rayon, $famille, $coef, $description,
-    $origine, $caracteristiques, $prixU, $urlImg, $quantiteU, $unite) {
+    $origine, $caracteristiques, $prixU, $urlImg, $quantiteU, $unite, $active) {
 
     $refProduit= $this->getNbElements()+1;
 
     $sql = "INSERT INTO produits VALUES($stock, $refProduit,'$libelle','$fabricant', '$rayon', '$famille', $coef, '$description',
-            '$origine', '$caracteristiques', $prixU,'$urlImg', $quantiteU, '$unite')";
+            '$origine', '$caracteristiques', $prixU,'$urlImg', $quantiteU, '$unite', $active)";
 
     $this->db->query($sql);
 
