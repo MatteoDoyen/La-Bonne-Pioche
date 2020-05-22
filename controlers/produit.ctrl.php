@@ -18,15 +18,6 @@ $catalogue = new ProduitDAO();
 // Récupération de l'objet produit correspondant à l'id
 $produit = $catalogue->get($refProduit);
 
-//test delete produit avec catch d'exception
-//delete a mettre au bon endroit
-try {
-  $catalogue->deleteProduit(1);
-} catch (PDOException $e) {
-  $exception = "FOREIGN KEY CONSTRAINT FAILED";
-}
-
-
 ///////// AJOUTE POUR MVC
 $view = new View("produit.view.php");
 

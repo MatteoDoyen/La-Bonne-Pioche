@@ -26,7 +26,7 @@ class PanierDAO {
 
   // Accès à un panier
   function get(int $refPanier) : Panier {
-    $req = "SELECT * FROM paniers WHERE refPanier = '$refPanier'";
+    $req = "SELECT * FROM paniers WHERE refPanier = '$refPanier' AND active = 1";
     $sth = $this->db->query($req);
     $resArray= $sth->fetchAll(PDO::FETCH_ASSOC);
     foreach($resArray as $row)
@@ -48,7 +48,7 @@ class PanierDAO {
 
   function getComposition(int $refPanier) : array{
     $produit = new ProduitDAO();
-    $r = $this->db->query("SELECT * FROM produits_paniers WHERE refPanier = $refPanier");
+    $r = $this->db->query("SELECT * FROM produits_paniers WHERE refPanier = '$refPanier'");
     $res = $r->fetchAll(PDO::FETCH_ASSOC);
     $idcomposition = array();
     foreach($res as $row)
