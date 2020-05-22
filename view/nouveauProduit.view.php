@@ -16,19 +16,19 @@
 
       <form action="../controlers/nouveauProduit.ctrl.php" method="post">
 
-      Quantité en stock: <input type="number" name="stock"><br>
-      Libellé : <input type="text" name="libelle"><br>
-      Fabricant : <input type="text" name="fabricant"><br>
-      Rayon où se trouve le produit : <input type="text" name="rayon"><br>
-      Famille du produit : <input type="text" name="famille"><br>
-      Coefficient multiplicateur (à l'ajout de personnes) : <input type="number" step="0.1" name="coef"><br>
-      Description : <input type="text" name="description"><br>
-      Caractéristiques : <input type="text" name="caracteristiques"><br>
-      Prix Unitaire (pour la quantité minimale vendue) : <input type="number" step="0.01" name="prixU"><br>
-      Nom de l'image associée : <input type="text" name="urlImg"><br>
-      Quantité Unitaire (quantité minimale vendue): <input type="number" name="quantiteU"><br>
-      Unité (g / L / cL etc.) : <input type="text" name="unite"><br>
-      Article achetable (0 = non, 1 = oui) : <input type="number" name="active"><br>
+      <label for="stock">Quantité en stock:</label><input type="number" id="stock" name="stock"><br>
+      <label for="libelle">Libellé :</label> <input type="text" id="libelle" name="libelle"><br>
+      <label for="fabricant">Fabricant :</label> <input type="text" id="fabricant" name="fabricant"><br>
+      <label for="rayon">Rayon où se trouve le produit :</label> <input type="text" id="rayon" name="rayon"><br>
+      <label for="famille">Famille du produit :</label> <input type="text" id="famille" name="famille"><br>
+      <label for="coef">Coefficient multiplicateur (à l'ajout de personnes) :</label> <input type="number" id="coef" step="0.1" name="coef"><br>
+      <label for="description">Description :</label> <input type="text" id="description" name="description"><br>
+      <label for="caracteristiques">Caractéristiques :</label> <input type="text" id="caracteristiques" name="caracteristiques"><br>
+      <label for="prixU">Prix Unitaire (pour la quantité minimale vendue) :</label> <input type="number" id="prixU" step="0.01" name="prixU"><br>
+      <label for="urlImg">Nom de l'image associée :</label> <input type="text" id="urlImg" name="urlImg"><br>
+      <label for="quantiteU">Quantité Unitaire (quantité minimale vendue):</label> <input type="number" id="quantiteU" name="quantiteU"><br>
+      <label for="unite">Unité (g / L / cL etc.) :</label> <input type="text" id="unite" name="unite"><br>
+      <label for="active">Article achetable (0 = non, 1 = oui) :</label> <input type="number" id="active" name="active"><br>
 
       <input type="submit">
       </form>
