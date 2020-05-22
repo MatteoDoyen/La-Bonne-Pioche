@@ -53,8 +53,6 @@ class ProduitDAO {
             '$origine', '$caracteristiques', $prixU,'$urlImg', $quantiteU, '$unite', $active)";
 
     $this->db->query($sql);
-
-
   }
 
   public function desactiverProduit($refProduit) {
