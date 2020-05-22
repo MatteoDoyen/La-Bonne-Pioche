@@ -58,7 +58,12 @@ class ProduitDAO {
   }
 
   public function desactiverProduit($refProduit) {
-      $sql = "UPDATE produits SET active WHERE refProduit = '$refProduit'";
+      $sql = "UPDATE produits SET active = 0 WHERE refProduit = '$refProduit'";
+      return $this->db->query($sql);
+  }
+
+  public function activerProduit($refProduit) {
+      $sql = "UPDATE produits SET active = 1 WHERE refProduit = '$refProduit'";
       return $this->db->query($sql);
   }
 

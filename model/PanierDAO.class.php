@@ -61,7 +61,12 @@ class PanierDAO {
   }
 
   public function desactiverPanier($refPanier) {
-      $sql = "UPDATE paniers SET active WHERE refPanier = '$refPanier'";
+      $sql = "UPDATE paniers SET active=0 WHERE refPanier = '$refPanier'";
+      return $this->db->query($sql);
+  }
+
+  public function activer($refPanier) {
+      $sql = "UPDATE paniers SET active=1 WHERE refPanier = '$refPanier'";
       return $this->db->query($sql);
   }
 
