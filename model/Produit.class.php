@@ -21,8 +21,8 @@ class Produit {
 
   function __construct( $stock=0, $refProduit=0,string $libelle='',string $fabricant='',
   string $rayon='',string $famille='', $coef=0, string $description='',
-  string $origine='', string $caracteristiques='',float $prixU, string $urlImg='',
-  $quantiteU, $unite) {
+  string $origine='', string $caracteristiques='',float $prixU=0, string $urlImg='',
+  $quantiteU=0, $unite='') {
       $this -> stock = $stock;
       $this -> refProduit =  $refProduit;
       $this -> libelle =  $libelle;

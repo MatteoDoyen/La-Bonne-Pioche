@@ -1,11 +1,18 @@
 <?php
 
 require_once(dirname(__FILE__).'/ProduitDAO.class.php');
+require_once(dirname(__FILE__).'/Produit.class.php');
 require_once(dirname(__FILE__).'/PanierDAO.class.php');
 
-$prod = new ProduitDAO();
+$prod = new Produit();
 
-$panier = new PanierDAO();
+print_r($prod->getNextRef());
+print_r($prod->getNextRef());
+
+
+// $prod = new ProduitDAO();
+//
+// $panier = new PanierDAO();
 
 // insertProduit($stock, $libelle, $fabricant, $rayon, $famille, $coef, $description,
 //   $origine, $caracteristiques, $prixU, $urlImg, $quantiteU, $unite)
@@ -26,11 +33,11 @@ $panier = new PanierDAO();
 //   }
 // }
 // print_r($panier->get($panier->getNbElements()));
-print_r($panier->getComposition(1));
-$prod->deleteProduitPaniers(2);
-
-//print_r($prod->get(1));
-print_r($panier->getComposition(1));
+// print_r($panier->getComposition(1));
+// $prod->deleteProduitPaniers(2);
+//
+// //print_r($prod->get(1));
+// print_r($panier->getComposition(1));
 
 // print_r($panier->get(55));
 // print_r($panier->get(56));
