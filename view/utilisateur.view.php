@@ -16,7 +16,7 @@
       <?php include("navbar.php") ?>
       <br><br><br><br><br><br>
 
-      //tester l'id (try / if) et afficher ce qui est pertinent
+      //tester dans quelle table / annuaire apparait la refUtilisateur (try / if) et afficher ce qui est pertinent
 
       <?php include("footer.php") ?>
 

@@ -21,7 +21,7 @@ class ClientEntrepriseDAO {
 
   // Accès aux clients
   function get(int $id) : ClientEntreprise {
-    $req = "SELECT * FROM clientsEntreprise WHERE id = '$id'";
+    $req = "SELECT * FROM clientsEntreprise WHERE refUtilisateur = '$id'";
     $sth = $this->db->query($req);
     $resArray= $sth->fetchAll(PDO::FETCH_ASSOC);
     foreach($resArray as $row)

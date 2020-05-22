@@ -14,8 +14,9 @@
   $genre = 1;
   $numeroTelephone = "0455674355";
   $tauxReduction = 10.3;
+  $refEntreprise = 1;
 
-  $c_test = new ClientEntreprise($refUtilisateur, $nom, $prenom, $adresseMail, $motDePasse, $etat, $numeroTelephone, $newsletter, $genre, $tauxReduction);
+  $c_test = new ClientEntreprise($refUtilisateur, $nom, $prenom, $adresseMail, $motDePasse, $etat, $numeroTelephone, $newsletter, $genre, $tauxReduction, $refEntreprise);
 
   //affichage instance
   $c_test->affiche();
@@ -61,9 +62,13 @@
 
     echo "l'attribut tauxReduction => $tauxReduction n'a pas été récupérée\n";
   }
+  elseif ($c_test->refEntreprise != $refEntreprise) {
+
+    echo "l'attribut refEntreprise => $refEntreprise n'a pas été récupérée\n";
+  }
   else {
 
-    echo "OK : les guetteurs fonctionnent pour la classe Utilisateur\n";
+    echo "OK : les guetteurs fonctionnent pour la classe ClientEntreprise\n";
   }
 
 
@@ -80,6 +85,7 @@
   $c_test->genre = 2;
   $c_test->numeroTelephone = "0602285492";
   $c_test->tauxReduction = 12.3;
+  $c_test->refEntreprise = 2;
 
   //affichage instance
   $c_test->affiche();
@@ -125,9 +131,13 @@
 
     echo "l'attribut tauxReduction => $tauxReduction n'a pas été modifié\n";
   }
+  elseif ($c_test->refEntreprise == $refEntreprise) {
+
+    echo "l'attribut refEntreprise => $refEntreprise n'a pas été modifié\n";
+  }
   else {
 
-    echo "OK : les setteurs fonctionnent pour la classe Utilisateur\n";
+    echo "OK : les setteurs fonctionnent pour la classe ClientEntreprise\n";
   }
 
 ?>
