@@ -12,6 +12,7 @@ body {
   background-color: #bfc416;
 }
 
+
 .h2_panier
 {
   font-size: 2.8em;
@@ -109,7 +110,7 @@ width:80%;
   display: inline-block;
   color: #707070;
 }
-.ajoutpanier input[type="TEXT"]
+.ajoutpanier input[type="NUMBER"]
 {
   text-align: center;
   width: 50px;
@@ -167,7 +168,7 @@ width:80%;
   flex-direction: column;
 }
 
-.nb_personne_panier
+#nb_personne_panier
 {
   font-size: 13px;
   color : grey;

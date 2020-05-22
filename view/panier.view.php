@@ -40,11 +40,14 @@
           <div class="prix col-md-4 col-lg-4">
             <div class="container_prix">
               <div class="prix_button">
-                <p><?= $panier->prix?>/€</p>
-                <button type="button" name="button"><img src="../others/SVG/iconuser.svg" alt=""></button>
-                <button type="button" name="button"><img src="../others/SVG/user-gris.svg" alt=""></button>
+                <p id="affichePrix" ><?= $panier->prix?>/€</p>
+                <button class="iconUtilisateur" type="button" name="button"><img src="../others/SVG/iconuser.svg" alt=""></button>
+                <button id="plusUtilisateur" type="button" name="button" ><img src="../others/SVG/user-gris.svg" alt=""></button>
+                <button id="moinUtilisateur" type="button" name="button" ><img src="../others/SVG/user-gris-moin.svg" alt=""></button>
+                <input id="coeffPanier" type="hidden" value="<?= $panier->coefficient ?>">
+                <input id="inputPrix" type="hidden" value="<?= $panier->prix ?>">
               </div>
-              <p class="nb_personne_panier" >Panier pour <?= $panier->nbPersonne ?></p>
+              <p id="nb_personne_panier" >Panier pour 1</p>
             </div>
 
           </div>
@@ -56,9 +59,9 @@
               <div class="bouton_legende_panier">
                 <p>Nombre de panier</p>
                 <div class="bouton_panier">
-                  <button type="button" name="button">-</button>
-                  <input type="text" name="" value="1">
-                  <button type="button" name="button">+</button>
+                  <button id="boutonMoins" type="button" name="button">-</button>
+                  <input id="nombrePanierCommande" type="number" min="1" max="10" name="" value="1">
+                  <button id="boutonPlus" type="button" name="button">+</button>
                 </div>
               </div>
               <a href="#">
@@ -98,6 +101,6 @@
       <?php include("footer.php") ?>
 
     </div>
-
+    <script type="text/javascript"  src="../view/js/panier.view.js"></script>
   </body>
 </html>
