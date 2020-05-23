@@ -4,6 +4,10 @@
       <h1 class="nav_h1" >La bonne pioche</h1>
       <h2 class="nav_h2" id="sous_titre">L'épicerie grenobloise de produits locaux sans emballage</h2>
     </div>
+
+    <a href="../controlers/panierAchat.ctrl.php">
+      <button class="btn btn-success my-2 my-sm-0 connect" type="button" name="button">panier <img src="../Ressources/images/panierachat.svg" alt=""> </button>
+    </a>
   </div>
   <nav class="row navbar navbar-expand-lg m_nav-bar">
     <a class="navbar-brand" href="../controlers/accueil.ctrl.php">

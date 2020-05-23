@@ -33,15 +33,15 @@
               <div class="container_info">
                 <p class="description">Petite description du panier indiquant quantité et composition</p>
                 <div class="nombre_panier">
-                  <p><?= $panier->prix ?> € /</p>
-                  <button type="button" name="button"> <img src="../others/SVG/iconuser.svg" alt=""> </button>
-                  <button type="button" name="button"> <img src="../others/SVG/user-gris.svg" alt=""> </button>
+                  <p id="P_<?=$panier->id_Panier?>" ><?= $panier->prix ?></p><input id="C_<?=$panier->id_Panier?>" name="prodId" type="hidden" value="<?=$panier->coefficient?>"><p> € /</p>
+                  <button type="button" name="button" class="nbPersSelectedadd<?=$panier->id_Panier?>"> <img src="../others/SVG/iconuser.svg" alt=""> </button>
+                  <button type="button" name="button" class="nbPersChange" id="add<?=$panier->id_Panier?>"> <img src="../others/SVG/user-gris.svg" alt=""> </button>
                 </div>
                 <div class="commande">
-                  <button type="button" name="button">Ajouter <img src="../others/SVG/panierachat.svg" alt=""> </button>
+                  <button type="button" name="<?= $panier->libelle ?>" id="<?= $panier->id_Panier ?>" onclick="ajoutArticle(this)">Ajouter <img src="../others/SVG/panierachat.svg" alt="" > </button>
                   <div class="bouton_panier">
                     <button type="button" name="button">-</button>
-                    <input type="text" name="" value="1">
+                    <input type="text" name="" id="Q_<?=$panier->id_Panier?>" value="1" >
                     <button type="button" name="button">+</button>
                   </div>
                 </div>
@@ -55,6 +55,9 @@
       </div>
     </div>
     <?php include("../view/footer.php") ?>
+
+    <script src="../model/panierAchat.js"></script>
+    <script src="../view/js/paniers.view.js"></script>
 
   </body>
 </html>
