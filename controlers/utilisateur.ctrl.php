@@ -12,10 +12,10 @@ require_once('../model/EmployeDAO.class.php');
 require_once('../framework/view.class.php'); // AJOUTE POUR MVC
 
 // récupération des valeurs de la query string
-if (isset($_GET['id'])) {
-  $id = intVal($_GET['id']);
+if (isset($_GET['refUtilisateur'])) {
+  $id = intVal($_GET['refUtilisateur']);
 } else {
-  exit("Erreur : id non défini");
+  exit("Erreur : refUtilisateur non définie");
 }
 
 // Creation de l'instance DAO

@@ -6,57 +6,32 @@ require_once(dirname(__FILE__).'/ProduitDAO.class.php');
 // Le Data Access Objet
 class PanierDAO {
   private $db;
-  private $dbp;
-  private $dbc;
 
   // Constructeur chargé d'ouvrir la BD
   function __construct() {
-    //db paniers
-    $database = 'sqlite:'.dirname(__FILE__).'/../data/database.db';
-    try {
-      $this->db = new PDO($database);
-      if (!$this->db) {
-        die ("Database error");
-      }
-    } catch (PDOException $e) {
-      die("PDO Error :".$e->getMessage()." $database\n");
-    }
-    $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    //db produits
-    $database_prod = 'sqlite:'.dirname(__FILE__).'/../data/database.db';
-    try {
-      $this->dbp = new PDO(  $database_prod);
-      if (!$this->dbp) {
-        die ("Database error");
-      }
-    } catch (PDOException $e) {
-      die("PDO Error :".$e->getMessage()." $database_prod\n");
-    }
-    $this->dbp->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-    //db composition
+    //db
     $database_compo = 'sqlite:'.dirname(__FILE__).'/../data/database.db';
     try {
-      $this->dbc = new PDO($database_compo);
-      if (!$this->dbc) {
+      $this->db = new PDO($database_compo);
+      if (!$this->db) {
         die ("Database error");
       }
     } catch (PDOException $e) {
       die("PDO Error :".$e->getMessage()." $database_compo\n");
     }
-    $this->dbc->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
   }
 
   // Accès à un panier
-  function get(int $id_Panier) : Panier {
-    $req = "SELECT * FROM paniers WHERE id_Panier = '$id_Panier'";
+  function get(int $refPanier) : Panier {
+    $req = "SELECT * FROM paniers WHERE refPanier = '$refPanier' AND active = 1";
     $sth = $this->db->query($req);
     $resArray= $sth->fetchAll(PDO::FETCH_ASSOC);
     foreach($resArray as $row)
     {
-      $panier = new Panier($row['libelle'],$row['id_Panier'],$row['coefficient'],$row['prix'],$row['image'],$row['nb_bocaux']);
+      $panier = new Panier($row['libelle'],$row['refPanier'],$row['coefficient'],$row['prix'],$row['image'],$row['nbBocaux'],$row['active']);
     }
     return $panier;
   }
@@ -71,20 +46,29 @@ class PanierDAO {
     return ($res[0][0]);
   }
 
-  function getComposition(int $id_Panier) : array{
+  function getComposition(int $refPanier) : array{
     $produit = new ProduitDAO();
-    $r = $this->dbc->query("SELECT * FROM produits_paniers WHERE id_panier = $id_Panier");
+    $r = $this->db->query("SELECT * FROM produits_paniers WHERE refPanier = '$refPanier'");
     $res = $r->fetchAll(PDO::FETCH_ASSOC);
     $idcomposition = array();
     foreach($res as $row)
     {
-      $clee = $row['id_produit'].' '.$row['quantite'];
-      $prod = $produit->get($row['id_produit']);
+      $clee = $row['refProduit'].' '.$row['quantite'];
+      $prod = $produit->get($row['refProduit']);
       $idcomposition[$clee]=$prod;
     }
     return $idcomposition;
   }
 
+  public function desactiverPanier($refPanier) {
+      $sql = "UPDATE paniers SET active=0 WHERE refPanier = '$refPanier'";
+      return $this->db->query($sql);
+  }
+
+  public function activer($refPanier) {
+      $sql = "UPDATE paniers SET active=1 WHERE refPanier = '$refPanier'";
+      return $this->db->query($sql);
+  }
 
 }
 

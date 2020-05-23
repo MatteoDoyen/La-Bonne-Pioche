@@ -16,19 +16,19 @@
       <?php include("../view/navbar.php") ?>
 
       <?php foreach($annuaire_c as $client) :  ?>
-        <a href="/La-Bonne-Pioche/controlers/utilisateur.ctrl.php?id=<?= $client->id ?>">
+        <a href="/La-Bonne-Pioche/controlers/utilisateur.ctrl.php?refUtilisateur=<?= $client->refUtilisateur ?>">
           <p><?= $client->nom ?>; <?= $client->prenom ?></p><br>
         </a>
       <?php endForeach; ?>
       <hr>
       <?php foreach($annuaire_ce as $clientE) :  ?>
-        <a href="/La-Bonne-Pioche/controlers/utilisateur.ctrl.php?id=<?= $clientE->id ?>">
+        <a href="/La-Bonne-Pioche/controlers/utilisateur.ctrl.php?refUtilisateur=<?= $clientE->refUtilisateur ?>">
           <p><?= $clientE->nom ?>; <?= $clientE->prenom ?></p><br>
         </a>
       <?php endForeach; ?>
       <hr>
       <?php foreach($annuaire_e as $user) :  ?>
-        <a href="/La-Bonne-Pioche/controlers/utilisateur.ctrl.php?id=<?= $annuaire_e->id ?>">
+        <a href="/La-Bonne-Pioche/controlers/utilisateur.ctrl.php?refUtilisateur=<?= $annuaire_e->refUtilisateur ?>">
           <p><?= $annuaire_e->nom ?>; <?= $annuaire_e->prenom ?></p><br>
         </a>
       <?php endForeach; ?>

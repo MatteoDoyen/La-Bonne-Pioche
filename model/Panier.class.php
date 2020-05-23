@@ -2,23 +2,25 @@
 
 class Panier {
   private $libelle;
-  private $id_Panier;
+  private $refPanier;
   private $coefficient;
   private $prix;
   private $image;
   private const URL = '../data/img/img_paniers/';
-  private $nb_Personne;
-  private $nb_Bocaux;
+  private $nbPersonne;
+  private $nbBocaux;
+  private $active;
 
-  public function __construct(string $libelle, int $id_Panier, float $coefficient, float $prix, string $image, int $nb_Bocaux)
+  public function __construct(string $libelle, int $refPanier, float $coefficient, float $prix, string $image, int $nbBocaux, $active)
   {
     $this->libelle = $libelle;
-    $this->id_Panier = $id_Panier;
+    $this->refPanier = $refPanier;
     $this->coefficient = $coefficient;
     $this->prix = $prix;
     $this->image = $image;
-    $this->nb_Personne = 1;
-    $this->nb_Bocaux = $nb_Bocaux;
+    $this->nbPersonne = 1;
+    $this->nbBocaux = $nbBocaux;
+    $this->active = 1;
   }
 
   //méthode get
@@ -38,7 +40,7 @@ class Panier {
         // if(TEST == 1){ echo "appel :".__METHOD__."($attribut)\n";}
 
         //retourne une erreur si le nom d'attribut pris en paramètre est inéxistant
-        if ( $attribut != "libelle" && $attribut != "refPanier" && $attribut != "intitule" && $attribut != "prix" && $attribut != "nombrePersonne" && $attribut != "nb_Bocaux") {
+        if ( $attribut != "libelle" && $attribut != "refPanier" && $attribut != "intitule" && $attribut != "prix" && $attribut != "nombrePersonne" && $attribut != "nbBocaux" && $attribut != "active") {
 
           throw new Exception("Error cannot acces '$attribut'", 1);
         }

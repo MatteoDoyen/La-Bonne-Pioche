@@ -6,20 +6,20 @@ require_once('../model/PanierDAO.class.php');
 require_once('../framework/view.class.php'); // AJOUTE POUR MVC
 
 // récupération des valeurs de la query string
-if (isset($_GET['id'])) {
-  $id = intVal($_GET['id']);
+if (isset($_GET['refPanier'])) {
+  $refPpanier = intVal($_GET['refPanier']);
 } else {
-  exit("Erreur : id non défini");
+  exit("Erreur : refPanier non définie");
 }
 
 // Creation de l'instance DAO
 $catalogue = new PanierDAO();
 
 // Récupération de l'objet panier correspondant à l'id
-$panier = $catalogue->get($id);
+$panier = $catalogue->get($refPpanier);
 
-$composition = $catalogue->getComposition($id);
-//$compo = $catalogue->getComposition($id);
+$composition = $catalogue->getComposition($refPpanier);
+//$compo = $catalogue->getComposition($refPanier);
 
 ///////// AJOUTE POUR MVC
 $view = new View("panier.view.php");
