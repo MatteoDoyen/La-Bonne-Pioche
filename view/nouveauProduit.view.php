@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <title>La Bonne Pioche - PanierAchat</title>
     <link rel="stylesheet" href="../framework/bootstrap-4.4.1-dist/css/bootstrap.css">
-    <link rel="stylesheet" href="../view/css/panierAchat.view.css">
+    <link rel="stylesheet" href="../view/css/nouveauProduit.view.css">
   </head>
 
   <body>
@@ -70,7 +70,7 @@
         </form>
       </body>
       <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-      <script type="text/javascript" src="../view/js/test.js"></script>
+      <script type="text/javascript" src="../view/js/nouveauProduit.js"></script>
     </div>
     <?php include("../view/footer.php") ?>
   </body>
