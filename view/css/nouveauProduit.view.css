@@ -27,17 +27,6 @@ body {
   -moz-text-align-last: center;
 }
 
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-/* Firefox */
-input[type=number] {
-  -moz-appearance: textfield;
-}
-
 #achetable
 {
   text-align: start;

@@ -10,10 +10,10 @@
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script defer src="../framework/bootstrap-4.4.1-dist/js/bootstrap.bundle.min.js"></script>
-    <?php include("../view/navbar.php") ?>
+
     <div class="container-fluid">
 
-
+      <?php include("../view/navbar.php") ?>
 
       <div class="row" id="row-1">
         <div class="offset-lg-1 col-lg-5 offset-md-1 col-md-5 info-1">
@@ -77,11 +77,11 @@
         </div>
       </div>
 
-
+      <?php include("../view/footer.php") ?>
 
     </div>
 
-    <?php include("../view/footer.php") ?>
+
     <script type="text/javascript">
       $(function () {
 

@@ -10,15 +10,12 @@
   </head>
 
   <body>
-    <?php include("navbar.php") ?>
     <div class="container-fluid">
+      <?php include("navbar.php") ?>
+      
 
-
-
-
-
+      <?php include("footer.php") ?>
     </div>
-    <?php include("footer.php") ?>
   </body>
 
 </html>

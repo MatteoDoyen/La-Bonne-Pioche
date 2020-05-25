@@ -1,4 +1,4 @@
-<div class="sticky-top container-fluid">
+<div class="sticky-top">
   <div class="row m_nav-bar">
     <div class="titre offset-lg-2 col-lg-8 offset-1 col-10">
       <h1 class="nav_h1" >La bonne pioche</h1>

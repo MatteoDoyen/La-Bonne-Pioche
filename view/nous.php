@@ -7,7 +7,28 @@
     <title></title>
   </head>
   <body>
-        <?php include("../view/navbar.php") ?>
+    <header>
+      <div class="bloc-header">
+        <div class="container">
+          <img src="img/logo.png" alt="">
+          <div class="titre-header">
+            <h1>La Bonne Pioche</h1>
+            <h3>L'épicerie Grenobloise de produits Locaux sans emballage</h3>
+          </div>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="acceuil.php" selected>Accueil</a></li>
+            <li><a class="lien-courant" href="nous.php">Nous</a></li>
+            <li><a href="#">Mode d'emploi</a></li>
+            <li><a href="#">Produits</a></li>
+            <li><a href="#">Actualités</a></li>
+            <li><a href="#">Nous trouver</a></li>
+            <li><a href="#">Panier</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
     <div class="presentation">
       <h2>Qui se cache derriere <span>la bonne pioche</span></h2>
       <p>
@@ -59,15 +80,15 @@
     <footer>
       <p>© <?php echo date("Y"); ?> La Bonne Pioche Grenoble - 2, rue Condillac 38000 Grenoble - 821 482 262 R.C.S. Grenoble<br>Illustrations de Louise Plantin<br>"Pour votre santé, pratiquez une activité physique régulière"</p>
     </footer> -->
-    <img src="img/equipe.jpeg" alt="">
-    <div class="newsletter">
-      <p>Vous souhaitez recevoir des nouvelles fraîches ?<br><span>Abonnez-vous à notre newsletter !</span></p>
-      <form class="" action="index.html" method="post">
-        <input type="email" name="email-newsletter" placeholder="Email">
-      </form>
-    </div>
-    <?php include("../view/footer.php") ?>
   </body>
-
-
+        <img src="img/equipe.jpeg" alt="">
+        <div class="newsletter">
+          <p>Vous souhaitez recevoir des nouvelles fraîches ?<br><span>Abonnez-vous à notre newsletter !</span></p>
+          <form class="" action="index.html" method="post">
+            <input type="email" name="email-newsletter" placeholder="Email">
+          </form>
+        </div>
+        <footer>
+          <p>© <?php echo date("Y"); ?> La Bonne Pioche Grenoble - 2, rue Condillac 38000 Grenoble - 821 482 262 R.C.S. Grenoble<br>Illustrations de Louise Plantin<br>"Pour votre santé, pratiquez une activité physique régulière"</p>
+        </footer>
 </html>

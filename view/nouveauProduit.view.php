@@ -6,8 +6,10 @@
     <link rel="stylesheet" href="../view/css/nouveauProduit.view.css">
   </head>
 
+  <body>
+    <?php include("../view/navbar.php") ?>
+
       <body>
-        <?php include("../view/navbar.php") ?>
         <h2 id="h2NvPanier" >Ajouter un nouveau produit</h2>
         <div class="container">
         <form action="test.php" method="post" enctype="multipart/form-data">
@@ -39,7 +41,7 @@
               <div class="doubleInput">
                 <div class="">
                   <label for="unite">Unité :</label><br>
-                  <select id="unite">
+                  <select id="pet-select">
                       <option value="Gramme(s)">Gramme(s)</option>
                       <option value="Kilos">Kilos</option>
                       <option value="Pièce(s)">Pièce(s)</option>
@@ -66,6 +68,7 @@
 
           <input type="submit" value="Envoyer le fichier">
         </form>
+      </body>
       <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
       <script type="text/javascript" src="../view/js/nouveauProduit.js"></script>
     </div>
