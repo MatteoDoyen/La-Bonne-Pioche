@@ -16,7 +16,7 @@
 
       <div class="container">
         <h2 class="h2_paniers">Nos paniers : </h2>
-        <div class="row justify-content-between">
+        <div class="row">
           <?php foreach($list as $panier) :  ?>
             <div class="col-lg-4 container_all">
               <div class="container_img_text">
