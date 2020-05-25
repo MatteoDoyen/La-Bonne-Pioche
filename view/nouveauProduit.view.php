@@ -15,7 +15,7 @@
         <form action="test.php" method="post" enctype="multipart/form-data">
           <div class="row">
 
-            <div class="col-6 inputGauche">
+            <div class="col-12 col-sm-12 col-md-6 inputGauche">
               <div id="imageUpload">
                 <img id="imgPreview">
                 <img id="btnSupprimer" draggable="false" src="../others/SVG/iconPlus.svg" alt="">
@@ -57,7 +57,7 @@
                      <label class="custom-control-label" for="customControlAutosizing">Article achetable</label>
               </div>
             </div>
-            <div class="col-6">
+            <div class="col-12 col-sm-12 col-md-6">
               <label for="description">Description :</label><br>
               <textarea  id="description" name="description" rows="5" cols="33" ></textarea><br>
               <label for="caracteristiques">Caractéristiques :</label><br>

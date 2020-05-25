@@ -46,7 +46,6 @@ input[type='checkbox']
 {
   border : 3px solid grey;
 }
-
 .doubleInput input,.doubleInput select
 {
   width: 100%;
@@ -121,6 +120,14 @@ input,select
 
 textarea
 {
+  width: 100%;
+  padding: 5px;
+  margin: 0px 0px 25px 0px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
   min-height: 200px;
 }
 
