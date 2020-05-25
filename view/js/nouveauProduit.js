@@ -6,6 +6,8 @@ var inputImage;
 var imageUpload;
 var btnSupprimer;
 var imgPreview;
+var enterTarget = null;
+
 window.onload = function()
 {
   imagePreview = document.getElementById('imgPreview');
@@ -23,17 +25,20 @@ function ajoutImage()
   $inputImage.trigger('click');
 }
 
-document.getElementById('imageUpload').addEventListener('dragenter', function(e) {
-  e.preventDefault();
+document.getElementById('imageUpload').addEventListener('dragenter', function(event) {
+  enterTarget = event.target;
+  event.stopPropagation();
+  event.preventDefault();
 
   imageUpload.style.borderStyle = 'dashed';
 });
 
-
-document.getElementById('imageUpload').addEventListener('dragleave', function(e) {
-  e.preventDefault();
-
-imageUpload.style.borderStyle = 'solid';
+document.getElementById('imageUpload').addEventListener('dragleave', function(event) {
+  if (enterTarget == event.target){
+      event.stopPropagation();
+      event.preventDefault();
+      imageUpload.style.borderStyle = 'solid';
+  }
 });
 
 
@@ -79,6 +84,7 @@ function readURL(input) {
 function supprimerImage()
 {
   console.log("test");
+  inputImage.value = '';
   imagePreview.style.visibility ='hidden';
   imagePreview.removeAttribute('src');
   imageUpload.removeEventListener('mouseout',onMouseOut,true);

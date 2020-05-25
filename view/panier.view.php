@@ -19,8 +19,9 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script defer src="../framework/bootstrap-4.4.1-dist/js/bootstrap.bundle.min.js"></script>
 
-    <div class="container-fluid">
       <?php include("navbar.php") ?>
+    <div class="container-fluid">
+
       <a href="/La-Bonne-Pioche/controlers/paniers.ctrl.php" class="boutonretour">
         <img src="../others/SVG/flechegauche.svg" alt=""> Retour paniers
       </a>
@@ -98,9 +99,10 @@
         </figure>
         <hr>
       <?php endforeach ?>
-      <?php include("footer.php") ?>
+
 
     </div>
+    <?php include("footer.php") ?>
     <script type="text/javascript"  src="../view/js/panier.view.js"></script>
   </body>
 </html>
