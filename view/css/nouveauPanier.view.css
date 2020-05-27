@@ -152,7 +152,8 @@ input,textarea,select
 {
   object-fit: cover;
   width: 100%;
-  min-height: 144px;
+  min-height: 196px;
+  max-height: 100%;
 }
 
 #btnSupprimer:hover
@@ -167,16 +168,23 @@ input,textarea,select
   opacity: 0;
 }
 
+.container_img3
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
 #imageUpload
 {
   position: relative;
-  width: 150px;
-  height: 150px;
+  width: 100%;
+  height: 200px;
   overflow: hidden;
-  display: flex;
   border : 3px solid #707070;
-
 }
+
 #imgPlus
 {
   position: absolute;

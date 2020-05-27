@@ -17,6 +17,7 @@ class ProduitDAO {
       die("PDO Error :".$e->getMessage()." $database\n");
     }
     $this->db->exec('PRAGMA foreign_keys=ON');
+    $this->db->exec('PRAGMA encoding="UTF-8"');
     $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     //$this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
   }

@@ -18,7 +18,7 @@
         <h2 class="h2_paniers">Nos paniers : </h2>
         <div class="row">
           <?php foreach($list as $panier) :  ?>
-            <div class="col-lg-4 container_all">
+            <div class="col-sm-12 col-md-6 col-lg-4 container_all">
               <div class="container_img_text">
                 <div class="container_img">
                   <a href="/La-Bonne-Pioche/controlers/panier.ctrl.php?refPanier=<?= $panier->refPanier ?>">
@@ -50,7 +50,7 @@
                 </a>
               </div>
             </div>
-          <?php endForeach; ?>
+          <?php endforeach; ?>
         </div>
       </div>
     </div>
