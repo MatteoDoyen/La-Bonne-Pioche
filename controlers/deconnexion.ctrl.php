@@ -7,5 +7,7 @@ session_unset ();
 // On détruit notre session
 session_destroy ();
 // On redirige le visiteur vers la page d'accueil
-header('Location: accueil.ctrl.php');
+$view = new View("../view/accueil.view.php");
+$view->success = "Déconnexion réussie.";
+$view->show();
 ?>

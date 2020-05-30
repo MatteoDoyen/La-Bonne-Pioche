@@ -17,8 +17,8 @@
 
       <?php if (isset($success)): ?>
         <div class="alert alert-success alert-dismissible fade show offset-xl-3 col-xl-6 offset-lg-2 col-lg-8 offset-1 col-10 mb-5 text-center" role="alert">
-          <?= $success ?>
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <p class="m-0" style="font-size: 0.7em"><?= $success ?></p>
+          <button type="button" class="close pb-0 pt-2" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
