@@ -24,7 +24,6 @@ else if(!isset($_POST['active']))
   $active=0;
 }
 
-
 foreach($_POST as $key => $value) {
   $$key = $value;
 }
@@ -62,7 +61,6 @@ foreach ($variable as $key => $value) {
 }*/
 
 $view = new View("nouveauProduit.view.php");
-
 
 $view->sent = 1;
 
