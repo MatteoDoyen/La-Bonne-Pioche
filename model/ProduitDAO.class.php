@@ -35,9 +35,9 @@ class ProduitDAO {
     return $produit;
   }
 
-  function getNbElements() : int{
+  function getMaxRefProduit() : int{
     try {
-      $r = $this->db->query("SELECT COUNT(*) FROM produits");
+      $r = $this->db->query("SELECT MAX(refProduit) FROM produits");
       $res = $r->fetchAll();
     } catch (PDOException $e) {
       die("PDO Error :".$e->getMessage());
@@ -48,7 +48,7 @@ class ProduitDAO {
   public function insertProduit($stock, $libelle, $fabricant, $rayon, $famille, $coef, $description,
     $origine, $caracteristiques, $prixU, $urlImg, $quantiteU, $unite, $active) {
 
-    $refProduit= $this->getNbElements()+1;
+    $refProduit= $this->getMaxRefProduit()+1;
 
     $sql = "INSERT INTO produits VALUES($stock, $refProduit,'$libelle','$fabricant', '$rayon', '$famille', $coef, '$description',
             '$origine', '$caracteristiques', $prixU,'$urlImg', $quantiteU, '$unite', $active)";
