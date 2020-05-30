@@ -19,6 +19,10 @@ if(!isset($_POST['nbBocaux']))
 {
   exit("Erreur : nombre de bocaux non définie");
 }
+if(!isset($_POST['prod']))
+{
+  exit("Erreur : composition non définie");
+}
 else if(!isset($_POST['active']))
 {
   $active=0;
@@ -50,15 +54,18 @@ if (isset($_FILES['imgPanier']) AND $_FILES['imgPanier']['error'] == 0)
   }
 }
 
-// Creation de l'instance DAO
+// Creation d'une instance DAO
 $catalogue = new PanierDAO();
 
+//insertion du nouveau panier dans la table paniers
 $catalogue->insertPanier($libelle, $coefficient, $prix, $image, $nbBocaux, $active);
+$refPanier = $catalogue->getMaxRefPanier();
 
-/* Insertion de la composition du panier dans produits paniers
-foreach ($variable as $key => $value) {
-  $catalogue->insertProduitPanier($refProduit, $refPanier,$quantite)
-}*/
+//Insertion de la composition du panier dans la table produits_paniers
+foreach ($_POST['prod'] as $prod) {
+  explode("_",$prod);
+  $catalogue->insertProduitPanier($prod[0], $refPanier,$prod[1]) //$prod[0] = refProduit; $prod[1] = quantite
+}
 
 $view = new View("nouveauProduit.view.php");
 

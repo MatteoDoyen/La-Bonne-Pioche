@@ -81,7 +81,6 @@ public function insertProduitPanier($refProduit, $refPanier, $quantite) {
 
 
 
-
 public function desactiverPanier($refPanier) {
     $sql = "UPDATE paniers SET active = 0 WHERE refProduit = '$refPanier'";
     return $this->db->query($sql);
