@@ -60,20 +60,26 @@ class PanierDAO {
     return $idcomposition;
   }
 
-public function insertPanier($libelle, $coefficient, $prix, $image, $nbBocaux) {
+
+
+public function insertPanier($libelle, $coefficient, $prix, $image, $nbBocaux, $active) {
 
   $refPanier= $this->getMaxRefPanier()+1;
 
-  $sql = "INSERT INTO paniers VALUES('$libelle', $refPanier,$coefficient,$prix, '$image', $nbBocaux)";
+  $sql = "INSERT INTO paniers VALUES('$libelle', $refPanier,$coefficient,$prix, '$image', $nbBocaux, $active)";
 
   $this->db->query($sql);
 }
+
+
 
 public function insertProduitPanier($refProduit, $refPanier, $quantite) {
 
     $sql = "INSERT INTO produits_paniers VALUES($refProduit, $refPanier,$quantite)";
     $this->db->query($sql);
   }
+
+
 
 
 public function desactiverPanier($refPanier) {
@@ -85,6 +91,8 @@ public function activerPanier($refPanier) {
     $sql = "UPDATE paniers SET active = 1 WHERE refProduit = '$refPanier'";
     return $this->db->query($sql);
 }
+
+
 
 public function updatePanier($refPanier,$modifs){
 
