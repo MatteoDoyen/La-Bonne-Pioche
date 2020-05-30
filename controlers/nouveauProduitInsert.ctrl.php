@@ -60,8 +60,6 @@ foreach($_POST as $key => $value) {
   $$key = $value;
 }
 
-
-
 // Testons si le fichier a bien été envoyé et s'il n'y a pas d'erreur
 if (isset($_FILES['imgProduit']) AND $_FILES['imgProduit']['error'] == 0)
 {

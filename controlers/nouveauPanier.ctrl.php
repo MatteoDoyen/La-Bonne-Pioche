@@ -24,7 +24,7 @@ require_once('../framework/view.class.php'); // AJOUTE POUR MVC
 
   $toutLesProduits = array();
 
-  for($i=1;$i<=$produit->getNbElements();$i++){
+  for($i=1;$i<=$produit->getMaxRefProduit();$i++){
     // Récupération de l'objet Produit
     $prod = $produit->get($i);
     // Ajout à la liste des images à afficher

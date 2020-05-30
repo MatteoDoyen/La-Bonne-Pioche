@@ -6,12 +6,15 @@ var inputImage;
 var imageUpload;
 var btnSupprimer;
 var imgPreview;
+var tabRes = [];
+var toutLesProduits;
 var enterTarget = null;
 
 var tabProd = [];
 
 window.onload = function()
 {
+  $toutLesProduits = $("#toutLesProduit");
   imagePreview = document.getElementById('imgPreview');
   imagePreview.style.visibility ='hidden';
   $inputImage = $('#inputImage');
@@ -21,12 +24,32 @@ window.onload = function()
   btnSupprimer.onclick = supprimerImage;
   btnSupprimer.style.visibility = 'hidden';
 
-  tabProd = ajax_get_request(maj_resultats,"http://localhost/La-Bonne-Pioche/controlers/toutLesProduits.ctrl.php",true);
+  //ajax_get_request(maj_resultats,"../controlers/toutLesProduits.ctrl.php",true);
+
+  $.when($.get(
+    '../controlers/toutLesProduits.ctrl.php', // Le fichier cible côté serveur.
+    'false', // Nous utilisons false, pour dire que nous n'envoyons pas de données.
+      maj_resultats, // Nous renseignons uniquement le nom de la fonction de retour.
+    ).then(ajoutProduit()));
+
+
+    //document.getElementById("toutLesProduit").append("test");
+
+
 }
 
 function ajoutImage()
 {
   $inputImage.trigger('click');
+}
+
+function ajoutProduit()
+{
+  for (elt of tabRes)
+  {
+    $toutLesProduits.append("<p>test</p>");
+  }
+
 }
 
 document.getElementById('imageUpload').addEventListener('dragenter', function(event) {
@@ -140,9 +163,9 @@ function ajax_get_request(callback, url, async) {
 
 }
 
-
 function maj_resultats(res) {
-var tabRes = JSON.parse(res);
+  console.log("test");
+  tabRes = JSON.parse(res);
   for(elt of tabRes)
   {
     console.log(elt);

@@ -23,12 +23,9 @@
               </div>
             </div>
             <input type="search" id="rechercheProduit" name="produit" aria-label="Chercher des produits" placeholder="Search the site">
+            <div id="toutLesProduit">
 
-            <?php foreach ($produits as $value) : ?>
-
-              <p><?= $value->libelle  ?></p>
-
-            <?php endforeach; ?>
+            </div>
             <button>Search</button>
             <!-- <input type="submit" value="Envoyer le fichier"> -->
           </div>
