@@ -15,7 +15,7 @@ body {
 /* CONTENU */
 
 .info {
-  margin-top: 180px;
+  margin-top: 50px;
   font-family:"Avenir-LT-W01_85-Heavy1475544";
 }
 
@@ -35,11 +35,5 @@ p {
 @media (max-width: 992px) {
   #plan {
     height: 300px;
-  }
-}
-
-@media (max-width: 330px) {
-  .info {
-    margin-top: 240px;
   }
 }

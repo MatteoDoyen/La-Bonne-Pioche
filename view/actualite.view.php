@@ -68,7 +68,7 @@
       <div class="row info">
         <div class="offset-1 col-10">
           <div class="row">
-            <div class="col-lg-12 col-xl-6">
+            <div class="col-lg-12">
               <div class="mb-3">
                 <h4 class="m-0">ATTENTION LES HORAIRES ONT UN PEU CHANGE EN CETTE SITUATION INEDITE !</h4>
                 <p class="mb-1">A partir du 11 mai, nous continuerons (au moins jusqu'au 25 mai) à ouvrir le magasin du lundi au vendredi de 10h à 18h non stop et le samedi de 9h à 13h !
@@ -77,7 +77,7 @@
                 - pour la récupérer chez notre super point relais : Le Bon Label au 39 rue Humbert II quartier Championnet à Grenoble de 18h à 20h du mardi au vendredi et le samedi de 16h à 19h !</p>
               </div>
             </div>
-            <div class="col-lg-12 col-xl-6">
+            <div class="col-lg-12">
               <div class="mb-3">
                 <h4 class="m-0">LES COMMANDES COMMENT CA MARCHE ?</h4>
                 <p class="mb-1">1- vous nous envoyez un mail labonnepioche38@gmail.com avec le détail de tous les produits que vous souhaitez commander. Pour vous aider, allez consulter la page PRODUITS du site : https://produits.labonnepiochegrenoble.com/ Sur notre site, on commence à avoir une bonne base de produits en ligne mais pas encore tous car cela prend du temps et nous n'en avons pas forcément beaucoup en ce moment donc n'hésitez pas à le re-consulter de temps en temps car on ajoute les produits au fil de jours ! En revanche, désolé mais les prix ne sont pas encore affichés sur notre site. N'hésitez pas dans votre mail à nous précisez que vous souhaiteriez avoir les prix de tel ou tel produit et nous vous les donnerons avec plaisir ! </p>
@@ -86,13 +86,13 @@
                 <p class="mb-1">4- vous venez chercher votre commande le jour indiqué aux alentours de l'heure indiquée. Si il y a la queue en dehors du magasin, vous passez prioritaire à condition de ne rien avoir à ajouter à votre commande et paierez par CB directement à la caisse du magasin. Si vous avez des choses à rajouter, on vous laissera faire la queue désolé !</p>
               </div>
             </div>
-            <div class="col-lg-12 col-xl-6">
+            <div class="col-lg-12">
               <div class="mb-3">
                 <h4 class="m-0">LE RETRAIT DES COMMANDES AU BON LABEL COMMENT CA MARCHE ?</h4>
                 <p class="mb-1">Cela fonctionne de la même manière qu'une commande normale. En revanche, merci de nous donner 24h de délai supplémentaire pour que nous puissions organiser la logistique ! Dès que votre commande est prête, nous vous enverrons un mail avec la facture jointe. En allant chercher votre commande, vous donnerez un chèque du montant correspondant à la facture reçue ! Le plus du retrait au Bon Label : vous avez la possibilité de commander le plat du soir de leur carte en le récupérant dans vos propres contenants ! Tous les plats sont fait maison, locaux et élaborés avec amour ;) Au menu, pour cette semaine : - mardi 19 mai : Pain de courgette au basilic et sa salade - mercredi 20 mai : Lasagnes - jeudi 21 mai : c'est férié ! Ils seront aussi fermés ! - vendredi 22 mai : Fish & Chips (Truite du Vercors) - samedi 23 mai : Burger au Bleu du Vercors & Coppa </p>
               </div>
             </div>
-            <div class="col-lg-12 col-xl-6">
+            <div class="col-lg-12">
               <div class="mb-3">
                 <h4 class="m-0">​LES MESURES SANITAIRES EN MAGASIN !</h4>
                 <p class="mb-1">Nous essayons de faire face à cette situation inédite et faisons le maximum pour continuer à vous servir dans les meilleures conditions. Nous mettons en oeuvre toutes les mesures sanitaires réalisables dans le magasin : - nous limitons le nombre de personne en magasin à 5  - toutes les pelles et pinces ne servent qu'à 1 seule personne et 1 seul produit (pour éviter de mélanger les allergènes) et sont nettoyées ensuite - nous désinfectons 2 fois par jour la caisse, les portes, les paniers... - nous prenons essentiellement les paiements en CB pour éviter de manipuler la monnaie - nous favorisons les commandes par mail -... Bref, on essaie comme on peut d'éviter de propager le virus suite aux décisions du gouvernement ! Merci pour votre compréhension !</p>
@@ -105,14 +105,8 @@
       <hr class="offset-lg-3 col-lg-6 offset-md-3 col-md-6 offset-sm-2 col-sm-8 offset-1 col-10 my-5">
 
       <div class="row info">
-        <div class="offset-1 col-10">
-          <div class="mb-3">
-            <p class="mb-1">​Pour en savoir plus sur toutes les actualités du magasin, n'hésitez pas à vous abonner à la newsletter !</h4>
-            </br>
-            <p class="mb-1">A très bientôt !</p>
-            <p class="mb-1">Martin, Matthias, Léa, Cyril, Gwenn et Céline</p>
-          </div>
 
+        <div class="offset-1 col-10 mb-5">
           <div class="mb-3">
             <h4 class="m-0">​LES EVENEMENTS DE 2020</h4>
             <p class="mb-1">Tous les mois, nous organisons des ateliers au magasin. Ils sont gratuits mais sur inscription uniquement. Pour vous inscrire, envoyez-nous un mail labonnepioche38@gmail.com et nous vous répondrons rapidement !</p>
@@ -120,7 +114,14 @@
           </div>
 
           <div class="mb-3">
-            <img src="../../data/img/La-Bonne-Pioche-16-2.jpg" alt="Intérieur du magasin">
+            <p class="mb-1">​Pour en savoir plus sur toutes les actualités du magasin, n'hésitez pas à vous abonner à la newsletter !</h4>
+            </br>
+            <p class="mb-1">A très bientôt !</p>
+            <p class="mb-1">Martin, Matthias, Léa, Cyril, Gwenn et Céline</p>
+          </div>
+
+          <div class="text-center">
+            <img src="../../data/img/La-Bonne-Pioche-16-2.jpg" class="img-fluid" alt="Intérieur du magasin">
           </div>
           
         </div>
