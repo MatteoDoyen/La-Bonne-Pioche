@@ -45,8 +45,9 @@ class ProduitDAO {
     return ($res[0][0]);
   }
 
-  public function insertProduit($stock, $libelle, $fabricant, $rayon, $famille, $coef, $description,
-    $origine, $caracteristiques, $prixU, $urlImg, $quantiteU, $unite, $active) {
+  public function insertProduit(int $stock,string $libelle,string $fabricant,string $rayon,string $famille,float $coef,string $description,
+    string $origine,string $caracteristiques,float $prixU,string $urlImg,int $quantiteU,string $unite,int $active) {
+
 
     $refProduit= $this->getMaxRefProduit()+1;
 
