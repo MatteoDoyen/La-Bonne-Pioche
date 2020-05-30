@@ -3,11 +3,15 @@
 
 /* FOOTER */
 @import "footer.css";
-
 body {
   font-family: "Lulo-Clean-W01-One-Bold", sans-serif ;
   color: #707070;
 }
+p
+{
+  font-family:"Avenir-LT-W01_85-Heavy1475544";
+}
+
 
 .doubleInput
 {
@@ -121,7 +125,7 @@ label
   font-size: 13px;
 }
 
-input,#imageUpload,textarea,select,.custom-checkbox
+input,textarea,select,.custom-checkbox
 {
     margin-bottom: 25px;
 }
@@ -190,4 +194,11 @@ input,textarea,select
   width: 50px;
   height: 50px;
   margin: auto;
+}
+#labelImage
+{
+  font-size: 13px;
+  text-align : left;
+  margin: 5px 0px 25px 0px;
+  padding: 0;
 }
