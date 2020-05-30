@@ -18,40 +18,40 @@
                 <img id="imgPreview">
                 <img id="btnSupprimer" draggable="false" src="../others/SVG/iconPlus.svg" alt="">
                 <img id="imgPlus" draggable="false" src="../others/SVG/iconPlus.svg" alt="">
-                <input id="inputImage" accept="image/jpeg,image/jpg, image/png, image/webp" tabindex="-1" type="file" name="imgProduit" >
+                <input id="inputImage" accept="image/jpeg,image/jpg, image/png, image/webp" tabindex="-1" type="file" name="imgProduit" required>
               </div>
-              <input type="text" id="libelle" name="libelle" placeholder="libelle *">
-              <input type="text" id="fabricant" name="fabricant" placeholder="fabricant *">
-              <input type="text" id="rayon" name="rayon" placeholder="rayon *">
-              <input type="text" id="famille" name="famille" placeholder="famille *">
-              <input type="number" id="coef" step="0.1" name="coef" placeholder="coefficient multiplicateur *">
+              <input type="text" id="libelle" name="libelle" placeholder="libelle *" required>
+              <input type="text" id="fabricant" name="fabricant" placeholder="fabricant *" required>
+              <input type="text" id="rayon" name="rayon" placeholder="rayon *" required>
+              <input type="text" id="famille" name="famille" placeholder="famille *" required>
+              <input type="number" id="coef" step="0.1" name="coef" placeholder="coefficient multiplicateur *" required>
 
               <div class="doubleInput">
                 <div class="">
                   <label for="prixU">Prix Unitaire :</label><br>
-                  <input type="number" id="prixU" step="0.01" name="prixU">
+                  <input type="number" id="prixU" step="0.01" name="prixU" required>
                 </div>
                 <div class="0">
                   <label for="quantiteU">Quantité Unitaire :</label><br>
-                  <input type="number" id="quantiteU" name="quantiteU">
+                  <input type="number" id="quantiteU" name="quantiteU" required>
                 </div>
               </div>
               <div class="doubleInput">
                 <div class="">
-                  <label for="unite">Unité :</label><br>
-                  <select id="unite">
+                  <label for="unite">Unité *:</label><br>
+                  <select id="unite" required>
                       <option value="Gramme(s)">Gramme(s)</option>
                       <option value="Kilos">Kilos</option>
                       <option value="Pièce(s)">Pièce(s)</option>
                   </select>
                 </div>
                 <div class="">
-                  <label for="stock">Quantité en stock:</label><br>
-                  <input type="number" id="stock" name="stock">
+                  <label for="stock">Quantité en stock *:</label><br>
+                  <input type="number" id="stock" name="stock required">
                 </div>
               </div>
               <div class="custom-control custom-checkbox mr-sm-2">
-                     <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
+                     <input type="checkbox" class="custom-control-input" id="customControlAutosizing" required>
                      <label class="custom-control-label" for="customControlAutosizing">Article achetable</label>
               </div>
             </div>
