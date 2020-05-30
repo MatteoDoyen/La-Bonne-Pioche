@@ -15,6 +15,15 @@
 
       <?php include("../view/navbar.php") ?>
 
+      <?php if (isset($success)): ?>
+        <div class="alert alert-success alert-dismissible fade show offset-xl-3 col-xl-6 offset-lg-2 col-lg-8 offset-1 col-10 mb-5 text-center" role="alert">
+          <?= $success ?>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      <?php endif; ?>
+
       <div class="row" id="row-1">
         <div class="offset-lg-1 col-lg-5 offset-md-1 col-md-5 info-1">
           <h3 class="titre_info1_1">À vos bocaux,</h3>
@@ -32,26 +41,26 @@
 
           <h3 class="titre_info1_4">N'oublier pas</h3>
           <h3 class="titre_info1_5">Nos réseaux sociaux</h3>
-          <div class="btn-toolbar mb-3 justify-content-between reseaux offset-lg-2 col-lg-8 offset-md-1 col-md-10 offset-sm-1 col-sm-10 offset-0 col-12" role="toolbar" aria-label="Toolbar with button groups">
-            <div class="btn-group mr-2" role="group" aria-label="First group">
+          <div class="btn-toolbar mb-3 justify-content-between reseaux offset-lg-1 col-lg-10 offset-md-1 col-md-10 offset-sm-0 col-sm-12 offset-0 col-12" role="toolbar" aria-label="Toolbar with button groups">
+            <div class="btn-group mr-1" role="group" aria-label="First group">
               <a href="https://www.facebook.com/labonnepiochegrenoble">
-                <img src="https://static.wixstatic.com/media/e316f544f9094143b9eac01f1f19e697.png/v1/fill/w_50,h_50,al_c,q_85,usm_0.66_1.00_0.01/e316f544f9094143b9eac01f1f19e697.webp" alt="Facebook">
+                <img class="reseau" src="https://static.wixstatic.com/media/e316f544f9094143b9eac01f1f19e697.png/v1/fill/w_50,h_50,al_c,q_85,usm_0.66_1.00_0.01/e316f544f9094143b9eac01f1f19e697.webp" alt="Facebook">
               </a>
             </div>
-            <div class="btn-group mr-2" role="group" aria-label="First group">
+            <div class="btn-group mr-1" role="group" aria-label="First group">
               <a href="https://twitter.com/labonnepioche38">
-                <img src="https://static.wixstatic.com/media/9c4b521dd2404cd5a05ed6115f3a0dc8.png/v1/fill/w_50,h_50,al_c,q_85,usm_0.66_1.00_0.01/9c4b521dd2404cd5a05ed6115f3a0dc8.webp" alt="Facebook">
+                <img class="reseau" src="https://static.wixstatic.com/media/9c4b521dd2404cd5a05ed6115f3a0dc8.png/v1/fill/w_50,h_50,al_c,q_85,usm_0.66_1.00_0.01/9c4b521dd2404cd5a05ed6115f3a0dc8.webp" alt="Facebook">
               </a>
             </div>
-            <div class="btn-group mr-2" role="group" aria-label="First group">
+            <div class="btn-group" role="group" aria-label="First group">
               <a href="https://www.youtube.com/channel/UC8YddZncC3FiL1dZE0-iSxg">
-                <img src="https://static.wixstatic.com/media/a1b09fe8b7f04378a9fe076748ad4a6a.png/v1/fill/w_50,h_50,al_c,q_85,usm_0.66_1.00_0.01/a1b09fe8b7f04378a9fe076748ad4a6a.webp" alt="Facebook">
+                <img class="reseau" src="https://static.wixstatic.com/media/a1b09fe8b7f04378a9fe076748ad4a6a.png/v1/fill/w_50,h_50,al_c,q_85,usm_0.66_1.00_0.01/a1b09fe8b7f04378a9fe076748ad4a6a.webp" alt="Facebook">
               </a>
             </div>
           </div>
         </div>
 
-        <div class="col-lg-6 col-md-6">
+        <div class="col-lg-6 col-md-6 container_img_1">
           <img class="image_accueil_1" src="../data/img/image-acceuil-3.jpg" alt="Image accueil">
         </div>
       </div>
@@ -87,13 +96,13 @@
 
         // Petit script pour cacher la deuxième image en fonction de la taille de l'écran
         var taille = window.innerWidth;
-        if (taille <= 768) {
+        if (taille <= 767) {
           $("#image-2").hide();
         };
         // Listener sur l'event resize
         $(window).resize(function () {
           var new_taille = window.innerWidth;
-          if (new_taille <= 768) {
+          if (new_taille <= 767) {
             $("#image-2").hide();
           } else {
             $("#image-2").show();

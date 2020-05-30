@@ -7,21 +7,18 @@
 
   class Utilisateur {
 
-    private int $refUtilisateur;      //la réference est inqué dans la base de donnée
-    private string $nom;
-    private string $prenom;
-    private string $adresseMail;
-    private string $motDePasse;
-    private string $etat;             //pour l'instant qu'un simple type string, classe enumérer etat
-    private string $numeroTelephone;
+    private $refUtilisateur;      //la réference est inqué dans la base de donnée
+    private $nom;
+    private $prenom;
+    private $adresseMail;
+    private $motDePasse;
+    private $etat;             //pour l'instant qu'un simple type string, classe enumérer etat
+    private $numeroTelephone;
 
     //public static int $nbrUtilisateur;
 
     //constructeur de base
     public function __construct( int $refUtilisateur, string $nom, string $prenom, string $adresseMail, string $motDePasse, string $etat = "enAttente", string $numeroTelephone ) {
-
-      //test d'appel de la méthode
-      if(TEST == 1){ echo "appel : ".__METHOD__."\n";}
 
       $this->refUtilisateur = $refUtilisateur;
       $this->nom = $nom;
@@ -41,9 +38,6 @@
     //méthode get
     public function __get(string $attribut) {
 
-      //test d'appel de la méthode
-      if(TEST == 1){ echo "appel : ".__METHOD__."($attribut)\n";}
-
       //retourne une erreur si le nom d'attribut pris en paramètre est inéxistant
       if ( $attribut != "refUtilisateur" && $attribut != "nom" && $attribut != "prenom" && $attribut != "adresseMail" && $attribut != "motDePasse" && $attribut != "etat" && $attribut != "numeroTelephone" && $attribut != "nbrUtilisateur") {
 
@@ -61,7 +55,7 @@
       if(TEST == 1){ echo "appel :".__METHOD__."($attribut)\n";}
 
       //retourne une erreur si le nom d'attribut pris en paramètre est inéxistant
-      if ( $attribut != "refUtilisateur" && $attribut != "nom" && $attribut != "prenom" && $attribut != "adresseMail" && $attribut != "motDePasse" && $attribut != "etat" && $attribut != "numeroTelephone" ) {
+      if ( $attribut != "refUtilisateur" && $attribut != "nom" && $attribut != "prenom" && $attribut != "adresseMail" && $attribut != "MotDePasse" && $attribut != "etat" && $attribut != "numeroTelephone" ) {
 
         throw new Exception("Error cannot acces '$attribut'", 1);
       }
@@ -84,7 +78,7 @@
       //test d'appel de la méthode
       if(TEST == 1){ echo "appel :".__METHOD__."\n";}
 
-      echo "refUtilisateur : ".$this->refUtilisateur."\n"."nom : ".$this->nom."\n"."prenom : ".$this->prenom."\n"."adresseMail : ".$this->adresseMail."\n"."motDePasse : ".$this->motDePasse."\n"."etat : ".$this->etat."\n"."numeroTelephone : ".$this->numeroTelephone."\n";
+      echo "refUtilisateur : ".$this->refUtilisateur."\n"."nom : ".$this->nom."\n"."prenom : ".$this->prenom."\n"."adresseMail : ".$this->adresseMail."\n"."Mot de passe :".$this->motDePasse."\n"."etat : ".$this->etat."\n"."numeroTelephone : ".$this->numeroTelephone."\n";
 
       //echo "nbrUtilisateur : ".$this->nbrUtilisateur."\n";
     }
