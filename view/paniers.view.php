@@ -21,11 +21,11 @@
             <div class="col-sm-12 col-md-6 col-lg-4 container_all">
               <div class="container_img_text">
                 <div class="container_img">
-                  <a href="/La-Bonne-Pioche/controlers/panier.ctrl.php?refPanier=<?= $panier->refPanier ?>">
+                  <a href="../controlers/panier.ctrl.php?refPanier=<?= $panier->refPanier ?>">
                   <img src="<?= $panier->image  ?>" alt="">
                   </a>
                 </div>
-                <a href="/La-Bonne-Pioche/controlers/panier.ctrl.php?refPanier=<?= $panier->refPanier ?>">
+                <a href="../controlers/panier.ctrl.php?refPanier=<?= $panier->refPanier ?>">
                   <img class="icon_panier" src="../others/SVG/<?= $panier->refPanier ?>.svg" alt="">
                   <p><?= $panier->libelle ?></p>
                 </a>

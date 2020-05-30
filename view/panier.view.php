@@ -22,7 +22,7 @@
       <?php include("navbar.php") ?>
     <div class="container-fluid">
 
-      <a href="/La-Bonne-Pioche/controlers/paniers.ctrl.php" class="boutonretour">
+      <a href="../controlers/paniers.ctrl.php" class="boutonretour">
         <img src="../others/SVG/flechegauche.svg" alt=""> Retour paniers
       </a>
       <figure>
@@ -82,7 +82,7 @@
 
         <figure class="container test">
           <div class="row container_row">
-            <a class ="lien_img col-xs-1 col-sm-1 col-lg-1" href="/La-Bonne-Pioche/controlers/produit.ctrl.php?refProduit=<?= $prod->refProduit ?>">
+            <a class ="lien_img col-xs-1 col-sm-1 col-lg-1" href="../controlers/produit.ctrl.php?refProduit=<?= $prod->refProduit ?>">
               <img src="<?= $prod->urlImg ?>">
             </a>
             <div class="col-xs-1 col-sm-3 col-md-3 col-lg-3 compo-txt-prod">
