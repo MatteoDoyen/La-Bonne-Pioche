@@ -1,0 +1,30 @@
+body {
+  background: url("../../data/img/image-acceuil.jpg") no-repeat center fixed;
+  background-size: cover;
+}
+
+.inscription {
+  border: solid 5px #f04942;
+  border-radius: 2rem;
+  padding: 0;
+}
+.header {
+  background-color: #f04942;
+  border-top-left-radius: 1.5rem;
+  border-top-right-radius: 1.5rem;
+}
+.logo {
+  margin: 10px 0px 10px 0px;
+  width: 150px;
+  height: 75px;
+}
+.body {
+  background-color: rgba(255, 255, 255, 0.96);
+  border-bottom-left-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem;
+}
+#submit {
+  border-radius: 2rem;
+  background-color: #f04942;
+  color: white;
+}

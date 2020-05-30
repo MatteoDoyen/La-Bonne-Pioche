@@ -15,6 +15,15 @@
 
       <?php include("../view/navbar.php") ?>
 
+      <?php if (isset($success)): ?>
+        <div class="alert alert-success alert-dismissible fade show offset-xl-3 col-xl-6 offset-lg-2 col-lg-8 offset-1 col-10 mb-5 text-center" role="alert">
+          <?= $success ?>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      <?php endif; ?>
+
       <div class="row" id="row-1">
         <div class="offset-lg-1 col-lg-5 offset-md-1 col-md-5 info-1">
           <h3 class="titre_info1_1">À vos bocaux,</h3>

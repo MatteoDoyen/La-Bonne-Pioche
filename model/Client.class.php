@@ -9,16 +9,13 @@
 
   class Client extends Utilisateur {
 
-    private bool $newsletter;
-    private int $genre;      //pour l'instant [1] => homme / [2] => femme / [0] => autre
-    private float $tauxReduction;
+    private $newsletter;
+    private $genre;      //pour l'instant [1] => homme / [2] => femme / [0] => autre
+    private $tauxReduction;
 
 
     //constructeur
     public function __construct(int $refUtilisateur, string $nom, string $prenom, string $adresseMail, string $motDePasse, string $etat, string $numeroTelephone, bool $newsletter, int $genre = 0, float $tauxReduction){
-
-      //test d'appel de la méthode
-      if(TEST == 1){ echo "appel : ".__METHOD__."\n";}
 
       //construction de l'objet mère Utilisateur
       parent::__construct($refUtilisateur, $nom, $prenom, $adresseMail, $motDePasse, $etat, $numeroTelephone);
@@ -32,9 +29,6 @@
 
     //méthode get
     public function __get(string $attribut) {
-
-      //test d'appel de la méthode
-      if(TEST == 1){ echo "appel : ".__METHOD__."($attribut)\n";}
 
       //code d'erreur
       $retour = -1;

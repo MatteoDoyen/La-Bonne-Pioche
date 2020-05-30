@@ -10,8 +10,12 @@
       <h2 class="nav_h2" id="sous_titre">L'épicerie grenobloise de produits locaux sans emballage</h2>
     </div>
     <div class="col-lg-3 my-2 my-lg-0" id="connect_signin">
-      <a class="btn btn-light my-2 my-sm-0 connect" type="button" name="button" href="../controlers/connexion.ctrl.php" style="float: right;">S'inscrire</a>
-      <a class="btn btn-light my-2 my-sm-0 connect" type="button" name="button" href="../controlers/connexion.ctrl.php" style="float: right;">Se connecter</a>
+      <?php if (!isset($_SESSION['Utilisateur'])): ?>
+        <a class="btn btn-light my-2 my-sm-0 connect" type="button" name="button" href="../controlers/inscription.ctrl.php" style="float: right;">S'inscrire</a>
+        <a class="btn btn-light my-2 my-sm-0 connect" type="button" name="button" href="../controlers/connexion.ctrl.php" style="float: right;">Se connecter</a>
+      <?php else: ?>
+        <a class="btn btn-light my-2 my-sm-0 connect" type="button" name="button" href="../controlers/deconnexion.ctrl.php" style="float: right;">Se Deconnexter</a>
+      <?php endif; ?>
     </div>
   </div>
   <nav class="row navbar navbar-expand-lg py-3 m_nav-bar">
@@ -65,7 +69,7 @@
           <a class="nav-link paniers" href="../controlers/paniers.ctrl.php">Paniers</a>
         </li>
         <li id="connect" class="nav-item">
-          <a class="nav-link btn btn-light my-2 my-sm-0 connect" type="button" name="button" href="../controlers/connexion.ctrl.php" style="float: right;">S'inscrire</a>
+          <a class="nav-link btn btn-light my-2 my-sm-0 connect" type="button" name="button" href="../controlers/inscription.ctrl.php" style="float: right;">S'inscrire</a>
         </li>
         <li id="signin" class="nav-item">
           <a class="nav-link btn btn-light my-2 my-sm-0 connect" type="button" name="button" href="../controlers/connexion.ctrl.php" style="float: right;">Se connecter</a>
