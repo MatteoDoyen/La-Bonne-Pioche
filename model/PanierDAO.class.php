@@ -36,9 +36,24 @@ class PanierDAO {
     return $panier;
   }
 
-  function getNbElements() : int{
+  function getAllActive() : Array {
+    $req = "SELECT * FROM paniers WHERE active = 1";
+    $sth = $this->db->query($req);
+    $resArray= $sth->fetchAll(PDO::FETCH_ASSOC);
+
+    $retour = array();
+    foreach($resArray as $row)
+    {
+      $retour[] = new Panier($row['libelle'],$row['refPanier'],$row['coefficient'],$row['prix'],$row['image'],$row['nbBocaux'],$row['active']);
+    }
+    return $retour;
+  }
+
+
+
+  function getMaxRefPanier() : int{
     try {
-      $r = $this->db->query("SELECT COUNT(*) FROM paniers");
+      $r = $this->db->query("SELECT MAX(refPanier) FROM paniers");
       $res = $r->fetchAll();
     } catch (PDOException $e) {
       die("PDO Error :".$e->getMessage());
@@ -60,16 +75,52 @@ class PanierDAO {
     return $idcomposition;
   }
 
-  public function desactiverPanier($refPanier) {
-      $sql = "UPDATE paniers SET active=0 WHERE refPanier = '$refPanier'";
-      return $this->db->query($sql);
+
+
+public function insertPanier($libelle, $coefficient, $prix, $image, $nbBocaux, $active) {
+
+  $refPanier= $this->getMaxRefPanier()+1;
+
+  $sql = "INSERT INTO paniers VALUES($refPanier,'$libelle',$coefficient,$prix,'$image', $nbBocaux, $active)";
+
+  $this->db->query($sql);
+}
+
+
+
+public function insertProduitPanier($refProduit, $refPanier, $quantite) {
+
+    $sql = "INSERT INTO produits_paniers VALUES($refProduit, $refPanier,$quantite)";
+    $this->db->query($sql);
   }
 
-  public function activer($refPanier) {
-      $sql = "UPDATE paniers SET active=1 WHERE refPanier = '$refPanier'";
-      return $this->db->query($sql);
-  }
 
+
+public function desactiverPanier($refPanier) {
+    $sql = "UPDATE paniers SET active = 0 WHERE refProduit = '$refPanier'";
+    return $this->db->query($sql);
+}
+
+public function activerPanier($refPanier) {
+    $sql = "UPDATE paniers SET active = 1 WHERE refProduit = '$refPanier'";
+    return $this->db->query($sql);
+}
+
+
+
+public function updatePanier($refPanier,$modifs){
+
+    foreach ($modifs as $key => $value) {
+      if(!is_string($value))
+      {
+        $sql = "UPDATE paniers SET $key= $value WHERE refPanier = $refPanier";
+      }
+      else {
+        $sql = "UPDATE paniers SET $key= '$value' WHERE refPanier = $refPanier";
+      }
+      $this->db->query($sql);
+    }
+  }
 }
 
 ?>

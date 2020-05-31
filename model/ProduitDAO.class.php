@@ -17,6 +17,7 @@ class ProduitDAO {
       die("PDO Error :".$e->getMessage()." $database\n");
     }
     $this->db->exec('PRAGMA foreign_keys=ON');
+    $this->db->exec('PRAGMA encoding="UTF-8"');
     $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     //$this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
   }
@@ -34,9 +35,9 @@ class ProduitDAO {
     return $produit;
   }
 
-  function getNbElements() : int{
+  function getMaxRefProduit() : int{
     try {
-      $r = $this->db->query("SELECT COUNT(*) FROM produits");
+      $r = $this->db->query("SELECT MAX(refProduit) FROM produits");
       $res = $r->fetchAll();
     } catch (PDOException $e) {
       die("PDO Error :".$e->getMessage());
@@ -44,10 +45,11 @@ class ProduitDAO {
     return ($res[0][0]);
   }
 
-  public function insertProduit($stock, $libelle, $fabricant, $rayon, $famille, $coef, $description,
-    $origine, $caracteristiques, $prixU, $urlImg, $quantiteU, $unite, $active) {
+  public function insertProduit(int $stock,string $libelle,string $fabricant,string $rayon,string $famille,float $coef,string $description,
+    string $origine,string $caracteristiques,float $prixU,string $urlImg,int $quantiteU,string $unite,int $active) {
 
-    $refProduit= $this->getNbElements()+1;
+
+    $refProduit= $this->getMaxRefProduit()+1;
 
     $sql = "INSERT INTO produits VALUES($stock, $refProduit,'$libelle','$fabricant', '$rayon', '$famille', $coef, '$description',
             '$origine', '$caracteristiques', $prixU,'$urlImg', $quantiteU, '$unite', $active)";

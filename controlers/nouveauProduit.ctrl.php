@@ -15,9 +15,11 @@ require_once('../framework/view.class.php'); // AJOUTE POUR MVC
   echo "</ul>";
 
 // Creation de l'instance DAO
-$catalogue = new ProduitDAO();
 
-$catalogue->insertProduit($stock, $libelle, $fabricant, $rayon, $famille, $coef, $description,
-      $origine, $caracteristiques, $prixU, $urlImg, $quantiteU, $unite, $active);
+$view = new View("nouveauProduit.view.php");
+
+$view->sent = 0;
+
+$view->show();
 
 ?>
