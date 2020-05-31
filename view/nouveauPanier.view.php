@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="fr" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -10,22 +11,23 @@
         <?php include("../view/navbar.php") ?>
         <h2 id="h2NvPanier" >Ajouter un nouveau panier</h2>
         <div class="container-fluid" id="container_all">
+          <form id="form1" enctype="multipart/form-data" action="nouveauPanierInsert.ctrl.php" method="post">
             <div class="container_img3">
               <div class=" col-sm-6">
                 <div id="imageUpload">
                   <img id="imgPreview">
                   <img id="btnSupprimer" draggable="false" src="../others/SVG/iconPlus.svg" alt="">
                   <img id="imgPlus" draggable="false" src="../others/SVG/iconPlus.svg" alt="">
-                  <input id="inputImage" accept="image/jpeg,image/jpg, image/png, image/webp" tabindex="-1" type="file" name="imgProduit" required>
+                  <input id="inputImage" accept="image/jpeg,image/jpg, image/png, image/webp" tabindex="-1" type="file" name="imgPanier" required>
                 </div>
                 <p id="labelImage" >1 Mo maximum</p>
               </div>
             </div>
-            <form id="form1" action="testpanier.php" method="post">
+
                 <div class="doubleInput col-md-6">
                   <div class="">
                     <input  type="text" name="libelle" value="" placeholder="libelle *" required>
-                    <input  type="number" name="bocaux" value="" placeholder="nombre de bocaux *" required>
+                    <input  type="number" name="nbBocaux" value="" placeholder="nombre de bocaux *" required>
                   </div>
                   <div class="">
                       <input  type="number" name="coefficient" value="" step="0.01" placeholder="coefficient *" required>
@@ -42,6 +44,10 @@
             </div>
 
               <div id="toutLesProduits" class="container col-6">
+              </div>
+              <div class="custom-control custom-checkbox mr-sm-2">
+                <label for="active">Article achetable</label>
+                <input type="checkbox" name="active" value="1" id="active" />
               </div>
               <button id="boutonSubmit" type="button" >Envoyer</button>
         </div>

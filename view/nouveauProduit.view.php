@@ -75,7 +75,7 @@
       <script type="text/javascript" src="../view/js/nouveauProduit.js"></script>
       <?php if($sent==1): ?>
       <script>
-        window.onload = function(){ 
+        window.onload = function(){
           alert("Le produit à été ajouté à la base de donnée");
         }
         </script>

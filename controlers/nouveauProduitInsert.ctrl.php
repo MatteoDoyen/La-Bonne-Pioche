@@ -15,10 +15,6 @@ else if(!isset($_POST['rayon']))
 {
   exit("Erreur : rayon non définie");
 }
-else if(!isset($_POST['fabricant']))
-{
-  exit("Erreur : refProduit non définie");
-}
 else if(!isset($_POST['famille']))
 {
   exit("Erreur : famille non définie");

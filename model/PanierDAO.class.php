@@ -36,6 +36,21 @@ class PanierDAO {
     return $panier;
   }
 
+  function getAllActive() : Array {
+    $req = "SELECT * FROM paniers WHERE active = 1";
+    $sth = $this->db->query($req);
+    $resArray= $sth->fetchAll(PDO::FETCH_ASSOC);
+
+    $retour = array();
+    foreach($resArray as $row)
+    {
+      $retour[] = new Panier($row['libelle'],$row['refPanier'],$row['coefficient'],$row['prix'],$row['image'],$row['nbBocaux'],$row['active']);
+    }
+    return $retour;
+  }
+
+
+
   function getMaxRefPanier() : int{
     try {
       $r = $this->db->query("SELECT MAX(refPanier) FROM paniers");
@@ -62,11 +77,11 @@ class PanierDAO {
 
 
 
-public function insertPanier($libelle, $coefficient, $prix, $image, $nbPersonne, $nbBocaux, $active) {
+public function insertPanier($libelle, $coefficient, $prix, $image, $nbBocaux, $active) {
 
   $refPanier= $this->getMaxRefPanier()+1;
 
-  $sql = "INSERT INTO paniers VALUES('$libelle', $refPanier,$coefficient,$prix, '$image', $nbPersonne, $nbBocaux, $active)";
+  $sql = "INSERT INTO paniers VALUES($refPanier,'$libelle',$coefficient,$prix,'$image', $nbBocaux, $active)";
 
   $this->db->query($sql);
 }
