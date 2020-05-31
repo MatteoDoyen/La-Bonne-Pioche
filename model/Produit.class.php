@@ -20,10 +20,13 @@ class Produit {
   // Chemin URL à ajouter pour avoir l'image du produit
   private const URL = '../data/img/img_produits/';
 
+  //constructeur de produit, prend des paramètres par défaut si aucun argument ne lui est fourni
+  //par defaut un produit est actif quand il est construit par défaut
   function __construct( $stock=0, $refProduit=0,string $libelle='',string $fabricant='',
   string $rayon='',string $famille='', $coef=0, string $description='',
   string $origine='', string $caracteristiques='',float $prixU=0, string $urlImg='',
   $quantiteU=0, $unite='', $active=1) {
+
       $this -> stock = $stock;
       $this -> refProduit =  $refProduit;
       $this -> libelle =  $libelle;
@@ -41,11 +44,15 @@ class Produit {
       $this -> active = 1;
   }
 
+  //fonction magique get
   public function __get($libelle){
+
     if($libelle == "urlImg"){
+
       return Produit::URL.$this->$libelle;
-    }
-    else {
+      
+    } else {
+
       return $this -> $libelle;
     }
   }
