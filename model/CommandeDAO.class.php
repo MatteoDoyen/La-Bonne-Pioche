@@ -51,7 +51,7 @@ class CommandeDAO {
   }
 
   function getCmdEnCours() : Array {
-    $req = "SELECT * FROM commandes WHERE etat = 'en cours'";
+    $req = "SELECT * FROM commandes WHERE etat = 'en cours' ORDER BY refCommande DESC";
     $sth = $this->db->query($req);
     $resArray= $sth->fetchAll(PDO::FETCH_ASSOC);
 
@@ -64,7 +64,7 @@ class CommandeDAO {
   }
 
   function getCmdARelancer(): Array{
-    $req = "SELECT * FROM commandes WHERE etat = 'à relancer'";
+    $req = "SELECT * FROM commandes WHERE etat = 'à relancer' ORDER BY refCommande DESC";
     $sth = $this->db->query($req);
     $resArray= $sth->fetchAll(PDO::FETCH_ASSOC);
 
@@ -77,7 +77,7 @@ class CommandeDAO {
   }
 
   function getCmdRecuperee():Array{
-    $req = "SELECT * FROM commandes WHERE etat = 'recupérée'";
+    $req = "SELECT * FROM commandes WHERE etat = 'recupérée' ORDER BY refCommande DESC";
     $sth = $this->db->query($req);
     $resArray= $sth->fetchAll(PDO::FETCH_ASSOC);
 
