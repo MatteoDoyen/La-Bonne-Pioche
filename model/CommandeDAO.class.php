@@ -2,6 +2,8 @@
 require_once(dirname(__FILE__).'/Commande.class.php');
 require_once(dirname(__FILE__).'/Panier.class.php');
 require_once(dirname(__FILE__).'/PanierDAO.class.php');
+require_once(dirname(__FILE__).'/ClientDAO.class.php');
+require_once(dirname(__FILE__).'/ClientEntrepriseDAO.class.php');
 
 // Le Data Access Objet
 class CommandeDAO {
@@ -86,6 +88,22 @@ class CommandeDAO {
   public function modifierEtatCommande($refCommande, $state) {
       $sql = "UPDATE commandes SET etat = $state WHERE refCommande = '$refCommande'";
       return $this->db->query($sql);
+  }
+
+
+  public function getClient($refCommande){
+    $commande = get($refCommande);
+    if($commande->livraison)
+    {
+      $clientsE = new ClientEntrepriseDAO();
+      $client = $clientsE->get($commande->refClient);
+      return $client;
+    }
+    else {
+      $clients = new ClientDAO();
+      $client = $clients->get($commande->refClient);
+      return $client;
+    }
   }
 
 }
