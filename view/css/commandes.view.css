@@ -181,27 +181,3 @@ body {
   border : 3px solid  #f04942;
   border-radius: 5px;
 }
-
-.custom
-{
-  background-color: #f04942;
-}
-
-.custom a
-{
-  text-decoration: none;
-  color : white;
-}
-
-.custom:hover
-{
-  color: white;
-}
-
-.theader
-{
-  background-color: #f04942;
-  border: 2px solid white;
-  border-radius: 5px;
-  color: white;
-}
