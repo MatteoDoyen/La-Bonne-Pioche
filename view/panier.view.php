@@ -94,7 +94,6 @@
             </div>
             <div class="col-xs-4 col-sm-6 col-md-3 col-lg-6 compo-txt-origin">
                 <p><?= $prod->fabricant ?></p>
-            </div>
           </div>
         </figure>
         <hr>
