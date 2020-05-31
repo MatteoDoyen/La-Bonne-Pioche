@@ -182,11 +182,6 @@ body {
   border-radius: 5px;
 }
 
-.btns
-{
-  align-items: center;
-}
-
 .custom a
 {
   text-decoration: none;
@@ -206,4 +201,9 @@ body {
   border: 2px solid white;
   border-radius: 5px;
   color: white;
+}
+
+tr
+{
+  text-align: center;
 }
