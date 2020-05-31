@@ -15,7 +15,7 @@ body {
 
 
 .info {
-  margin-top: 180px;
+  margin-top: 50px;
   font-family:"Avenir-LT-W01_85-Heavy1475544";
 }
 .red {
@@ -31,11 +31,5 @@ h3 {
   }
   h3 {
     font-size: 1.7em;
-  }
-}
-
-@media (max-width: 330px) {
-  .info {
-    margin-top: 220px;
   }
 }

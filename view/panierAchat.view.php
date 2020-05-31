@@ -13,8 +13,78 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script defer src="../framework/bootstrap-4.4.1-dist/js/bootstrap.bundle.min.js"></script>
 
-    <div class="container-fluid">
-      <?php include("navbar.php") ?>
+    <?php include("navbar.php") ?>
+
+    <div class="container_fluid">
+
+      <div class="container">
+        <div class="row" id="ligne_1">
+          <div class="col-lg-3 imgPanier">
+
+            <img src="../data/img/img_paniers/apero.jpg" alt="">
+
+          </div>
+          <div class="col-lg-4 libellePanier">
+            <div class="d-flex flex-column">
+              <p class="titrePanier">Panier Découverte</p>
+              <p class="nbPersPanier">Panier pour 2 personnes</p>
+            </div>
+          </div>
+          <div class="col-lg-2 quantPanier">
+            <button type="button" name="button" id="moins_1">-</button>
+            <input type="text" name="" value="1">
+            <button type="button" name="button" id="plus_1">+</button>
+          </div>
+
+          <div class="col-lg-2 prixPanier">
+            <p id="prix_1">25€</p>
+          </div>
+
+          <div class="col-lg-1 supprPanier">
+            <button type="button" name="button" id="suppr_1">x</button>
+          </div>
+
+          <hr>
+
+        </div>
+      </div>
+
+      <div class="container">
+        <h3>VOTRE COMMANDE</h3>
+        <div id="lignes">
+
+          <div class="ligne" id="totalPaniers">
+            <p>TOTAL PANIERS</p>
+            <p>50€</p>
+          </div>
+          <hr>
+
+          <div class="ligne" id="TVA">
+            <p>DONT TVA</p>
+            <p>2,75€</p>
+          </div>
+          <hr>
+
+          <div class="ligne" id="totalAPayer">
+            <p>TOTAL A PAYER</p>
+            <p>50€</p>
+          </div>
+
+
+
+        </div>
+        <div id"Terminer">
+          <button type="button" name="button" id="ValiderCommande">TERMINER LA COMMANDER</button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- <div class="container-fluid">
+
 
           <h2>Panier</h2>
 
@@ -49,8 +119,11 @@
 
         </div>
 
-      <?php include("footer.php") ?>
-    </div>
+
+    </div> -->
+
+    <?php include("footer.php") ?>
+
     <script type="text/javascript" src="../view/js/commandes.view.js"></script>
 
 

@@ -1,16 +1,25 @@
 <div class="sticky-top container-fluid">
   <div class="row m_nav-bar">
-    <div class="titre offset-lg-2 col-lg-8 offset-1 col-10">
+    <div class="col-lg-2" id="logo-1">
+      <a class="navbar-brand" href="../controlers/accueil.ctrl.php">
+        <img class="nav_img" src="../data/img/logo.png" alt="Logo">
+      </a>
+    </div>
+    <div class="titre col-lg-6 offset-1 col-10">
       <h1 class="nav_h1" >La bonne pioche</h1>
       <h2 class="nav_h2" id="sous_titre">L'épicerie grenobloise de produits locaux sans emballage</h2>
     </div>
-
-    <a href="../controlers/panierAchat.ctrl.php">
-      <button class="btn btn-success my-2 my-sm-0 connect" type="button" name="button">panier <img src="../Ressources/images/panierachat.svg" alt=""> </button>
-    </a>
+    <div class="col-lg-3 my-2 my-lg-0" id="connect_signin">
+      <?php if (!isset($_SESSION['Utilisateur'])): ?>
+        <a class="btn btn-light my-2 my-sm-0 connect" type="button" name="button" href="../controlers/inscription.ctrl.php" style="float: right;">S'inscrire</a>
+        <a class="btn btn-light my-2 my-sm-0 connect" type="button" name="button" href="../controlers/connexion.ctrl.php" style="float: right;">Se connecter</a>
+      <?php else: ?>
+        <a class="btn btn-light my-2 my-sm-0 connect" type="button" name="button" href="../controlers/deconnexion.ctrl.php" style="float: right;">Se Deconnexter</a>
+      <?php endif; ?>
+    </div>
   </div>
-  <nav class="row navbar navbar-expand-lg m_nav-bar">
-    <a class="navbar-brand" href="../controlers/accueil.ctrl.php">
+  <nav class="row navbar navbar-expand-lg py-3 m_nav-bar">
+    <a id="logo-2" class="navbar-brand" href="../controlers/accueil.ctrl.php">
       <img class="nav_img" src="../data/img/logo.png" alt="Logo">
     </a>
     <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,10 +68,13 @@
         <li class="nav-item">
           <a class="nav-link paniers" href="../controlers/paniers.ctrl.php">Paniers</a>
         </li>
+        <li id="connect" class="nav-item">
+          <a class="nav-link btn btn-light my-2 my-sm-0 connect" type="button" name="button" href="../controlers/inscription.ctrl.php" style="float: right;">S'inscrire</a>
+        </li>
+        <li id="signin" class="nav-item">
+          <a class="nav-link btn btn-light my-2 my-sm-0 connect" type="button" name="button" href="../controlers/connexion.ctrl.php" style="float: right;">Se connecter</a>
+        </li>
       </ul>
-      <div class="form-inline my-2 my-lg-0">
-        <button class="btn btn-success my-2 my-sm-0 connect" type="button" name="button">Se connecter</button>
-      </div>
     </div>
   </nav>
 </div>
@@ -86,10 +98,20 @@
   // Disparation ou apparation du dropdown produits en fonciton de la taille de l'écran.
   var dropdown_produits = $("#dropdown-produits");
   var produits = $("#produits");
+  var logo1 = $("#logo-1");
+  var logo2 = $("#logo-2");
+  var connect_signin = $("#connect_signin");
+  var connect = $("#connect");
+  var signin = $("#signin");
   if (taille > 992) {
     dropdown_produits.hide();
+    logo2.hide();
+    connect.hide();
+    signin.hide();
   } else {
+    logo1.hide();
     produits.hide();
+    connect_signin.hide();
   }
 
   $(window).resize(function () {
@@ -97,9 +119,19 @@
     if (new_taille > 992) {
       dropdown_produits.hide();
       produits.show();
+      logo1.show();
+      logo2.hide();
+      connect_signin.show();
+      connect.hide();
+      signin.hide();
     } else {
       produits.hide();
       dropdown_produits.show();
+      logo1.hide();
+      logo2.show();
+      connect_signin.hide();
+      connect.show();
+      signin.show();
     }
   });
 </script>
