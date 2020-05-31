@@ -38,6 +38,55 @@ class CommandeDAO {
     return $commande;
   }
 
+  function getAll(int $refCommande) : Array {
+    $req = "SELECT * FROM commandes";
+    $sth = $this->db->query($req);
+    $resArray= $sth->fetchAll(PDO::FETCH_ASSOC);
+    foreach($resArray as $row)
+    {
+      $commande = new Commande($row['refCommande'],$row['refClient'],$row['dateCommande'],$row['dateRecup'],$row['etat'],$row['livriason'],$row['prix']);
+    }
+    return $commande;
+  }
+
+  function getCmdEnCours() : Array {
+    $req = "SELECT * FROM paniers WHERE etat = 'en_cours'";
+    $sth = $this->db->query($req);
+    $resArray= $sth->fetchAll(PDO::FETCH_ASSOC);
+
+    $cmdencours = array();
+    foreach($resArray as $row)
+    {
+      $cmdencours[] = new Commande($row['refCommande'],$row['refClient'],$row['dateCommande'],$row['dateRecup'],$row['etat'],$row['livriason'],$row['prix']);
+    }
+    return $cmdencours;
+  }
+
+  function getCmdARelancer(): Array{
+    $req = "SELECT * FROM paniers WHERE etat = 'a_relancer'";
+    $sth = $this->db->query($req);
+    $resArray= $sth->fetchAll(PDO::FETCH_ASSOC);
+
+    $cmdrelance = array();
+    foreach($resArray as $row)
+    {
+      $cmdrelance[] = new Commande($row['refCommande'],$row['refClient'],$row['dateCommande'],$row['dateRecup'],$row['etat'],$row['livriason'],$row['prix']);
+    }
+    return $cmdrelance;
+  }
+
+  function getCmdRecuperee():Array{
+    $req = "SELECT * FROM paniers WHERE etat = 'recuperee'";
+    $sth = $this->db->query($req);
+    $resArray= $sth->fetchAll(PDO::FETCH_ASSOC);
+
+    $cmdrelance = array();
+    foreach($resArray as $row)
+    {
+      $cmdrelance[] = new Commande($row['refCommande'],$row['refClient'],$row['dateCommande'],$row['dateRecup'],$row['etat'],$row['livriason'],$row['prix']);
+    }
+    return $cmdrelance;
+  }
 
   function getMaxRefCommande() : int{
     try {
@@ -105,6 +154,9 @@ class CommandeDAO {
       return $client;
     }
   }
+
+
+
 
 }
 
