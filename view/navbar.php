@@ -103,3 +103,4 @@
     }
   });
 </script>
+<!-- <script src="../model/panierAchat.js"></script> -->

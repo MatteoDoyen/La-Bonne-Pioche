@@ -51,6 +51,7 @@ function ajoutPersonne(btn)
     var clone = utilisateurs[0].cloneNode([true]);
 
     insertAfter(clone,utilisateurs[0]);
+    coeffPanier = 0.8;
     textNbPersonne.innerHTML = "Pannier pour "+utilisateurs.length;
     affichePrix.innerHTML = ((nbUtilisateur+1)*coeffPanier*prix) +" €"
     nbUtilisateur++;

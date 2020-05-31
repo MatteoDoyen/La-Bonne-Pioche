@@ -22,7 +22,7 @@
               <div class="container_img_text">
                 <div class="container_img">
                   <a href="/La-Bonne-Pioche/controlers/panier.ctrl.php?refPanier=<?= $panier->refPanier ?>">
-                  <img src="<?= $panier->image  ?>" alt="">
+                  <img src="<?= $panier->image  ?>" id="imgPanier<?= $panier->refPanier ?>" alt="">
                   </a>
                 </div>
                 <a href="/La-Bonne-Pioche/controlers/panier.ctrl.php?refPanier=<?= $panier->refPanier ?>">
@@ -33,24 +33,27 @@
               <div class="container_info">
                 <p class="description">Petite description du panier indiquant quantité et composition</p>
                 <div class="nombre_panier">
-                  <p id="P_<?=$panier->id_Panier?>" ><?= $panier->prix ?></p><input id="C_<?=$panier->id_Panier?>" name="prodId" type="hidden" value="<?=$panier->coefficient?>"><p> € /</p>
-                  <button type="button" name="button" class="nbPersSelectedadd<?=$panier->id_Panier?>"> <img src="../others/SVG/iconuser.svg" alt=""> </button>
-                  <button type="button" name="button" class="nbPersChange" id="add<?=$panier->id_Panier?>"> <img src="../others/SVG/user-gris.svg" alt=""> </button>
+                  <p class="prix" id="P_<?=$panier->refPanier?>" ><?= $panier->prix ?></p><input id="C_<?=$panier->refPanier?>" name="prodId" type="hidden" value="<?=$panier->coefficient?>"><p> € /</p>
+                  <button type="button" name="button" class="nbPersMoins" id="nbPersMoins<?=$panier->refPanier?>" type="hidden" onclick=""> <img src="../others/SVG/user-gris-moin.svg"> </button>
+                  <button type="button" name="button" id="nbPersSelectedadd<?=$panier->refPanier?>" disabled="disabled"><img src="../others/SVG/iconuser.svg" ></button>
+                  <button type="button" name="button" class="nbPersPlus" id="nbPersPlus<?=$panier->refPanier?>"> <img src="../others/SVG/user-gris.svg"> </button>
+
                 </div>
                 <div class="commande">
-                  <button type="button" name="<?= $panier->libelle ?>" id="<?= $panier->id_Panier ?>" onclick="ajoutArticle(this)">Ajouter <img src="../others/SVG/panierachat.svg" alt="" > </button>
+                  <button type="button" name="<?= $panier->libelle ?>" id="<?= $panier->refPanier ?>" onclick="ajoutArticle(this)">Ajouter <img src="../others/SVG/panierachat.svg" alt="" > </button>
                   <div class="bouton_panier">
-                    <button type="button" name="button">-</button>
-                    <input type="text" name="" id="Q_<?=$panier->id_Panier?>" value="1" >
-                    <button type="button" name="button">+</button>
+                    <button id="boutonMoins_<?=$panier->refPanier?>" type="button" name="button" onclick="moinsPanier(this);">-</button>
+                    <input type="text" name="" id="Q_<?=$panier->refPanier?>" value="1" >
+                    <button id="boutonPlus_<?=$panier->refPanier?>" type="button" name="button" onclick="plusPanier(this);">+</button>
                   </div>
                 </div>
                 <a href="#">
                   <p class="plus_information">+ D'informations</p>
+                  <input type="hidden" id="nbBocaux<?=$panier->refPanier?>" value="<?=$panier->nbBocaux?>"></p>
                 </a>
               </div>
             </div>
-          <?php endForeach; ?>
+          <?php endforeach; ?>
         </div>
       </div>
     </div>
