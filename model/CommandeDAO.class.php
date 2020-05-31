@@ -141,24 +141,22 @@ class CommandeDAO {
   }
 
 
-  public function getClient($refCommande){
+  public function getClient($refCommande): Client{
+    $clients = new ClientDAO();
+    $clientsE = new ClientEntrepriseDAO();
     $commande = get($refCommande);
-    if($commande->livraison)
+    if($commande->livraison != 0)
     {
-      $clientsE = new ClientEntrepriseDAO();
-      $client = $clientsE->get($commande->refClient);
+      $id = $commande->refClient;
+      $client = $clientsE->get($id);
       return $client;
     }
     else {
-      $clients = new ClientDAO();
-      $client = $clients->get($commande->refClient);
+      $id = $commande->refClient;
+      $client = $clients->get($id);
       return $client;
     }
   }
-
-
-
-
 }
 
 ?>

@@ -23,11 +23,11 @@
     <div class="jumbotron jumbotron-fluid">
       <div class="container">
         <h2 class="display-12">Référence de la commande : <?= $commande->refCommande ?></br>
-          Client : <?= $commande->refClient ?></br>
-          état de la commande : <?= $commande->etat ?></br>
-          prix total: <?= $commande->prix ?></br>
+          Client : <?=$client->prenom?>, <?=$client->nom?>, identifiant n°<?= $commande->refClient ?></br>
+          prix total : <?= $commande->prix ?></br>
           commandée le : <?=$commande->dateCommande?></br>
-          prête pour le : <?=$commande->dateRecup?></br
+          à récupérer pour le : <?=$commande->dateRecup?></br>
+          état de la commande : <?= $commande->etat ?></br>
         </h2>
           <?php foreach($descriptif as $panier) :  ?>
               <hr class="my-6">
