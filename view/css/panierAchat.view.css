@@ -41,7 +41,8 @@ body {
 }
 
 .quantPanier input{
-  width: 30px;
+  width: 40px;
+  border : 2px solid grey;
   border-radius: 5px;
   text-align: center;
   color : grey;
@@ -62,7 +63,7 @@ body {
 }
 
 .supprPanier button{
-  color: grey;
+  color: red;
   background: transparent;
   border: none;
   padding: 0;
@@ -92,8 +93,29 @@ hr{
   width: 80%;
   color: grey;
 }
-
-#Terminer{
+#Terminer
+{
+  margin-top: 15px;
+}
+#Terminer button
+{
+  margin: 0;
+  background-color: grey;
+  border: none;
   width: 100%;
-  background-color: red; 
+  padding: 15px 0px;
+  margin: 0 auto;
+  color: white;
+}
+
+#container_resume
+{
+  max-width: 450px;
+}
+@media screen and (max-width: 1000px)
+{
+  .quantPanier
+  {
+    padding: 20px;
+  }
 }

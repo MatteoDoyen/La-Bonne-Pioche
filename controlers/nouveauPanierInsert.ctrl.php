@@ -59,8 +59,6 @@ if (isset($_FILES['imgPanier']) AND $_FILES['imgPanier']['error'] == 0)
     }
   }
 }
-
-echo "je suis là";
 // echo $image;
 // echo"<br>";
 // print_r($prod);
@@ -71,27 +69,18 @@ $catalogue = new PanierDAO();
 //insertion du nouveau panier dans la table paniers
 $catalogue->insertPanier($libelle, $coefficient, $prix, $nomFichier, $nbBocaux, $active);
 $refPanier = $catalogue->getMaxRefPanier();
-echo "je suis là";
 //Insertion de la composition du panier dans la table produits_paniers
 
 foreach ($prod as $value) {
   $temp = explode("_",$value);
   print_r($temp);
   $catalogue->insertProduitPanier($temp[0], $refPanier,$temp[1]);
-  echo"<br>";
 }
 
-// foreach ($prod as $key => $value) {
-//   //$temp = explode("_",$produit);
-//   echo $produitttttt;
-//   echo"<br>";
-//   //$catalogue->insertProduitPanier($temp[0], $refPanier,$temp[1]) //$prod[0] = refProduit; $prod[1] = quantite
-// }
-// //
-// $view = new View("nouveauProduit.view.php");
-//
-// $view->sent = 1;
-//
-// $view->show();
+$view = new View("nouveauProduit.view.php");
+
+$view->sent = 1;
+
+$view->show();
 
 ?>

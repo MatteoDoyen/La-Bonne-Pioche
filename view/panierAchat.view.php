@@ -15,32 +15,32 @@
 
     <?php include("navbar.php") ?>
 
-    <div class="container_fluid">
+    <div class="container_fluid d-flex flex-column flex-md-row justify-content-center align-items-center align-items-md-start">
 
-      <div class="container">
+      <div class="container p-3 m-0">
         <div class="row" id="ligne_1">
-          <div class="col-lg-3 imgPanier">
+          <div class="d-none d-sm-flex col-sm-6 col-lg-3 imgPanier">
 
             <img src="../data/img/img_paniers/apero.jpg" alt="">
 
           </div>
-          <div class="col-lg-4 libellePanier">
+          <div class="col-xs-12 col-sm-6 col-lg-4 libellePanier justify-content-start">
             <div class="d-flex flex-column">
               <p class="titrePanier">Panier Découverte</p>
               <p class="nbPersPanier">Panier pour 2 personnes</p>
             </div>
           </div>
-          <div class="col-lg-2 quantPanier">
+          <div class="col-xs-12 col-sm-6 col-lg-2 quantPanier">
             <button type="button" name="button" id="moins_1">-</button>
             <input type="text" name="" value="1">
             <button type="button" name="button" id="plus_1">+</button>
           </div>
 
-          <div class="col-lg-2 prixPanier">
+          <div class="col-xs-6 col-sm-3 col-lg-2 prixPanier">
             <p id="prix_1">25€</p>
           </div>
 
-          <div class="col-lg-1 supprPanier">
+          <div class="col-xs-6 col-sm-3 col-lg-1 supprPanier">
             <button type="button" name="button" id="suppr_1">x</button>
           </div>
 
@@ -49,7 +49,7 @@
         </div>
       </div>
 
-      <div class="container">
+      <div class="container p-3 m-0" id="container_resume">
         <h3>VOTRE COMMANDE</h3>
         <div id="lignes">
 
@@ -73,9 +73,8 @@
 
 
         </div>
-        <div id"Terminer">
+        <div id = "Terminer">
           <button type="button" name="button" id="ValiderCommande">TERMINER LA COMMANDER</button>
-
         </div>
 
       </div>
