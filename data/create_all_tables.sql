@@ -108,6 +108,7 @@ CREATE TABLE commandes(
 CREATE TABLE paniers_commandes (
   refPanier INTEGER NOT NULL,
   refCommande INTEGER NOT NULL,
+  nbPersonne INTEGER NOT NULL,
   quantite INTEGER,
   PRIMARY KEY(refPanier, refCommande),
   CONSTRAINT refCommande
