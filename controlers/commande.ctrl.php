@@ -18,7 +18,7 @@ $catalogue = new CommandeDAO();
 $commande = $catalogue->get($refCommande);
 $descriptif = $catalogue->getComposition($refCommande);
 
-$client = $catalogue->getClient($refCommande);
+//$client = $catalogue->getClient($refCommande); À DÉCOMMENTÉ LORSQUE LES CLASSES UTILISATEUR SERONT OPERATIONNELLES
 
 ///////// AJOUTE POUR MVC
 $view = new View("../view/commande.view.php");

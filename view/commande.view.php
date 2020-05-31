@@ -21,9 +21,9 @@
     </br></br>
 
     <div class="jumbotron jumbotron-fluid">
-      <div class="container">
+      <div class="container back">
         <h2 class="display-12">Référence de la commande : <?= $commande->refCommande ?></br>
-          Client : <?=$client->prenom?>, <?=$client->nom?>, identifiant n°<?= $commande->refClient ?></br>
+          Client : prénom, nom, identifiant n°<?= $commande->refClient ?></br>
           prix total : <?= $commande->prix ?></br>
           commandée le : <?=$commande->dateCommande?></br>
           à récupérer pour le : <?=$commande->dateRecup?></br>
@@ -32,6 +32,7 @@
           <?php foreach($descriptif as $panier) :  ?>
               <hr class="my-6">
               <p><img src=<?= $panier->image ?> alt="panier" width="100" height="100"><?= $panier->libelle ?> </p>
+              <p><?=$panier->prix?>,<?=$panier->$quantite?></p>
               <p class="lead">
                 <a class="btn btn-outline-dark" href="/La-Bonne-Pioche/controlers/panier.ctrl.php?refPanier=<?= $panier->refPanier ?>" role="button">Détails du panier</a>
               </p>

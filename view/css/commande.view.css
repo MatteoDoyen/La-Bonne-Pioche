@@ -272,3 +272,8 @@ width:80%;
     text-align: center;
   }
 }
+
+.jumbotron jumbotron-fluid
+{
+  color:white;
+}
