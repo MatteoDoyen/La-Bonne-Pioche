@@ -18,22 +18,27 @@
         <img src="../others/SVG/flechegauche.svg" alt=""> Retour Commandes
       </a>
 
-      <p>Ref commande : <?= $commande->refCommande ?>;
-        Client : <?= $commande->refClient ?>;
-        état de la commande : <?= $commande->etat ?></p><br>
+    </br></br>
 
-      <?php foreach($descriptif as $panier) :  ?>
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h2 class="display-12">Référence de la commande : <?= $commande->refCommande ?></br>
+          Client : <?= $commande->refClient ?></br>
+          état de la commande : <?= $commande->etat ?></br>
+          prix total: <?= $commande->prix ?></br>
+          commandée le : <?=$commande->dateCommande?></br>
+          prête pour le : <?=$commande->dateRecup?></br
+        </h2>
+          <?php foreach($descriptif as $panier) :  ?>
+              <hr class="my-6">
+              <p><img src=<?= $panier->image ?> alt="panier" width="100" height="100"><?= $panier->libelle ?> </p>
+              <p class="lead">
+                <a class="btn btn-outline-dark" href="/La-Bonne-Pioche/controlers/panier.ctrl.php?refPanier=<?= $panier->refPanier ?>" role="button">Détails du panier</a>
+              </p>
+          <?php endforeach ?>
+      </div>
+    </div>
 
-          <p>Ref panier : <?= $panier->refPanier ?>;
-            <a href="/La-Bonne-Pioche/controlers/panier.ctrl.php?refPanier=<?= $panier->refPanier ?>">
-              image panier : <?= $panier->image ?>
-            </a>;
-               prix : <?= $panier->prix ?>
-          </p>
-
-          <br>
-
-      <?php endforeach ?>
 
 
     </div>

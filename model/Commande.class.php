@@ -3,7 +3,7 @@
 class Commande {
   private $refCommande;
   private $refClient;
-  private $dataCommande;
+  private $dateCommande;
   private $dateRecup;
   private $etat;
   private $livraison;
