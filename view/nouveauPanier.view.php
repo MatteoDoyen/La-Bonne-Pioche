@@ -38,16 +38,16 @@
             <h2 class="text-center mt-3 mb-2">Composition du panier</h2>
             <div id="compositionPanier" class="container col-6 ">
             </div>
+            <div class="custom-control custom-checkbox mr-sm-2">
+              <label for="active">Article achetable</label>
+              <input type="checkbox" name="active" value="1" id="active" />
+            </div>
             </form>
             <div id="container_recherche" class="mt-5 mb-2 col-6 d-flex justify-content-center align-items-center p-0">
               <input type="search" class="w-100" id="rechercheProduit" name="produit" aria-label="Chercher des produits" placeholder="Taper un nom de produit ou un fabricant" >
             </div>
 
               <div id="toutLesProduits" class="container col-6">
-              </div>
-              <div class="custom-control custom-checkbox mr-sm-2">
-                <label for="active">Article achetable</label>
-                <input type="checkbox" name="active" value="1" id="active" />
               </div>
               <button id="boutonSubmit" type="button" >Envoyer</button>
         </div>

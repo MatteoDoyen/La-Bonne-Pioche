@@ -41,6 +41,30 @@ class EmployeDAO {
     }
     return ($res[0][0]);
   }
+
+  function addEmploye($nom, $prenom, $adresseMail, $motDePasse, $numeroTelephone) {
+    $sth = $this->db->prepare("SELECT max(refUtilisateur) FROM Employes");
+    $sth->execute();
+    $max = $sth->fetch()[0] + 1;
+
+    $sth2 = $this->db->prepare("INSERT INTO Employes(refUtilisateur, nom, prenom, adresseMail, motDepasse, etat, numeroTelephone, statut) VALUES(:ref, :nom, :prenom, :adresseMail, :motDePasse, :etat, :numeroTelephone, :statut)");
+    $result = $sth2->execute(array(":ref" => $max, ":nom" => $nom, ":prenom" => $prenom, ":adresseMail" => $adresseMail, ":motDePasse" => $motDePasse, ":etat" => "Non défini", ":numeroTelephone" => $numeroTelephone, ":statut" => false));
+  }
+
+  function getUtilisateurOfThisEmail(string $mail) {
+    $sth = $this->db->prepare("SELECT refUtilisateur, nom, prenom, adresseMail, motDePasse, etat, numeroTelephone, statut FROM Employes WHERE adresseMail = :mail");
+    $sth->execute(array(":mail" => $mail));
+    $result = $sth->fetchAll(PDO::FETCH_ASSOC);
+
+    if($result){
+      $result = $result[0];
+      $uti = new Employe($result['refUtilisateur'],$result['nom'],$result['prenom'],$result['adresseMail'], $result['motDePasse'], $result['etat'], $result['numeroTelephone'], $result['statut']);
+      return $uti;
+    }else{
+      return false;
+    }
+  }
+
 }
 
 ?>

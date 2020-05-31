@@ -33,7 +33,8 @@ CREATE TABLE clientsEntreprise (
   newsletter BOOLEAN,
   genre BOOLEAN,
   tauxReduction FLOAT,
-  refEntreprise INTEGER
+  refEntreprise INTEGER,
+  FOREIGN KEY(refEntreprise) REFERENCES Entreprises(refEntreprise)
 );
 
 CREATE TABLE entreprises (

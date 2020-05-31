@@ -9,14 +9,12 @@
 
   class Employe extends Utilisateur {
 
-    private bool $statut; //true -> Gestionnaire et false -> Employe
+    private $statut; //true -> Gestionnaire et false -> Employe
 
 
     //constructeur
     public function __construct(int $refUtilisateur, string $nom, string $prenom, string $adresseMail, string $motDePasse, string $etat, string $numeroTelephone, bool $statut){
 
-      //test d'appel de la méthode
-      if(TEST == 1){ echo "appel : ".__METHOD__."\n";}
 
       //construction de l'objet mère Utilisateur
       parent::__construct($refUtilisateur, $nom, $prenom, $adresseMail, $motDePasse, $etat, $numeroTelephone);
@@ -27,9 +25,6 @@
 
     //méthode get
     public function __get(string $attribut) {
-
-      //test d'appel de la méthode
-      if(TEST == 1){ echo "appel : ".__METHOD__."($attribut)\n";}
 
       //code d'erreur
       $retour = -1;
