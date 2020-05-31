@@ -21,7 +21,7 @@ h4 {
   color: red;
 }
 .contenu {
-  margin-top: 180px;
+  margin-top: 50px;
   font-family:"Avenir-LT-W01_85-Heavy1475544";
 }
 .titre1 {
@@ -54,15 +54,7 @@ h4 {
   }
 }
 @media (max-width: 600px) {
-  .contenu {
-    margin-top: 240px;
-  }
   p {
     font-size: 0.85em;
-  }
-}
-@media (max-width: 330px) {
-  .contenu {
-    margin-top: 300px;
   }
 }
