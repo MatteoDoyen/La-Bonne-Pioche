@@ -23,7 +23,7 @@ class article{
 
 var panierAchat = [];
 if(localStorage.getItem("panierAchat") != null){
-  panierAchat.push(JSON.parse(localStorage.getItem("panierAchat")));
+  panierAchat = JSON.parse(localStorage.getItem("panierAchat"));
 }
 
 function ajoutArticle(elm){
@@ -31,7 +31,7 @@ function ajoutArticle(elm){
   let quant = document.getElementById("Q_"+elm.id).value;
   let price = document.getElementById("P_"+elm.id).innerHTML;
   let nombre = document.getElementsByClassName("nbPersSelectedadd"+elm.id).length;
-
+  console.log("plop"+nombre);
   let prix = tabprixinit[elm.id];
   let coeff = document.getElementById("C_"+elm.id).value;
   let img = document.getElementById("imgPanier"+elm.id).src;

@@ -35,7 +35,7 @@
                 <div class="nombre_panier">
                   <p class="prix" id="P_<?=$panier->refPanier?>" ><?= $panier->prix ?></p><input id="C_<?=$panier->refPanier?>" name="prodId" type="hidden" value="<?=$panier->coefficient?>"><p> € /</p>
                   <button type="button" name="button" class="nbPersMoins" id="nbPersMoins<?=$panier->refPanier?>" type="hidden" onclick=""> <img src="../others/SVG/user-gris-moin.svg"> </button>
-                  <button type="button" name="button" id="nbPersSelectedadd<?=$panier->refPanier?>" disabled="disabled"><img src="../others/SVG/iconuser.svg" ></button>
+                  <button type="button" name="button"  class="nbPersSelectedadd<?=$panier->refPanier?>" id="nbPersSelectedadd<?=$panier->refPanier?>" disabled="disabled"><img src="../others/SVG/iconuser.svg" ></button>
                   <button type="button" name="button" class="nbPersPlus" id="nbPersPlus<?=$panier->refPanier?>"> <img src="../others/SVG/user-gris.svg"> </button>
 
                 </div>
