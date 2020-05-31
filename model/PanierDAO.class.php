@@ -62,11 +62,11 @@ class PanierDAO {
 
 
 
-public function insertPanier($libelle, $coefficient, $prix, $image, $nbBocaux, $active) {
+public function insertPanier($libelle, $coefficient, $prix, $image, $nbPersonne, $nbBocaux, $active) {
 
   $refPanier= $this->getMaxRefPanier()+1;
 
-  $sql = "INSERT INTO paniers VALUES('$libelle', $refPanier,$coefficient,$prix, '$image', $nbBocaux, $active)";
+  $sql = "INSERT INTO paniers VALUES('$libelle', $refPanier,$coefficient,$prix, '$image', $nbPersonne, $nbBocaux, $active)";
 
   $this->db->query($sql);
 }
