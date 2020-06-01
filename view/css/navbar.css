@@ -51,7 +51,7 @@
   margin-bottom: auto;
 }
 .nav-link {
-  transition: .3s all ease;
+  transition: .25s all ease;
   color: white;
   font-size: .6em;
 }
