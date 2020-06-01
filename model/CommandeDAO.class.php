@@ -1,5 +1,6 @@
 <?php
 require_once(dirname(__FILE__).'/Commande.class.php');
+require_once(dirname(__FILE__).'/Panier.class.php');
 require_once(dirname(__FILE__).'/PanierDAO.class.php');
 require_once(dirname(__FILE__).'/Client.class.php');
 require_once(dirname(__FILE__).'/ClientEntreprise.class.php');
@@ -185,6 +186,15 @@ class CommandeDAO {
     }
   }
 
+  public function getProduitsCommande($refCommande){
+    $paniers = new PanierDAO();
+    $descriptif = $this->getComposition($refCommande); //renvoie les paniers de la commande
+    $compos = array();
+    foreach ($descriptif as $panier) {
+      $compo = $paniers->getComposition($panier->refPanier);
+      $compos[$refPanier] = $compo;
+    }
+    return $compos;
+  }
 }
-
 ?>

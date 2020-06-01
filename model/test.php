@@ -11,10 +11,11 @@ require_once(dirname(__FILE__).'/CommandeDAO.class.php');
 // print_r($prod->getNextRef());
 
 
-// $commandes = new CommandeDAO();
-//
-// $adresse = $commandes->getAdresseRecup(9);
 
+
+$commandes = new CommandeDAO();
+$compos = $commandes->getProduitsCommande(9);
+print_r($compos);
 
 // $prod = new ProduitDAO();
 //

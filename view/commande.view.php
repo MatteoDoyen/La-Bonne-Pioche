@@ -25,24 +25,28 @@
         <h2 class="display-12">Référence de la commande : <?= $commande->refCommande ?></br>
           Client: <?= $client->prenom ?>, <?= $client->nom ?>, id. n°<?= $commande->refClient ?></br>
           @mail: <?= $client->adresseMail?>, n°tel: <?= $client->numeroTelephone?></br>
-          prix total du panier: <?= $commande->prix ?></br></br>
+          prix total du panier: <?= $commande->prix ?>€</br></br>
           commandée le: <?=$commande->dateCommande?></br>
           à récupérer/livrer pour le: <?=$commande->dateRecup?></br>
           etat: commande <?= $commande->etat ?></br>
           adresse de récupération: <?=$adresse?></br>
         </h2>
+          <div class="row">
           <?php foreach($descriptif as $key => $value) :  ?>
-              <hr class="my-6">
-              <p><img src=<?= $value->image ?> alt="panier" width="100" height="100"> <?=$key?> x <?= $value->libelle ?>  pour <?=$value->nbPersonne?> personne(s)</p>
-              <p>Sous-total: <?=$value->prix?> x <?=$key?> (quantité) </p>
-              <p class="lead">
-                <a class="btn btn-outline-dark" href="/La-Bonne-Pioche/controlers/panier.ctrl.php?refPanier=<?= $value->refPanier ?>" role="button">Détails du panier</a>
-              </p>
-          <?php endforeach ?>
+              <div class="col-sm">
+                <div class="card">
+                <img src=<?= $value->image ?> class="card-img-top" alt="panier">
+                  <div class="card-body">
+                    <h5 class="card-title"><?=$key?> x <?= $value->libelle ?>  pour <?=$value->nbPersonne?> personne(s)</h5>
+                    <p>  Sous-total: <?=$value->prix?>€ x <?=$key?> </p>
+                    <a class="btn btn-outline-dark" href="/La-Bonne-Pioche/controlers/panier.ctrl.php?refPanier=<?= $value->refPanier ?>" role="button">Détails du panier</a>
+                  </div>
+                </div>
+              </div>
+            <?php endforeach ?>
+
       </div>
     </div>
-
-
 
     </div>
     <?php include("footer.php") ?>
