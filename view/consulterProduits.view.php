@@ -14,21 +14,21 @@
 
     <div class="container-fluid">
       <?php if ($supprimer==1): ?>
-        <div class="alert alert-success" role="alert">
-        <h4 class="alert-heading">Produit supprimé</h4>
-        <p>Le produit : "<?= $libelleSupprimer ?>" à été supprimé</p>
+        <div class="container alert alert-success" role="alert">
+        <h4 class="alert-heading text-center">Produit supprimé</h4>
+        <p class="text-center textSupprLibelle" >Le produit : "<?= $libelleSupprimer ?>" à été supprimé</p>
         </div>
       <?php endif; ?>
       <div class="container">
         <h2 class="text-center mt-5 mb-5">Les Produits</h2>
-        <a href="nouveauPanier.ctrl.php">
-          <div id="nouveauPanier">
+        <a href="nouveauProduit.ctrl.php">
+          <div id="nouveauProduit">
             <p>Nouveau produit</p><p>+</p>
           </div>
         </a>
         <?php foreach ($produits as $produit): ?>
           <div class="row mb-3 ">
-            <div class="col-6 col-md-2 imgPanier d-flex justify-content-start align-items-center">
+            <div class="col-6 col-md-2 imgProduit d-flex justify-content-start align-items-center">
               <img src="<?= $produit->urlImg ?>" alt="">
             </div>
             <div class="col-6 col-md-4 d-flex justify-content-start align-items-center">
@@ -40,15 +40,15 @@
             <div class="col-md-2 col-5 d-flex justify-content-center align-items-center">
               <p><?= $produit->fabricant ?></p>
             </div>
-            <div class="col-2 buttonPaniers d-flex align-items-center">
-              <form id="formulaireEdit_<?= $produit->refPanier ?>" action="modifierPanier.ctrl.php" method="post">
-                <input type="hidden" name="refPanier" value="<?= $produit->refPanier ?>">
-                <button onclick="envoieFormulaireEdit(this)" id="boutonEdit_<?= $produit->refPanier ?>" class="d-flex" type="button" name="button"> <img src="../others/SVG/edit.svg" alt=""> </button>
+            <div class="col-2 buttonProduit d-flex align-items-center">
+              <form id="formulaireEdit_<?= $produit->refProduit ?>" action="modifierProduit.ctrl.php" method="post">
+                <input type="hidden" name="refProduit" value="<?= $produit->refProduit ?>">
+                <button onclick="envoieFormulaireEdit(this)" id="boutonEdit_<?= $produit->refProduit ?>" class="d-flex" type="button" name="button"> <img src="../others/SVG/edit.svg" alt=""> </button>
               </form>
-              <form id="formulaireSupprimer_<?= $produit->refPanier ?>"  class="" action="supprimerPanier.ctrl.php" method="post">
+              <form id="formulaireSupprimer_<?= $produit->refProduit ?>"  class="" action="supprimerProduit.ctrl.php" method="post">
                 <input type="hidden" name="libelle" value="<?= $produit->libelle ?>">
-                <input type="hidden" name="refPanier" value="<?= $produit->refPanier ?>">
-                <button onclick="supprimerPanier(this)" id="boutonSupprimer_<?= $produit->refPanier ?>"  class="boutonSupprimer" type="button" name="button">x</button>
+                <input type="hidden" name="refProduit" value="<?= $produit->refProduit ?>">
+                <button onclick="supprimerProduit(this)" id="boutonSupprimer_<?= $produit->refProduit ?>"  class="boutonSupprimer" type="button" name="button">x</button>
               </form>
             </div>
           </div>

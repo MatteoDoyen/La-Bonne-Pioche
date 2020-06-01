@@ -14,9 +14,9 @@
 
     <div class="container-fluid">
       <?php if ($supprimer==1): ?>
-        <div class="alert alert-success" role="alert">
-        <h4 class="alert-heading">Pannier supprimé</h4>
-        <p>Le paniers : "<?= $libelleSupprimer ?>" à été supprimé</p>
+        <div class="container alert alert-success" role="alert">
+        <h4 class="alert-heading text-center">Pannier supprimé</h4>
+        <p class="text-center textSupprLibelle" >Le paniers : "<?= $libelleSupprimer ?>" à été supprimé</p>
         </div>
       <?php endif; ?>
       <div class="container">

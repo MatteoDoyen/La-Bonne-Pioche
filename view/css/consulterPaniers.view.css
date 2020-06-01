@@ -44,7 +44,12 @@ p
   padding: 0;
   margin: 0;
 }
+/* --------------------- message retour apres supression ------------------------ */
 
+.textSupprLibelle
+{
+  text-transform: none;
+}
 
 /*------------------ Message de confirmation-----------------*/
 
