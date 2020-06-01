@@ -18,10 +18,10 @@ window.onload = function ()
   document.getElementById("boutonPlus").setAttribute("onclick","plusPanier()");
   document.getElementById("boutonMoins").setAttribute("onclick","moinPanier()");
 
-  prix = document.getElementById("inputPrix").value;
+  prix = parseInt(document.getElementById("inputPrix").value);
   affichePrix = document.getElementById("affichePrix");
   textNbPersonne = document.getElementById("nb_personne_panier");
-  coeffPanier = document.getElementById("coeffPanier").value;
+  coeffPanier = parseInt(document.getElementById("coeffPanier").value);
   moinUtilisateur = document.getElementById("moinUtilisateur");
   moinUtilisateur.style.display = 'none';
 }
@@ -53,12 +53,11 @@ function ajoutPersonne(btn)
     insertAfter(clone,utilisateurs[0]);
     coeffPanier = 0.8;
     textNbPersonne.innerHTML = "Pannier pour "+utilisateurs.length;
-    affichePrix.innerHTML = ((nbUtilisateur+1)*coeffPanier*prix) +" €"
+    affichePrix.innerHTML = Math.round(((utilisateurs.length-1)*coeffPanier*prix)+prix) +" €"
     nbUtilisateur++;
   }
   if(!afficheMoin&&nbUtilisateur>1&&nbUtilisateur<4)
   {
-    console.log("lol");
     moinUtilisateur.style.display = 'block';
     afficheMoin=true;
   }
@@ -77,7 +76,7 @@ function suppressionPersonne(btn)
   {
     utilisateurs[utilisateurs.length-1].remove();
     textNbPersonne.innerHTML = "Pannier pour "+utilisateurs.length;
-    affichePrix.innerHTML = ((utilisateurs.length)*coeffPanier*prix) +" €"
+    affichePrix.innerHTML = Math.round(((utilisateurs.length-1)*coeffPanier*prix)+prix) +" €"
   }
   if(utilisateurs.length<2)
   {

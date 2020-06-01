@@ -10,14 +10,14 @@ class Commande {
   private $prix;
 
 
-  public function __construct(int $refCommande, int $refClient,string $dateCommande, string $dateRecup, string $etat, $livriason,float $prix)
+  public function __construct(int $refCommande, int $refClient,string $dateCommande, string $dateRecup, string $etat, $livraison,float $prix)
   {
     $this->refCommande = $refCommande;
     $this->refClient = $refClient;
     $this->dateCommande = $dateCommande;
     $this->dateRecup = $dateRecup;
     $this->etat = $etat;
-    $this->livriason = $livriason;
+    $this->livraison = $livraison;
     $this->prix = $prix;
   }
 

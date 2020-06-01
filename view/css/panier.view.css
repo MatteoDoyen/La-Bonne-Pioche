@@ -10,6 +10,12 @@ body {
 }
 
 
+p
+{
+  font-family:"Avenir-LT-W01_85-Heavy1475544";
+}
+
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -67,6 +73,7 @@ input[type=number] {
 
 .compo-txt-prod, .compo-txt-origin
 {
+  text-transform: capitalize;
   align-items: center;
   display: flex;
 }
@@ -113,7 +120,7 @@ width:80%;
 }
 .bouton_legende_panier p
 {
-  font-size: 10px;
+  font-size: 13px;
   display: inline-block;
   color: #707070;
 }
@@ -244,7 +251,7 @@ width:80%;
 }
 .panier
 {
-  font-size : 10px;
+  font-size : 15px;
   margin: 0;
   padding: 15px;
   border-radius: 0px 0px 15px 15px;

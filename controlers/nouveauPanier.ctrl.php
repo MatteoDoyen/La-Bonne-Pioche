@@ -10,5 +10,4 @@ require_once('../framework/view.class.php'); // AJOUTE POUR MVC
 
   // Appel de la vue
   $view->show();
-
 ?>

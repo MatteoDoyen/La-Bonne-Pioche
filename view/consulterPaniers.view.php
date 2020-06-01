@@ -7,10 +7,10 @@
     <link rel="stylesheet" href="../view/css/consulterPaniers.view.css">
   </head>
   <body>
-    <?php include("../view/navbar.php") ?>
+
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script defer src="../framework/bootstrap-4.4.1-dist/js/bootstrap.bundle.min.js"></script>
-
+    <?php include("../view/navbar.php") ?>
 
     <div class="container-fluid">
       <?php if ($supprimer==1): ?>
@@ -21,6 +21,11 @@
       <?php endif; ?>
       <div class="container">
         <h2 class="text-center mt-5 mb-5">Les paniers</h2>
+        <a href="nouveauPanier.ctrl.php">
+          <div id="nouveauPanier">
+            <p>Nouveau panier</p><p>+</p>
+          </div>
+        </a>
         <?php foreach ($paniers as $panier): ?>
           <div class="row mb-3 ">
             <div class="col-md-12 col-lg-2 imgPanier d-flex justify-content-start align-items-center">
