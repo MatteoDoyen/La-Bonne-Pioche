@@ -17,8 +17,8 @@ $catalogue = new CommandeDAO();
 // Récupération de l'objet panier correspondant à l'id
 $commande = $catalogue->get($refCommande);
 $descriptif = $catalogue->getComposition($refCommande);
-
-//$client = $catalogue->getClient($refCommande); À DÉCOMMENTÉ LORSQUE LES CLASSES UTILISATEUR SERONT OPERATIONNELLES
+$client = $catalogue->getClient($refCommande);
+$adresse = $catalogue->getAdresseRecup($refCommande);
 
 ///////// AJOUTE POUR MVC
 $view = new View("../view/commande.view.php");
@@ -26,8 +26,8 @@ $view = new View("../view/commande.view.php");
 // Passage des paramètres à la vue
 $view->commande=$commande;
 $view->descriptif=$descriptif;
-
-//$view->client=$client;
+$view->client=$client;
+$view->adresse=$adresse;
 
 // Appel de la vue
 $view->show();

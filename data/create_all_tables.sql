@@ -40,7 +40,8 @@ CREATE TABLE clientsEntreprise (
 CREATE TABLE entreprises (
   refEntreprise INTEGER PRIMARY KEY,
   nom STRING,
-  numeroSiret STRING
+  numeroSiret STRING,
+  adresse STRING
 );
 
  CREATE TABLE clientsEntreprise_entreprises (
@@ -102,7 +103,7 @@ CREATE TABLE commandes(
   dateCommande DATE,
   dateRecup DATE,
   etat STRING,
-  livriason BIT,
+  livraison BIT,
   prix FLOAT
 );
 
