@@ -15,7 +15,7 @@ body {
   margin: 40px 0px;
 }
 
-.nous {
+.paniers {
   background-color: #bfc416;
 }
 .container_all
@@ -44,7 +44,7 @@ body {
 {
   object-fit: cover;
   width: 100%;
-  min-height:300px;
+  min-height:150px;
   max-height: 100%;
   display: inline-block;
 }

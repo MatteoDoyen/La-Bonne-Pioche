@@ -19,9 +19,10 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script defer src="../framework/bootstrap-4.4.1-dist/js/bootstrap.bundle.min.js"></script>
 
-    <div class="container-fluid">
       <?php include("navbar.php") ?>
-      <a href="/La-Bonne-Pioche/controlers/paniers.ctrl.php" class="boutonretour">
+    <div class="container-fluid">
+
+      <a href="../controlers/paniers.ctrl.php" class="boutonretour">
         <img src="../others/SVG/flechegauche.svg" alt=""> Retour paniers
       </a>
       <figure>
@@ -40,11 +41,14 @@
           <div class="prix col-md-4 col-lg-4">
             <div class="container_prix">
               <div class="prix_button">
-                <p><?= $panier->prix?>/€</p>
-                <button type="button" name="button"><img src="../others/SVG/iconuser.svg" alt=""></button>
-                <button type="button" name="button"><img src="../others/SVG/user-gris.svg" alt=""></button>
+                <p id="affichePrix" ><?= $panier->prix?>/€</p>
+                <button class="iconUtilisateur" type="button" name="button"><img src="../others/SVG/iconuser.svg" alt=""></button>
+                <button id="plusUtilisateur" type="button" name="button" ><img src="../others/SVG/user-gris.svg" alt=""></button>
+                <button id="moinUtilisateur" type="button" name="button" ><img src="../others/SVG/user-gris-moin.svg" alt=""></button>
+                <input id="coeffPanier" type="hidden" value="<?= $panier->coefficient ?>">
+                <input id="inputPrix" type="hidden" value="<?= $panier->prix ?>">
               </div>
-              <p class="nb_personne_panier" >Panier pour <?= $panier->nbPersonne ?></p>
+              <p id="nb_personne_panier" >Panier pour 1</p>
             </div>
 
           </div>
@@ -56,9 +60,9 @@
               <div class="bouton_legende_panier">
                 <p>Nombre de panier</p>
                 <div class="bouton_panier">
-                  <button type="button" name="button">-</button>
-                  <input type="text" name="" value="1">
-                  <button type="button" name="button">+</button>
+                  <button id="boutonMoins" type="button" name="button">-</button>
+                  <input id="nombrePanierCommande" type="number" min="1" max="10" name="" value="1">
+                  <button id="boutonPlus" type="button" name="button">+</button>
                 </div>
               </div>
               <a href="#">
@@ -78,7 +82,7 @@
 
         <figure class="container test">
           <div class="row container_row">
-            <a class ="lien_img col-xs-1 col-sm-1 col-lg-1" href="/La-Bonne-Pioche/controlers/produit.ctrl.php?refProduit=<?= $prod->refProduit ?>">
+            <a class ="lien_img col-xs-1 col-sm-1 col-lg-1" href="../controlers/produit.ctrl.php?refProduit=<?= $prod->refProduit ?>">
               <img src="<?= $prod->urlImg ?>">
             </a>
             <div class="col-xs-1 col-sm-3 col-md-3 col-lg-3 compo-txt-prod">
@@ -90,14 +94,14 @@
             </div>
             <div class="col-xs-4 col-sm-6 col-md-3 col-lg-6 compo-txt-origin">
                 <p><?= $prod->fabricant ?></p>
-            </div>
           </div>
         </figure>
         <hr>
       <?php endforeach ?>
-      <?php include("footer.php") ?>
+
 
     </div>
-
+    <?php include("footer.php") ?>
+    <script type="text/javascript"  src="../view/js/panier.view.js"></script>
   </body>
 </html>

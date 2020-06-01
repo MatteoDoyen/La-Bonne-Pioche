@@ -1,4 +1,4 @@
-<div class="sticky-top">
+<div class="sticky-top container-fluid">
   <div class="row m_nav-bar">
     <div class="col-lg-2" id="logo-1">
       <a class="navbar-brand" href="../controlers/accueil.ctrl.php">
@@ -135,3 +135,4 @@
     }
   });
 </script>
+<!-- <script src="../model/panierAchat.js"></script> -->

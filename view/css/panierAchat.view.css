@@ -1,0 +1,294 @@
+/* NAVBAR */
+@import "navbar.css";
+
+/* FOOTER */
+@import "footer.css";
+
+body {
+  font-family: "Lulo-Clean-W01-One-Bold", sans-serif ;
+  color: #707070;
+}
+
+
+
+#corps{
+  display: flex;
+  flex-direction: row;
+}
+
+#paniersCommande{
+  padding-right: 40px;
+}
+
+#recap{
+  border : 1px black solid;
+  padding : 5px;
+  font-size: 8px;
+}
+
+.recapCommande {
+  border-bottom: solid grey 1px;
+  border
+}
+
+.recapCommande p{
+  font-size: 100%;
+}
+
+.h2_panier
+{
+  font-size: 2.8em;
+  margin: 25px 0px;
+  color : #f04942;
+}
+
+.h2_panier2
+{
+  margin: 35px 0px
+}
+.lien_img
+{
+  padding: 0px;
+}
+.lien_img img
+{
+  width: 80px;
+  height: auto;
+  object-fit: cover;
+  padding: 5px;
+  border: 3px solid #707070;
+}
+.container_img
+{
+  position: relative;
+  background-color: white;
+  height: 200px;
+  margin: 0 auto ;
+  overflow: hidden;
+  box-shadow: -14px 12px 10px -11px rgba(0,0,0,0.25);
+}
+.container_img img
+{
+  object-fit: cover;
+  width: 100%;
+  min-height:200px;
+  max-height: 100%;
+}
+.compo-txt-prod, .compo-txt-origin
+{
+  justify-content: center;
+}
+
+
+.compo-txt-prod, .compo-txt-origin
+{
+  align-items: center;
+  display: flex;
+}
+
+.compo-txt-origin p,.compo-txt-prod p
+{
+  display: inline-block;
+}
+
+
+/* Code personnalisé  */
+hr
+{
+width:80%;
+}
+
+.container_row
+{
+  justify-content: space-between;
+}
+
+.bigcontainer
+{
+  margin: 0 auto;
+  padding: 0;
+  position: relative;
+}
+
+.bigcontainer p
+{
+  color: white;
+  position: absolute;
+  right: 0;
+  background-color:  #f04942;
+  padding: 15px 25px;
+  border-radius: 0px 0px 20px 20px;
+}
+
+.bocal
+{
+  background-color:  #f04942;
+  width: 25px;
+  height: auto;
+}
+.bouton_legende_panier p
+{
+  font-size: 10px;
+  display: inline-block;
+  color: #707070;
+}
+.ajoutpanier input[type="NUMBER"]
+{
+  text-align: center;
+  width: 50px;
+  color :  #f04942;
+  border : 3px solid  #f04942;
+  border-radius: 5px;
+}
+
+.container_commande>div
+{
+  margin: 65px 0px 0px 0px;
+  align-items: center;
+  justify-content: center;
+}
+.ajoutpanier
+{
+    display: flex;
+    align-items:center;
+    justify-content: space-around;
+}
+.bouton_legende_panier
+{
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+.bouton_panier button
+{
+  font-size: 15px;
+  background-color: transparent;
+  border: 3px solid #f04942;
+  border-radius: 40px;
+  color : #f04942;
+  display: inline-block;
+  margin: 0;
+}
+
+.bouton_panier button:first-child
+{
+  padding: 0px 7px 0px 7px;
+}
+.bouton_panier button:nth-child(3)
+{
+  padding: 0px 5px 0px 5px;
+}
+
+.prix button
+{
+  background-color: transparent;
+  border: none;
+}
+.container_prix
+{
+  display: flex;
+  flex-direction: column;
+}
+
+#nb_personne_panier
+{
+  font-size: 13px;
+  color : grey;
+  padding: 5px 0px 0px 0px;
+  margin: 0;
+}
+.prix button img
+{
+  padding: 0;
+  margin: 0;
+  height: 25px;
+  width: auto;
+}
+.prix, .separation
+{
+  display: flex;
+  justify-content: center;
+  align-items:center;
+}
+.prix>div
+{
+  align-items:center;
+  display: flex;
+}
+.prix_button
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.prix_button p
+{
+  padding: 0;
+  margin: 0;
+  font-size: 25px;
+  display: inline-block;
+  color : #f04942;
+}
+
+.boutonretour
+{
+    background-color: #dbe12c;
+    color : white;
+    border : none;
+    font-size: 15px;
+    padding: 5px 15px;
+    border-radius: 15px;
+    margin-right: 50px;
+    display: inline-block;
+    margin: 25px 0px 0px 25px;
+}
+.boutonretour:link
+{
+  text-decoration: none;
+}
+.boutonretour:hover
+{
+  color: white;
+  background-color: #bfc416;
+}
+
+
+.panier img
+{
+  width: 20px;
+}
+.panier
+{
+  font-size : 10px;
+  margin: 0;
+  padding: 15px;
+  border-radius: 0px 0px 15px 15px;
+  display: inline-block;
+  color : white;
+  background-color: #f04942;
+}
+
+.panier:hover
+{
+  background-color: #e61e17;
+}
+
+
+.inputQuantite{
+  width: 30px;
+}
+
+@media (max-width: 768px) {
+  .separation
+  {
+    display: none !important;
+  }
+  .prix
+  {
+    margin-bottom: 25px;
+  }
+  .lien_img
+  {
+    text-align: center;
+  }
+}

@@ -8,8 +8,16 @@ body {
     color: #707070;
   font-family: "Lulo-Clean-W01-One-Bold", sans-serif ;
 }
-.nous {
-  background-color: #bfc416;
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
 }
 
 .h2_panier
@@ -109,7 +117,7 @@ width:80%;
   display: inline-block;
   color: #707070;
 }
-.ajoutpanier input[type="TEXT"]
+.ajoutpanier input[type="NUMBER"]
 {
   text-align: center;
   width: 50px;
@@ -167,7 +175,7 @@ width:80%;
   flex-direction: column;
 }
 
-.nb_personne_panier
+#nb_personne_panier
 {
   font-size: 13px;
   color : grey;

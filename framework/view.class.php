@@ -32,7 +32,7 @@ class View {
 
     // Parcourt tous les attributs de la vue
     foreach ($this as $key => $value) {
-      // La notation $$ dédigne une variable de le nom est dans une autre variable
+      // La notation $$ désigne une variable dont le nom est dans une autre variable
       $$key = $this->$key;
     }
     // Inclusion de la vue

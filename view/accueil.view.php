@@ -10,10 +10,10 @@
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script defer src="../framework/bootstrap-4.4.1-dist/js/bootstrap.bundle.min.js"></script>
-
+    <?php include("../view/navbar.php") ?>
     <div class="container-fluid">
 
-      <?php include("../view/navbar.php") ?>
+
 
       <?php if (isset($success)): ?>
         <div class="alert alert-success alert-dismissible fade show offset-xl-3 col-xl-6 offset-lg-2 col-lg-8 offset-1 col-10 mb-5 text-center" role="alert">
@@ -86,11 +86,11 @@
         </div>
       </div>
 
-      <?php include("../view/footer.php") ?>
+
 
     </div>
 
-
+    <?php include("../view/footer.php") ?>
     <script type="text/javascript">
       $(function () {
 

@@ -11,9 +11,10 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script defer src="../framework/bootstrap-4.4.1-dist/js/bootstrap.bundle.min.js"></script>
 
+    <?php include("navbar.php") ?>
     <div class="container-fluid">
 
-      <?php include("navbar.php") ?>
+
       <a href="<?= $_SERVER['HTTP_REFERER']  ?>" class="boutonretour">
         <img src="../others/SVG/flechegauche.svg" alt=""> Retour
       </a>
@@ -24,6 +25,7 @@
         <div class="bloc_droit">
           <h2><?= $produit->libelle  ?> : </h2>
           <p><?= $produit->description ?></p>
+          <p><?= $exception ?></p>
         </div>
       </div>
       <div class="container container_info">
@@ -31,9 +33,9 @@
         <h3>Origine : </h3><p><?= $produit->origine  ?></p>
 
       </div>
-      <?php include("footer.php") ?>
+
 
     </div>
-
+      <?php include("footer.php") ?>
   </body>
 </html>

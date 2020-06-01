@@ -23,6 +23,7 @@ $view = new View("produit.view.php");
 
 // Passage des paramètres à la vue
 $view->produit=$produit;
+$view->exception=$exception;
 
 // Appel de la vue
 $view->show();
