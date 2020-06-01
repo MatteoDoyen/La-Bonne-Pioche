@@ -88,17 +88,26 @@ class ProduitDAO {
 
   public function updateProduit($refProduit,$modifs){
 
-      foreach ($modifs as $key => $value) {
-        if(!is_string($value))
-        {
-          $sql = "UPDATE produits SET $key= $value WHERE refProduit = $refProduit";
-        }
-        else {
-          $sql = "UPDATE produits SET $key= '$value' WHERE refProduit = $refProduit";
-        }
-        $this->db->query($sql);
+    foreach ($modifs as $key => $value) {
+      if(!is_string($value))
+      {
+        $sql = "UPDATE produits SET $key= $value WHERE refProduit = $refProduit";
       }
+      else {
+        $sql = "UPDATE produits SET $key= '$value' WHERE refProduit = $refProduit";
+      }
+      $this->db->query($sql);
     }
+  }
+
+
+  public function getRayonsFamilles() : array {
+    $sth = $this->db->prepare("SELECT distinct rayon FROM Produits");
+    $sth->execute();
+    $rayons = $sth->fetchAll(PDO::FETCH_ASSOC);
+    var_dump($rayons);
+  }
+
 }
 
 ?>
