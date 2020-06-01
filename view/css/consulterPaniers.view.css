@@ -1,0 +1,108 @@
+/* NAVBAR */
+@import "navbar.css";
+
+/* FOOTER */
+@import "footer.css";
+body {
+  font-family: "Lulo-Clean-W01-One-Bold", sans-serif ;
+  color: #707070;
+}
+
+
+.imgPanier img
+{
+  width: 90px;
+  object-fit: cover;
+  height: 60px;
+  padding: 3px;
+  border: 3px solid grey;
+}
+
+.boutonSupprimer
+{
+  font-size: 20px;
+  color : red;
+}
+
+.buttonPaniers button
+{
+  background: transparent;
+  border : none;
+  padding: 0;
+  margin-left: 20px;
+}
+
+.buttonPaniers
+{
+  justify-content: space-evenly;
+}
+
+p
+{
+  text-transform: capitalize;
+  font-family:"Avenir-LT-W01_85-Heavy1475544";
+  padding: 0;
+  margin: 0;
+}
+
+
+/*------------------ Message de confirmation-----------------*/
+
+
+#alertSuppressionMessage p
+{
+  text-transform: none;
+  font-size: 20px;
+  padding-bottom: 50px;
+}
+
+#alertSuppressionMessage button
+{
+  border-radius: 5px;
+  padding: 15px;
+  border: none;
+  font-size: 12px;
+}
+
+#alertSuppressionMessage div
+{
+
+  display: flex;
+  justify-content: space-around;
+  width: 80%;
+}
+
+
+.boutonAlertSupprimer
+{
+  background-color: red;
+  color: white;
+}
+
+#alertSuppressionMessage
+{
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1026;
+  position: fixed;
+  position: fixed;
+  width: 600px;
+  height: 300px;
+  top: 50%;
+  left: 50%;
+  margin-top: -150px;
+  margin-left: -300px;
+  background-color: white;
+}
+
+#alertSuppressionBg
+{
+  z-index: 1025;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
