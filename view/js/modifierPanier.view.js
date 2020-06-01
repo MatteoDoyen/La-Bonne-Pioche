@@ -1,34 +1,43 @@
 
 document.querySelector("#imgPlus").onclick=ajoutImage;
 
-var $inputImage;
-var inputImage;
-var imageUpload;
-var btnSupprimer;
-var imgPreview;
-var $toutLesProduits;
 var enterTarget = null;
-var rechercheProduit;
 var tabProd = [];
 var tabCompo = [];
-var $boutonSubmit;
-var $compositionPanier;
+var tabTemp =[];
 
-$boutonSubmit = $('#boutonSubmit');
+var $boutonSubmit = $('#boutonSubmit');
 $boutonSubmit.attr('onclick','submitForm()');
-$compositionPanier = $("#compositionPanier");
-$toutLesProduits = $("#toutLesProduits");
-imagePreview = document.getElementById('imgPreview');
-imagePreview.style.visibility ='hidden';
-$inputImage = $('#inputImage');
-inputImage = document.getElementById('inputImage');
-imageUpload = document.getElementById('imageUpload');
-btnSupprimer = document.getElementById("btnSupprimer");
+var $compositionPanier = $("#compositionPanier");
+var $toutLesProduits = $("#toutLesProduits");
+var imagePreview = document.getElementById('imgPreview');
+$('#imgPlus').fadeOut();
+
+var $idPanier = $('#idPanier');
+var $inputImage = $('#inputImage');
+var inputImage = document.getElementById('inputImage');
+var imageUpload = document.getElementById('imageUpload');
+var btnSupprimer = document.getElementById("btnSupprimer");
 btnSupprimer.onclick = supprimerImage;
 btnSupprimer.style.visibility = 'hidden';
-rechercheProduit = document.getElementById("rechercheProduit");
+var rechercheProduit = document.getElementById("rechercheProduit");
 
+var $cacheProduit = $(".cacheProduit");
+
+var $boutonEditionInput = $(".boutonEditionInput");
+$boutonEditionInput.attr('onclick', 'editerInput(this)');
+
+
+
+
+////////////////
 $.get("../controlers/toutLesProduits.ctrl.php").then(maj_resultats).catch(error => {console.log(error)}).done(() => ajoutProduit());
+
+
+///////////////
+
+
+
 
 rechercheProduit.addEventListener("keyup", (e) => {
 
@@ -41,6 +50,50 @@ rechercheProduit.addEventListener("keyup", (e) => {
 
 });
 
+
+function editerInput(elt)
+{
+  let id = elt.id.split('_')[1];
+
+  let input = $('#'+id);
+
+  elt.textContent = "OK" ;
+
+  elt.style.color = "green";
+
+  input.removeAttr('readonly')
+
+  elt.removeAttribute('onclick');
+
+  elt.setAttribute('onclick','sauvegarderInput(this)');
+
+}
+
+function sauvegarderInput(elt)
+{
+
+  let id = elt.id.split('_')[1];
+
+  let input = $('#'+id);
+
+  let img = document.createElement('img');
+
+  img.setAttribute('src','../others/SVG/edit.svg');
+
+  elt.textContent ="";
+
+  elt.append(img);
+
+  elt.style.color = "grey";
+
+  input.attr("readonly","true");
+
+  elt.removeAttribute('onclick');
+
+  elt.setAttribute('onclick','editerInput(this)');
+
+}
+
 const displayCharacters = (produitFiltrer) => {
     const htmlString = produitFiltrer
         .map((elt) => {
@@ -51,7 +104,94 @@ const displayCharacters = (produitFiltrer) => {
     $toutLesProduits.html(htmlString);
 };
 
+function editInputImage(btn)
+{
+  let id = btn.id.split('_')[1];
 
+  let input = $('#'+id);
+
+  btn.textContent = "OK" ;
+
+  btn.style.color = "green";
+
+  input.removeAttr('readonly')
+
+  btn.removeAttribute('onclick');
+
+  btn.setAttribute('onclick','sauvegarderInputImage(this)');
+
+  document.getElementById("imageUpload").addEventListener('mouseout',onMouseOut,true);
+  document.getElementById("imageUpload").addEventListener('mouseover',onMouseOver,true);
+  btnSupprimer.style.visibility = "visible";
+
+  //input.removeAttr('disabled');
+}
+
+function sauvegarderInputImage(btn)
+{
+  let id = btn.id.split('_')[1];
+
+  let input = $('#'+id);
+
+  let img = document.createElement('img');
+
+  img.setAttribute('src','../others/SVG/edit.svg');
+
+  btn.textContent ="";
+
+  btn.append(img);
+
+  btn.style.color = "grey";
+
+  input.attr("readonly","true");
+
+  btn.removeAttribute('onclick');
+
+  btn.setAttribute('onclick','editInputImage(this)');
+
+  imageUpload.removeEventListener('mouseout',onMouseOut,true);
+
+  imageUpload.removeEventListener('mouseover',onMouseOver,true);
+
+  btnSupprimer.style.visibility = "hidden";
+}
+
+function editInputCompo(elt)
+{
+  $boutonAjoutPanierCompo.css("display","block");
+
+  elt.textContent = "OK" ;
+
+  elt.style.color = "green";
+
+  elt.removeAttribute('onclick');
+
+  $cacheProduit.css('display','none');
+
+  elt.setAttribute('onclick','sauvegarderInputCompo(this)');
+
+}
+
+function sauvegarderInputCompo(elt)
+{
+  $boutonAjoutPanierCompo.css("display","none");
+
+  let img = document.createElement('img');
+
+  img.setAttribute('src','../others/SVG/edit.svg');
+
+  elt.textContent ="";
+
+  elt.append(img);
+
+  elt.style.color = "grey";
+
+  elt.removeAttribute('onclick');
+
+  $cacheProduit.css('display','block');
+
+  elt.setAttribute('onclick','editInputCompo(this)');
+}
 
 function ajoutImage()
 {
@@ -60,18 +200,47 @@ function ajoutImage()
 
 function ajoutProduit()
 {
+
+  let compositionPanier = document.getElementById('compositionPanier');
+  let figuresCompo = compositionPanier.getElementsByClassName('compo-txt-prod');
+  figuresCompo = figuresCompo[0].getElementsByTagName('p');
+
+  $libelleCompPanier = $("#compositionPanier").find(".compo-txt-prod");
+  $libelleCompPanier = $libelleCompPanier.find("p");
+
+  tabCompo = tabProd.filter(character =>{
+    for(libelle of $libelleCompPanier)
+    {
+      if(libelle.innerHTML==character.name)
+      {
+        return true;
+      }
+    }
+  });
+
+  tabProd = tabProd.filter(character =>{
+    for(libelle of $libelleCompPanier)
+    {
+      if(libelle.innerHTML==character.name)
+      {
+        return false;
+      }
+    }
+    return true;
+
+  });
+
   for (elt of tabProd)
   {
     $toutLesProduits.append('<figure class="container" id="produit_'+elt.refProduit+'" ><div class="row container_row"><div class="row_image"><img class="img_search" src="'+elt.url+'"></div><div class="col-xs-1 col-sm-2 compo-txt-prod"><p>'+elt.name+'</p></div><div class="col-xs-4 compo-txt-origin"><p class="qteProd">'+parseInt(elt.quantite)+' '+elt.unite+'</p></div><div class="col-xs-4 col-sm-6 col-md-3 compo-txt-origin"><p>'+elt.fabricant+'</p></div><div class="col-lg-1 boutonAjout"><button id="boutonAjout_'+elt.refProduit+'" type="button" onclick="ajoutProduitCompo(this)" >+</button></div></div><hr><input id="input_'+elt.refProduit+'" name="prod[]" type="hidden" value="'+elt.refProduit+'_1"></figure>');
   }
 
+  $boutonAjoutPanierCompo = $('.boutonAjout').find('button');
 }
 function ajoutProduitCompo(btn)
 {
 
-  let id = btn.id;
-  id = id.split('_');
-  id = id[1];
+  let id = btn.id.split('_')[1];
 
   //let test =  $("#produit_"+id);
 
@@ -117,9 +286,7 @@ function supprimerProduitCompo(btn)
 {
 
 
-  let id = btn.id;
-  id = id.split('_');
-  id = id[1];
+  let id = btn.id.split('_')[1];
 
   let produit = document.getElementById("produit_"+id);
 
@@ -160,9 +327,7 @@ function supprimerProduitCompo(btn)
 
 function ajouterUniteProd(btn)
 {
-  let id = btn.id;
-  id = id.split('_');
-  id = id[1];
+  let id = btn.id.split('_')[1];
 
   // cette input nous permet de stocker la quantité du produit ajouter dans le panier, sa valeur est composé comme ceci = "id_quantité"
   // exemple "1_3" veux dire : 3 fois le produit avec l'id n°1
@@ -197,9 +362,7 @@ function ajouterUniteProd(btn)
 
 function supprimerUniteProd(btn)
 {
-  let id = btn.id;
-  id = id.split('_');
-  id = id[1];
+  let id = btn.id.split('_')[1];
 
   // cette input nous permet de stocker la quantité du produit ajouter dans le panier, sa valeur est composé comme ceci = "id_quantité"
   // exemple "1_3" veux dire : 3 fois le produit avec l'id n°1
@@ -229,7 +392,7 @@ function supprimerUniteProd(btn)
 function submitForm()
 {
   var form = document.querySelector('form');
-  
+
   if(form.reportValidity())
   {
     $("#form1").submit();
@@ -250,7 +413,7 @@ function readURL(input) {
       document.getElementById("imageUpload").addEventListener('mouseover',onMouseOver,true);
       btnSupprimer.style.visibility = "visible";
     }
-
+    console.log(input.files[0]);
     reader.readAsDataURL(input.files[0]); // convert to base64 string
   }
 }

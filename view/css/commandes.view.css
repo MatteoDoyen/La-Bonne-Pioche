@@ -182,7 +182,33 @@ body {
   border-radius: 5px;
 }
 
+.custom a
+{
+  text-decoration: none;
+  color : white;
+  text-align: center;
+  align-self:stretch;
+}
+
+.custom
+{
+  background-color: #f04942;
+}
+
+.theader
+{
+  background-color: #f04942;
+  border: 2px solid white;
+  border-radius: 5px;
+  color: white;
+}
+
+tr
+{
+  text-align: center;
+}
+
 .btns
 {
-  padding: 0px 5px 0px 5px;
+  text-align: center;
 }

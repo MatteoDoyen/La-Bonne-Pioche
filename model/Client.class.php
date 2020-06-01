@@ -16,10 +16,8 @@
 
     //constructeur
     public function __construct(int $refUtilisateur, string $nom, string $prenom, string $adresseMail, string $motDePasse, string $etat, string $numeroTelephone, bool $newsletter, int $genre = 0, float $tauxReduction){
-
       //construction de l'objet mère Utilisateur
       parent::__construct($refUtilisateur, $nom, $prenom, $adresseMail, $motDePasse, $etat, $numeroTelephone);
-
       $this->newsletter = $newsletter;
       $this->tauxReduction = $tauxReduction;
 

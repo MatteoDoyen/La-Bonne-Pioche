@@ -1,0 +1,156 @@
+/* NAVBAR */
+@import "navbar.css";
+
+/* FOOTER */
+@import "footer.css";
+body {
+  font-family: "Lulo-Clean-W01-One-Bold", sans-serif ;
+  color: #707070;
+}
+
+
+.imgPanier img
+{
+  width: 90px;
+  object-fit: cover;
+  height: 60px;
+  padding: 3px;
+  border: 3px solid grey;
+}
+
+.boutonSupprimer
+{
+  font-size: 20px;
+  color : red;
+}
+
+.buttonPaniers button
+{
+  background: transparent;
+  border : none;
+  padding: 0;
+  margin-left: 20px;
+}
+
+.buttonPaniers
+{
+  justify-content: space-evenly;
+}
+
+p
+{
+  text-transform: capitalize;
+  font-family:"Avenir-LT-W01_85-Heavy1475544";
+  padding: 0;
+  margin: 0;
+}
+
+
+/*------------------ Message de confirmation-----------------*/
+
+
+#alertSuppressionMessage p
+{
+  text-transform: none;
+  font-size: 20px;
+  padding-bottom: 50px;
+}
+
+#alertSuppressionMessage button
+{
+  border-radius: 5px;
+  padding: 15px;
+  border: none;
+  font-size: 12px;
+}
+
+#alertSuppressionMessage div
+{
+
+  display: flex;
+  justify-content: space-around;
+  width: 80%;
+}
+
+
+.boutonAlertSupprimer
+{
+  background-color: red;
+  color: white;
+}
+
+#alertSuppressionMessage
+{
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1026;
+  position: fixed;
+  position: fixed;
+  width: 600px;
+  height: 300px;
+  top: 50%;
+  left: 50%;
+  margin-top: -150px;
+  margin-left: -300px;
+  background-color: white;
+}
+
+#alertSuppressionBg
+{
+  z-index: 1025;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/*-------------------Bouton nouveau Panier-------------------*/
+#nouveauPanier p
+{
+  padding: 0;
+  margin: 0px 10px 0px 0px;
+}
+
+
+#nouveauPanier p:nth-child(1)
+{
+  font-size: 25px;
+}
+
+#nouveauPanier p:nth-child(2)
+{
+  font-size: 35px;
+}
+
+#nouveauPanier
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90px;
+  border : 3px solid grey;
+  margin-bottom: 15px;
+  transition: 0.3s;
+}
+a
+{
+  color : grey;
+}
+a:link
+{
+  color: inherit;
+  text-decoration: none;
+}
+a:hover
+{
+  color : inherit;
+}
+#nouveauPanier:hover
+{
+    transition: 0.3s;
+  background-color: grey;
+  color: white;
+}

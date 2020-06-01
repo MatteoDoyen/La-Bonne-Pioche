@@ -40,7 +40,7 @@ class Panier {
         // if(TEST == 1){ echo "appel :".__METHOD__."($attribut)\n";}
 
         //retourne une erreur si le nom d'attribut pris en paramètre est inéxistant
-        if ( $attribut != "libelle" && $attribut != "refPanier" && $attribut != "intitule" && $attribut != "prix" && $attribut != "nombrePersonne" && $attribut != "nbBocaux" && $attribut != "active") {
+        if ( $attribut != "libelle" && $attribut != "refPanier" && $attribut != "intitule" && $attribut != "prix" && $attribut != "nbPersonne" && $attribut != "nbBocaux" && $attribut != "active") {
 
           throw new Exception("Error cannot acces '$attribut'", 1);
         }

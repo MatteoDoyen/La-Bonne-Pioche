@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>La Bonne Pioche - Nous</title>
     <link rel="stylesheet" href="../framework/bootstrap-4.4.1-dist/css/bootstrap.css">
-    <link rel="stylesheet" href="../view/css/paniers.view.css">
+    <link rel="stylesheet" href="../view/css/commandes.view.css">
 
   </head>
   <body>
@@ -15,10 +15,12 @@
 
     <div class="container-fluid btns">
       <div class="row">
-        <button type="button" class="btn btn-danger custom"> <a href="/La-Bonne-Pioche/controlers/commandesEnCours.ctrl.php">Commandes en cours</a></button>
-        <button type="button" class="btn btn-danger custom"> <a href="/La-Bonne-Pioche/controlers/commandesARelancer.ctrl.php">Commandes à relancer</a></button>
-        <button type="button" class="btn btn-danger custom"> <a href="/La-Bonne-Pioche/controlers/commandesPassees.ctrl.php">Historique des commandes</a></button>
-        <button type="button" class="btn btn-danger custom"> <a href="/La-Bonne-Pioche/controlers/commandes.ctrl.php">Total</a></button>
+        <div class="col-md-12">
+          <button type="button" class="btn btn-danger custom"> <a href="/La-Bonne-Pioche/controlers/commandes.ctrl.php">Toutes les commandes</a></button>
+          <button type="button" class="btn btn-danger custom"> <a href="/La-Bonne-Pioche/controlers/commandesEnCours.ctrl.php">Commandes en cours</a></button>
+          <button type="button" class="btn btn-danger custom"> <a href="/La-Bonne-Pioche/controlers/commandesARelancer.ctrl.php">Commandes à relancer</a></button>
+          <button type="button" class="btn btn-danger custom"> <a href="/La-Bonne-Pioche/controlers/commandesPassees.ctrl.php">Historique des commandes</a></button>
+        </div>
       </div>
     </div>
 

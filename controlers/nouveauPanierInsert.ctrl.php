@@ -30,17 +30,13 @@ else if(!isset($_POST['active']))
 //
 foreach($_POST as $key => $value) {
   $$key = $value;
-  echo "$key : $value";
-  echo"<br>";
 }
 
 // // Gestion de l'image
 
-echo "je suis là";
 
 if (isset($_FILES['imgPanier']) AND $_FILES['imgPanier']['error'] == 0)
 {
-  echo "je suis là";
   // Testons si le fichier n'est pas trop gros
   if ($_FILES['imgPanier']['size'] <= 1000000)
   {
@@ -73,7 +69,6 @@ $refPanier = $catalogue->getMaxRefPanier();
 
 foreach ($prod as $value) {
   $temp = explode("_",$value);
-  print_r($temp);
   $catalogue->insertProduitPanier($temp[0], $refPanier,$temp[1]);
 }
 
