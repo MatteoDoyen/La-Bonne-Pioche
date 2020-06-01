@@ -5,214 +5,139 @@
 @import "footer.css";
 
 body {
-    color: #707070;
   font-family: "Lulo-Clean-W01-One-Bold", sans-serif ;
-}
-
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-input[type=number] {
-  -moz-appearance: textfield;
-}
-
-.h2_panier
-{
-  font-size: 2.8em;
-  margin: 25px 0px;
-  color : #f04942;
-}
-
-.h2_panier2
-{
-  margin: 35px 0px
-}
-.lien_img
-{
-  padding: 0px;
-}
-.lien_img img
-{
-  width: 80px;
-  height: auto;
-  object-fit: cover;
-  padding: 5px;
-  border: 3px solid #707070;
-}
-.container_img
-{
-  position: relative;
-  background-color: white;
-  height: 200px;
-  margin: 0 auto ;
-  overflow: hidden;
-  box-shadow: -14px 12px 10px -11px rgba(0,0,0,0.25);
-}
-.container_img img
-{
-  object-fit: cover;
-  width: 100%;
-  min-height:200px;
-  max-height: 100%;
-}
-.compo-txt-prod, .compo-txt-origin
-{
-  justify-content: center;
-}
-
-
-.compo-txt-prod, .compo-txt-origin
-{
-  align-items: center;
-  display: flex;
-}
-
-.compo-txt-origin p,.compo-txt-prod p
-{
-  display: inline-block;
-}
-
-
-/* Code personnalisé  */
-hr
-{
-width:80%;
-}
-
-.container_row
-{
-  justify-content: space-between;
-}
-
-.bigcontainer
-{
-  margin: 0 auto;
-  padding: 0;
-  position: relative;
-}
-
-.bigcontainer p
-{
-  color: white;
-  position: absolute;
-  right: 0;
-  background-color:  #f04942;
-  padding: 15px 25px;
-  border-radius: 0px 0px 20px 20px;
-}
-
-.bocal
-{
-  background-color:  #f04942;
-  width: 25px;
-  height: auto;
-}
-.bouton_legende_panier p
-{
-  font-size: 10px;
-  display: inline-block;
   color: #707070;
 }
-.ajoutpanier input[type="NUMBER"]
+
+.imgPanier, .libellePanier, .quantPanier, .prixPanier, .supprPanier{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imgPanier img{
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border: 1px solid grey;
+  padding: 2px;
+}
+
+.libellePanier p{
+  padding: 0;
+  margin: 0;
+}
+
+.titrePanier{
+  font-size: 13px;
+}
+
+.nbPersPanier{
+  font-size: 8px;
+}
+
+.quantPanier{
+
+}
+
+.quantPanier input{
+  width: 40px;
+  border : 2px solid grey;
+  border-radius: 5px;
+  text-align: center;
+  color : grey;
+  margin : 0px 5px;
+}
+
+.quantPanier button{
+  background-color: grey;
+  margin: 0;
+  border: none;
+  border-radius: 50px;
+  padding: 3px 9px;
+  color: white;
+}
+
+.prixPanier p{
+  margin: 0;
+}
+
+.supprPanier button{
+  color: red;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+
+/*-----------------------------------------------------------------
+                      tableau aside total à PAYER
+-----------------------------------------------------------------*/
+
+#lignes{
+  padding : 10px 5px;
+  border : 1px solid grey;
+  text-align: center;
+}
+
+.ligne{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width : 80%;
+  margin: 0 auto;
+}
+
+hr{
+  width: 80%;
+  color: grey;
+}
+#Terminer
+{
+  margin-top: 15px;
+}
+#Terminer button
+{
+  margin: 0;
+  background-color: grey;
+  border: none;
+  width: 100%;
+  padding: 15px 0px;
+  margin: 0 auto;
+  color: white;
+}
+
+#container_resume
+{
+  max-width: 450px;
+}
+
+#container_resume h3{
+  font-size: 14px;
+}
+
+@media screen and (max-width: 1000px)
+{
+  .quantPanier
+  {
+    padding: 20px;
+  }
+}
+
+h2
+{
+  color:red;
+}
+
+.vert
+{
+  color:#dbe12c;
+}
+
+.titre
 {
   text-align: center;
-  width: 50px;
-  color :  #f04942;
-  border : 3px solid  #f04942;
-  border-radius: 5px;
-}
-
-.container_commande>div
-{
-  margin: 65px 0px 0px 0px;
-  align-items: center;
-  justify-content: center;
-}
-.ajoutpanier
-{
-    display: flex;
-    align-items:center;
-    justify-content: space-around;
-}
-.bouton_legende_panier
-{
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-}
-.bouton_panier button
-{
-  font-size: 15px;
-  background-color: transparent;
-  border: 3px solid #f04942;
-  border-radius: 40px;
-  color : #f04942;
-  display: inline-block;
-  margin: 0;
-}
-
-.bouton_panier button:first-child
-{
-  padding: 0px 7px 0px 7px;
-}
-.bouton_panier button:nth-child(3)
-{
-  padding: 0px 5px 0px 5px;
-}
-
-.prix button
-{
-  background-color: transparent;
-  border: none;
-}
-.container_prix
-{
-  display: flex;
-  flex-direction: column;
-}
-
-#nb_personne_panier
-{
-  font-size: 13px;
-  color : grey;
-  padding: 5px 0px 0px 0px;
-  margin: 0;
-}
-.prix button img
-{
-  padding: 0;
-  margin: 0;
-  height: 25px;
-  width: auto;
-}
-.prix, .separation
-{
-  display: flex;
-  justify-content: center;
-  align-items:center;
-}
-.prix>div
-{
-  align-items:center;
-  display: flex;
-}
-.prix_button
-{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.prix_button p
-{
-  padding: 0;
-  margin: 0;
-  font-size: 25px;
-  display: inline-block;
-  color : #f04942;
 }
 
 .boutonretour
@@ -237,63 +162,7 @@ width:80%;
   background-color: #bfc416;
 }
 
-.panier img
+.info
 {
-  width: 20px;
-}
-.panier
-{
-  font-size : 10px;
-  margin: 0;
-  padding: 15px;
-  border-radius: 0px 0px 15px 15px;
-  display: inline-block;
-  color : white;
-  background-color: #f04942;
-}
-
-.panier:hover
-{
-  background-color: #e61e17;
-}
-
-
-@media (max-width: 768px) {
-  .separation
-  {
-    display: none !important;
-  }
-  .prix
-  {
-    margin-bottom: 25px;
-  }
-  .lien_img
-  {
-    text-align: center;
-  }
-}
-
-.jumbotron jumbotron-fluid
-{
-  color:white;
-}
-
-h2, .h2 {
-    font-size: 1.25rem;
-    justify-content: center;
-    text-align: center;
-}
-
-h2
-{
-  line-height: 1.5;
-}
-
-body {
-    color: black;
-    font-family: "Lulo-Clean-W01-One-Bold", sans-serif;
-}
-
-.cstm{
-    height: 100%;
+  text-align: center;
 }
