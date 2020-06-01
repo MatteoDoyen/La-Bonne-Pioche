@@ -21,21 +21,25 @@ if (!empty($_POST)) {
       $view->show();
     } else {
       $uti;
+      $success = "Connexion réussie ! Bienvenue sur La Bonne Pioche ".$uti->nom." ".$uti->prenom.".";
       // Si on est un Client
       if ($_POST['who'] === "Client") {
         $uti = $daoClient->getUtilisateurOfThisEmail($_POST['email']);
+
       // Si on est un Employé
       } else if ($_POST['who'] === "Employé"){
         $uti = $daoEmploye->getUtilisateurOfThisEmail($_POST['email']);
       // Si on est une Entreprise
       } else if ($_POST['who'] === "Entreprise"){
         $uti = $daoEntreprise->getUtilisateurOfThisEmail($_POST['email']);
+        $success = "Connexion réussie ! Bienvenue sur La Bonne Pioche ".$uti->nom." ".$uti->prenom.".";
       }
       if ($uti) {
         if (password_verify($_POST['mdp'] , $uti->motDePasse)) {                // On compare le mot de passe de la base de données et celui entré par l'utilisateur
           $_SESSION['Utilisateur'] = $uti;
           $view = new View('../view/accueil.view.php');
-          $view->success = "Connexion réussie ! Bienvenue sur La Bonne Pioche ".$uti->nom." ".$uti->prenom.".";
+          $view->success = $success;
+
           $view->show();
         } else {
           $view = new View('../view/connexion.view.php');

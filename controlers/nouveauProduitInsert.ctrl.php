@@ -1,7 +1,18 @@
 <?php
+session_start();
+
 require_once('../model/Produit.class.php');
 require_once('../model/ProduitDAO.class.php');
 require_once('../framework/view.class.php'); // AJOUTE POUR MVC
+
+if(isset($_SESSION['Utilisateur']))
+{
+  $statut=-1;
+  foreach ($_SESSION['Utilisateur'] as $key => $value) {
+    $$key = $value;
+  }
+  if($statut>=0)
+  {
 
 if(!isset($_POST['libelle']))
 {
@@ -90,5 +101,13 @@ $view = new View("nouveauProduit.view.php");
 $view->sent = 1;
 
 $view->show();
+}
+else {
+  exit("Le statut renvoie une erreur");
+}
+}
 
+else {
+exit("Il faut être employés pour avoir accès à ce module");
+}
 ?>
