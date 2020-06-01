@@ -12,7 +12,7 @@
     private string $prenom;
     private string $adresseMail;
     private string $motDePasse;
-    private string $etat;             //pour l'instant qu'un simple type string, classe enumérer etat
+    private string $etat;             //pour l'instant qu'un simple type string, classe enuméré etat
     private string $numeroTelephone;
 
     //public static int $nbrUtilisateur;
