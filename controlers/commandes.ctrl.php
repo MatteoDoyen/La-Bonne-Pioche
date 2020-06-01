@@ -6,6 +6,7 @@ require_once('../model/CommandeDAO.class.php');
 require_once('../framework/view.class.php'); // AJOUTE POUR MVC
 
 // Creation de l'instance DAO
+
 $commandes = new commandeDAO();
 
 // Récupération des données à placer dans la vue à partir du modèle
