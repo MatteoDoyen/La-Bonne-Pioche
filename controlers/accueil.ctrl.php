@@ -1,10 +1,9 @@
 <?php
 session_start();
 require_once("../framework/view.class.php");
-
+$statut=-1;
 if(isset($_SESSION['Utilisateur']))
 {
-  $statut=-1;
   foreach ($_SESSION['Utilisateur'] as $key => $value) {
     $$key = $value;
   }
