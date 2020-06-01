@@ -24,6 +24,7 @@
           <article>
             <h1>Commande n°<?=$commande->refCommande?></h1></br>
             <h2>commande <?=$commande->etat?></h2>
+            <h2>date prévue: <?=$commande->dateRecup?></h2>
           </article>
         </div>
       </div>
