@@ -7,8 +7,9 @@
     <link rel="stylesheet" href="../view/css/nouveauProduit.view.css">
   </head>
       <body>
-        <?php include("../view/navbar.php") ?>
-
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+        <script defer src="../framework/bootstrap-4.4.1-dist/js/bootstrap.bundle.min.js"></script>
+        <?php include("navbar.php") ?>
         <h2 id="h2NvPanier" >Ajouter un nouveau produit</h2>
         <div class="container">
         <form action="nouveauProduitInsert.ctrl.php" method="post" enctype="multipart/form-data">
@@ -71,8 +72,7 @@
 
           <input type="submit" value="Envoyer le fichier">
         </form>
-      <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-      <script type="text/javascript" src="../view/js/nouveauProduit.js"></script>
+
       <?php if($sent==1): ?>
       <script>
         window.onload = function(){
@@ -81,7 +81,9 @@
         </script>
       <?php endif;?>
     </div>
-    <?php include("../view/footer.php") ?>
+    <?php include("footer.php") ?>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="../view/js/nouveauProduit.js"></script>
   </body>
 
 </html>

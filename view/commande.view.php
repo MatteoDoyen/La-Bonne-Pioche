@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>La Bonne Pioche - Commande</title>
     <link rel="stylesheet" href="../framework/bootstrap-4.4.1-dist/css/bootstrap.css">
-    <link rel="stylesheet" href="../view/css/paniers.view.css">
+    <link rel="stylesheet" href="../view/css/commande.view.css">
 
   </head>
   <body>
@@ -18,22 +18,30 @@
         <img src="../others/SVG/flechegauche.svg" alt=""> Retour Commandes
       </a>
 
-      <p>Ref commande : <?= $commande->refCommande ?>;
-        Client : <?= $commande->refClient ?>;
-        état de la commande : <?= $commande->etat ?></p><br>
+    </br></br>
 
-      <?php foreach($descriptif as $panier) :  ?>
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container back">
+        <h2 class="display-12">Référence de la commande : <?= $commande->refCommande ?></br>
+          Client: <?= $client->prenom ?>, <?= $client->nom ?>, id. n°<?= $commande->refClient ?></br>
+          @mail: <?= $client->adresseMail?>, n°tel: <?= $client->numeroTelephone?></br>
+          prix total du panier: <?= $commande->prix ?></br></br>
+          commandée le: <?=$commande->dateCommande?></br>
+          à récupérer/livrer pour le: <?=$commande->dateRecup?></br>
+          etat: commande <?= $commande->etat ?></br>
+          adresse de récupération: <?=$adresse?></br>
+        </h2>
+          <?php foreach($descriptif as $key => $value) :  ?>
+              <hr class="my-6">
+              <p><img src=<?= $value->image ?> alt="panier" width="100" height="100"> <?=$key?> x <?= $value->libelle ?>  pour <?=$value->nbPersonne?> personne(s)</p>
+              <p>Sous-total: <?=$value->prix?> x <?=$key?> (quantité) </p>
+              <p class="lead">
+                <a class="btn btn-outline-dark" href="/La-Bonne-Pioche/controlers/panier.ctrl.php?refPanier=<?= $value->refPanier ?>" role="button">Détails du panier</a>
+              </p>
+          <?php endforeach ?>
+      </div>
+    </div>
 
-          <p>Ref panier : <?= $panier->refPanier ?>;
-            <a href="/La-Bonne-Pioche/controlers/panier.ctrl.php?refPanier=<?= $panier->refPanier ?>">
-              image panier : <?= $panier->image ?>
-            </a>;
-               prix : <?= $panier->prix ?>
-          </p>
-
-          <br>
-
-      <?php endforeach ?>
 
 
     </div>

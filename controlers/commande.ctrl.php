@@ -12,12 +12,13 @@ if (isset($_GET['refCommande'])) {
 }
 
 // Creation de l'instance DAO
-$catalogue = new commandeDAO();
+$catalogue = new CommandeDAO();
 
 // Récupération de l'objet panier correspondant à l'id
 $commande = $catalogue->get($refCommande);
-
 $descriptif = $catalogue->getComposition($refCommande);
+$client = $catalogue->getClient($refCommande);
+$adresse = $catalogue->getAdresseRecup($refCommande);
 
 ///////// AJOUTE POUR MVC
 $view = new View("../view/commande.view.php");
@@ -25,6 +26,8 @@ $view = new View("../view/commande.view.php");
 // Passage des paramètres à la vue
 $view->commande=$commande;
 $view->descriptif=$descriptif;
+$view->client=$client;
+$view->adresse=$adresse;
 
 // Appel de la vue
 $view->show();

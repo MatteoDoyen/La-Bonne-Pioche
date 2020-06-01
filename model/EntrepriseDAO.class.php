@@ -27,7 +27,7 @@
       $req = "SELECT * FROM entreprises WHERE refEntreprise = '$refEntreprise'";
       $sth = $this->db->query($req);
       $resArray= $sth->fetchAll(PDO::FETCH_ASSOC);
-      $entreprise = new Entreprise($resArray[0]['refEntreprise'],$resArray[0]['nom'],$resArray[0]['numeroSiret']);
+      $entreprise = new Entreprise($resArray[0]['refEntreprise'],$resArray[0]['nom'],$resArray[0]['numeroSiret'],$resArray[0]['adresse']);
       return $entreprise;
     }
 

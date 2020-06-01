@@ -27,7 +27,7 @@
       </a>
       <figure>
         <h2 class="text-center h2_panier">Le <?php echo"$panier->libelle"; ?></h1>
-        <div class="bigcontainer col-sm-6 col-md-6 col-lg-6">
+        <div class="bigcontainer col-6">
           <div class="container_img">
             <img class="mx-auto d-block" src="<?= $panier->image ?>">
           </div>
@@ -38,7 +38,7 @@
       </figure>
       <div class="container container_commande">
         <div class="row">
-          <div class="prix col-md-4 col-lg-4">
+          <div class="prix col-4">
             <div class="container_prix">
               <div class="prix_button">
                 <p id="affichePrix" ><?= $panier->prix?>/€</p>
@@ -52,7 +52,7 @@
             </div>
 
           </div>
-          <div class="separation col-sm-1 col-md-1 col-lg-1">
+          <div class="separation col-1">
             <img class="" src="../others/SVG/separateur.svg" alt="">
           </div>
           <div class="nombre_panier col-md-6 col-lg-4">
@@ -82,26 +82,25 @@
 
         <figure class="container test">
           <div class="row container_row">
-            <a class ="lien_img col-xs-1 col-sm-1 col-lg-1" href="../controlers/produit.ctrl.php?refProduit=<?= $prod->refProduit ?>">
+            <a class ="lien_img col-1" href="../controlers/produit.ctrl.php?refProduit=<?= $prod->refProduit ?>">
               <img src="<?= $prod->urlImg ?>">
             </a>
-            <div class="col-xs-1 col-sm-3 col-md-3 col-lg-3 compo-txt-prod">
+            <div class="col-xs-1 col-3 compo-txt-prod">
                 <p><?= $prod->libelle?></p>
             </div>
-            <div class="col-xs-4 col-sm-3 col-md-3 col-lg-2 compo-txt-origin">
+            <div class="col-xs-4 col-sm-3 col-2 compo-txt-origin">
                 <!-- ici l'indice 1 de $key correspond à la quantité du produit dans le panier -->
                 <p><?php echo"$key[1] x $quantite $prod->unite"; ?></p>
             </div>
-            <div class="col-xs-4 col-sm-6 col-md-3 col-lg-6 compo-txt-origin">
+            <div class="col-md-3 col-12 compo-txt-origin">
                 <p><?= $prod->fabricant ?></p>
           </div>
         </figure>
         <hr>
       <?php endforeach ?>
-
-
     </div>
     <?php include("footer.php") ?>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script type="text/javascript"  src="../view/js/panier.view.js"></script>
   </body>
 </html>

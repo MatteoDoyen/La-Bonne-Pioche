@@ -37,7 +37,7 @@ class PanierDAO {
   }
 
   function getAllActive() : Array {
-    $req = "SELECT * FROM paniers WHERE active = 1";
+    $req = "SELECT * FROM paniers WHERE active = 1 order by libelle";
     $sth = $this->db->query($req);
     $resArray= $sth->fetchAll(PDO::FETCH_ASSOC);
 
@@ -77,7 +77,7 @@ class PanierDAO {
 
 
 
-public function insertPanier($libelle, $coefficient, $prix, $image, $nbBocaux, $active) {
+function insertPanier($libelle, $coefficient, $prix, $image, $nbBocaux, $active) {
 
   $refPanier= $this->getMaxRefPanier()+1;
 
@@ -88,7 +88,7 @@ public function insertPanier($libelle, $coefficient, $prix, $image, $nbBocaux, $
 
 
 
-public function insertProduitPanier($refProduit, $refPanier, $quantite) {
+function insertProduitPanier($refProduit, $refPanier, $quantite) {
 
     $sql = "INSERT INTO produits_paniers VALUES($refProduit, $refPanier,$quantite)";
     $this->db->query($sql);
@@ -96,19 +96,19 @@ public function insertProduitPanier($refProduit, $refPanier, $quantite) {
 
 
 
-public function desactiverPanier($refPanier) {
-    $sql = "UPDATE paniers SET active = 0 WHERE refProduit = '$refPanier'";
+function desactiverPanier($refPanier) {
+    $sql = "UPDATE paniers SET active = 0 WHERE refPanier = '$refPanier'";
     return $this->db->query($sql);
 }
 
-public function activerPanier($refPanier) {
-    $sql = "UPDATE paniers SET active = 1 WHERE refProduit = '$refPanier'";
+function activerPanier($refPanier) {
+    $sql = "UPDATE paniers SET active = 1 WHERE refPanier = '$refPanier'";
     return $this->db->query($sql);
 }
 
 
 
-public function updatePanier($refPanier,$modifs){
+function updatePanier($refPanier,$modifs){
 
     foreach ($modifs as $key => $value) {
       if(!is_string($value))

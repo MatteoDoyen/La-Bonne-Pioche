@@ -74,6 +74,9 @@
         <li id="signin" class="nav-item">
           <a class="nav-link btn btn-light my-2 my-sm-0 connect" type="button" name="button" href="../controlers/connexion.ctrl.php" style="float: right;">Se connecter</a>
         </li>
+        <li id="panier" class="nav-item">
+          <a class="nav-link btn btn-light my-2 my-sm-0 connect" type="button" name="button" href="../controlers/panierAchat.ctrl.php" style="float: right;">Panier</a>
+        </li>
       </ul>
     </div>
   </nav>

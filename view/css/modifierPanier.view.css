@@ -38,7 +38,7 @@ input[type="search"]
   font-size: 12px;
 }
 
-.doubleInput div
+.doubleInput > div
 {
   width: 47%;
 }
@@ -78,13 +78,13 @@ input[type=number] {
 }
 input[type='checkbox']
 {
-  border : 3px solid grey;
+  border : 3px solid #707070;
 }
 .doubleInput input,.doubleInput select
 {
   width: 100%;
   padding: 5px;
-  margin: 0px 0px 25px 0px;
+  margin:0;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -o-box-sizing: border-box;
@@ -131,7 +131,7 @@ label
   font-size: 13px;
 }
 
-input
+.input_bouton
 {
     margin-bottom: 25px;
 }
@@ -253,11 +253,26 @@ input,textarea,select
 {
   text-align: center;
 }
+.produitsPaniers
+{
+  position: relative;
+  overflow: hidden;
+  border: 3px solid #707070;
+  padding: 15px;
+  height: 300px;
+}
+.cacheProduit
+{
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height : 100%;
+  background-color: rgba(176, 176, 176,0.4);
+}
 
 #toutLesProduits,#compositionPanier
 {
-    padding: 15px;
-    border: 3px solid #707070;
     height: 300px;
     overflow-y: scroll;
 }
@@ -342,3 +357,39 @@ figure
   margin: 5px 0px 25px 0px;
   padding: 0;
 }
+.input_bouton
+{
+  display: flex;
+  width : 100%;
+}
+.boutonEditionInput
+{
+  margin-left: 15px;
+}
+.boutonEditionInput,.boutonEditionInputImage,.boutonEditionInputCompo
+{
+  background: transparent;
+  padding: 0;
+  border :none;
+}
+.boutonEditionDiv
+{
+  display: flex;
+  padding: 0;
+}
+
+input:read-only
+{
+  background-color: rgba(176, 176, 176,0.4);
+}
+
+#compositionPanier .boutonAjout button
+{
+  display: none;
+  color: #F3493D;
+  font-size: 20px;
+}
+.boutonAjout button
+ {
+   display: none;
+ }
