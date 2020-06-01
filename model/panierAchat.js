@@ -38,7 +38,27 @@ function ajoutArticle(elm){
   let nbBocaux = document.getElementById("nbBocaux"+elm.id).value;
   var panier = new article(elm.id, elm.name, nombre, quant, price, coeff, img, nbBocaux , prix);
 
-  panierAchat.push(panier);
+  let verif = false;
+  console.log(panier.id);
+  console.log(panierAchat[panier.id]);
+  if(panierAchat[panier.id]){
+    for(panierIn of panierAchat){
+      if(panier.id == panierIn.id){
+        if(panier.nombre == panierIn.nombre){
+          let x = parseInt(panierIn.quantite);
+          x += parseInt(panier.quantite);
+          panierIn.quantite = x;
+          verif = true;
+        }
+      }
+    }
+    if(!verif){
+      panierAchat.push(panier);
+    }
+  }
+  else{
+    panierAchat.push(panier);
+  }
 
   loadStorage();
   console.log(panierAchat);

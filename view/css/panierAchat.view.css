@@ -111,7 +111,13 @@ hr{
 #container_resume
 {
   max-width: 450px;
+  
 }
+
+#container_resume h3{
+  font-size: 14px;
+}
+
 @media screen and (max-width: 1000px)
 {
   .quantPanier
