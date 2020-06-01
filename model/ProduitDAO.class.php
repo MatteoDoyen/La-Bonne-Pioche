@@ -35,6 +35,18 @@ class ProduitDAO {
     return $produit;
   }
 
+  function getAllActive() : Array {
+    $req = "SELECT * FROM produits WHERE active = 1";
+    $sth = $this->db->query($req);
+    $resArray= $sth->fetchAll(PDO::FETCH_ASSOC);
+    foreach($resArray as $row)
+    {
+      $produits[] = new Produit($row['stock'],$row['refProduit'],$row['libelle'],$row['fabricant'],$row['rayon'],$row['famille'],
+      $row['coef'],$row['description'],$row['origine'],$row['caracteristiques'],$row['prixU'],$row['urlImg'],$row['quantiteU'],$row['unite'],$row['active']);
+    }
+    return $produits;
+  }
+
   function getMaxRefProduit() : int{
     try {
       $r = $this->db->query("SELECT MAX(refProduit) FROM produits");
