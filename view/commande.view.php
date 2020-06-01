@@ -23,18 +23,18 @@
     <div class="jumbotron jumbotron-fluid">
       <div class="container back">
         <h2 class="display-12">Référence de la commande : <?= $commande->refCommande ?></br>
-          Client : prénom, nom, identifiant n°<?= $commande->refClient ?></br>
-          prix total : <?= $commande->prix ?></br>
-          commandée le : <?=$commande->dateCommande?></br>
-          à récupérer pour le : <?=$commande->dateRecup?></br>
-          état de la commande : <?= $commande->etat ?></br>
+          Client: prénom, nom, id. n°<?= $commande->refClient ?></br>
+          prix total du panier: <?= $commande->prix ?></br></br>
+          commandée le: <?=$commande->dateCommande?></br>
+          à récupérer/livrer pour le: <?=$commande->dateRecup?></br>
+          etat: commande <?= $commande->etat ?></br>
         </h2>
-          <?php foreach($descriptif as $panier) :  ?>
+          <?php foreach($descriptif as $key => $value) :  ?>
               <hr class="my-6">
-              <p><img src=<?= $panier->image ?> alt="panier" width="100" height="100"><?= $panier->libelle ?> </p>
-              <p><?=$panier->prix?>,<?=$panier->$quantite?></p>
+              <p><img src=<?= $value->image ?> alt="panier" width="100" height="100"> <?=$key?> x <?= $value->libelle ?>  pour <?=$value->nbPersonne?> personne(s)</p>
+              <p>Sous-total: <?=$value->prix?> x <?=$key?> (quantité) </p>
               <p class="lead">
-                <a class="btn btn-outline-dark" href="/La-Bonne-Pioche/controlers/panier.ctrl.php?refPanier=<?= $panier->refPanier ?>" role="button">Détails du panier</a>
+                <a class="btn btn-outline-dark" href="/La-Bonne-Pioche/controlers/panier.ctrl.php?refPanier=<?= $value->refPanier ?>" role="button">Détails du panier</a>
               </p>
           <?php endforeach ?>
       </div>

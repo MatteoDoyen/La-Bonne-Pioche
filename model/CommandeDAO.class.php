@@ -103,14 +103,15 @@ class CommandeDAO {
     $paniers = new PanierDAO();
     $r = $this->db->query("SELECT * FROM paniers_commandes WHERE refCommande = '$refCommande'");
     $res = $r->fetchAll(PDO::FETCH_ASSOC);
-    $compositionC = array();
+    $composition = array();
     foreach($res as $row)
     {
-      $clee = $row['refPanier'].' '.$row['nbPersonne'];
+      $nbPersonne = $row['nbPersonne'];
       $panier = $paniers->get($row['refPanier']);
-      $compositionC[$clee]=$panier;
+      $panier->nbPersonne = $nbPersonne;
+      $composition[$row['quantite']]=$panier;
     }
-    return $compositionC;
+    return $composition;
   }
 
 

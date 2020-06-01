@@ -16,7 +16,7 @@
     <div class="container-fluid btns">
       <div class="row">
         <div class="col-md-12">
-          <button type="button" class="btn btn-danger custom"> <a href="/La-Bonne-Pioche/controlers/commandes.ctrl.php">Total</a></button>
+          <button type="button" class="btn btn-danger custom"> <a href="/La-Bonne-Pioche/controlers/commandes.ctrl.php">Toutes les commandes</a></button>
           <button type="button" class="btn btn-danger custom"> <a href="/La-Bonne-Pioche/controlers/commandesEnCours.ctrl.php">Commandes en cours</a></button>
           <button type="button" class="btn btn-danger custom"> <a href="/La-Bonne-Pioche/controlers/commandesARelancer.ctrl.php">Commandes à relancer</a></button>
           <button type="button" class="btn btn-danger custom"> <a href="/La-Bonne-Pioche/controlers/commandesPassees.ctrl.php">Historique des commandes</a></button>

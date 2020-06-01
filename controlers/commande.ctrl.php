@@ -26,7 +26,9 @@ $view = new View("../view/commande.view.php");
 // Passage des paramètres à la vue
 $view->commande=$commande;
 $view->descriptif=$descriptif;
-$view->client=$client;
+
+//$view->client=$client;
+
 // Appel de la vue
 $view->show();
 ?>
