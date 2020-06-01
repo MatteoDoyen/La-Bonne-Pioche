@@ -34,7 +34,7 @@
           <div class="row">
           <?php foreach($descriptif as $key => $value) :  ?>
               <div class="col-sm">
-                <div class="card">
+                <div class="card cstm">
                 <img src=<?= $value->image ?> class="card-img-top" alt="panier">
                   <div class="card-body">
                     <h5 class="card-title"><?=$key?> x <?= $value->libelle ?>  pour <?=$value->nbPersonne?> personne(s)</h5>
