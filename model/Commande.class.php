@@ -10,7 +10,7 @@ class Commande {
   private $prix;
 
 
-  public function __construct(int $refCommande, int $refClient,string $dateCommande, string $dateRecup, string $etat, $livraison,float $prix)
+  public function __construct(int $refCommande, int $refClient,string $dateCommande, string $dateRecup, string $etat, $livraison = 0,float $prix)
   {
     $this->refCommande = $refCommande;
     $this->refClient = $refClient;
@@ -33,7 +33,7 @@ class Commande {
         // if(TEST == 1){ echo "appel :".__METHOD__."($attribut)\n";}
 
         //retourne une erreur si le nom d'attribut pris en paramètre est inéxistant
-        if ($attribut != "refCommande" && $attribut != "refClient" && $attribut != "dateCommande" && $attribut != "dateRecup" && $attribut != "etat" && $attribut != "livriason" && $attribut != "prix") {
+        if ($attribut != "refCommande" && $attribut != "refClient" && $attribut != "dateCommande" && $attribut != "dateRecup" && $attribut != "etat" && $attribut != "livraison" && $attribut != "prix") {
 
           throw new Exception("Error cannot acces '$attribut'", 1);
         }

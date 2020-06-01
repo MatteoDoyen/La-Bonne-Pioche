@@ -3,11 +3,17 @@
 require_once(dirname(__FILE__).'/ProduitDAO.class.php');
 require_once(dirname(__FILE__).'/Produit.class.php');
 require_once(dirname(__FILE__).'/PanierDAO.class.php');
+require_once(dirname(__FILE__).'/CommandeDAO.class.php');
 
-$prod = new Produit();
+// $prod = new Produit();
+//
+// print_r($prod->getNextRef());
+// print_r($prod->getNextRef());
 
-print_r($prod->getNextRef());
-print_r($prod->getNextRef());
+
+// $commandes = new CommandeDAO();
+//
+// $adresse = $commandes->getAdresseRecup(9);
 
 
 // $prod = new ProduitDAO();

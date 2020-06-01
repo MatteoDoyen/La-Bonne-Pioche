@@ -22,13 +22,13 @@ class ClientDAO {
 
   // Accès aux clients
   function get(int $id) : Client {
-    $req = "SELECT * FROM clients WHERE id = '$id'";
+    $req = "SELECT * FROM clients WHERE refUtilisateur = $id";
     $sth = $this->db->query($req);
     $resArray= $sth->fetchAll(PDO::FETCH_ASSOC);
     foreach($resArray as $row)
     {
       $client = new Client($row['refUtilisateur'],$row['nom'],$row['prenom'],$row['adresseMail'],$row['motDePasse'],
-      $row['etat'],$row['numeroTelephone'],$row['newsletter'],$row['genre'],$row['$tauxReduction']);
+      $row['etat'],$row['numeroTelephone'],$row['newsletter'],$row['genre'],$row['tauxReduction']);
     }
     return $client;
   }

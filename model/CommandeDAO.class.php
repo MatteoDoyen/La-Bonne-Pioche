@@ -1,9 +1,12 @@
 <?php
 require_once(dirname(__FILE__).'/Commande.class.php');
-require_once(dirname(__FILE__).'/Panier.class.php');
 require_once(dirname(__FILE__).'/PanierDAO.class.php');
+require_once(dirname(__FILE__).'/Client.class.php');
+require_once(dirname(__FILE__).'/ClientEntreprise.class.php');
+require_once(dirname(__FILE__).'/Entreprise.class.php');
 require_once(dirname(__FILE__).'/ClientDAO.class.php');
 require_once(dirname(__FILE__).'/ClientEntrepriseDAO.class.php');
+require_once(dirname(__FILE__).'/EntrepriseDAO.class.php');
 
 // Le Data Access Objet
 class CommandeDAO {
@@ -33,7 +36,7 @@ class CommandeDAO {
     $resArray= $sth->fetchAll(PDO::FETCH_ASSOC);
     foreach($resArray as $row)
     {
-      $commande = new Commande($row['refCommande'],$row['refClient'],$row['dateCommande'],$row['dateRecup'],$row['etat'],$row['livriason'],$row['prix']);
+      $commande = new Commande($row['refCommande'],$row['refClient'],$row['dateCommande'],$row['dateRecup'],$row['etat'],$row['livraison'],$row['prix']);
     }
     return $commande;
   }
@@ -45,7 +48,7 @@ class CommandeDAO {
     $commandes = array();
     foreach($resArray as $row)
     {
-      $commandes[] = new Commande($row['refCommande'],$row['refClient'],$row['dateCommande'],$row['dateRecup'],$row['etat'],$row['livriason'],$row['prix']);
+      $commandes[] = new Commande($row['refCommande'],$row['refClient'],$row['dateCommande'],$row['dateRecup'],$row['etat'],$row['livraison'],$row['prix']);
     }
     return $commandes;
   }
@@ -58,7 +61,7 @@ class CommandeDAO {
     $cmdencours = array();
     foreach($resArray as $row)
     {
-      $cmdencours[] = new Commande($row['refCommande'],$row['refClient'],$row['dateCommande'],$row['dateRecup'],$row['etat'],$row['livriason'],$row['prix']);
+      $cmdencours[] = new Commande($row['refCommande'],$row['refClient'],$row['dateCommande'],$row['dateRecup'],$row['etat'],$row['livraison'],$row['prix']);
     }
     return $cmdencours;
   }
@@ -71,7 +74,7 @@ class CommandeDAO {
     $cmdrelance = array();
     foreach($resArray as $row)
     {
-      $cmdrelance[] = new Commande($row['refCommande'],$row['refClient'],$row['dateCommande'],$row['dateRecup'],$row['etat'],$row['livriason'],$row['prix']);
+      $cmdrelance[] = new Commande($row['refCommande'],$row['refClient'],$row['dateCommande'],$row['dateRecup'],$row['etat'],$row['livraison'],$row['prix']);
     }
     return $cmdrelance;
   }
@@ -142,22 +145,46 @@ class CommandeDAO {
   }
 
 
-  public function getClient($refCommande): Client{
-    $clients = new ClientDAO();
-    $clientsE = new ClientEntrepriseDAO();
-    $commande = get($refCommande);
-    if($commande->livraison != 0)
+  public function getClient($refCommande){
+    $commande = $this->get($refCommande);
+    $id = $commande->refClient;
+
+    if($commande->livraison)
     {
-      $id = $commande->refClient;
-      $client = $clientsE->get($id);
+      $clients = new ClientEntrepriseDAO();
+      $client = $clients->get($id);
       return $client;
     }
-    else {
-      $id = $commande->refClient;
+    else
+    {
+      $clients =  new ClientDAO();
       $client = $clients->get($id);
       return $client;
     }
   }
+
+  public function getAdresseRecup($refCommande){
+    $commande = $this->get($refCommande);
+    $id = $commande->refClient;
+
+    if($commande->livraison)
+    {
+      $clients = new ClientEntrepriseDAO();
+      $client = $clients->get($id);
+      $refEntreprise = $client->refEntreprise;
+
+      $entreprises = new EntrepriseDAO();
+      $entreprise = $entreprises->get($refEntreprise);
+      $adresse = $entreprise->nom.", ".$entreprise->adresse;
+      return $adresse;
+    }
+    else
+    {
+      $adresse = "En magasin, 2 rue Condillac 38000 Grenoble";
+      return $adresse;
+    }
+  }
+
 }
 
 ?>
