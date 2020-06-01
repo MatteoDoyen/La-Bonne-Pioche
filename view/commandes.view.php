@@ -11,15 +11,15 @@
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script defer src="../framework/bootstrap-4.4.1-dist/js/bootstrap.bundle.min.js"></script>
-    <?php include("../view/navbar.php") ?>
+    <?php include("../view/navbarEmploye.template.php") ?>
 
     <div class="container-fluid btns">
       <div class="row">
         <div class="col-md-12">
-          <button type="button" class="btn btn-danger custom"> <a href="/La-Bonne-Pioche/controlers/commandes.ctrl.php">Toutes les commandes</a></button>
-          <button type="button" class="btn btn-danger custom"> <a href="/La-Bonne-Pioche/controlers/commandesEnCours.ctrl.php">Commandes en cours</a></button>
-          <button type="button" class="btn btn-danger custom"> <a href="/La-Bonne-Pioche/controlers/commandesARelancer.ctrl.php">Commandes à relancer</a></button>
-          <button type="button" class="btn btn-danger custom"> <a href="/La-Bonne-Pioche/controlers/commandesPassees.ctrl.php">Historique des commandes</a></button>
+          <button type="button" class="btn btn-danger custom"> <a href="../controlers/commandes.ctrl.php">Toutes les commandes</a></button>
+          <button type="button" class="btn btn-danger custom"> <a href="../controlers/commandesEnCours.ctrl.php">Commandes en cours</a></button>
+          <button type="button" class="btn btn-danger custom"> <a href="../controlers/commandesARelancer.ctrl.php">Commandes à relancer</a></button>
+          <button type="button" class="btn btn-danger custom"> <a href="../controlers/commandesPassees.ctrl.php">Historique des commandes</a></button>
         </div>
       </div>
     </div>
@@ -42,7 +42,7 @@
           <tr>
             <th scope="row"><?= $commande->refCommande ?></th>
             <td><?= $commande->refClient ?></td>
-            <td><a href="/La-Bonne-Pioche/controlers/commande.ctrl.php?refCommande=<?= $commande->refCommande ?>">cliquez ici </td>
+            <td><a href="../controlers/commande.ctrl.php?refCommande=<?= $commande->refCommande ?>">cliquez ici </td>
             <td><?=$commande->dateRecup?></td>
             <td><?= $commande->etat ?></td>
           </tr>

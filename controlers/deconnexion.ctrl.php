@@ -9,5 +9,7 @@ session_destroy ();
 // On redirige le visiteur vers la page d'accueil
 $view = new View("../view/accueil.view.php");
 $view->success = "Déconnexion réussie.";
+
+$view->statut = -1;
 $view->show();
 ?>

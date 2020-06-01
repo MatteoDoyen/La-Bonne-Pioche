@@ -10,7 +10,7 @@
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script defer src="../framework/bootstrap-4.4.1-dist/js/bootstrap.bundle.min.js"></script>
-    <?php include("../view/navbar.php") ?>
+    <?php include("../view/navbarEmploye.template.php"); ?>
 
     <div class="container-fluid">
       <?php if ($supprimer==1): ?>

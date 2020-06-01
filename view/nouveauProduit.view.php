@@ -9,7 +9,7 @@
       <body>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
         <script defer src="../framework/bootstrap-4.4.1-dist/js/bootstrap.bundle.min.js"></script>
-        <?php include("navbar.php") ?>
+        <?php include("navbarEmploye.template.php") ?>
         <h2 id="h2NvPanier" >Ajouter un nouveau produit</h2>
         <div class="container">
         <form action="nouveauProduitInsert.ctrl.php" method="post" enctype="multipart/form-data">

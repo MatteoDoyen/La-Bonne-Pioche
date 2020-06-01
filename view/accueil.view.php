@@ -10,9 +10,16 @@
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script defer src="../framework/bootstrap-4.4.1-dist/js/bootstrap.bundle.min.js"></script>
-    <?php include("../view/navbar.php") ?>
+    <?php
+    if ($statut>=0)
+    {
+      include("../view/navbarEmploye.template.php");
+    }
+    else {
+      include("../view/navbar.php");
+    }
+    ?>
     <div class="container-fluid">
-
 
 
       <?php if (isset($success)): ?>
