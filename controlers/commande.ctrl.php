@@ -24,8 +24,22 @@ if(isset($_SESSION['Utilisateur']))
   $catalogue = new CommandeDAO();
   $paniers = new PanierDAO();
 
-  // Récupération de l'objet panier correspondant à l'id
+  // Récupération de la commande correspondant à l'id
   $commande = $catalogue->get($refCommande);
+
+  // Traitement de la date pour la rendre facilement lisible
+  $tmpDC = $commande->dateCommande;
+  $tmpDP = $commande->dateRecup;
+
+  $DC_DH = explode(' ' , $tmpDC);
+  $DC = explode('-',$DC_DH[0]);
+  $commande->dateCommande = $DC[2]."/".$DC[1]."/".$DC[0]." ".$DC_DH[1];
+
+  $DP_DH = explode(' ' , $tmpDP);
+  $DP = explode('-',$DP_DH[0]);
+  $commande->dateRecup = $DP[2]."/".$DP[1]."/".$DP[0]." ".$DP_DH[1];
+
+
   $descriptif = $catalogue->getComposition($refCommande);
   $client = $catalogue->getClient($refCommande);
   $adresse = $catalogue->getAdresseRecup($refCommande);
