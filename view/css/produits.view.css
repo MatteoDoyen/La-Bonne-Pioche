@@ -14,7 +14,7 @@ body {
 
 /* CONTENU */
 .contenu {
-  margin-top: 220px;
+  margin-top: 50px;
   font-family: 'Poppins',Arial, sans-serif;
 }
 .search:active, .search:focus, .send:active, .send:focus {
@@ -55,4 +55,37 @@ h4 {
 .dropdown-toggle:after {
   float: right;
   margin: 9px 15px 0 0;
+}
+.card-text {
+  font-size: 0.8em;
+}
+.rayonFamille {
+  font-family: "Lulo-Clean-W01-One-Bold", sans-serif;
+  font-size: 1.2em;
+}
+.plusdinfo {
+  background-color: #dbe12c;
+  border-color: gray;
+}
+.plusdinfo:hover{
+  background-color: #bfc416;
+  transition: .4s all ease;
+  border-color: gray;
+}
+.plusdinfo:focus, .plusdinfo:active {
+  background-color: #bfc416 !important;
+}
+.plusdinfo:focus {
+  outline: none !important;
+  box-shadow: none;
+}
+#searchsmall {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (max-width: 992px) {
+  .rayonFamille {
+    text-align: center;
+  }
 }

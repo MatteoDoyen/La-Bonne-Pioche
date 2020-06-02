@@ -77,7 +77,38 @@
   margin-right: 10px;
 }
 
-
+.dropdown-toggle:after {
+  width: 7px;
+  height: 7px;
+  margin-top: 5px !important;
+}
+.rayons {
+  text-align: center;
+  background-color: white;
+  padding: 0;
+}
+.rayon-link {
+  padding: 10px 0px 10px 0px;
+}
+.rayon-title {
+  color: black;
+}
+.rayon-title:hover {
+  color: white;
+  text-decoration: none;
+}
+.nav-link.rayon-title, .nav-link.famille-link {
+  font-size: 0.5em !important;
+  width: 100%;
+}
+.famille {
+  text-align: center;
+  background-color: white;
+  background-color: #f0f0f0;
+}
+.famille-link {
+  color: black;
+}
 
 .custom-toggler.navbar-toggler {
   border-color: white;

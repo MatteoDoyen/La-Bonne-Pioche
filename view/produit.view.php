@@ -25,7 +25,6 @@
         <div class="bloc_droit">
           <h2><?= $produit->libelle  ?> : </h2>
           <p><?= $produit->description ?></p>
-          <p><?= $exception ?></p>
         </div>
       </div>
       <div class="container container_info">
@@ -33,8 +32,7 @@
         <h3>Origine : </h3><p><?= $produit->origine  ?></p>
 
       </div>
-
-
+      
     </div>
       <?php include("footer.php") ?>
   </body>

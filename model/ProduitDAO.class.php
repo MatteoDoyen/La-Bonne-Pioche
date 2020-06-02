@@ -100,12 +100,73 @@ class ProduitDAO {
     }
   }
 
-
+  /**
+   * Renvoie un array composé du nom de chaque rayon, et pour chaque rayon le nom de chaque famille et du nombre d'élément de chaque famille
+   */
   public function getRayonsFamilles() : array {
     $sth = $this->db->prepare("SELECT distinct rayon FROM Produits");
     $sth->execute();
     $rayons = $sth->fetchAll(PDO::FETCH_ASSOC);
-    var_dump($rayons);
+    foreach ($rayons as $key => $value) {
+      // Récupération de toutes les familles pour un rayon donné ainsi que nombre de produit par famille
+      $sth = $this->db->prepare("SELECT famille, count(refProduit) as nb FROM Produits WHERE rayon = :rayon GROUP BY famille");
+      $sth->execute(array(":rayon" => $value['rayon']));
+      $famille = $sth->fetchAll(PDO::FETCH_ASSOC);
+      array_push($rayons[$key], $famille);
+      // Récupération du nombre total d'article par rayon
+      $sth = $this->db->prepare("SELECT count(refProduit) as total FROM Produits WHERE rayon = :rayon");
+      $sth->execute(array(":rayon" => $value['rayon']));
+      $total = $sth->fetchAll(PDO::FETCH_ASSOC);
+      array_push($rayons[$key], $total[0]['total']);
+    }
+    return $rayons;
+  }
+
+  /**
+   * Renvoie un array composé d'objet Produit pour un $rayon donné.
+   */
+  public function getTousProduitsDunRayon($rayon) : array{
+    $sth = $this->db->prepare("SELECT * from Produits where rayon = :rayon");
+    $sth->execute(array(":rayon" => $rayon));
+    $result = $sth->fetchAll(PDO::FETCH_ASSOC);
+    $produits = array();
+    foreach($result as $value) {
+      $produit = new Produit($value['stock'],$value['refProduit'],$value['libelle'],$value['fabricant'],$value['rayon'],$value['famille'],
+      $value['coef'],$value['description'],$value['origine'],$value['caracteristiques'],$value['prixU'],$value['urlImg'],$value['quantiteU'],$value['unite'],$value['active']);
+      array_push($produits, $produit);
+    }
+    return $produits;
+  }
+
+  /**
+   * Renvoie un array composé d'objet Produit pour un $rayon et une $famille donnés.
+   */
+  public function getTousProduitRayonsFamille($rayon, $famille) : array {
+    $sth = $this->db->prepare("SELECT * from Produits where rayon = :rayon and famille = :famille");
+    $sth->execute(array(":rayon" => $rayon, ":famille" => $famille));
+    $result = $sth->fetchAll(PDO::FETCH_ASSOC);
+    $produits = array();
+    foreach($result as $value) {
+      $produit = new Produit($value['stock'],$value['refProduit'],$value['libelle'],$value['fabricant'],$value['rayon'],$value['famille'],
+      $value['coef'],$value['description'],$value['origine'],$value['caracteristiques'],$value['prixU'],$value['urlImg'],$value['quantiteU'],$value['unite'],$value['active']);
+      array_push($produits, $produit);
+    }
+    return $produits;
+  }
+
+
+  public function getProduitsComprenant($groupeDeMot) {
+    $recherche = "%".$groupeDeMot."%";
+    $sth = $this->db->prepare("SELECT * from Produits where libelle LIKE :recherche or rayon LIKE :recherche or famille LIKE :recherche or description LIKE :recherche");
+    $sth->execute(array(":recherche" => $recherche));
+    $result = $sth->fetchAll(PDO::FETCH_ASSOC);
+    $produits = array();
+    foreach($result as $value) {
+      $produit = new Produit($value['stock'],$value['refProduit'],$value['libelle'],$value['fabricant'],$value['rayon'],$value['famille'],
+      $value['coef'],$value['description'],$value['origine'],$value['caracteristiques'],$value['prixU'],$value['urlImg'],$value['quantiteU'],$value['unite'],$value['active']);
+      array_push($produits, $produit);
+    }
+    return $produits;
   }
 
 }
