@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="../view/css/consulterPaniers.view.css">
   </head>
   <body>
-
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script defer src="../framework/bootstrap-4.4.1-dist/js/bootstrap.bundle.min.js"></script>
 
@@ -31,7 +30,9 @@
         <?php foreach ($paniers as $panier): ?>
           <div class="row mb-3 ">
             <div class="col-md-12 col-lg-2 imgPanier d-flex justify-content-start align-items-center">
-              <img src="<?= $panier->image ?>" alt="">
+              <a href="panier.ctrl.php?refPanier=<?= $panier->refPanier ?>">
+                <img src="<?= $panier->image ?>" alt="">
+              </a>
             </div>
             <div class="col-md-6 col-lg-4 d-flex justify-content-start align-items-center">
               <p><?= $panier->libelle ?></p>

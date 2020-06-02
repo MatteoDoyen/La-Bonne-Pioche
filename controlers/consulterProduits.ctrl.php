@@ -24,7 +24,17 @@ if(isset($_SESSION['Utilisateur']))
     // Envoie la liste des produits à la vue
     $view->produits=$produits;
 
-    $view->supprimer=0;
+    if(isset($libelleSupprimer))
+    {
+      $view->libelleSupprimer=$libelleSupprimer;
+    }
+    if(isset($supprimer))
+    {
+      $view->supprimer=$supprimer;
+    }
+    else {
+      $view->supprimer=0;
+    }
 
     // Appel de la vue
     $view->show();

@@ -26,7 +26,7 @@
 
     </br>
 
-    <div class="container-fluid tble">
+    <div class="container tble">
       <table class="table table-striped">
         <thead>
           <tr>

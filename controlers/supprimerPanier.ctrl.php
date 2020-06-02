@@ -30,15 +30,9 @@ if(isset($_SESSION['Utilisateur']))
 
     $catalogue->desactiverPanier($_POST['refPanier']);
 
-    // Récupération des données à placer dans la vue à partir du modèle
-    $paniers = $catalogue->getAllActive();
-
-    // On créer une variable view que l'on rattache au fichier accueil.view.php
-    $view = new View("consulterPaniers.view.php");
+    $view = new View("../controlers/consulterPaniers.ctrl.php");
 
     $view->libelleSupprimer=$_POST['libelle'];
-
-    $view->paniers=$paniers;
 
     $view->supprimer=1;
     // Appel de la vue

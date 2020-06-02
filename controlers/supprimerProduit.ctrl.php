@@ -26,19 +26,13 @@ if(isset($_SESSION['Utilisateur']))
 
     // Creation de l'instance DAO
     $produitsDao = new ProduitDAO();
-
     // Récupération des données à placer dans la vue à partir du modèle
-    $produits = $produitsDao->getAllActive();
-
     $produitsDao->desactiverProduit($_POST['refProduit']);
 
     // On créer une variable view que l'on rattache au fichier consulterProduits.view.php
-    $view = new View("consulterProduits.view.php");
+    $view = new View("../controlers/consulterProduits.ctrl.php");
 
     $view->libelleSupprimer=$_POST['libelle'];
-
-    $view->produits=$produits;
-
     $view->supprimer=1;
     // Appel de la vue
     $view->show();

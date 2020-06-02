@@ -5,6 +5,9 @@ require_once('../model/Panier.class.php');
 require_once('../model/PanierDAO.class.php');
 require_once('../framework/view.class.php'); // AJOUTE POUR MVC
 
+//
+// Creation d'une instance DAO
+$panierDao= new PanierDAO();
 
 if(isset($_SESSION['Utilisateur']))
 {
@@ -52,14 +55,10 @@ if(isset($_SESSION['Utilisateur']))
 
       foreach($_POST as $key => $value) {
         $$key = $value;
-        echo "$key : $value";
-        echo"<br>";
       }
-      print_r($prod);
 
       if (isset($_FILES['imgPanier']) AND $_FILES['imgPanier']['error'] == 0)
       {
-        echo "image reçu";
         //Testons si le fichier n'est pas trop gros
         if ($_FILES['imgPanier']['size'] <= 1000000)
         {
@@ -82,11 +81,8 @@ if(isset($_SESSION['Utilisateur']))
       else {
         $urlImg = explode('/',$urlImg);
         $nomFichier = $urlImg[4];
-        echo $nomFichier;
       }
-        //
-        // Creation d'une instance DAO
-        $panierDao= new PanierDAO();
+
         //insertion du nouveau panier dans la table paniers
 
         $panierDao->desactiverPanier($refPanier);
@@ -97,12 +93,11 @@ if(isset($_SESSION['Utilisateur']))
 
         foreach ($prod as $value) {
           $temp = explode("_",$value);
-          print_r($temp);
           $panierDao->insertProduitPanier($temp[0], $refPanier,$temp[1]);
         }
       }
 
-    $view = new View("nouveauProduit.view.php");
+    $view = new View("../controlers/consulterPaniers.ctrl.php");
 
     $view->sent = 1;
 

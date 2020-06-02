@@ -1,8 +1,7 @@
 <?php
 session_start();
 // Inclusion du modèle
-require_once('../model/PanierDAO.class.php');
-require_once('../model/Panier.class.php');
+require_once('../model/ProduitDAO.class.php');
 require_once('../framework/view.class.php'); // AJOUTE POUR MVC
 
 //Récupération des valeurs du formulaire
@@ -14,24 +13,21 @@ if(isset($_SESSION['Utilisateur']))
   }
   if($statut>=0)
   {
-  if(!isset($_POST['refPanier']))
+  if(!isset($_POST['refProduit']))
   {
-      exit("Erreur : refPanier non définie");
+      exit("Erreur : refProduit non définie");
   }
 
-  $refPanier = $_POST['refPanier'];
+  $refProduit = $_POST['refProduit'];
 
-  $panierDao = new PanierDao();
+  $produitDao = new ProduitDAO();
   //
-  $panier = $panierDao->get($refPanier);
-  // //
-  $composition = $panierDao->getComposition($refPanier);
-  
-  $view = new View("modifierPanier.view.php");
+  $produit = $produitDao->get($refProduit);
+  //
 
-  $view->panier = $panier;
+  $view = new View("modifierProduit.view.php");
 
-  $view->composition = $composition;
+  $view->produit = $produit;
 
   $view->show();
 }

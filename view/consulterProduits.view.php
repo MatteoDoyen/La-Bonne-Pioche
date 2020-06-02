@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="../view/css/consulterProduits.view.css">
   </head>
   <body>
-
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script defer src="../framework/bootstrap-4.4.1-dist/js/bootstrap.bundle.min.js"></script>
     <?php include("../view/navbarEmploye.template.php"); ?>
@@ -29,7 +28,9 @@
         <?php foreach ($produits as $produit): ?>
           <div class="row mb-3 ">
             <div class="col-6 col-md-2 imgProduit d-flex justify-content-start align-items-center">
-              <img src="<?= $produit->urlImg ?>" alt="">
+              <a href="produit.ctrl.php?refProduit=<?= $produit->refProduit ?>">
+                <img src="<?= $produit->urlImg ?>" alt="">
+              </a>
             </div>
             <div class="col-6 col-md-4 d-flex justify-content-start align-items-center">
               <p><?= $produit->libelle ?></p>
