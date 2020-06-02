@@ -22,52 +22,50 @@ class article{
 
 
 var panierAchat = [];
+
 if(localStorage.getItem("panierAchat") != null){
   panierAchat = JSON.parse(localStorage.getItem("panierAchat"));
 }
 
+
 function ajoutArticle(elm){
-  console.log(panierAchat);
   let quant = document.getElementById("Q_"+elm.id).value;
-  let price = document.getElementById("P_"+elm.id).innerHTML;
+  let price = document.getElementById("P_"+elm.id).innerHTML * quant;
+  console.log(price);
   let nombre = document.getElementsByClassName("nbPersSelectedadd"+elm.id).length;
-  console.log("plop"+nombre);
   let prix = tabprixinit[elm.id];
   let coeff = document.getElementById("C_"+elm.id).value;
   let img = document.getElementById("imgPanier"+elm.id).src;
   let nbBocaux = document.getElementById("nbBocaux"+elm.id).value;
   var panier = new article(elm.id, elm.name, nombre, quant, price, coeff, img, nbBocaux , prix);
-
+  console.log(panierAchat);
   let verif = false;
-  console.log(panier.id);
-  console.log(panierAchat[panier.id]);
-  if(panierAchat[panier.id]){
-    for(panierIn of panierAchat){
-      if(panier.id == panierIn.id){
-        if(panier.nombre == panierIn.nombre){
-          let x = parseInt(panierIn.quantite);
-          x += parseInt(panier.quantite);
-          panierIn.quantite = x;
-          verif = true;
-        }
+  for(panierIn of panierAchat){
+    if(panierIn.id == panier.id){
+      if(panierIn.nbPersonnes == panier.nbPersonnes){
+        let x = parseInt(panierIn.quantite);
+        x += parseInt(panier.quantite);
+        panierIn.quantite = x;
+        verif = true;
       }
     }
-    if(!verif){
-      panierAchat.push(panier);
-    }
   }
-  else{
+  if(!verif){
     panierAchat.push(panier);
   }
 
-  loadStorage();
   console.log(panierAchat);
+
+  loadStorage();
+
 }
+
+
 
 
 function loadStorage(){
   localStorage.removeItem("panierAchat");
-  localStorage.setItem("panierAchat", JSON.stringify(panierAchat));
+  localStorage.setItem("panierAchat", JSON.stringify(panierAchat) );
 }
 
 

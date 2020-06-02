@@ -14,11 +14,12 @@
     <script defer src="../framework/bootstrap-4.4.1-dist/js/bootstrap.bundle.min.js"></script>
 
     <?php include("navbar.php") ?>
-
+    <h2 style="text-align:center">Panier</h2>
+    <form class="" id="formulaireCommande" action="nouvelleCommandeInsert.ctrl.php" method="post">
+      <h3 style="padding-left:6%; font-size: 15px">Vos articles</h3>
     <div class="container_fluid d-flex flex-column flex-md-row justify-content-center align-items-center align-items-md-start" >
-      <form class="" action="nouvelleCommandeInsert.ctrl.php" method="post">
-        <div class="container p-3 m-0" id="paniersCommande">
 
+        <div class="container p-3 m-0" id="paniersCommande">
 
         </div>
 
@@ -51,14 +52,12 @@
           </div>
 
         </div>
-      </form>
-
 
     </div>
-
+    </form>
     <?php include("footer.php") ?>
 
-    <script type="text/javascript" src="../view/js/commandes.view.js"></script>
+    <script type="text/javascript" src="../view/js/panierAchat.view.js"></script>
 
 
       <!-- <div class="row" id="ligne_'+panier.id+'">
