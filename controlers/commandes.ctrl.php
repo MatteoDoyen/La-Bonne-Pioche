@@ -14,9 +14,20 @@ if(isset($_SESSION['Utilisateur']))
   }
   if($statut>=0)
   {
+    $commandes = new commandeDAO();
+
+    if (isset($_GET['refReception'])) {
+      $refReception = intVal($_GET['refReception']);
+      $commandes->validerCommande($refReception);
+    }
+
+    if (isset($_GET['refSuppr'])) {
+      $refSuppr = intVal($_GET['refSuppr']);
+      $commandes->deleteCommande($refSuppr);
+    }
 
     // Creation de l'instance DAO
-    $commandes = new commandeDAO();
+
 
     // Récupération des données à placer dans la vue à partir du modèle
     $list = $commandes->getAll();
@@ -36,6 +47,6 @@ else {
 }
 
 else {
-exit("Il faut être employés pour avoir accès à ce module");
+exit("Il faut être employé pour avoir accès à ce module");
 }
 ?>
