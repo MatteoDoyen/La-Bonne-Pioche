@@ -141,8 +141,22 @@ class CommandeDAO {
 
 
   public function validerCommande($refCommande) {
-      $sql = "UPDATE commandes SET etat =  'récupérée' WHERE refCommande = '$refCommande'";
+      $sql = "UPDATE commandes SET etat = 'récupérée' WHERE refCommande = '$refCommande'";
       $this->db->query($sql);
+  }
+
+  public function updateCommande($arrayCommande){
+    date_default_timezone_set('Europe/Paris');
+    foreach ($arrayCommande as $commande) {
+      $date = date('Y-m-d H:i:s');
+      $date = strtotime($date);
+      $dateR = $commande->dateRecup;
+      $dateR = strtotime($dateR);
+      if( (($date-$dateR)>0) && ($commande->etat == "en cours")) {
+        $sql = "UPDATE commandes SET etat = 'à relancer' WHERE refCommande = '$commande->refCommande'";
+        $this->db->query($sql);
+      }
+    }
   }
 
 
@@ -196,5 +210,6 @@ class CommandeDAO {
     }
     return $compos;
   }
+
 }
 ?>

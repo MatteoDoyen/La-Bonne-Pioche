@@ -31,7 +31,9 @@ if(isset($_SESSION['Utilisateur']))
 
     // Récupération des données à placer dans la vue à partir du modèle
     $list = $commandes->getAll();
+    $commandes->updateCommande($list);
 
+    // Traitement de l'affichage des dates
     foreach ($list as $commande) {
       $tmpDC = $commande->dateCommande;
       $tmpDP = $commande->dateRecup;
