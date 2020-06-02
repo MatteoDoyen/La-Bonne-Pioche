@@ -14,7 +14,7 @@
         <div class="container">
         <form action="modifierProduitInsert.ctrl.php" method="post" enctype="multipart/form-data">
           <input id="IdProduit" type="hidden" name="refProduit" value="<?= $produit->refProduit ?>">
-          <input id="urlImg" type="hidden" name="urlImg" value="<?=$produit->prixU ?>">
+          <input id="urlImg" type="hidden" name="urlImg" value="<?=$produit->urlImg ?>">
           <div class="row">
             <div class="col-12 col-sm-12 col-md-6 inputGauche">
               <div id="imageUpload">
@@ -77,7 +77,6 @@
               <div class="custom-control custom-checkbox mr-sm-2">
                 <label for="active">Article actif</label>
                      <input type="checkbox" name="active" value="1" id="active" checked />
-
               </div>
             </div>
             <div class="col-12 col-sm-12 col-md-6">
