@@ -17,6 +17,35 @@
         <h4 class="alert-heading text-center">Produit supprimé</h4>
         <p class="text-center textSupprLibelle" >Le produit : "<?= $libelleSupprimer ?>" à été supprimé</p>
         </div>
+      <?php elseif($supprimer==-1): ?>
+        <div id="modal" class="modal" tabindex="-1" role="dialog">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Echec de la suppression</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p>Vous ne pouvez pas supprimé un produit qui se trouve dans un panier.</p>
+                <br>
+                <p>Le produit "<?= $libelleSupprimer ?>" se trouve dans le(s) panier(s) : </p>
+                <br>
+                <?php if (isset($tabLibellePaniers)): ?>
+                  <ul>
+                  <?php foreach ($tabLibellePaniers as $libellePanier): ?>
+                    <li><?= $libellePanier ?></li>
+                  <?php endforeach; ?>
+                  </ul>
+                <?php endif; ?>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn m-0 m-auto btn-danger" data-dismiss="modal">Ok</button>
+              </div>
+            </div>
+          </div>
+        </div>
       <?php endif; ?>
       <div class="container">
         <h2 class="text-center mt-5 mb-5">Les Produits</h2>
@@ -36,7 +65,7 @@
               <p><?= $produit->libelle ?></p>
             </div>
             <div class="col-md-2 col-5 d-flex justify-content-center align-items-center quantite">
-              <p><?= $produit->quantiteU ?> x <?= $produit->unite ?></p>
+              <p><?= $produit->quantiteU ?> <?= $produit->unite ?></p>
             </div>
             <div class="col-md-2 col-5 d-flex justify-content-center align-items-center">
               <p><?= $produit->fabricant ?></p>

@@ -121,6 +121,17 @@ function updatePanier($refPanier,$modifs){
       $this->db->query($sql);
     }
   }
+
+function getPanierProduit($refProduit)
+{
+    $nombrePanier=null;
+    $sql = "SELECT distinct pa.refPanier from produits_paniers pr,paniers pa where pr.refProduit = $refProduit and pr.refPanier=pa.refPanier and active =1";
+    $r = $this->db->query($sql);
+    $nombrePanier = $r->fetchAll(PDO::FETCH_ASSOC);
+    return $nombrePanier;
+}
+
+
 }
 
 ?>

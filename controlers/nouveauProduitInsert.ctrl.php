@@ -95,12 +95,8 @@ $catalogue = new ProduitDAO();
 $catalogue->insertProduit($stock, $libelle, $fabricant, $rayon, $famille, $coef, $description,
       $origine, $caracteristiques, $prixU, $nomFichier, $quantiteU, $unite, $active);
 
-$view = new View("nouveauProduit.view.php");
+ header('Location: ../controlers/consulterProduits.ctrl.php?ok');
 
-
-$view->sent = 1;
-
-$view->show();
 }
 else {
   exit("Le statut renvoie une erreur");

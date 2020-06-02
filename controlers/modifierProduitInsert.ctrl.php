@@ -68,6 +68,10 @@ if(isset($_SESSION['Utilisateur']))
     {
       exit("Erreur : caracteristiques non définie");
     }
+    else if(!isset($_POST['origine']))
+    {
+      exit("Erreur : origine non définie");
+    }
     else if(!isset($_POST['active']))
     {
       $produitDao->desactiverProduit($_POST['refProduit']);
@@ -76,42 +80,46 @@ if(isset($_SESSION['Utilisateur']))
 
           foreach($_POST as $key => $value) {
             $$key = $value;
-            echo "$key : $value";
-            echo"<br>";
           }
-          //
-          // // Testons si le fichier a bien été envoyé et s'il n'y a pas d'erreur
-          // if (isset($_FILES['imgProduit']) AND $_FILES['imgProduit']['error'] == 0)
-          // {
-          //   // Testons si le fichier n'est pas trop gros
-          //   if ($_FILES['imgProduit']['size'] <= 1000000)
-          //   {
-          //     // Testons si l'extension est autorisée
-          //     $infosfichier = pathinfo($_FILES['imgProduit']['name']);
-          //     $extension_upload = $infosfichier['extension'];
-          //     $extensions_autorisees = array('jpg', 'jpeg','png');
-          //
-          //     if (in_array($extension_upload, $extensions_autorisees))
-          //     {
-          //       $nomFichier = $libelle.'.'.$infosfichier['extension'];
-          //       $urlImg = dirname(__DIR__, 1).'/data/img/img_produits/' .$nomFichier;
-          //       $urlImg = str_replace("\\","/",$urlImg);
-          //       // On peut valider le fichier et le stocker définitivement
-          //       move_uploaded_file($_FILES['imgProduit']['tmp_name'], $urlImg);
-          //     }
-          //   }
-          // }
-          // else {
-          //   $urlImg = explode('/',$urlImg);
-          //   $nomFichier = $urlImg[4];
-          // }
-          //
-          //
-          //
-          $produitDao->desactiverProduit($_POST['refProduit']);
-          // $produitDao->insertProduit($stock, $libelle, $fabricant, $rayon, $famille, $coef, $description,
-          //       $origine, $caracteristiques, $prixU, $nomFichier, $quantiteU, $unite, $active);
 
+          // Testons si le fichier a bien été envoyé et s'il n'y a pas d'erreur
+          if (isset($_FILES['imgProduit']) AND $_FILES['imgProduit']['error'] == 0)
+          {
+            echo"if image";
+            // Testons si le fichier n'est pas trop gros
+            if ($_FILES['imgProduit']['size'] <= 1000000)
+            {
+              // Testons si l'extension est autorisée
+              $infosfichier = pathinfo($_FILES['imgProduit']['name']);
+              $extension_upload = $infosfichier['extension'];
+              $extensions_autorisees = array('jpg', 'jpeg','png');
+
+              if (in_array($extension_upload, $extensions_autorisees))
+              {
+                $nomFichier = $libelle.'.'.$infosfichier['extension'];
+                $urlImg = dirname(__DIR__, 1).'/data/img/img_produits/' .$nomFichier;
+                $urlImg = str_replace("\\","/",$urlImg);
+                // On peut valider le fichier et le stocker définitivement
+                move_uploaded_file($_FILES['imgProduit']['tmp_name'], $urlImg);
+              }
+            }
+          }
+          else {
+            $urlImg = explode('/',$urlImg);
+            $nomFichier = $urlImg[4];
+          }
+          $origine = str_replace("\'","''",$origine);
+          echo $origine;
+
+          // $produitDao->desactiverProduit($_POST['refProduit']);
+
+            $produitDao->insertProduit(intval($stock),$libelle,$fabricant,$rayon, $famille,floatval($coef), $description,
+              $origine,$rayon,25,$nomFichier,$quantiteU,$unite,$active);
+              echo $origine;
+          // $produitDao->insertProduit(intval($stock), $libelle, $fabricant, $rayon, $famille,floatval($coef), $description,
+          // $origine, $caracteristiques,floatval($prixU), $nomFichier,intval($quantiteU),intval($unite),intval($active));
+
+          // echo"je suis là";
           // $view = new View("../controlers/consulterProduits.ctrl.php");
           //
           //

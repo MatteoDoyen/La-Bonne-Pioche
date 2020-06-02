@@ -15,6 +15,8 @@ if(isset($_SESSION['Utilisateur']))
     // Creation de l'instance DAO
     $produitsDao = new ProduitDAO();
 
+
+
     // Récupération des données à placer dans la vue à partir du modèle
     $produits = $produitsDao->getAllActive();
 
@@ -23,6 +25,11 @@ if(isset($_SESSION['Utilisateur']))
 
     // Envoie la liste des produits à la vue
     $view->produits=$produits;
+
+    if(isset($tabLibellePaniers))
+    {
+      $view->tabLibellePaniers = $tabLibellePaniers;
+    }
 
     if(isset($libelleSupprimer))
     {

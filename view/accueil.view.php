@@ -21,7 +21,6 @@
     ?>
     <div class="container-fluid">
 
-
       <?php if (isset($success)): ?>
         <div class="alert alert-success alert-dismissible fade show offset-xl-3 col-xl-6 offset-lg-2 col-lg-8 offset-1 col-10 mb-5 text-center" role="alert">
           <p class="m-0" style="font-size: 0.7em"><?= $success ?></p>

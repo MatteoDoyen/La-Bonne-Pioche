@@ -81,11 +81,7 @@ if(isset($_SESSION['Utilisateur']))
       $catalogue->insertProduitPanier($temp[0], $refPanier,$temp[1]);
     }
 
-    $view = new View("nouveauProduit.view.php");
-
-    $view->sent = 1;
-
-    $view->show();
+    header('Location: ../controlers/consulterProduits.ctrl.php?ok');
 }
 else {
   exit("Le statut renvoie une erreur");

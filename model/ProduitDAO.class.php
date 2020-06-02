@@ -36,7 +36,7 @@ class ProduitDAO {
   }
 
   function getAllActive() : Array {
-    $req = "SELECT * FROM produits WHERE active = 1";
+    $req = "SELECT * FROM produits WHERE active = 1 order by libelle";
     $sth = $this->db->query($req);
     $resArray= $sth->fetchAll(PDO::FETCH_ASSOC);
     foreach($resArray as $row)
@@ -57,24 +57,20 @@ class ProduitDAO {
     return ($res[0][0]);
   }
 
-  public function insertProduit(int $stock,string $libelle,string $fabricant,string $rayon,string $famille,float $coef,string $description,
+  function insertProduit(int $stock,string $libelle,string $fabricant,string $rayon,string $famille,float $coef,string $description,
     string $origine,string $caracteristiques,float $prixU,string $urlImg,int $quantiteU,string $unite,int $active) {
 
-
     $refProduit= $this->getMaxRefProduit()+1;
-
-    $sql = "INSERT INTO produits VALUES($stock, $refProduit,'$libelle','$fabricant', '$rayon', '$famille', $coef, '$description',
-            '$origine', '$caracteristiques', $prixU,'$urlImg', $quantiteU, '$unite', $active)";
-
+    $sql = "INSERT INTO produits VALUES($stock, $refProduit,'$libelle','$fabricant', '$rayon', '$famille', $coef, '$description','$origine', '$caracteristiques', $prixU,'$urlImg', $quantiteU, '$unite', $active)";
     $this->db->query($sql);
   }
 
-  public function desactiverProduit($refProduit) {
+  function desactiverProduit($refProduit) {
       $sql = "UPDATE produits SET active = 0 WHERE refProduit = '$refProduit'";
       return $this->db->query($sql);
   }
 
-  public function activerProduit($refProduit) {
+  function activerProduit($refProduit) {
       $sql = "UPDATE produits SET active = 1 WHERE refProduit = '$refProduit'";
       return $this->db->query($sql);
   }
@@ -86,7 +82,7 @@ class ProduitDAO {
       $this->db->query($sql);
   }*/
 
-  public function updateProduit($refProduit,$modifs){
+  function updateProduit($refProduit,$modifs){
 
       foreach ($modifs as $key => $value) {
         if(!is_string($value))

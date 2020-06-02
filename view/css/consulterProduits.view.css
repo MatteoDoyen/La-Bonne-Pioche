@@ -39,7 +39,7 @@ body {
   justify-content: space-evenly;
 }
 
-p
+p,#modal li
 {
   text-transform: capitalize;
   font-family:"Avenir-LT-W01_85-Heavy1475544";
@@ -160,6 +160,12 @@ a:hover
   transition: 0.3s;
   background-color: grey;
   color: white;
+}
+
+
+.modal-body p
+{
+  text-transform: none;
 }
 
 /* --------------------- responsive ------------------------- */
