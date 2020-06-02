@@ -81,7 +81,7 @@ class CommandeDAO {
   }
 
   function getCmdRecuperee():Array{
-    $req = "SELECT * FROM commandes WHERE etat = 'recupérée' ORDER BY refCommande DESC";
+    $req = "SELECT * FROM commandes WHERE etat = 'récupérée' ORDER BY refCommande DESC";
     $sth = $this->db->query($req);
     $resArray= $sth->fetchAll(PDO::FETCH_ASSOC);
 
@@ -140,9 +140,9 @@ class CommandeDAO {
   }
 
 
-  public function modifierEtatCommande($refCommande, $state) {
-      $sql = "UPDATE commandes SET etat = $state WHERE refCommande = '$refCommande'";
-      return $this->db->query($sql);
+  public function validerCommande($refCommande) {
+      $sql = "UPDATE commandes SET etat =  'récupérée' WHERE refCommande = '$refCommande'";
+      $this->db->query($sql);
   }
 
 

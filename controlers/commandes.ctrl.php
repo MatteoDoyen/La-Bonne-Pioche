@@ -17,13 +17,13 @@ if(isset($_SESSION['Utilisateur']))
     $commandes = new commandeDAO();
 
     if (isset($_GET['refReception'])) {
-      $refPpanier = intVal($_GET['refReception']);
-      $commandes->modifierEtatCommande($refReception, "récupérée");
+      $refReception = intVal($_GET['refReception']);
+      $commandes->validerCommande($refReception);
     }
 
     if (isset($_GET['refSuppr'])) {
-      $refPpanier = intVal($_GET['refSuppr']);
-
+      $refSuppr = intVal($_GET['refSuppr']);
+      $commandes->deleteCommande($refSuppr);
     }
 
     // Creation de l'instance DAO
