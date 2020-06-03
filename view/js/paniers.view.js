@@ -43,22 +43,19 @@ window.onload = function(){
 
 function ajoutPersonne(elm){
   let id = elm.id.replace("nbPersPlus","");
-
   if(nbpersonnes[id]<4){
     let elmparent = document.getElementById("nbPersSelectedadd"+id);
     let elm2 = elmparent.cloneNode([true]);
     insertAfter(elm2,elmparent);
-    let idClone = elm2.id.replace("nbPersSelectedadd", "");
-    elm2.id = "nbPersSelectedadd"+idClone+(nbpersonnes[id]-1);
+    elm2.id = elm2.id+nbpersonnes[id];
     nbpersonnes[id]++;
   }
-  if(nbpersonnes[id]<=2){
+  if(nbpersonnes[id]==2){
     elm3 = document.getElementById("nbPersMoins"+id);
     elm3.style.display = 'block';
     elm3.setAttribute("onclick","removePersonne(this)");
   }
-
-  if(nbpersonnes[id]>4){
+  if(nbpersonnes[id]==4){
     elm.style.display = 'none';
     elm.removeAttribute("onclick");
   }
