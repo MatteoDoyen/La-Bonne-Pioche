@@ -6,23 +6,34 @@ require_once('../model/ProduitDAO.class.php');
 require_once('../framework/view.class.php'); // AJOUTE POUR MVC
 
 // Creation de l'instance DAO
-$catalogue = new ProduitDAO();
-
-$list = array();
-// Récupération des données à placer dans la vue à partir du modèle
-for($i=1; $i<$catalogue->getNbElements();$i++){
-  // Récupération de l'objet Produit
-  $p = $catalogue->get($i);
-  // Ajout à la liste des images à afficher
-  $list[] =$p;
-}
+$dao = new ProduitDAO();
 
 // On créer une variable view que l'on rattache au fichier accueil.view.php
 $view = new View("produits.view.php");
 
-// Envoie la liste des produits à la vue
-$view->list=$list;
+// Si on a clické sur une famille de produit dans la sidebar, alors la vfariable $_GET n'est plus vide
+if (!empty($_GET)) {
 
+  if ($_GET['famille'] === "tous") {
+    $produits = $dao->getTousProduitsDunRayon($_GET['rayon']);
+  } else {
+    $produits= $dao->getTousProduitRayonsFamille($_GET['rayon'], $_GET['famille']);
+  }
+  $view->produits = $produits;
+  $view->famille = $_GET['famille'];
+  $view->rayon = $_GET['rayon'];
+
+
+} else if (!empty($_POST)) {
+  if ($_POST['search'] !== "") {
+    $produits = $dao->getProduitsComprenant($_POST['search']);
+    $view->produits = $produits;
+  }
+}
+
+// On passe à la vue les informations liés au rayons et au nombre de prduits
+$view->rayons =  $dao->getRayonsFamilles();
 // Appel de la vue
 $view->show();
+
 ?>
