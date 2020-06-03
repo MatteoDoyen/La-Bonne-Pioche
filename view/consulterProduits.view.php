@@ -79,10 +79,10 @@
             <div class="col-md-2 col-5 d-flex justify-content-center align-items-center quantite">
               <p><?= $produit->quantiteU ?> <?= $produit->unite ?></p>
             </div>
-            <div class="col-md-2 col-5 d-flex justify-content-center align-items-center">
+            <div class="col-md-2 col-5 d-flex justify-content-center align-items-center text-center">
               <p><?= $produit->fabricant ?></p>
             </div>
-            <div class="col-2 buttonProduit d-flex align-items-center">
+            <div class="col-2 buttonProduit d-flex align-items-center ">
               <form id="formulaireEdit_<?= $produit->refProduit ?>" action="modifierProduit.ctrl.php" method="post">
                 <input type="hidden" name="refProduit" value="<?= $produit->refProduit ?>">
                 <button onclick="envoieFormulaireEdit(this)" id="boutonEdit_<?= $produit->refProduit ?>" class="d-flex" type="button" name="button"> <img src="../others/SVG/edit.svg" alt=""> </button>
