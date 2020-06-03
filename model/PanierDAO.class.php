@@ -36,6 +36,7 @@ class PanierDAO {
     return $panier;
   }
 
+  // Renvoie un arraList de paniers comprenant tous les paniers disponibles à l'achat
   function getAllActive() : Array {
     $req = "SELECT * FROM paniers WHERE active = 1 order by libelle";
     $sth = $this->db->query($req);
@@ -50,7 +51,7 @@ class PanierDAO {
   }
 
 
-
+  // Renvoie la refPanier maximale
   function getMaxRefPanier() : int{
     try {
       $r = $this->db->query("SELECT MAX(refPanier) FROM paniers");
@@ -61,6 +62,8 @@ class PanierDAO {
     return ($res[0][0]);
   }
 
+
+  // Renvoie un arrayList de produit correspondant à la composition du panier
   function getComposition(int $refPanier) : array{
     $produit = new ProduitDAO();
     $r = $this->db->query("SELECT * FROM produits_paniers WHERE refPanier = '$refPanier'");
@@ -76,22 +79,22 @@ class PanierDAO {
   }
 
 
+  // Insertion d'un panier dans la table paniers à partir des données issues d'un formulaire
+  function insertPanier($libelle, $coefficient, $prix, $image, $nbBocaux, $active) {
 
-function insertPanier($libelle, $coefficient, $prix, $image, $nbBocaux, $active) {
+    $refPanier= $this->getMaxRefPanier()+1;
 
-  $refPanier= $this->getMaxRefPanier()+1;
+    $sql = "INSERT INTO paniers VALUES($refPanier,'$libelle',$coefficient,$prix,'$image', $nbBocaux, $active)";
 
-  $sql = "INSERT INTO paniers VALUES($refPanier,'$libelle',$coefficient,$prix,'$image', $nbBocaux, $active)";
-
-  $this->db->query($sql);
-}
-
-
-
-function insertProduitPanier($refProduit, $refPanier, $quantite) {
-
-    $sql = "INSERT INTO produits_paniers VALUES($refProduit, $refPanier,$quantite)";
     $this->db->query($sql);
+  }
+
+
+  // Insertion d'un n-uplet dans la table association produits_paniers
+  function insertProduitPanier($refProduit, $refPanier, $quantite) {
+
+      $sql = "INSERT INTO produits_paniers VALUES($refProduit, $refPanier,$quantite)";
+      $this->db->query($sql);
   }
 
 

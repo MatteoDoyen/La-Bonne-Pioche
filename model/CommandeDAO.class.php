@@ -42,6 +42,7 @@ class CommandeDAO {
     return $commande;
   }
 
+  // Renvoie toutes les commandes
   function getAll() : Array {
     $req = "SELECT * FROM commandes ORDER BY refCommande DESC";
     $sth = $this->db->query($req);
@@ -54,6 +55,7 @@ class CommandeDAO {
     return $commandes;
   }
 
+  // Renvoie les commandes dont l'état est en cours
   function getCmdEnCours() : Array {
     $req = "SELECT * FROM commandes WHERE etat = 'en cours' ORDER BY refCommande DESC";
     $sth = $this->db->query($req);
@@ -67,6 +69,7 @@ class CommandeDAO {
     return $cmdencours;
   }
 
+  // Renvoie les commandes dont l'état est à relancer
   function getCmdARelancer(): Array{
     $req = "SELECT * FROM commandes WHERE etat = 'à relancer' ORDER BY refCommande DESC";
     $sth = $this->db->query($req);
@@ -80,6 +83,7 @@ class CommandeDAO {
     return $cmdrelance;
   }
 
+  // Renvoie les commandes dont l'état est récupérée
   function getCmdRecuperee():Array{
     $req = "SELECT * FROM commandes WHERE etat = 'récupérée' ORDER BY refCommande DESC";
     $sth = $this->db->query($req);
@@ -93,6 +97,7 @@ class CommandeDAO {
     return $cmdrelance;
   }
 
+  // Renvoie la refCommande la plus élevée
   function getMaxRefCommande() : int{
     try {
       $r = $this->db->query("SELECT MAX(refCommande) FROM commandes");
@@ -103,6 +108,7 @@ class CommandeDAO {
     return ($res[0][0]);
   }
 
+  // Renvoie la composition d'un panier = un array de paniers
   function getComposition(int $refCommande) : array{
     $paniers = new PanierDAO();
     $r = $this->db->query("SELECT * FROM paniers_commandes WHERE refCommande = '$refCommande'");
@@ -118,20 +124,20 @@ class CommandeDAO {
     return $composition;
   }
 
-
+  // créer une commande dans la table commandes
   public function insertCommade($refClient, $dateCommande, $dateRecup, $etat, $livriason, $prix) {
     $refCommande = $this->getMaxRefCommande()+1;
     $sql = "INSERT INTO commandes VALUES($refCommande, $refClient, '$dateCommande', '$dateRecup', '$etat', $livriason, $prix)";
     $this->db->query($sql);
   }
 
-
+  // créer un nuplet dans la table association paniers_commandes
   public function insertPanierCommande($refPanier, $refCommande, $quantite) {
       $sql = "INSERT INTO paniers_commandes VALUES($refPanier, $refCommande, $quantite)";
       $this->db->query($sql);
   }
 
-
+  // supprime une commande
   public function deleteCommande($refCommande) {
           $sql = "DELETE FROM paniers_commandes WHERE refCommande = '$refCommande'";
           $this->db->query($sql);
@@ -139,12 +145,13 @@ class CommandeDAO {
           $this->db->query($sql);
   }
 
-
+  // modifier l'état de la commande à récupérée (accuse la réception d'une commande)
   public function validerCommande($refCommande) {
       $sql = "UPDATE commandes SET etat = 'récupérée' WHERE refCommande = '$refCommande'";
       $this->db->query($sql);
   }
 
+  // modifiation automatique de l'état de la commande (passage de 'en cours' à 'à relancer' en fonction de la date du jour / date de récupération de la commande)
   public function updateCommande($arrayCommande){
     date_default_timezone_set('Europe/Paris');
     foreach ($arrayCommande as $commande) {

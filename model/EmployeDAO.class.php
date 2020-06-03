@@ -42,6 +42,7 @@ class EmployeDAO {
     return ($res[0][0]);
   }
 
+  // Créer un employer dans la table employes
   function addEmploye($nom, $prenom, $adresseMail, $motDePasse, $numeroTelephone) {
     $sth = $this->db->prepare("SELECT max(refUtilisateur) FROM Employes");
     $sth->execute();
@@ -51,6 +52,7 @@ class EmployeDAO {
     $result = $sth2->execute(array(":ref" => $max, ":nom" => $nom, ":prenom" => $prenom, ":adresseMail" => $adresseMail, ":motDePasse" => $motDePasse, ":etat" => "Non défini", ":numeroTelephone" => $numeroTelephone, ":statut" => 0));
   }
 
+  // renvoie l'utilisateur associé à un email
   function getUtilisateurOfThisEmail(string $mail): Employe {
     $sth = $this->db->prepare("SELECT * FROM employes WHERE adresseMail = :mail");
     $sth->execute(array(":mail" => $mail));
@@ -60,7 +62,7 @@ class EmployeDAO {
       $result = $result[0];
 
       $uti = new Employe($result['refUtilisateur'],$result['nom'],$result['prenom'],$result['adresseMail'], $result['motDePasse'], $result['etat'], $result['numeroTelephone'], intval($result['statut']));
-      
+
       return $uti;
     }else{
       return false;
