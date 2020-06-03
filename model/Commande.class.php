@@ -70,6 +70,10 @@ class Commande {
     }
   }
 
+  public function isPaymentOk():bool{
+          // À implémenter pour gérer le paiement
+  }
+
 
 
 }
