@@ -57,6 +57,7 @@ class ClientDAO {
     }
   }
 
+  //renvoie l'utilisateur auquel correspond l'email passé en paramètre
   function getUtilisateurOfThisEmail(string $mail) {
     $sth = $this->db->prepare("SELECT refUtilisateur, nom, prenom, adresseMail, motDePasse, etat, numeroTelephone FROM Clients WHERE adresseMail = :mail");
     $sth->execute(array(":mail" => $mail));
@@ -71,6 +72,7 @@ class ClientDAO {
     }
   }
 
+  // Crée un client dans la base de données
   function addClient($nom, $prenom, $adresseMail, $motDePasse, $numeroTelephone, $newsletter, $genre) {
     $sth = $this->db->prepare("SELECT max(refUtilisateur) FROM Clients");
     $sth->execute();

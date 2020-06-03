@@ -16,10 +16,10 @@
     <div class="container-fluid btns">
       <div class="row">
         <div class="col-md-12">
-          <button type="button" class="btn btn-danger custom"> <a href="../controlers/commandes.ctrl.php">Toutes les commandes</a></button>
-          <button type="button" class="btn btn-danger custom"> <a href="../controlers/commandesEnCours.ctrl.php">Commandes en cours</a></button>
-          <button type="button" class="btn btn-danger custom"> <a href="../controlers/commandesARelancer.ctrl.php">Commandes à relancer</a></button>
-          <button type="button" class="btn btn-danger custom"> <a href="../controlers/commandesPassees.ctrl.php">Historique des commandes</a></button>
+          <a href="../controlers/commandes.ctrl.php"><button type="button" class="btn btn-danger custom"> Toutes les commandes</button></a>
+          <a href="../controlers/commandesEnCours.ctrl.php"><button type="button" class="btn btn-danger custom"> Commandes en cours</button></a>
+          <a href="../controlers/commandesARelancer.ctrl.php"><button type="button" class="btn btn-danger custom"> Commandes à relancer</button></a>
+          <a href="../controlers/commandesPassees.ctrl.php"><button type="button" class="btn btn-danger custom"> Historique des commandes</button></a>
         </div>
       </div>
     </div>
