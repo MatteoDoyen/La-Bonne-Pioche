@@ -6,7 +6,7 @@ class Commande {
   private $dateCommande;
   private $dateRecup;
   private $etat;
-  private $livraison;
+  private $livraison; // lieu de livraison, s'il s'agit d'un client d'entreprise, alors il ne sera pas livré au magasin
   private $prix;
 
 

@@ -2,7 +2,6 @@
 
 // Display tous les produits
 // Inclusion du modèle
-require_once('../model/PanierAchat.class.php');
 require_once('../model/PanierDAO.class.php');
 require_once('../framework/view.class.php'); // AJOUTE POUR MVC
 

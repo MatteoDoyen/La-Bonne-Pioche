@@ -15,7 +15,7 @@
 
     <?php include("navbar.php") ?>
     <h2 style="text-align:center">Panier</h2>
-    <form class="" id="formulaireCommande" action="nouvelleCommandeInsert.ctrl.php" method="post">
+    <form class="" id="formulaireCommande" action="finaliserCommande.ctrl.php" method="post">
       <h3 style="padding-left:6%; font-size: 15px">Vos articles</h3>
     <div class="container_fluid d-flex flex-column flex-md-row justify-content-center align-items-center align-items-md-start" >
 
@@ -27,28 +27,28 @@
           <h3>VOTRE COMMANDE</h3>
           <div id="lignes">
 
-            <div class="ligne" id="totalPaniers">
+            <div class="ligne">
               <p>TOTAL PANIERS</p>
-              <p>50€</p>
+              <p id="totalPaniers"></p>
             </div>
             <hr>
 
-            <div class="ligne" id="TVA">
+            <div class="ligne">
               <p>DONT TVA</p>
-              <p>2,75€</p>
+              <p id="tva"></p>
             </div>
             <hr>
 
-            <div class="ligne" id="totalAPayer">
+            <div class="ligne">
               <p>TOTAL A PAYER</p>
-              <p>50€</p>
+              <p id="totalAPayer"></p>
             </div>
 
 
 
           </div>
           <div id = "Terminer">
-            <button type="button" name="button" id="ValiderCommande">TERMINER LA COMMANDER</button>
+            <button type="submit" name="button" id="ValiderCommande">TERMINER LA COMMANDER</button> 
           </div>
 
         </div>
