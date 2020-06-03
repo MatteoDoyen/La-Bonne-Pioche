@@ -11,12 +11,7 @@ $catalogue = new PanierDAO();
 
 $paniers = array();
 // Récupération des données à placer dans la vue à partir du modèle
-for($i=1; $i<=$catalogue->getMaxRefPanier();$i++){
-
-  $p = $catalogue->get($i);
-
-  $paniers[] =$p;
-}
+$paniers = $catalogue->getAllActive();
 
 
 $view = new View("panierAchat.view.php");

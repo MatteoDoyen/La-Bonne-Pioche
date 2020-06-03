@@ -88,7 +88,7 @@ class CommandeDAO {
     $cmdrelance = array();
     foreach($resArray as $row)
     {
-      $cmdrelance[] = new Commande($row['refCommande'],$row['refClient'],$row['dateCommande'],$row['dateRecup'],$row['etat'],$row['livriason'],$row['prix']);
+      $cmdrelance[] = new Commande($row['refCommande'],$row['refClient'],$row['dateCommande'],$row['dateRecup'],$row['etat'],$row['livraison'],$row['prix']);
     }
     return $cmdrelance;
   }
@@ -206,7 +206,7 @@ class CommandeDAO {
     $compos = array();
     foreach ($descriptif as $panier) {
       $compo = $paniers->getComposition($panier->refPanier);
-      $compos[$refPanier] = $compo;
+      $compos['refPanier'] = $compo;
     }
     return $compos;
   }

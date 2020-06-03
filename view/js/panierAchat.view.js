@@ -5,13 +5,11 @@ var commandesAssoc = [];
 
 window.onload = function(){
   if(localStorage.getItem("panierAchat") != null){
-    let temp = JSON.parse(localStorage.getItem("panierAchat"));
-    commandes = temp;
-    console.log(commandes);
+    commandes = JSON.parse(localStorage.getItem("panierAchat"));
   }
 
   for(panier of commandes){
-    var a = '<div class="row" id="ligne_'+panier.id+'_'+panier.nbPersonnes+'"><input id="panier_'+panier.id+'_'+panier.nbPersonnes+'" type="hidden" name="paniers[]" value="'+panier.id+'_'+panier.nbPersonnes+'_'+panier.quantite+'"><div class="d-none d-sm-flex col-sm-6 col-lg-3 imgPanier"><img src="'+panier.img+'" alt="">  </div><div class="col-xs-12 col-sm-6 col-lg-4 libellePanier justify-content-start"><div class="d-flex flex-column"><p class="titrePanier" id="libelle_'+panier.id+'_'+panier.nbPersonnes+'">'+panier.libelle+'</p><p class="nbPersPanier" id="nbPers_'+panier.id+'_'+panier.nbPersonnes+'">Panier pour '+panier.nbPersonnes+' personnes</p> </div></div><div class="col-xs-12 col-sm-6 col-lg-2 quantPanier">  <button type="button" name="button" id="moins_'+panier.id+'_'+panier.nbPersonnes+'" onclick="downQuantite(this)">-</button><input id="Q_'+panier.id+'_'+panier.nbPersonnes+'" type="text" name="" value="'+panier.quantite+'"><button type="button" name="button" id="plus_'+panier.id+'_'+panier.nbPersonnes+'" onclick="upQuantite(this)">+</button>  </div><div class="col-xs-6 col-sm-3 col-lg-2 prixPanier">  <p id="prix_'+panier.id+'_'+panier.nbPersonnes+'">'+panier.prix*panier.quantite+'</p><p>€</p>  </div>  <div class="col-xs-6 col-sm-3 col-lg-1 supprPanier"><button type="button" name="button" id="suppr_'+panier.id+'_'+panier.nbPersonnes+'" onclick="supprimerPanier(this)">x</button>  </div><hr></div>';
+    var a = '<div class="row" id="ligne_'+panier.id+'_'+panier.nbPersonnes+'"><input id="panier_'+panier.id+'_'+panier.nbPersonnes+'" type="hidden" name="paniers[]" value="'+panier.id+'_'+panier.nbPersonnes+'_'+panier.quantite+'"><div class="d-none d-sm-flex col-md-2 col-6 imgPanier"><img src="'+panier.img+'">  </div><div class="col-xs-12 col-sm-6 col-lg-4 libellePanier justify-content-start"><div class="d-flex flex-column"><p class="titrePanier" id="libelle_'+panier.id+'_'+panier.nbPersonnes+'">'+panier.libelle+'</p><p class="nbPersPanier" id="nbPers_'+panier.id+'_'+panier.nbPersonnes+'">Panier pour '+panier.nbPersonnes+' personnes</p> </div></div><div class="col-xs-12 col-sm-6 col-lg-2 quantPanier">  <button type="button" name="button" id="moins_'+panier.id+'_'+panier.nbPersonnes+'" onclick="downQuantite(this)">-</button><input id="Q_'+panier.id+'_'+panier.nbPersonnes+'" type="text" name="" value="'+panier.quantite+'"><button type="button" name="button" id="plus_'+panier.id+'_'+panier.nbPersonnes+'" onclick="upQuantite(this)">+</button>  </div><div class="col-xs-6 col-sm-3 col-lg-2 prixPanier">  <p id="prix_'+panier.id+'_'+panier.nbPersonnes+'">'+panier.prix*panier.quantite+'</p><p>€</p>  </div>  <div class="col-xs-6 col-sm-3 col-lg-1 supprPanier"><button type="button" name="button" id="suppr_'+panier.id+'_'+panier.nbPersonnes+'" onclick="supprimerPanier(this)">x</button>  </div><hr></div>';
     commandesAssoc[panier.id+'_'+panier.nbPersonnes] = panier;
 
     let divPanier = $("#paniersCommande");
@@ -80,17 +78,21 @@ function upQuantite(elm){
 
 
 function supprimerPanier(elm){
-  let idPanierAll = document.getElementById("suppr_"+panier.id+'_'+panier.nbPersonnes).id.split('_');
-  let idPanier = idPanierAll[1];
-  console.log(idPanier);
-  let nbPersonnes = idPanierAll[2];
-  // let parent = elm.parentNode.removeChild("ligne_"+idPanier+'_'+nbPersonnes);
-  let node = document.getElementById("ligne_"+panier.id+"_"+panier.nbPersonnes);
-  console.log("id : "+panier.id+" nbpersonnes : "+panier.nbPersonnes);
+  let id = elm.id.split('_');
 
-  console.log(node);
-  node.parentNode.removeChild(node);
-  console.log(parent);
+  console.log(id);
+  let node = $('#ligne_'+id[1]+'_'+id[2]);
+
+  node.remove();
+
+  localStorage.removeItem("panierAchat");
+
+  commandes.splice(commandes.indexOf(commandesAssoc[id[1]+'_'+id[2]]));
+
+  localStorage.setItem("panierAchat",JSON.stringify(commandes));
+
+
+
 }
 
 
