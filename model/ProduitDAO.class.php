@@ -36,6 +36,7 @@ class ProduitDAO {
     return $produit;
   }
 
+  // Renvoie un arraylist contenant tous les produits pouvant être utilisés dans la composition de paniers
   function getAllActive() : Array {
     $req = "SELECT * FROM produits WHERE active = 1 order by libelle";
     $sth = $this->db->query($req);
@@ -48,6 +49,7 @@ class ProduitDAO {
     return $produits;
   }
 
+  // Renvoie la plus grande référence de la table produits
   function getMaxRefProduit() : int{
     try {
       $r = $this->db->query("SELECT MAX(refProduit) FROM produits");
@@ -58,6 +60,7 @@ class ProduitDAO {
     return ($res[0][0]);
   }
 
+  // Insertion d'un produit dans la tabe produits à partir d'informations (issues d'un formulaire)
   function insertProduit(int $stock,string $libelle,string $fabricant,string $rayon,string $famille,float $coef,string $description,
     string $origine,string $caracteristiques,float $prixU,string $urlImg,int $quantiteU,string $unite,int $active) {
 
@@ -66,12 +69,14 @@ class ProduitDAO {
     $this->db->query($sql);
   }
 
+  // Modifie l'état d'un produit pour le rendre impropre à la composition d'un panier
   function desactiverProduit($refProduit) {
       $sql = "UPDATE produits SET active = 0 WHERE refProduit = '$refProduit'";
 
       return $this->db->query($sql);
   }
 
+  // Modifie l'état d'un produit pour le rendre utilisable dans la composition d'un panier
   function activerProduit($refProduit) {
       $sql = "UPDATE produits SET active = 1 WHERE refProduit = '$refProduit'";
       return $this->db->query($sql);
@@ -107,6 +112,7 @@ class ProduitDAO {
 
   // cette fonction a été faite mais elle n'est pas utile, chaque mise à jour d'un panier mène à sa désactivation et recréation
   // ainsi cela n'affecte pas les commmandes déjà passé sur des paniers qui contiennent ces produits
+
 
   function updateProduit($refProduit,$modifs){
 

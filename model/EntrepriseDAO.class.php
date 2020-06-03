@@ -32,6 +32,7 @@
     }
 
 
+    // Renvoie un arrayList composé des salariés d'une entreprise
     function getPersonnels(int $refEntreprise) : array {
       $utilisateur = new ClientEntrepriseDAO();
       $r = $this->db->query("SELECT * FROM clientsEntreprise_entreprises WHERE refEntreprise = $refEntreprise");
@@ -46,7 +47,7 @@
       return $personnels;
     }
 
-
+    // Renvoie toutes les entreprises de la table entreprises
     function getAllEntreprises() : array {
       $r = $this->db->prepare("SELECT distinct nom from Entreprises");
       $r->execute();
@@ -54,7 +55,7 @@
       return $noms;
     }
 
-
+    
     function addClientEntreprise($nom, $prenom, $adresseMail, $motDePasse, $numeroTelephone, $newsletter, $genre, $nom_entreprise) {
       $sth = $this->db->prepare("SELECT max(refUtilisateur) FROM clientsEntreprise");
       $sth->execute();
