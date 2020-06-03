@@ -33,14 +33,14 @@
               <div class="container_info">
                 <p class="description">Petite description du panier indiquant quantité et composition</p>
                 <div class="nombre_panier">
-                  <p class="prix" id="P_<?=$panier->refPanier?>" ><?= $panier->prix ?></p><input id="C_<?=$panier->refPanier?>" name="prodId" type="hidden" value="<?=$panier->coefficient?>"><p> € /</p>
+                  <p class="prix" id="P_<?=$panier->refPanier?>" ><?= $panier->prix?></p><input id="C_<?=$panier->refPanier?>" name="prodId" type="hidden" value="<?=$panier->coefficient?>"><p> € /</p>
                   <button type="button" name="button" class="nbPersMoins" id="nbPersMoins<?=$panier->refPanier?>" type="hidden" onclick=""> <img src="../others/SVG/user-gris-moin.svg"> </button>
                   <button type="button" name="button"  class="nbPersSelectedadd<?=$panier->refPanier?>" id="nbPersSelectedadd<?=$panier->refPanier?>" disabled="disabled"><img src="../others/SVG/iconuser.svg" ></button>
                   <button type="button" name="button" class="nbPersPlus" id="nbPersPlus<?=$panier->refPanier?>"> <img src="../others/SVG/user-gris.svg"> </button>
 
                 </div>
                 <div class="commande">
-                  <button type="button" name="<?= $panier->libelle ?>" id="<?= $panier->refPanier ?>" onclick="ajoutArticle(this)">Ajouter <img src="../others/SVG/panierachat.svg" alt="" > </button>
+                  <button type="button" name="<?= $panier->libelle ?>" id="<?= $panier->refPanier?>" onclick="ajoutArticle(this)">Ajouter <img src="../others/SVG/panierachat.svg" alt="" > </button>
                   <div class="bouton_panier">
                     <button id="boutonMoins_<?=$panier->refPanier?>" type="button" name="button" onclick="moinsPanier(this);">-</button>
                     <input type="text" name="" id="Q_<?=$panier->refPanier?>" value="1" >
