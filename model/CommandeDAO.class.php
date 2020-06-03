@@ -119,9 +119,9 @@ class CommandeDAO {
   }
 
 
-  public function insertCommade($refClient, $dateCommande, $dateRecup, $etat, $livriason, $prix) {
+  public function insertCommande($refClient, $dateCommande, $dateRecup, $etat, $livraison, $prix) {
     $refCommande = $this->getMaxRefCommande()+1;
-    $sql = "INSERT INTO commandes VALUES($refCommande, $refClient, '$dateCommande', '$dateRecup', '$etat', $livriason, $prix)";
+    $sql = "INSERT INTO commandes VALUES($refCommande, $refClient, '$dateCommande', '$dateRecup', '$etat', $livraison, $prix)";
     $this->db->query($sql);
   }
 

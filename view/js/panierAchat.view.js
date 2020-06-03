@@ -91,8 +91,6 @@ function supprimerPanier(elm){
 
   localStorage.setItem("panierAchat",JSON.stringify(commandes));
 
-
-
 }
 
 

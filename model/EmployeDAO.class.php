@@ -51,7 +51,7 @@ class EmployeDAO {
     $result = $sth2->execute(array(":ref" => $max, ":nom" => $nom, ":prenom" => $prenom, ":adresseMail" => $adresseMail, ":motDePasse" => $motDePasse, ":etat" => "Non défini", ":numeroTelephone" => $numeroTelephone, ":statut" => 0));
   }
 
-  function getUtilisateurOfThisEmail(string $mail): Employe {
+  function getUtilisateurOfThisEmail(string $mail): ?Employe {
     $sth = $this->db->prepare("SELECT * FROM employes WHERE adresseMail = :mail");
     $sth->execute(array(":mail" => $mail));
 
@@ -60,10 +60,10 @@ class EmployeDAO {
       $result = $result[0];
 
       $uti = new Employe($result['refUtilisateur'],$result['nom'],$result['prenom'],$result['adresseMail'], $result['motDePasse'], $result['etat'], $result['numeroTelephone'], intval($result['statut']));
-      
+
       return $uti;
     }else{
-      return false;
+      return null;
     }
   }
 
