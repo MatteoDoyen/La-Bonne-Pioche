@@ -1,6 +1,6 @@
 <?php
 require_once(dirname(__FILE__).'/Produit.class.php');
-require_once(dirname(__FILE__).'/PanierDao.class.php');
+require_once(dirname(__FILE__).'/PanierDAO.class.php');
 
 // Le Data Access Objet
 class ProduitDAO {
