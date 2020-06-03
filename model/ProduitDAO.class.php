@@ -1,5 +1,6 @@
 <?php
 require_once(dirname(__FILE__).'/Produit.class.php');
+require_once(dirname(__FILE__).'/PanierDao.class.php');
 
 // Le Data Access Objet
 class ProduitDAO {
@@ -67,6 +68,7 @@ class ProduitDAO {
 
   function desactiverProduit($refProduit) {
       $sql = "UPDATE produits SET active = 0 WHERE refProduit = '$refProduit'";
+
       return $this->db->query($sql);
   }
 
@@ -75,12 +77,36 @@ class ProduitDAO {
       return $this->db->query($sql);
   }
 
+  function modifProduit(int $refProduit,int $stock,string $libelle,string $fabricant,string $rayon,string $famille,float $coef,string $description,
+    string $origine,string $caracteristiques,float $prixU,string $urlImg,int $quantiteU,string $unite,int $active)
+  {
+    $panierDao = new PanierDao();
+
+    $tabPaniers = $panierDao->getPanierProduit($refProduit);
+
+    $refNvProduit= $this->getMaxRefProduit()+1;
+
+    foreach ($tabPaniers[0] as $key => $panier) {
+      $panierDao->recreerPanier($panier,$refProduit,$refNvProduit);
+    }
+
+
+    $this->desactiverProduit($refProduit);
+
+    $sql = "INSERT INTO produits VALUES($stock, $refNvProduit,'$libelle','$fabricant', '$rayon', '$famille', $coef, '$description','$origine', '$caracteristiques', $prixU,'$urlImg', $quantiteU, '$unite', $active)";
+    $this->db->query($sql);
+
+  }
+
 /*  public function deleteProduitPaniers($refProduit) {
       $sql = "DELETE FROM produits_paniers WHERE refProduit = '$refProduit'";
       $this->db->query($sql);
       $sql = "DELETE FROM produits WHERE refProduit = '$refProduit'";
       $this->db->query($sql);
   }*/
+
+  // cette fonction a été faite mais elle n'est pas utile, chaque mise à jour d'un panier mène à sa désactivation et recréation
+  // ainsi cela n'affecte pas les commmandes déjà passé sur des paniers qui contiennent ces produits
 
   function updateProduit($refProduit,$modifs){
 

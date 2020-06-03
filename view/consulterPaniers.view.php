@@ -14,11 +14,21 @@
 
 
     <div class="container-fluid">
-      <?php if ($supprimer==1): ?>
+      <?php if (isset($_GET['libelleSupprimer'])): ?>
         <div class="container alert alert-success" role="alert">
         <h4 class="alert-heading text-center">Pannier supprimé</h4>
-        <p class="text-center textSupprLibelle" >Le paniers : "<?= $libelleSupprimer ?>" à été supprimé</p>
+        <p class="text-center textSupprLibelle" >Le paniers : "<?= $_GET['libelleSupprimer'] ?>" à été supprimé</p>
         </div>
+      <?php  elseif(isset($_GET['libelleModifie'])): ?>
+      <div class="container alert alert-success" role="alert">
+      <h4 class="alert-heading text-center">Pannier modifié</h4>
+      <p class="text-center textSupprLibelle" >Le paniers : "<?= $_GET['libelleModifie'] ?>" à été modifié</p>
+      </div>
+      <?php  elseif(isset($_GET['nvPanier'])): ?>
+      <div class="container alert alert-success" role="alert">
+      <h4 class="alert-heading text-center">Nouveau Panier</h4>
+      <p class="text-center textSupprLibelle" >Le paniers : "<?= $_GET['nvPanier'] ?>" à été créer</p>
+      </div>
       <?php endif; ?>
       <div class="container">
         <h2 class="text-center mt-5 mb-5">Les paniers</h2>

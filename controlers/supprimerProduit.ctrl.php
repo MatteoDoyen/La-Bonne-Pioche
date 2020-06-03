@@ -37,7 +37,8 @@ if(isset($_SESSION['Utilisateur']))
       }
       $view->supprimer=-1;
       $view->tabLibellePaniers = $tabLibellePaniers;
-
+      // Appel de la vue
+      $view->show();
     }
     else
     {
@@ -46,12 +47,12 @@ if(isset($_SESSION['Utilisateur']))
       // Récupération des données à placer dans la vue à partir du modèle
       $produitsDao->desactiverProduit($_POST['refProduit']);
 
+      $libelle = $_POST['libelle'];
+
       // On créer une variable view que l'on rattache au fichier consulterProduits.view.php
-      $view->supprimer=1;
+      header("Location: ../controlers/consulterProduits.ctrl.php?libelleSupprimer=$libelle");
     }
-    $view->libelleSupprimer=$_POST['libelle'];
-    // Appel de la vue
-    $view->show();
+
 
 }
 else {

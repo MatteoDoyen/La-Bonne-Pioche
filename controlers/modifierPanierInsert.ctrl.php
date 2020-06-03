@@ -97,11 +97,9 @@ if(isset($_SESSION['Utilisateur']))
         }
       }
 
-    $view = new View("../controlers/consulterPaniers.ctrl.php");
+    $libelle = $_POST['libelle'];
 
-    $view->sent = 1;
-
-    $view->show();
+    header("Location: ../controlers/consulterPaniers.ctrl.php?libelleModifie=$libelle");
 }
 else {
   exit("Le statut renvoie une erreur");

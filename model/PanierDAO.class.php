@@ -131,6 +131,66 @@ function getPanierProduit($refProduit)
     return $nombrePanier;
 }
 
+function recreerPanier($refPanier,$ancienneRefProduit,$nvRefProduit)
+{
+
+      try
+      {
+        //recuperation des attribut du panier
+        $nvRef = $this->getMaxRefPanier()+1;
+        $sql = "SELECT libelle,coefficient,prix,image,nbBocaux from paniers where refPanier = $refPanier";
+        $r = $this->db->query($sql);
+        $attributPanier = $r->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($attributPanier[0] as $key => $value) {
+          $$key = $value;
+        }
+
+        //desactivation du panier
+        $this->desactiverPanier($refPanier);
+
+        //recreation du panier
+        $sql2 = "INSERT INTO paniers values($nvRef,'$libelle',$coefficient,$prix,'$image',$nbBocaux,1)";
+        $r2 = $this->db->query($sql2);
+
+        $this->recreerComposition($ancienneRefProduit,$nvRefProduit,$refPanier,$nvRef);
+
+      }
+      catch (PDOException $e) {
+        die("PDO Error :".$e->getMessage()." $database_compo\n");
+      }
+}
+
+function recreerComposition($ancienneRefProduit,$nvRefProduit,$refPanier,$nvRefPanier)
+{
+    //recupération de la quantite du produit dans le paniers
+    $sql = "SELECT quantite from produits_paniers where refPanier = $refPanier and refProduit = $ancienneRefProduit";
+    $r = $this->db->query($sql);
+    $attributPaniersProduits = $r->fetchAll(PDO::FETCH_ASSOC);
+    $quantite= $attributPaniersProduits[0]['quantite'][0];
+
+    //re-insertion du trio refProduit refPanier et quantite, cette fois avec les nouvelle references de produit et panier
+    $sql2 = "INSERT INTO produits_paniers values($nvRefProduit,$nvRefPanier,$quantite)";
+    $r2 = $this->db->query($sql2);
+
+    //recuperation de tout les produits anciennement dans le panier SAUF le produit modifié
+    $sql = "SELECT * from produits_paniers where refPanier = $refPanier and refProduit != $ancienneRefProduit";
+    $r = $this->db->query($sql);
+    $compositionDuPanier = $r->fetchAll(PDO::FETCH_ASSOC);
+
+
+    foreach ($compositionDuPanier as $panier) {
+      //parcours de tout les produits qui constitue le panier SAUF le produit modifié
+
+      $refProduit = $panier['refProduit'];
+      $quantitePanier = $panier['quantite'];
+
+      //re-insertion du trio refProduit refPanier et quantite, cette fois avec la nouvelle refPanier
+      $sql2 = "INSERT INTO produits_paniers values($refProduit,$nvRefPanier,$quantitePanier)";
+      $r2 = $this->db->query($sql2);
+    }
+}
+
 
 }
 

@@ -1,16 +1,15 @@
 <?php
 
-require_once(dirname(__FILE__).'/ProduitDAO.class.php');
+require_once(dirname(__FILE__).'/PanierDao.class.php');
 
-$panier = new ProduitDAO();
-
+$panier = new PanierDao();
 
 
 $truc = "BRASSERIE MATHEYSINE-NANTES EN RATTIER - 38 - FRANCE HISTOIRE La Brasserie Matheysine est une fabrique de bière artisanale Made in Matheysine, tenue par Elodie et Jérôme et située à Nantes en Rattier au dessus de La Mure en Isère. FABRICATION Les bières de dégustation sont élaborées selon une méthode artisanale et un procédé raisonné : un transport limité avec une distribution essentiellement locale, la réduction des déchets avec des bouteilles consignées, la réutilisation des emballages et le don des céréales brassées pour l’alimentation animale, un étiquetage à la colle à l’eau, l’utilisation d’eau de pluie pour le ménage et les sanitaires, un bâtiment basse consommation. LES PRODUITS Blanche, aux écorces de citrons bio et sauge du jardin ; Blonde, désaltérante, rondeur maltée et douce amertume ; Ambrée, aromatique et maltée, aux notes de biscuit et de caramel ; Brune, puissante et racée, aux notes de réglisse et de chocolat ; Bière de Printemps cuivrée aux notes florales équilibrées à partir de mi-mars; Bière de Noël aux épices et écorces dorange douce disponible en novembre. Plus d'informations : http://www.brasseriematheysine.fr/";
 
 $truc = sprintf($truc);
 
-  $panier->insertProduit(55,"testProd","le fabricant","rayon","famille",1,"description",$truc,"caracteristiques",25,"img.jpg",25,"gramme",0);
+  $panier->recreerComposition(1,2,1,5);
 // (55,"testProd","le fabricant","rayon","famille",1,"description",
 //   "origine","caracteristiques",25,"img.jpg",25,"gramme",0)
 // $prod = new Produit();

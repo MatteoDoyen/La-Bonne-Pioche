@@ -12,12 +12,23 @@
     <?php include("../view/navbarEmploye.template.php"); ?>
 
     <div class="container-fluid">
-      <?php if ($supprimer==1): ?>
+      <?php if (isset($_GET['libelleSupprimer'])): ?>
         <div class="container alert alert-success" role="alert">
         <h4 class="alert-heading text-center">Produit supprimé</h4>
-        <p class="text-center textSupprLibelle" >Le produit : "<?= $libelleSupprimer ?>" à été supprimé</p>
+        <p class="text-center textSupprLibelle" >Le produit : "<?= $_GET['libelleSupprimer'] ?>" à été supprimé</p>
         </div>
-      <?php elseif($supprimer==-1): ?>
+      <?php  elseif(isset($_GET['libelleModifie'])): ?>
+      <div class="container alert alert-success" role="alert">
+      <h4 class="alert-heading text-center">Produit modifié</h4>
+      <p class="text-center textSupprLibelle" >Le produit : "<?= $_GET['libelleModifie'] ?>" à été modifié</p>
+      </div>
+      <?php  elseif(isset($_GET['nvProduit'])): ?>
+      <div class="container alert alert-success" role="alert">
+      <h4 class="alert-heading text-center">Nouveau Produit</h4>
+      <p class="text-center textSupprLibelle" >Le produit : "<?= $_GET['nvProduit'] ?>" à été créer</p>
+      </div>
+    <?php elseif (isset($supprimer)): ?>
+      <?php if($supprimer==-1): ?>
         <div id="modal" class="modal" tabindex="-1" role="dialog">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -46,6 +57,7 @@
             </div>
           </div>
         </div>
+      <?php endif; ?>
       <?php endif; ?>
       <div class="container">
         <h2 class="text-center mt-5 mb-5">Les Produits</h2>

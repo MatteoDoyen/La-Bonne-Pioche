@@ -95,7 +95,9 @@ $catalogue = new ProduitDAO();
 $catalogue->insertProduit($stock, $libelle, $fabricant, $rayon, $famille, $coef, $description,
       $origine, $caracteristiques, $prixU, $nomFichier, $quantiteU, $unite, $active);
 
- header('Location: ../controlers/consulterProduits.ctrl.php?ok');
+      $libelle = $_POST['libelle'];
+
+      header("Location: ../controlers/consulterProduits.ctrl.php?nvProduit=$libelle");
 
 }
 else {

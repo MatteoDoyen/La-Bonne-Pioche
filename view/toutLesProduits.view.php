@@ -7,6 +7,7 @@
       {
         echo(',');
       }
+      $produit = new stdClass();
       $produit->url=$prod->urlImg;
       $produit->name=$prod->libelle;
       $produit->quantite=$prod->quantiteU;

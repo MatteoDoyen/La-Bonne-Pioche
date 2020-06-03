@@ -72,7 +72,7 @@ if(isset($_SESSION['Utilisateur']))
     // Creation d'une instance DAO
     $catalogue = new PanierDAO();
     //insertion du nouveau panier dans la table paniers
-    $catalogue->insertPanier($libelle, $coefficient, $prix, $nomFichier, $nbBocaux, $active);
+    $catalogue->insertPanier($libelle, $coefficient, $prix, $nomFichier, $nbBocaux, 1);
     $refPanier = $catalogue->getMaxRefPanier();
     //Insertion de la composition du panier dans la table produits_paniers
 
@@ -81,7 +81,9 @@ if(isset($_SESSION['Utilisateur']))
       $catalogue->insertProduitPanier($temp[0], $refPanier,$temp[1]);
     }
 
-    header('Location: ../controlers/consulterProduits.ctrl.php?ok');
+    $libelle = $_POST['libelle'];
+
+    header("Location: ../controlers/consulterPaniers.ctrl.php?nvPanier=$libelle");
 }
 else {
   exit("Le statut renvoie une erreur");

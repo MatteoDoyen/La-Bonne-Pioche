@@ -28,15 +28,11 @@ if(isset($_SESSION['Utilisateur']))
     // Creation de l'instance DAO
     $catalogue = new PanierDAO();
 
+    $libelle = $_POST['libelle'];
+
     $catalogue->desactiverPanier($_POST['refPanier']);
 
-    $view = new View("../controlers/consulterPaniers.ctrl.php");
-
-    $view->libelleSupprimer=$_POST['libelle'];
-
-    $view->supprimer=1;
-    // Appel de la vue
-    $view->show();
+    header("Location: ../controlers/consulterPaniers.ctrl.php?libelleSupprimer=$libelle");
 
 }
 else {

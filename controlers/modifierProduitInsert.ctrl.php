@@ -79,7 +79,7 @@ if(isset($_SESSION['Utilisateur']))
     else {
 
           foreach($_POST as $key => $value) {
-            $$key = $value;
+            $$key =  str_replace("'","''",$value);;
           }
 
           // Testons si le fichier a bien été envoyé et s'il n'y a pas d'erreur
@@ -108,24 +108,13 @@ if(isset($_SESSION['Utilisateur']))
             $urlImg = explode('/',$urlImg);
             $nomFichier = $urlImg[4];
           }
-          $origine = str_replace("\'","''",$origine);
-          echo $origine;
 
-          // $produitDao->desactiverProduit($_POST['refProduit']);
+          $produitDao->modifProduit($_POST['refProduit'],intval($stock),$libelle,$fabricant,$rayon, $famille,floatval($coef), $description,$origine,$rayon,25,$nomFichier,$quantiteU,$unite,$active);
 
-            $produitDao->insertProduit(intval($stock),$libelle,$fabricant,$rayon, $famille,floatval($coef), $description,
-              $origine,$rayon,25,$nomFichier,$quantiteU,$unite,$active);
-              echo $origine;
-          // $produitDao->insertProduit(intval($stock), $libelle, $fabricant, $rayon, $famille,floatval($coef), $description,
-          // $origine, $caracteristiques,floatval($prixU), $nomFichier,intval($quantiteU),intval($unite),intval($active));
+          $libelle = $_POST['libelle'];
 
-          // echo"je suis là";
-          // $view = new View("../controlers/consulterProduits.ctrl.php");
-          //
-          //
-          // $view->sent = 1;
-          //
-          // $view->show();
+          header("Location: ../controlers/consulterProduits.ctrl.php?modifie=$libelle");
+
     }
 
 }
