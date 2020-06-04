@@ -11,11 +11,11 @@ $produitDao = new ProduitDAO();
 //Verification qu'un Utilisateur est connecté
 if(isset($_SESSION['Utilisateur']))
 {
-  //Verification que l'Utilisateur est un employe
   $statut=-1;
   foreach ($_SESSION['Utilisateur'] as $key => $value) {
     $$key = $value;
   }
+    //Verification que l'Utilisateur est un employe
   if($statut>=0)
   {
     // on verifie que l'on as bien recupéré toutes les variable requises pour modifier un produit
@@ -120,7 +120,7 @@ if(isset($_SESSION['Utilisateur']))
           //ici on utilise header et non pas une vue, pour empecher que si l'employe
           // refresh, le formulaire s'envoie une seconde fois
           header("Location: ../controlers/consulterProduits.ctrl.php?modifie=$libelle");
-
+        }
         }
         else {
           exit("Il faut être employé pour pouvoir accèder à cet page");
