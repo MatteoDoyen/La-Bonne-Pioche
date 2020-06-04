@@ -17,26 +17,27 @@ if(isset($_SESSION['Utilisateur']))
     // Creation de l'instance DAO
     $produitDAO = new ProduitDAO();
 
+    //Récupération de tout les produits actif
     $list = $produitDAO->getAllActive();
-    // Récupération des données à placer dans la vue à partir du modèle
 
-    // On créer une variable view que l'on rattache au fichier accueil.view.php
-    $view = new View("toutLesProduits.view.php");
 
-    // Envoie la liste des produits à la vue
+    // On créer une variable view que l'on rattache au fichier toutLesProduits.view.php
+    $view = new View("tousLesProduits.view.php");
+
+    //on envoie tout les produits à cette vu qui les affichera sous le format json
     $view->list=$list;
 
     // Appel de la vue
     $view->show();
 
   }
-else {
-  exit("Le statut renvoie une erreur");
-}
+  else {
+    exit("Il faut être employé pour pouvoir accèder à cet page");
+  }
+  }
 
-}
-else {
-exit("Il faut être employés pour avoir accès à ce module");
-}
+  else {
+  exit("Il faut être connecté et employé pour pouvoir accèder à cet page");
+  }
 
 ?>

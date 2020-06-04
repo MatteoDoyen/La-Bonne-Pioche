@@ -21,11 +21,12 @@ if(isset($_SESSION['Utilisateur']))
   // Appel de la vue
   $view->show();
 }
-    else {
-        exit("Le statut renvoie une erreur");
-    }
-}
 else {
-  exit("Il faut être employés pour avoir accès à ce module");
+  exit("Il faut être employé pour pouvoir accèder à cet page");
+}
+}
+
+else {
+exit("Il faut être connecté et employé pour pouvoir accèder à cet page");
 }
 ?>

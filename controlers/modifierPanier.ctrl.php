@@ -5,13 +5,14 @@ require_once('../model/PanierDAO.class.php');
 require_once('../model/Panier.class.php');
 require_once('../framework/view.class.php'); // AJOUTE POUR MVC
 
-//Récupération des valeurs du formulaire
+//Verification qu'un Utilisateur est connecté
 if(isset($_SESSION['Utilisateur']))
 {
   $statut=-1;
   foreach ($_SESSION['Utilisateur'] as $key => $value) {
     $$key = $value;
   }
+  //Verification que l'Utilisateur est un employe
   if($statut>=0)
   {
   if(!isset($_POST['refPanier']))
@@ -22,11 +23,11 @@ if(isset($_SESSION['Utilisateur']))
   $refPanier = $_POST['refPanier'];
 
   $panierDao = new PanierDao();
-  //
+
   $panier = $panierDao->get($refPanier);
-  // //
+
   $composition = $panierDao->getComposition($refPanier);
-  
+
   $view = new View("modifierPanier.view.php");
 
   $view->panier = $panier;
@@ -36,11 +37,11 @@ if(isset($_SESSION['Utilisateur']))
   $view->show();
 }
 else {
-  exit("Le statut renvoie une erreur");
+  exit("Il faut être employé pour pouvoir accèder à cet page");
 }
 }
 
 else {
-exit("Il faut être employés pour avoir accès à ce module");
+exit("Il faut être connecté et employé pour pouvoir accèder à cet page");
 }
 ?>

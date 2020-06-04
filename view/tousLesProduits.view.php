@@ -7,6 +7,9 @@
       {
         echo(',');
       }
+
+      //reproduction du format JSON, j'ai des erreur si j'encode seulement ce que je récupère
+      // c'est la solution la plus simple que j'ai trouver pour contourner ce problème
       $produit = new stdClass();
       $produit->url=$prod->urlImg;
       $produit->name=$prod->libelle;
@@ -15,7 +18,7 @@
       $produit->fabricant=$prod->fabricant;
       $produit->refProduit=$prod->refProduit;
 
-      //$myObj->name=$prod->libelle;
+      
       $myJSON = json_encode($produit);
 
       echo $myJSON;

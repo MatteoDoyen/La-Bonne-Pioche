@@ -20,17 +20,15 @@ if(isset($_SESSION['Utilisateur']))
       }
 // Creation de l'instance DAO
     $view = new View("nouveauProduit.view.php");
-
-    $view->sent = 0;
-
     $view->show();
-    }
+
+  }
   else {
-      exit("Le statut renvoie une erreur");
-    }
+    exit("Il faut être employé pour pouvoir accèder à cet page");
+  }
   }
 
-else {
-  exit("Il faut être employés pour avoir accès à ce module");
-}
+  else {
+  exit("Il faut être connecté et employé pour pouvoir accèder à cet page");
+  }
 ?>

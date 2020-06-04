@@ -39,7 +39,7 @@
                 </button>
               </div>
               <div class="modal-body">
-                <p>Vous ne pouvez pas supprimé un produit qui se trouve dans un panier.</p>
+                <p>Vous ne pouvez pas supprimer un produit qui se trouve dans un panier.</p>
                 <br>
                 <p>Le produit "<?= $libelleSupprimer ?>" se trouve dans le(s) panier(s) : </p>
                 <br>

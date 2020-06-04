@@ -5,8 +5,8 @@ require_once('../model/Panier.class.php');
 require_once('../model/PanierDAO.class.php');
 require_once('../framework/view.class.php'); // AJOUTE POUR MVC
 
-//
-// Creation d'une instance DAO
+
+//Verification qu'un Utilisateur est connecté
 $panierDao= new PanierDAO();
 
 if(isset($_SESSION['Utilisateur']))
@@ -15,8 +15,10 @@ if(isset($_SESSION['Utilisateur']))
   foreach ($_SESSION['Utilisateur'] as $key => $value) {
     $$key = $value;
   }
+  //Verification que l'Utilisateur est un employe
   if($statut>=0)
   {
+    // on verifie que l'on as bien recupéré toutes les variable requises pour modifier un panier
     if(!isset($_POST['libelle']))
     {
       exit("Erreur : libelle non définie");
@@ -99,15 +101,19 @@ if(isset($_SESSION['Utilisateur']))
 
     $libelle = $_POST['libelle'];
 
+    //ici on utilise header et non pas une vue, pour empecher que si l'employe
+    // refresh, le formulaire s'envoie une seconde fois
+    
     header("Location: ../controlers/consulterPaniers.ctrl.php?libelleModifie=$libelle");
-}
-else {
-  exit("Le statut renvoie une erreur");
-}
-}
 
-else {
-exit("Il faut être employés pour avoir accès à ce module");
-}
+  }
+  else {
+    exit("Il faut être employé pour pouvoir accèder à cet page");
+  }
+  }
+
+  else {
+  exit("Il faut être connecté et employé pour pouvoir accèder à cet page");
+  }
 
 ?>

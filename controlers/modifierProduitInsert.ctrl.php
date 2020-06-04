@@ -8,14 +8,17 @@ require_once('../framework/view.class.php'); // AJOUTE POUR MVC
 // Creation de l'instance DAO
 $produitDao = new ProduitDAO();
 
+//Verification qu'un Utilisateur est connecté
 if(isset($_SESSION['Utilisateur']))
 {
+  //Verification que l'Utilisateur est un employe
   $statut=-1;
   foreach ($_SESSION['Utilisateur'] as $key => $value) {
     $$key = $value;
   }
   if($statut>=0)
   {
+    // on verifie que l'on as bien recupéré toutes les variable requises pour modifier un produit
     if(!isset($_POST['refProduit']))
     {
       exit("Erreur : refProduit non définie");
@@ -113,17 +116,18 @@ if(isset($_SESSION['Utilisateur']))
 
           $libelle = $_POST['libelle'];
 
+
+          //ici on utilise header et non pas une vue, pour empecher que si l'employe
+          // refresh, le formulaire s'envoie une seconde fois
           header("Location: ../controlers/consulterProduits.ctrl.php?modifie=$libelle");
 
-    }
+        }
+        else {
+          exit("Il faut être employé pour pouvoir accèder à cet page");
+        }
+        }
 
-}
-else {
-  exit("Le statut renvoie une erreur");
-}
-}
-
-else {
-exit("Il faut être employés pour avoir accès à ce module");
-}
+        else {
+        exit("Il faut être connecté et employé pour pouvoir accèder à cet page");
+        }
 ?>

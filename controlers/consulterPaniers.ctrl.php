@@ -25,31 +25,17 @@ if(isset($_SESSION['Utilisateur']))
     // Envoie la liste des produits à la vue
     $view->paniers=$paniers;
 
-    if(isset($libelleSupprimer))
-    {
-      $view->libelleSupprimer=$libelleSupprimer;
-    }
-
-    if(isset($supprimer))
-    {
-      $view->supprimer=$supprimer;
-    }
-    else {
-      $view->supprimer=0;
-    }
-
-
     // Appel de la vue
     $view->show();
   }
   else {
-    exit("Le statut renvoie une erreur");
+    exit("Il faut être employé pour pouvoir accèder à cet page");
+  }
   }
 
-}
-else {
-  exit("Il faut être employés pour avoir accès à ce module");
-}
+  else {
+  exit("Il faut être connecté et employé pour pouvoir accèder à cet page");
+  }
 
 
 

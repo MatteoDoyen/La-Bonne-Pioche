@@ -72,14 +72,6 @@
 
           <input type="submit" value="Envoyer le fichier">
         </form>
-
-      <?php if($sent==1): ?>
-      <script>
-        window.onload = function(){
-          alert("Le produit à été ajouté à la base de donnée");
-        }
-        </script>
-      <?php endif;?>
     </div>
     <?php include("footer.php") ?>
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>

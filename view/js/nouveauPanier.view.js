@@ -28,7 +28,7 @@ btnSupprimer.onclick = supprimerImage;
 btnSupprimer.style.visibility = 'hidden';
 rechercheProduit = document.getElementById("rechercheProduit");
 
-$.get("../controlers/toutLesProduits.ctrl.php").then(maj_resultats).catch(error => {console.log(error)}).done(() => ajoutProduit());
+$.get("../controlers/tousLesProduits.ctrl.php").then(maj_resultats).catch(error => {console.log(error)}).done(() => ajoutProduit());
 
 rechercheProduit.addEventListener("keyup", (e) => {
 
@@ -229,7 +229,7 @@ function supprimerUniteProd(btn)
 function submitForm()
 {
   var form = document.querySelector('form');
-  
+
   if(form.reportValidity())
   {
     $("#form1").submit();

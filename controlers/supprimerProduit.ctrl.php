@@ -29,11 +29,12 @@ if(isset($_SESSION['Utilisateur']))
     //on verifie le nombre de panier dans lequel se trouve le produits
     //si le produit se trouve dans un panier
     $refPaniers = $panierDao->getPanierProduit($_POST['refProduit']);
+    // print_r($refPaniers);
     if($refPaniers!=NULL)
     {
       $tabLibellePaniers = array();
-      foreach ($refPaniers[0] as $key => $refPanier) {
-        $tabLibellePaniers[]=$panierDao->get($refPanier)->libelle;
+      foreach ($refPaniers as $refPanier) {
+        $tabLibellePaniers[]=$panierDao->get($refPanier['refPanier'])->libelle;
       }
       $view->supprimer=-1;
       $view->tabLibellePaniers = $tabLibellePaniers;
@@ -49,19 +50,20 @@ if(isset($_SESSION['Utilisateur']))
 
       $libelle = $_POST['libelle'];
 
-      // On créer une variable view que l'on rattache au fichier consulterProduits.view.php
+      //ici on utilise header et non pas une vue, pour empecher que si l'employe
+      // refresh, le formulaire s'envoie une seconde fois
       header("Location: ../controlers/consulterProduits.ctrl.php?libelleSupprimer=$libelle");
     }
 
 
-}
-else {
-  exit("Le statut renvoie une erreur");
-}
-}
+  }
+  else {
+    exit("Il faut être employé pour pouvoir accèder à cet page");
+  }
+  }
 
-else {
-exit("Il faut être employés pour avoir accès à ce module");
-}
+  else {
+  exit("Il faut être connecté et employé pour pouvoir accèder à cet page");
+  }
 
 ?>

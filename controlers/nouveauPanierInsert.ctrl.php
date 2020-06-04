@@ -83,15 +83,18 @@ if(isset($_SESSION['Utilisateur']))
 
     $libelle = $_POST['libelle'];
 
+    //ici on utilise header et non pas une vue, pour empecher que si l'employe
+    // refresh, le formulaire s'envoie une seconde fois
+    
     header("Location: ../controlers/consulterPaniers.ctrl.php?nvPanier=$libelle");
-}
-else {
-  exit("Le statut renvoie une erreur");
-}
-}
+  }
+  else {
+    exit("Il faut être employé pour pouvoir accèder à cet page");
+  }
+  }
 
-else {
-exit("Il faut être employés pour avoir accès à ce module");
-}
+  else {
+  exit("Il faut être connecté et employé pour pouvoir accèder à cet page");
+  }
 
 ?>
