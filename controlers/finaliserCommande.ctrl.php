@@ -2,7 +2,6 @@
 // Display tous les produits
 // Inclusion du modèle
 require_once('../model/CommandeDAO.class.php');
-require_once('../model/PanierDAO.class.php');
 require_once('../framework/view.class.php'); // AJOUTE POUR MVC
 
 
@@ -22,21 +21,24 @@ require_once('../framework/view.class.php'); // AJOUTE POUR MVC
 // Creation de l'instance DAO
 $catalogue = new PanierDAO();
 
+$commande = new CommandeDAO();
+
 // On parcours le tableau passé en paramètre
 if(isset($_POST['paniers'])){
   //on donne un numéro de commande en incrémentant par rapport au numéro maximum
-  $i = getMaxRefCommande()+1;
+  $paniers = $_POST['paniers'];
+  $i = $commande->getMaxRefCommande()+1;
   $somme = 0;
-  foreach ($_POST['paniers'] as $value) {
+  foreach ($paniers as $value) {
     $articles = explode('_',$value);
-    insertPanierCommande($articles[0], $i, $articles[2]);
+    $commande->insertPanierCommande($articles[0], $i, $articles[2]);
     $somme += $catalogue->get($articles[0])->prix * intval($articles[2]);
 
   }
 }
 
 // On affecte la commande de paniers
-insertCommande($i, date("Y-m-d H:i:s") ,date("Y-m-d H:i:s")  ,'en cours', 'Meylan', $somme);
+$commande->insertCommande($i, date("Y-m-d H:i:s") ,date("Y-m-d H:i:s")  ,'en cours', 'Meylan', $somme);
 
 
 // On créer une variable view que l'on rattache au fichier accueil.view.php

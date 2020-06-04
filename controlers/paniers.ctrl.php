@@ -10,7 +10,7 @@ $catalogue = new PanierDAO();
 // Récupération des données à placer dans la vue à partir du modèle
 $list = $catalogue->getAllActive();
 
-// On créer une variable view que l'on rattache au fichier accueil.view.php
+// On créer une variable view que l'on rattache au fichier paniers.view.php
 $view = new View("paniers.view.php");
 
 // Envoie la liste des produits à la vue

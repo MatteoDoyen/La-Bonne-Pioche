@@ -38,6 +38,7 @@ if(localStorage.getItem("panierAchat") != null){
 
 // Fonction qui ajoute un article au panier d'achat et au storage
 function ajoutArticle(elm){
+  // initialisation des variables du nouvel article à ajouter
   let quant = document.getElementById("Q_"+elm.id).value;
   let price = document.getElementById("P_"+elm.id).innerHTML;
   let nombre = document.getElementsByClassName("nbPersSelectedadd"+elm.id).length;
@@ -46,6 +47,10 @@ function ajoutArticle(elm){
   let img = document.getElementById("imgPanier"+elm.id).src;
   let nbBocaux = document.getElementById("nbBocaux"+elm.id).value;
   var panier = new article(elm.id, elm.name, nombre, quant, price, coeff, img, nbBocaux , prix);
+  // On parcours les paniers déjà existant pour voir si il existe un panier correspondant
+  // (les paniers sont différenciés par leur id et le nombre de personnes pour lequel ils sont fait)
+  // Si le panier existe déjà, on se contente de mettre à jour la quantité
+  // sinon on rajoute l'instance d'article au panier d'achat
   let verif = false;
   for(panierIn of panierAchat){
     if(panierIn.id == panier.id){
@@ -67,35 +72,8 @@ function ajoutArticle(elm){
 }
 
 
-
-
+// Met à jour le localStorage
 function loadStorage(){
   localStorage.removeItem("panierAchat");
   localStorage.setItem("panierAchat", JSON.stringify(panierAchat) );
-}
-
-
-function ajax_get_request(callback, url, async) {
-  var xhr = new XMLHttpRequest(); // Création de l'objet
-  // Définition de la fonction à exécuter à chaque changement d'état
-  xhr.onreadystatechange = function(){
-  if (callback && xhr.readyState == 4 && xhr.status == 200){
-  // Si le serveur a fini son travail
-  // et que le code d'état indique que tout s'est bien passé
-  // => On appelle la fonction callback en lui passant la réponse
-    callback(xhr.responseText);
-  }
-  };
-  xhr.open("GET", url, async); // Initialisation de l'objet
-  xhr.send(); // Envoi de la requête
-}
-
-
-////////////////////////////////////////////////////////////////////////////////
-//                  Partie concernant la page panier d'achat                  //
-////////////////////////////////////////////////////////////////////////////////
-
-
-window.onload = function(){
-
 }
