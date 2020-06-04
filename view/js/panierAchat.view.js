@@ -44,9 +44,10 @@ function downQuantite(elm){
   let idPanierSplit = elm.id.split('_');
   let idPanier = idPanierSplit[1];
   let nbPersonnes = idPanierSplit[2];
+  let quant = idPanierSplit[3];
   let article = commandesAssoc[idPanier+'_'+nbPersonnes];
   let index = commandes.indexOf(article);
-  let quantite = document.getElementById('Q_'+idPanier+'_'+nbPersonnes);
+  let quantite = document.getElementById('Q_'+idPanier+'_'+nbPersonnes+'_'+quant);
   // Gestion du cas limite (on ne peut pas descendre dans des quantités nulles
   // ou négatives)
   if(quantite.value <= 1 ){
@@ -57,7 +58,7 @@ function downQuantite(elm){
 
     quantite.value = parseInt(quantite.value)-1;
     commandesAssoc[idPanier+'_'+nbPersonnes].quantite = quantite.value;
-    let prixAffiche = document.getElementById("prix_"+idPanier+'_'+nbPersonnes);
+    let prixAffiche = document.getElementById("prix_"+idPanier+'_'+nbPersonnes+'_'+quant);
 
     console.log(commandesAssoc[idPanier+'_'+nbPersonnes].prix/(quantite.value+1) * quantite.value);
     prixAffiche.innerHTML = commandesAssoc[idPanier+'_'+nbPersonnes].prix * quantite.value;
@@ -76,15 +77,16 @@ function upQuantite(elm){
   let idPanierSplit = elm.id.split('_');
   let idPanier = idPanierSplit[1];
   let nbPersonnes = idPanierSplit[2];
+  let quant = idPanierSplit[3];
   let article = commandesAssoc[idPanier+'_'+nbPersonnes];
   let index = commandes.indexOf(article);
-  let quantite = document.getElementById('Q_'+idPanier+'_'+nbPersonnes);
+  let quantite = document.getElementById('Q_'+idPanier+'_'+nbPersonnes+'_'+quant);
 
   quantite.value = parseInt(quantite.value)+1;
   commandesAssoc[idPanier+'_'+nbPersonnes].quantite = quantite.value;
   console.log(commandesAssoc[idPanier+'_'+nbPersonnes]);
 
-  let prixAffiche = document.getElementById("prix_"+idPanier+'_'+nbPersonnes);
+  let prixAffiche = document.getElementById("prix_"+idPanier+'_'+nbPersonnes+'_'+quant);
 
   console.log(commandesAssoc[idPanier+'_'+nbPersonnes].prix/(quantite.value+1) * quantite.value);
   prixAffiche.innerHTML = quantite.value * commandesAssoc[idPanier+'_'+nbPersonnes].prix;
@@ -104,7 +106,7 @@ function supprimerPanier(elm){
   let article = commandesAssoc[idPanier+'_'+nbPersonnes];
   let index = commandes.indexOf(article);
 
-  let node = $('#ligne_'+id[1]+'_'+id[2]);
+  let node = $('#ligne_'+id[1]+'_'+id[2]+'_'+id[3]);
 
   node.remove();
 
