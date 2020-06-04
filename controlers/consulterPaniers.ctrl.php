@@ -22,7 +22,7 @@ if(isset($_SESSION['Utilisateur']))
     // On créer une variable view que l'on rattache au fichier accueil.view.php
     $view = new View("consulterPaniers.view.php");
 
-    // Envoie la liste des produits à la vue
+    // Envoie la liste des paniers à la vue
     $view->paniers=$paniers;
 
     // Appel de la vue
