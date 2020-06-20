@@ -212,3 +212,11 @@ tr
 {
   text-align: center;
 }
+
+.links a
+{
+  text-decoration: none;
+  color : white;
+  text-align: center;
+  align-self:stretch;
+}

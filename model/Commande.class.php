@@ -6,7 +6,7 @@ class Commande {
   private $dateCommande;
   private $dateRecup;
   private $etat;
-  private $livraison;
+  private $livraison; // lieu de livraison, s'il s'agit d'un client d'entreprise, alors il ne sera pas livré au magasin
   private $prix;
 
 
@@ -41,6 +41,7 @@ class Commande {
         $this->$attribut = $valeur;
   }
 
+  //retourne la différence entre 2 dates en jour
   function dateDiff($date1, $date2){
       $diff = abs($date1 - $date2);
       $retour = array();
@@ -57,17 +58,14 @@ class Commande {
       return $retour;
   }
 
-  public function isAnnulable(): bool {
-    $dateR = strtotime($dateRecup);
-    $now = time();
 
-    if(dateDiff($now, $dateR)>2){
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+  public function isAnnulable($refCommande): bool {
+          // À implémenter, devra renvoyer un booléen, 1 si annulable, 0 sinon
+          // annulable si $commande->dateRecup > dateJour + 2
+  }
+
+  public function isPaymentOk():bool{
+          // À implémenter pour gérer le paiement
   }
 
 

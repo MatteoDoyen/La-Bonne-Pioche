@@ -31,7 +31,7 @@ $boutonEditionInput.attr('onclick', 'editerInput(this)');
 
 
 ////////////////
-$.get("../controlers/toutLesProduits.ctrl.php").then(maj_resultats).catch(error => {console.log(error)}).done(() => ajoutProduit());
+$.get("../controlers/tousLesProduits.ctrl.php").then(maj_resultats).catch(error => {console.log(error)}).done(() => ajoutProduit());
 
 
 ///////////////

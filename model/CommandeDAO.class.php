@@ -1,5 +1,6 @@
 <?php
 require_once(dirname(__FILE__).'/Commande.class.php');
+require_once(dirname(__FILE__).'/Panier.class.php');
 require_once(dirname(__FILE__).'/PanierDAO.class.php');
 require_once(dirname(__FILE__).'/Client.class.php');
 require_once(dirname(__FILE__).'/ClientEntreprise.class.php');
@@ -80,14 +81,14 @@ class CommandeDAO {
   }
 
   function getCmdRecuperee():Array{
-    $req = "SELECT * FROM commandes WHERE etat = 'recupérée' ORDER BY refCommande DESC";
+    $req = "SELECT * FROM commandes WHERE etat = 'récupérée' ORDER BY refCommande DESC";
     $sth = $this->db->query($req);
     $resArray= $sth->fetchAll(PDO::FETCH_ASSOC);
 
     $cmdrelance = array();
     foreach($resArray as $row)
     {
-      $cmdrelance[] = new Commande($row['refCommande'],$row['refClient'],$row['dateCommande'],$row['dateRecup'],$row['etat'],$row['livriason'],$row['prix']);
+      $cmdrelance[] = new Commande($row['refCommande'],$row['refClient'],$row['dateCommande'],$row['dateRecup'],$row['etat'],$row['livraison'],$row['prix']);
     }
     return $cmdrelance;
   }
@@ -118,9 +119,9 @@ class CommandeDAO {
   }
 
 
-  public function insertCommade($refClient, $dateCommande, $dateRecup, $etat, $livriason, $prix) {
+  public function insertCommande($refClient, $dateCommande, $dateRecup, $etat, $livraison, $prix) {
     $refCommande = $this->getMaxRefCommande()+1;
-    $sql = "INSERT INTO commandes VALUES($refCommande, $refClient, '$dateCommande', '$dateRecup', '$etat', $livriason, $prix)";
+    $sql = "INSERT INTO commandes VALUES($refCommande, $refClient, '$dateCommande', '$dateRecup', '$etat', $livraison, $prix)";
     $this->db->query($sql);
   }
 
@@ -139,9 +140,23 @@ class CommandeDAO {
   }
 
 
-  public function modifierEtatCommande($refCommande, $state) {
-      $sql = "UPDATE commandes SET etat = $state WHERE refCommande = '$refCommande'";
-      return $this->db->query($sql);
+  public function validerCommande($refCommande) {
+      $sql = "UPDATE commandes SET etat = 'récupérée' WHERE refCommande = '$refCommande'";
+      $this->db->query($sql);
+  }
+
+  public function updateCommande($arrayCommande){
+    date_default_timezone_set('Europe/Paris');
+    foreach ($arrayCommande as $commande) {
+      $date = date('Y-m-d H:i:s');
+      $date = strtotime($date);
+      $dateR = $commande->dateRecup;
+      $dateR = strtotime($dateR);
+      if( (($date-$dateR)>0) && ($commande->etat == "en cours")) {
+        $sql = "UPDATE commandes SET etat = 'à relancer' WHERE refCommande = '$commande->refCommande'";
+        $this->db->query($sql);
+      }
+    }
   }
 
 
@@ -185,6 +200,16 @@ class CommandeDAO {
     }
   }
 
-}
+  public function getProduitsCommande($refCommande){
+    $paniers = new PanierDAO();
+    $descriptif = $this->getComposition($refCommande); //renvoie les paniers de la commande
+    $compos = array();
+    foreach ($descriptif as $panier) {
+      $compo = $paniers->getComposition($panier->refPanier);
+      $compos['refPanier'] = $compo;
+    }
+    return $compos;
+  }
 
+}
 ?>

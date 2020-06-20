@@ -1,0 +1,39 @@
+/* NAVBAR */
+@import "navbar.css";
+
+/* FOOTER */
+@import "footer.css";
+
+body {
+  font-family: "Lulo-Clean-W01-One-Bold", sans-serif ;
+}
+.nous_trouver {
+  background-color: #bfc416;
+}
+
+
+/* CONTENU */
+
+.info {
+  margin-top: 50px;
+  font-family:"Avenir-LT-W01_85-Heavy1475544";
+}
+
+h4 {
+  font-family: "Lulo-Clean-W01-One-Bold", sans-serif ;
+  color: red;
+  font-size: 1em;
+}
+p {
+  margin: 0;
+}
+#plan {
+  width: 100%;
+  height: 500px;
+}
+
+@media (max-width: 992px) {
+  #plan {
+    height: 300px;
+  }
+}

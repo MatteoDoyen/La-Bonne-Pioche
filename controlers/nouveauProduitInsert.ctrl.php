@@ -1,7 +1,18 @@
 <?php
+session_start();
+
 require_once('../model/Produit.class.php');
 require_once('../model/ProduitDAO.class.php');
 require_once('../framework/view.class.php'); // AJOUTE POUR MVC
+
+if(isset($_SESSION['Utilisateur']))
+{
+  $statut=-1;
+  foreach ($_SESSION['Utilisateur'] as $key => $value) {
+    $$key = $value;
+  }
+  if($statut>=0)
+  {
 
 if(!isset($_POST['libelle']))
 {
@@ -84,11 +95,20 @@ $catalogue = new ProduitDAO();
 $catalogue->insertProduit($stock, $libelle, $fabricant, $rayon, $famille, $coef, $description,
       $origine, $caracteristiques, $prixU, $nomFichier, $quantiteU, $unite, $active);
 
-$view = new View("nouveauProduit.view.php");
+      $libelle = $_POST['libelle'];
 
+      //ici on utilise header et non pas une vue, pour empecher que si l'employe
+      // refresh, le formulaire s'envoie une seconde fois
 
-$view->sent = 1;
+      header("Location: ../controlers/consulterProduits.ctrl.php?nvProduit=$libelle");
 
-$view->show();
+    }
+    else {
+      exit("Il faut être employé pour pouvoir accèder à cet page");
+    }
+    }
 
+    else {
+    exit("Il faut être connecté et employé pour pouvoir accèder à cet page");
+    }
 ?>

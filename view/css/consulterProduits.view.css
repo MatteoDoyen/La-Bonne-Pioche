@@ -9,7 +9,9 @@ body {
 }
 
 
-.imgPanier img
+
+
+.imgProduit img
 {
   width: 90px;
   object-fit: cover;
@@ -24,7 +26,7 @@ body {
   color : red;
 }
 
-.buttonPaniers button
+.buttonProduit button
 {
   background: transparent;
   border : none;
@@ -32,19 +34,24 @@ body {
   margin-left: 20px;
 }
 
-.buttonPaniers
+.buttonProduit
 {
   justify-content: space-evenly;
 }
 
-p
+p,#modal li
 {
   text-transform: capitalize;
   font-family:"Avenir-LT-W01_85-Heavy1475544";
   padding: 0;
   margin: 0;
 }
+/* --------------------- message retour apres supression ------------------------ */
 
+.textSupprLibelle
+{
+  text-transform: none;
+}
 
 /*------------------ Message de confirmation-----------------*/
 
@@ -108,24 +115,24 @@ p
 }
 
 /*-------------------Bouton nouveau Produit-------------------*/
-#nouveauPanier p
+#nouveauProduit p
 {
   padding: 0;
   margin: 0px 10px 0px 0px;
 }
 
 
-#nouveauPanier p:nth-child(1)
+#nouveauProduit p:nth-child(1)
 {
   font-size: 25px;
 }
 
-#nouveauPanier p:nth-child(2)
+#nouveauProduit p:nth-child(2)
 {
   font-size: 35px;
 }
 
-#nouveauPanier
+#nouveauProduit
 {
   display: flex;
   justify-content: center;
@@ -148,11 +155,17 @@ a:hover
 {
   color : inherit;
 }
-#nouveauPanier:hover
+#nouveauProduit:hover
 {
-    transition: 0.3s;
+  transition: 0.3s;
   background-color: grey;
   color: white;
+}
+
+
+.modal-body p
+{
+  text-transform: none;
 }
 
 /* --------------------- responsive ------------------------- */

@@ -1,5 +1,6 @@
 <?php
 require_once(dirname(__FILE__).'/Produit.class.php');
+require_once(dirname(__FILE__).'/PanierDAO.class.php');
 
 // Le Data Access Objet
 class ProduitDAO {
@@ -35,8 +36,9 @@ class ProduitDAO {
     return $produit;
   }
 
+  // Renvoie un arraylist contenant tous les produits pouvant être utilisés dans la composition de paniers
   function getAllActive() : Array {
-    $req = "SELECT * FROM produits WHERE active = 1";
+    $req = "SELECT * FROM produits WHERE active = 1 order by libelle";
     $sth = $this->db->query($req);
     $resArray= $sth->fetchAll(PDO::FETCH_ASSOC);
     foreach($resArray as $row)
@@ -47,6 +49,7 @@ class ProduitDAO {
     return $produits;
   }
 
+  // Renvoie la plus grande référence de la table produits
   function getMaxRefProduit() : int{
     try {
       $r = $this->db->query("SELECT MAX(refProduit) FROM produits");
@@ -57,26 +60,47 @@ class ProduitDAO {
     return ($res[0][0]);
   }
 
-  public function insertProduit(int $stock,string $libelle,string $fabricant,string $rayon,string $famille,float $coef,string $description,
+  // Insertion d'un produit dans la tabe produits à partir d'informations (issues d'un formulaire)
+  function insertProduit(int $stock,string $libelle,string $fabricant,string $rayon,string $famille,float $coef,string $description,
     string $origine,string $caracteristiques,float $prixU,string $urlImg,int $quantiteU,string $unite,int $active) {
 
-
     $refProduit= $this->getMaxRefProduit()+1;
-
-    $sql = "INSERT INTO produits VALUES($stock, $refProduit,'$libelle','$fabricant', '$rayon', '$famille', $coef, '$description',
-            '$origine', '$caracteristiques', $prixU,'$urlImg', $quantiteU, '$unite', $active)";
-
+    $sql = "INSERT INTO produits VALUES($stock, $refProduit,'$libelle','$fabricant', '$rayon', '$famille', $coef, '$description','$origine', '$caracteristiques', $prixU,'$urlImg', $quantiteU, '$unite', $active)";
     $this->db->query($sql);
   }
 
-  public function desactiverProduit($refProduit) {
+  // Modifie l'état d'un produit pour le rendre impropre à la composition d'un panier
+  function desactiverProduit($refProduit) {
       $sql = "UPDATE produits SET active = 0 WHERE refProduit = '$refProduit'";
+
       return $this->db->query($sql);
   }
 
-  public function activerProduit($refProduit) {
+  // Modifie l'état d'un produit pour le rendre utilisable dans la composition d'un panier
+  function activerProduit($refProduit) {
       $sql = "UPDATE produits SET active = 1 WHERE refProduit = '$refProduit'";
       return $this->db->query($sql);
+  }
+
+  function modifProduit(int $refProduit,int $stock,string $libelle,string $fabricant,string $rayon,string $famille,float $coef,string $description,
+    string $origine,string $caracteristiques,float $prixU,string $urlImg,int $quantiteU,string $unite,int $active)
+  {
+    $panierDao = new PanierDao();
+
+    $tabPaniers = $panierDao->getPanierProduit($refProduit);
+
+    $refNvProduit= $this->getMaxRefProduit()+1;
+
+    foreach ($tabPaniers[0] as $key => $panier) {
+      $panierDao->recreerPanier($panier,$refProduit,$refNvProduit);
+    }
+
+
+    $this->desactiverProduit($refProduit);
+
+    $sql = "INSERT INTO produits VALUES($stock, $refNvProduit,'$libelle','$fabricant', '$rayon', '$famille', $coef, '$description','$origine', '$caracteristiques', $prixU,'$urlImg', $quantiteU, '$unite', $active)";
+    $this->db->query($sql);
+
   }
 
 /*  public function deleteProduitPaniers($refProduit) {
@@ -86,7 +110,11 @@ class ProduitDAO {
       $this->db->query($sql);
   }*/
 
-  public function updateProduit($refProduit,$modifs){
+  // cette fonction a été faite mais elle n'est pas utile, chaque mise à jour d'un panier mène à sa désactivation et recréation
+  // ainsi cela n'affecte pas les commmandes déjà passé sur des paniers qui contiennent ces produits
+
+
+  function updateProduit($refProduit,$modifs){
 
     foreach ($modifs as $key => $value) {
       if(!is_string($value))
@@ -100,12 +128,73 @@ class ProduitDAO {
     }
   }
 
-
+  /**
+   * Renvoie un array composé du nom de chaque rayon, et pour chaque rayon le nom de chaque famille et du nombre d'élément de chaque famille
+   */
   public function getRayonsFamilles() : array {
     $sth = $this->db->prepare("SELECT distinct rayon FROM Produits");
     $sth->execute();
     $rayons = $sth->fetchAll(PDO::FETCH_ASSOC);
-    var_dump($rayons);
+    foreach ($rayons as $key => $value) {
+      // Récupération de toutes les familles pour un rayon donné ainsi que nombre de produit par famille
+      $sth = $this->db->prepare("SELECT famille, count(refProduit) as nb FROM Produits WHERE rayon = :rayon GROUP BY famille");
+      $sth->execute(array(":rayon" => $value['rayon']));
+      $famille = $sth->fetchAll(PDO::FETCH_ASSOC);
+      array_push($rayons[$key], $famille);
+      // Récupération du nombre total d'article par rayon
+      $sth = $this->db->prepare("SELECT count(refProduit) as total FROM Produits WHERE rayon = :rayon");
+      $sth->execute(array(":rayon" => $value['rayon']));
+      $total = $sth->fetchAll(PDO::FETCH_ASSOC);
+      array_push($rayons[$key], $total[0]['total']);
+    }
+    return $rayons;
+  }
+
+  /**
+   * Renvoie un array composé d'objet Produit pour un $rayon donné.
+   */
+  public function getTousProduitsDunRayon($rayon) : array{
+    $sth = $this->db->prepare("SELECT * from Produits where rayon = :rayon");
+    $sth->execute(array(":rayon" => $rayon));
+    $result = $sth->fetchAll(PDO::FETCH_ASSOC);
+    $produits = array();
+    foreach($result as $value) {
+      $produit = new Produit($value['stock'],$value['refProduit'],$value['libelle'],$value['fabricant'],$value['rayon'],$value['famille'],
+      $value['coef'],$value['description'],$value['origine'],$value['caracteristiques'],$value['prixU'],$value['urlImg'],$value['quantiteU'],$value['unite'],$value['active']);
+      array_push($produits, $produit);
+    }
+    return $produits;
+  }
+
+  /**
+   * Renvoie un array composé d'objet Produit pour un $rayon et une $famille donnés.
+   */
+  public function getTousProduitRayonsFamille($rayon, $famille) : array {
+    $sth = $this->db->prepare("SELECT * from Produits where rayon = :rayon and famille = :famille");
+    $sth->execute(array(":rayon" => $rayon, ":famille" => $famille));
+    $result = $sth->fetchAll(PDO::FETCH_ASSOC);
+    $produits = array();
+    foreach($result as $value) {
+      $produit = new Produit($value['stock'],$value['refProduit'],$value['libelle'],$value['fabricant'],$value['rayon'],$value['famille'],
+      $value['coef'],$value['description'],$value['origine'],$value['caracteristiques'],$value['prixU'],$value['urlImg'],$value['quantiteU'],$value['unite'],$value['active']);
+      array_push($produits, $produit);
+    }
+    return $produits;
+  }
+
+
+  public function getProduitsComprenant($groupeDeMot) {
+    $recherche = "%".$groupeDeMot."%";
+    $sth = $this->db->prepare("SELECT * from Produits where libelle LIKE :recherche or rayon LIKE :recherche or famille LIKE :recherche or description LIKE :recherche");
+    $sth->execute(array(":recherche" => $recherche));
+    $result = $sth->fetchAll(PDO::FETCH_ASSOC);
+    $produits = array();
+    foreach($result as $value) {
+      $produit = new Produit($value['stock'],$value['refProduit'],$value['libelle'],$value['fabricant'],$value['rayon'],$value['famille'],
+      $value['coef'],$value['description'],$value['origine'],$value['caracteristiques'],$value['prixU'],$value['urlImg'],$value['quantiteU'],$value['unite'],$value['active']);
+      array_push($produits, $produit);
+    }
+    return $produits;
   }
 
 }

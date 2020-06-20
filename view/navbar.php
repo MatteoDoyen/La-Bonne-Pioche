@@ -38,18 +38,22 @@
         <li class="nav-item">
           <a class="nav-link with-border mode_emploie" href="../controlers/modeDemploi.ctrl.php">Mode d'emploi</a>
         </li>
-        <?php if (isset($produits)): ?>
+        <?php if (isset($rayons)): ?>
           <li id="dropdown-produits" class="nav-item">
-            <a class="nav-link with-border produits dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white;">
-              Produits
-            </a>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Separated link</a>
-            </div>
+            <a class="dropdown-toggle nav-link with-border" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Produits</a>
+            <ul class="dropdown-menu rayons show" aria-labelledby="navbarDropdown">
+            <?php foreach ($rayons as $key => $value): ?>
+              <li class="dropdown nav-item rayons-link">
+                <a class="dropdown-toggle nav-link rayon-title" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?= $value['rayon'] ?></a>
+                <ul class="dropdown-menu famille p-0" aria-labelledby="navbarDropdown">
+                  <li class="nav-item"><a class="famille-link nav-link" href="../controlers/produits.ctrl.php?rayon=<?=$value['rayon'] ?>&famille=tous">Tous (<?= $value[1] ?>)</a></li>
+                  <?php foreach ($value[0] as $key => $value2): ?>
+                    <li class="nav-item"><a class="famille-link nav-link" href="../controlers/produits.ctrl.php?rayon=<?=$value['rayon'] ?>&famille=<?= $value2['famille']?>"><?= $value2['famille']; ?> (<?= $value2['nb'] ?>)</a></li>
+                  <?php endforeach; ?>
+                </ul>
+              </li>
+            <?php endforeach; ?>
+            </ul>
           </li>
           <li id="produits">
             <a class="nav-link with-border produits" href="../controlers/produits.ctrl.php">Produits</a>
@@ -60,7 +64,7 @@
           </li>
         <?php endif; ?>
         <li class="nav-item">
-          <a class="nav-link with-border actualites" href="#">Actualités</a>
+          <a class="nav-link with-border actualites" href="../controlers/actualite.ctrl.php">Actualités</a>
         </li>
         <li class="nav-item">
           <a class="nav-link with-border nous_trouver" href="../controlers/nousTrouver.ctrl.php">Nous trouver</a>
@@ -74,8 +78,8 @@
         <li id="signin" class="nav-item">
           <a class="nav-link btn btn-light my-2 my-sm-0 connect" type="button" name="button" href="../controlers/connexion.ctrl.php" style="float: right;">Se connecter</a>
         </li>
-        <li id="panier" class="nav-item">
-          <a class="nav-link btn btn-light my-2 my-sm-0 connect" type="button" name="button" href="../controlers/panierAchat.ctrl.php" style="float: right;">Panier</a>
+        <li id="panierAchat" class="nav-item">
+          <a class="nav-link btn btn-light my-2 my-sm-0 connect" type="button" name="button" href="../controlers/panierAchat.ctrl.php" style="float: right;">Panier d'achat <img src="../Ressources/caddie.png" alt=""> </a>
         </li>
       </ul>
     </div>
@@ -137,5 +141,21 @@
       signin.show();
     }
   });
+
+  (function($){
+    $('.dropdown-menu a.dropdown-toggle').on('click', function(e) {
+      if (!$(this).next().hasClass('show')) {
+        $(this).parents('.dropdown-menu').first().find('.show').removeClass("show");
+      }
+      var $subMenu = $(this).next(".dropdown-menu");
+      $subMenu.toggleClass('show');
+
+      $(this).parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function(e) {
+        $('.dropdown-submenu .show').removeClass("show");
+      });
+
+      return false;
+    });
+  })(jQuery)
 </script>
 <!-- <script src="../model/panierAchat.js"></script> -->

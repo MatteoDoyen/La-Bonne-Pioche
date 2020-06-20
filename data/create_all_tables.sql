@@ -65,7 +65,7 @@ CREATE TABLE produits (
   famille STRING,
   coef FLOAT,
   description STRING,
-  origine STRING,
+  origine TEXT,
   caracteristiques STRING,
   prixU FLOAT,
   urlImg STRING,

@@ -1,13 +1,4 @@
 <!DOCTYPE html>
-<!--
-//$somme=0;
-//foreach ($composition as $key => $prod) {
-  //$key = explode(' ',$key);
-
-//  $somme+=$prod->prixU*$key[1]*$panier->nbpersonne;
-}
-
- ?> -->
 <html lang="fr" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -22,9 +13,17 @@
       <?php include("navbar.php") ?>
     <div class="container-fluid">
 
-      <a href="../controlers/paniers.ctrl.php" class="boutonretour">
-        <img src="../others/SVG/flechegauche.svg" alt=""> Retour paniers
-      </a>
+      <?php if($vienDePageProduit): ?>
+        <a href="../controlers/paniers.ctrl.php" class="boutonretour">
+          <img src="../others/SVG/flechegauche.svg" alt=""> Retour
+        </a>
+      <?php endif; ?>
+      <?php if(!$vienDePageProduit): ?>
+        <a href="<?=$_SERVER['HTTP_REFERER']?>" class="boutonretour">
+          <img src="../others/SVG/flechegauche.svg" alt=""> Retour
+        </a>
+      <?php endif; ?>
+
       <figure>
         <h2 class="text-center h2_panier">Le <?php echo"$panier->libelle"; ?></h1>
         <div class="bigcontainer col-6">

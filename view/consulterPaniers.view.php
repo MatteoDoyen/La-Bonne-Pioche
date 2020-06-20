@@ -7,17 +7,28 @@
     <link rel="stylesheet" href="../view/css/consulterPaniers.view.css">
   </head>
   <body>
-
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script defer src="../framework/bootstrap-4.4.1-dist/js/bootstrap.bundle.min.js"></script>
-    <?php include("../view/navbar.php") ?>
+
+      <?php include("../view/navbarEmploye.template.php"); ?>
+
 
     <div class="container-fluid">
-      <?php if ($supprimer==1): ?>
-        <div class="alert alert-success" role="alert">
-        <h4 class="alert-heading">Pannier supprimé</h4>
-        <p>Le paniers : "<?= $libelleSupprimer ?>" à été supprimé</p>
+      <?php if (isset($_GET['libelleSupprimer'])): ?>
+        <div class="container alert alert-success" role="alert">
+        <h4 class="alert-heading text-center">Pannier supprimé</h4>
+        <p class="text-center textSupprLibelle" >Le paniers : "<?= $_GET['libelleSupprimer'] ?>" à été supprimé</p>
         </div>
+      <?php  elseif(isset($_GET['libelleModifie'])): ?>
+      <div class="container alert alert-success" role="alert">
+      <h4 class="alert-heading text-center">Pannier modifié</h4>
+      <p class="text-center textSupprLibelle" >Le paniers : "<?= $_GET['libelleModifie'] ?>" à été modifié</p>
+      </div>
+      <?php  elseif(isset($_GET['nvPanier'])): ?>
+      <div class="container alert alert-success" role="alert">
+      <h4 class="alert-heading text-center">Nouveau Panier</h4>
+      <p class="text-center textSupprLibelle" >Le paniers : "<?= $_GET['nvPanier'] ?>" à été créer</p>
+      </div>
       <?php endif; ?>
       <div class="container">
         <h2 class="text-center mt-5 mb-5">Les paniers</h2>
@@ -29,7 +40,9 @@
         <?php foreach ($paniers as $panier): ?>
           <div class="row mb-3 ">
             <div class="col-md-12 col-lg-2 imgPanier d-flex justify-content-start align-items-center">
-              <img src="<?= $panier->image ?>" alt="">
+              <a href="panier.ctrl.php?refPanier=<?= $panier->refPanier ?>">
+                <img src="<?= $panier->image ?>" alt="">
+              </a>
             </div>
             <div class="col-md-6 col-lg-4 d-flex justify-content-start align-items-center">
               <p><?= $panier->libelle ?></p>
